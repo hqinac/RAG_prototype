@@ -14,4 +14,6 @@ dependencies = [
     "langchain-qwq>=0.2.0",
     "langchain-text-splitters>=0.3.8",
     "langgraph>=0.5.4",
+    "markdown>=3.8.2",
+    "unstructured>=0.18.11",
 ]

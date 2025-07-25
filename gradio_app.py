@@ -4,14 +4,79 @@ import signal
 import sys
 import atexit
 import gc
+import threading
+import time
 from typing import List, Tuple, Optional, Dict
 from pathlib import Path
 
 # 导入现有的模块
 from main import graph, RouterState
 from langchain_community.document_loaders import UnstructuredMarkdownLoader
-
+from dotenv import load_dotenv
 from langchain_text_splitters import RecursiveCharacterTextSplitter
+
+load_dotenv()
+
+class HeartbeatMonitor:
+    """心跳监控器，用于检测浏览器是否关闭"""
+    
+    def __init__(self, timeout=30, initial_delay=10):
+        self.last_heartbeat = time.time()
+        self.timeout = timeout  # 30秒超时
+        self.initial_delay = initial_delay  # 10秒初始延迟
+        self.is_running = True
+        self.monitor_thread = None
+        self.started = False
+        
+    def start_monitoring(self):
+        """开始监控心跳"""
+        if self.monitor_thread is None or not self.monitor_thread.is_alive():
+            self.monitor_thread = threading.Thread(target=self._monitor_loop, daemon=True)
+            self.monitor_thread.start()
+            print(f"🔄 心跳监控已启动，初始延迟{self.initial_delay}秒，超时时间{self.timeout}秒")
+    
+    def update_heartbeat(self):
+        """更新心跳时间"""
+        self.last_heartbeat = time.time()
+        if not self.started:
+            self.started = True
+            print("首次心跳接收成功，监控正式开始")
+        return "heartbeat_ok"
+    
+    def stop_monitoring(self):
+        """停止监控"""
+        self.is_running = False
+        
+    def _monitor_loop(self):
+        """监控循环"""
+        # 初始延迟，等待浏览器页面完全加载
+        print(f"心跳监控等待{self.initial_delay}秒后开始...")
+        time.sleep(self.initial_delay)
+        
+        while self.is_running:
+            time.sleep(3)  # 每3秒检查一次
+            
+            # 如果还没有收到第一次心跳，继续等待
+            if not self.started:
+                continue
+                
+            # 检查心跳超时
+            if time.time() - self.last_heartbeat > self.timeout:
+                print("检测到浏览器连接丢失，程序即将退出...")
+                self._force_exit()
+                break
+                
+    def _force_exit(self):
+        """强制退出程序"""
+        try:
+            print("RAG智能问答系统已关闭，感谢使用！")
+            os._exit(0)
+        except:
+            os._exit(1)
+
+
+# 全局心跳监控器
+heartbeat_monitor = HeartbeatMonitor()
 
 
 class RAGChatInterface:
@@ -41,7 +106,7 @@ class RAGChatInterface:
             # 强制垃圾回收
             gc.collect()
             
-            print("✅ 数据清理完成")
+            print("数据清理完成")
             
         except Exception as e:
             print(f"⚠️ 清理过程中出现错误: {e}")
@@ -75,7 +140,7 @@ class RAGChatInterface:
             self.uploaded_documents.extend(documents)
             self.doc_info.append(file_name)
             
-            return f"成功上传文件: {file_name}, {documents[0].page_content[:100]} ,..."
+            return f"成功上传文件: {file_name}", f"{documents[0].page_content[:100]}..."
             
         except Exception as e:
             return f"文件处理失败: {str(e)}", ""
@@ -107,7 +172,7 @@ class RAGChatInterface:
             return history, ""
             
         except Exception as e:
-            error_msg = f"❌ 处理消息时出错: {str(e)}"
+            error_msg = f"处理消息时出错: {str(e)}"
             history.append({"role": "user", "content": message})
             history.append({"role": "assistant", "content": error_msg})
             return history, ""
@@ -116,7 +181,7 @@ class RAGChatInterface:
         """清空聊天历史"""
         self.chat_history = []
         gc.collect()  # 强制垃圾回收
-        return [], "✅ 聊天记录已清空"
+        return [], "聊天记录已清空"
     
     def clear_documents(self) -> Tuple[str, str]:
         """清空已上传的文档"""
@@ -139,6 +204,44 @@ class RAGChatInterface:
         status += f"对话轮次: {len(self.chat_history)}\n"
         status += f"系统状态: 正常运行"
         return status
+    
+    def heartbeat(self) -> str:
+        """处理心跳请求"""
+        return heartbeat_monitor.update_heartbeat()
+    
+    def shutdown_application(self) -> str:
+        """关闭应用程序"""
+        try:
+            print("🔄 接收到浏览器关闭信号，正在关闭应用...")
+            self.cleanup_on_exit()
+            
+            # 使用更强制的方式关闭程序
+            import threading
+            import time
+            
+            def force_shutdown():
+                time.sleep(0.5)  # 给一点时间让响应返回
+                print("👋 RAG智能问答系统已关闭，感谢使用！")
+                os._exit(0)  # 强制退出
+            
+            # 在后台线程中执行关闭
+            shutdown_thread = threading.Thread(target=force_shutdown, daemon=True)
+            shutdown_thread.start()
+            
+            return "应用程序即将关闭..."
+                
+        except Exception as e:
+            print(f"关闭应用时出错: {e}")
+            # 即使出错也要尝试关闭
+            import threading
+            import time
+            
+            def emergency_shutdown():
+                time.sleep(0.5)
+                os._exit(1)
+            
+            threading.Thread(target=emergency_shutdown, daemon=True).start()
+            return f"关闭失败，但程序将强制退出: {str(e)}"
 
 
 def create_interface():
@@ -172,7 +275,177 @@ def create_interface():
     }
     """
     
-    with gr.Blocks(css=custom_css, title="RAG智能问答系统", theme=gr.themes.Soft()) as demo:
+    # JavaScript代码来监听浏览器关闭事件
+    custom_js = """
+    function() {
+        console.log('🚀 RAG应用已启动，监听浏览器关闭事件...');
+        
+        let isClosing = false;
+        let shutdownTriggered = false;
+        let heartbeatInterval = null;
+        
+        // 启动心跳机制
+        function startHeartbeat() {
+            // 每5秒发送一次心跳
+            heartbeatInterval = setInterval(() => {
+                if (!isClosing) {
+                    console.log('💓 发送心跳信号...');
+                    // 查找心跳按钮并点击
+                    const heartbeatBtn = document.querySelector('#heartbeat_trigger');
+                    if (heartbeatBtn) {
+                        heartbeatBtn.click();
+                        console.log('✅ 心跳信号已发送');
+                    } else {
+                        console.log('❌ 未找到心跳按钮');
+                    }
+                }
+            }, 5000);
+            console.log('💓 心跳监控已启动，每5秒发送一次心跳');
+        }
+        
+        // 停止心跳
+        function stopHeartbeat() {
+            if (heartbeatInterval) {
+                clearInterval(heartbeatInterval);
+                heartbeatInterval = null;
+                console.log('💔 心跳监控已停止');
+            }
+        }
+        
+        // 触发关闭的函数
+        function triggerShutdown() {
+            if (shutdownTriggered) return;
+            shutdownTriggered = true;
+            
+            console.log('🔄 触发应用关闭...');
+            stopHeartbeat();
+            
+            // 查找隐藏的关闭按钮并点击
+            const shutdownBtn = document.querySelector('#shutdown_trigger');
+            
+            if (shutdownBtn) {
+                console.log('✅ 找到关闭按钮，触发点击事件');
+                shutdownBtn.click();
+            } else {
+                console.log('❌ 未找到关闭按钮');
+            }
+        }
+        
+        // 监听页面卸载事件
+        window.addEventListener('beforeunload', function(e) {
+            if (!isClosing) {
+                isClosing = true;
+                console.log('🔄 检测到页面即将关闭，发送关闭信号...');
+                triggerShutdown();
+            }
+        });
+        
+        // 监听页面可见性变化
+        document.addEventListener('visibilitychange', function() {
+            if (document.visibilityState === 'hidden' && !isClosing) {
+                console.log('📱 页面被隐藏，可能是用户关闭了标签页');
+                
+                // 延迟检查，如果页面持续隐藏则认为是关闭
+                setTimeout(() => {
+                    if (document.visibilityState === 'hidden' && !isClosing) {
+                        isClosing = true;
+                        console.log('✅ 确认页面关闭，发送关闭信号');
+                        triggerShutdown();
+                    }
+                }, 1500); // 减少到1.5秒检查
+            }
+        });
+        
+        // 监听窗口关闭事件
+        window.addEventListener('unload', function() {
+            if (!isClosing) {
+                isClosing = true;
+                console.log('🔄 检测到窗口关闭事件');
+                triggerShutdown();
+            }
+        });
+        
+        // 启动心跳监控
+        setTimeout(() => {
+            console.log('🚀 准备启动心跳监控...');
+            startHeartbeat();
+        }, 1000); // 减少到1秒启动，确保尽快开始心跳
+        
+        // 添加手动关闭按钮
+        function addCloseButton() {
+            if (document.getElementById('manual-close-btn')) return;
+            
+            const closeBtn = document.createElement('button');
+            closeBtn.id = 'manual-close-btn';
+            closeBtn.innerHTML = '🔴 关闭应用';
+            closeBtn.style.cssText = `
+                position: fixed;
+                top: 15px;
+                right: 15px;
+                z-index: 10000;
+                background: linear-gradient(45deg, #ff4444, #cc0000);
+                color: white;
+                border: none;
+                padding: 10px 20px;
+                border-radius: 25px;
+                cursor: pointer;
+                font-size: 14px;
+                font-weight: bold;
+                box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+                transition: all 0.3s ease;
+            `;
+            
+            closeBtn.onmouseover = function() {
+                closeBtn.style.transform = 'scale(1.1)';
+                closeBtn.style.boxShadow = '0 6px 12px rgba(0,0,0,0.4)';
+            };
+            
+            closeBtn.onmouseout = function() {
+                closeBtn.style.transform = 'scale(1)';
+                closeBtn.style.boxShadow = '0 4px 8px rgba(0,0,0,0.3)';
+            };
+            
+            closeBtn.onclick = function() {
+                if (confirm('确定要关闭RAG智能问答系统吗？')) {
+                    isClosing = true;
+                    closeBtn.innerHTML = '正在关闭...';
+                    closeBtn.disabled = true;
+                    
+                    console.log(' 用户手动触发关闭');
+                    triggerShutdown();
+                    
+                    // 显示关闭消息
+                    setTimeout(function() {
+                        alert('应用程序即将关闭，感谢使用！');
+                        window.close();
+                    }, 500);
+                }
+            };
+            
+            document.body.appendChild(closeBtn);
+            console.log('关闭按钮已添加到页面右上角');
+        }
+        
+        // 等待页面完全加载后添加关闭按钮
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', function() {
+                setTimeout(addCloseButton, 1000);
+            });
+        } else {
+            setTimeout(addCloseButton, 1000);
+        }
+    }
+    """
+    
+    with gr.Blocks(css=custom_css, title="RAG智能问答系统", theme=gr.themes.Soft(), js=custom_js) as demo:
+        
+        # 隐藏的关闭按钮和状态显示
+        shutdown_trigger = gr.Button("关闭应用", visible=False, elem_id="shutdown_trigger")
+        shutdown_status = gr.Textbox(visible=False)
+        
+        # 隐藏的心跳按钮
+        heartbeat_trigger = gr.Button("心跳", visible=False, elem_id="heartbeat_trigger")
+        heartbeat_status = gr.Textbox(visible=False)
         
         # 标题和描述
         gr.Markdown(
@@ -300,6 +573,18 @@ def create_interface():
             outputs=[system_status]
         )
         
+        # 关闭应用事件 - 接收JavaScript发送的关闭信号
+        shutdown_trigger.click(
+            fn=rag_instance.shutdown_application,
+            outputs=[shutdown_status]
+        )
+        
+        # 绑定心跳事件
+        heartbeat_trigger.click(
+            fn=rag_instance.heartbeat,
+            outputs=heartbeat_status
+        )
+        
         # 页面底部信息
         gr.Markdown(
             """
@@ -348,8 +633,16 @@ def main():
         return
     
     try:
+        print("正在启动RAG智能问答系统...")
         print("界面将在浏览器中自动打开")
-        print("按 Ctrl+C 可安全关闭程序")
+        print("可以点击页面右上角的红色按钮关闭应用")
+        print("也可以按 Ctrl+C 安全关闭程序")
+        print("关闭浏览器页面时程序会自动退出")
+        print("心跳监控: 已启用，每5秒发送一次心跳，30秒超时")
+        print("初始延迟: 10秒后开始监控，确保页面完全加载")
+        
+        # 启动心跳监控
+        heartbeat_monitor.start_monitoring()
         
         # 创建并启动界面
         demo = create_interface()
@@ -359,9 +652,13 @@ def main():
             server_name="0.0.0.0",  # 允许外部访问
             server_port=7860,       # 端口号
             share=False,            # 是否创建公共链接
-            debug=True,             # 调试模式
+            debug=False,            # 关闭调试模式以减少输出
             show_error=True,        # 显示错误信息
-            inbrowser=True          # 自动在浏览器中打开
+            inbrowser=True,         # 自动在浏览器中打开
+            prevent_thread_lock=False,  # 防止线程锁定
+            quiet=True,             # 减少启动信息
+            favicon_path=None,      # 不使用自定义图标
+            auth=None               # 不使用身份验证
         )
         
     except KeyboardInterrupt:
