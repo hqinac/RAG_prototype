@@ -180,7 +180,7 @@ class RAGChatInterface:
             result = asyncio.run(graph.ainvoke({
                 "input": message,
                 "documents": self.uploaded_documents,
-                "doc_info": self.temp_files,
+                "temp_doc_names": self.temp_files,
                 "doc_list": self.doc_info,
                 "route": "",
                 "knowledgebase": "",

@@ -37,7 +37,7 @@ class RouterState(TypedDict):
     # 输入文本与文件
     input: str
     documents: list
-    doc_info: list
+    temp_doc_names: list
     doc_list: list
     # 路由决策
     route: Literal["save","retrieve","unknown"]
@@ -113,10 +113,10 @@ async def save_node(state: RouterState) -> Dict:
         preview.append(document.page_content[:100])
     chunk_prompt = ChatPromptTemplate.from_messages([
         ("system", system_prompt),
-        ("human", "问题内容：{input},文档内容：{doc_info},文档预览：{preview}")
+        ("human", "问题内容：{input},文档内容：{temp_doc_names},文档预览：{preview}")
     ])
     chunk_chain = chunk_prompt | llm
-    raw_chunks = await chunk_chain.ainvoke({"input": state["input"],"doc_info":state["doc_info"],"preview":preview})
+    raw_chunks = await chunk_chain.ainvoke({"input": state["input"],"temp_doc_names":state["temp_doc_names"],"preview":preview})
     raw = raw_chunks.content if hasattr(raw_chunks, 'content') else str(raw_chunks.content)
     try:
         # 首先尝试标准JSON解析
@@ -136,7 +136,7 @@ async def save_node(state: RouterState) -> Dict:
         print(size)
     except KeyError as e:
         return {"output": f"文件分块失败，响应内容缺少必要字段 {e}: {raw}"}
-    temp_output,embedded = save_vectorstore(state["documents"],chunks,size,state["doc_list"],language)
+    temp_output,embedded = await save_vectorstore(state["documents"],chunks,size,state["temp_doc_names"],language)
     state["doc_list"].extend(embedded)
     return {"output": temp_output}
 

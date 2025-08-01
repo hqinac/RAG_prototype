@@ -89,8 +89,9 @@ class CacheManager:
     def get_reranker(self) -> Reranker:
         """获取Reranker实例（缓存版本）"""
         if self._reranker_cache is None:
+            saved_reranker = os.getenv("RERANKER_NAME_OR_PATH", "BAAI/bge-reranker-large")
             self._reranker_cache = Reranker(
-                model_name=r'D:\HuggenfaceModel\BAAIbge-reranker-large\bge-reranker-large',
+                model_name=saved_reranker,
                 lang='zh',
                 model_type="cross-encoder"
             )
