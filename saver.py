@@ -1,25 +1,24 @@
-from dotenv import load_dotenv
+import os
 from langchain_community.vectorstores import FAISS
 from langchain_community.embeddings import DashScopeEmbeddings
 from langchain_community.retrievers import BM25Retriever
-from langchain_text_splitters import CharacterTextSplitter, RecursiveCharacterTextSplitter, MarkdownTextSplitter
-from langchain_experimental.text_splitter import SemanticChunker
 from langchain_core.documents import Document
-import os
+from langchain_core.prompts import ChatPromptTemplate
+from langchain_core.output_parsers import StrOutputParser
+from langchain_core.runnables import RunnablePassthrough
+from langchain_text_splitters import CharacterTextSplitter, RecursiveCharacterTextSplitter, MarkdownHeaderTextSplitter
+from langchain_experimental.text_splitter import SemanticChunker
+from langchain_qwq import ChatQwen
+from dotenv import load_dotenv
 import pickle
+from cache_manager import get_embeddings, update_faiss_cache, update_bm25_cache, update_doc_cache
 
 load_dotenv()
-def get_embeddings():
-    """延迟初始化embeddings"""
-    return DashScopeEmbeddings(
-        model="text-embedding-v3",
-        dashscope_api_key=os.getenv("DASHSCOPE_API_KEY")
-    )
 
 # 设置默认的向量数据库存储路径
 URI = os.getenv("URI", "./saved_files")
 
-async def save_vectorstore(documents: list[Document], chunks, size, doc_info):
+def save_vectorstore(documents: list[Document], chunks, size, doc_info):
     """
     保存向量数据库
     
@@ -62,18 +61,18 @@ async def save_vectorstore(documents: list[Document], chunks, size, doc_info):
         match chunks[i]:
             case "fixed":
                 text_splitter = CharacterTextSplitter(chunk_size = size[i])
-                splits = await text_splitter.atransform_documents([document])
+                splits = text_splitter.split_documents([document])
             case "recursive":
                 text_splitter = RecursiveCharacterTextSplitter(chunk_size = size[i])
-                splits = await text_splitter.atransform_documents([document])
+                splits = text_splitter.split_documents([document])
             case "md":
-                text_splitter = MarkdownTextSplitter(headers)
-                temp_docs = await text_splitter.atransform_documents([document])
+                text_splitter = MarkdownHeaderTextSplitter(headers)
+                temp_docs = text_splitter.split_documents([document])
                 splits = []
                 for doc in temp_docs:
                     if len(doc.page_content) > size[i]:
                         text_splitter = RecursiveCharacterTextSplitter(chunk_size = size[i])
-                        splits.extend(await text_splitter.atransform_documents([doc]))
+                        splits.extend(text_splitter.split_documents([doc]))
                     else:
                         splits.append(doc)
 
@@ -85,7 +84,7 @@ async def save_vectorstore(documents: list[Document], chunks, size, doc_info):
                 min_chunk_size= size[i]/2,
 
             )
-                splits = await text_splitter.atransform_documents([document])
+                splits = text_splitter.split_documents([document])
         embedded.append(document.metadata["source"])
         totalsplits.extend(splits)
     for j,split in enumerate(totalsplits):
@@ -125,6 +124,11 @@ async def save_vectorstore(documents: list[Document], chunks, size, doc_info):
         pickle.dump(docs, f)
     with open(f"{URI}/bm25.pkl", "wb") as f:
         pickle.dump(bm25, f)
+    
+    # 同步更新缓存
+    update_faiss_cache(db)
+    update_bm25_cache(bm25)
+    update_doc_cache(docs)
     
     if existed:
         return f"在数据库中能找与{existed}同名的文档，请确认是否已上传过，如果想要强制上传，请为文档改名，其余文档{embedded}已成功以切片方式{chunks}保存到数据库中。",embedded

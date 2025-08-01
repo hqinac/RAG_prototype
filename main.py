@@ -13,6 +13,7 @@ from typing import Dict, TypedDict, Literal, Any
 from saver import save_vectorstore, check_db_exist
 from retriever import retrieve
 from evaluator import RetrievalEvaluator, GenerationEvaluator
+from cache_manager import get_llm, get_embeddings
 
 load_dotenv()
 
@@ -46,32 +47,19 @@ class RouterState(TypedDict):
     # 处理结果
     output: str
 
-def get_llm():
-    """获取LLM实例"""
-    return ChatQwen(
-        model=os.getenv("DASH_MODEL_NAME"),
-        api_key=os.getenv("DASHSCOPE_API_KEY"),
-        base_url=os.getenv("DASHSCOPE_BASE_URL")
-    )
-
-def get_embeddings():
-    """延迟初始化embeddings"""
-    return DashScopeEmbeddings(
-        model="text-embedding-v3",
-        dashscope_api_key=os.getenv("DASHSCOPE_API_KEY")
-    )
-
 async def router_node(state: RouterState) -> Dict:
-    """路由决策节点"""
+    """路由节点，决定是保存还是检索"""
     llm = get_llm()
     
     # 路由分类器
     classifier_prompt = ChatPromptTemplate.from_messages([
-        ("system", """你是一个高效的RAG系统问题分类器。请将用户问题分类为：save 或 retrieve
+        ("system", """你是一个智能路由器，负责分析用户输入并决定操作类型。
 
-分类标准：
-- save：涉及向数据库/知识库添加、保存、存储、上传、导入文档的操作
-  示例：将文档加入数据库、保存文件到知识库、上传文档、导入数据、存储信息
+请根据用户输入的内容，判断用户想要执行的操作类型：
+
+- save：涉及上传、保存、存储、添加文档的操作  
+  示例：上传文件、保存文档、添加到知识库、存储信息
+
 - retrieve：涉及从数据库/知识库查询、检索、搜索、获取信息的操作  
   示例：查找相关信息、搜索文档内容、回答问题、获取数据
 
@@ -148,7 +136,7 @@ async def save_node(state: RouterState) -> Dict:
         print(size)
     except KeyError as e:
         return {"output": f"文件分块失败，响应内容缺少必要字段 {e}: {raw}"}
-    temp_output,embedded = await save_vectorstore(state["documents"],chunks,size,state["doc_list"],language)
+    temp_output,embedded = save_vectorstore(state["documents"],chunks,size,state["doc_list"],language)
     state["doc_list"].extend(embedded)
     return {"output": temp_output}
 
@@ -219,10 +207,7 @@ async def retrieve_node(state: RouterState) -> Dict:
         print(f"查询内容: {query}")
         print(f"文件过滤: {filters}")
         
-        embeddings = DashScopeEmbeddings(
-            model="text-embedding-v3",
-            dashscope_api_key=os.getenv("DASHSCOPE_API_KEY")
-        )
+        embeddings = get_embeddings()
         print("Embeddings初始化成功")
         
         # 检索文档
@@ -282,7 +267,6 @@ async def retrieve_node(state: RouterState) -> Dict:
         return {"output": f"检索过程中出现未知错误: {str(e)}"}
 
 
-#评估节点
 async def evaluate_node(state: RouterState) -> Dict:
     """评估节点"""
     if state["knowledgebase"] == []:
