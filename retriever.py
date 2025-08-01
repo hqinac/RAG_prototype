@@ -70,7 +70,10 @@ async def retrieve(strategy, query, filters, embeddings):
         reranker = get_reranker()
         
         # 初始化hyde模板
-        hyde_template = """请写一段答案回答以下问题,回答字数应控制在100字以内：
+        hyde_template = """请直接回答以下问题，要求：
+                1. 只回答问题中明确提到的内容，不要扩展到其他相关话题
+                2. 保持答案简洁，控制在50字以内
+                3. 如果问题提到具体疾病名称，答案中必须包含该疾病名称
                 问题: {query}
                 答案:"""
         prompt_hyde = ChatPromptTemplate.from_template(hyde_template)
@@ -103,6 +106,7 @@ async def retrieve(strategy, query, filters, embeddings):
             case _:
                 querychain = prompt_hyde | get_llm() | StrOutputParser()
                 createdquery = await querychain.ainvoke({"query": query})
+                print(f"假设文档为：{createdquery}")
                 faiss_docs, bm25_docs = await asyncio.gather(
                     retriever.ainvoke(createdquery),
                     bm25.ainvoke(createdquery)

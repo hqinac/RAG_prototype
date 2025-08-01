@@ -132,8 +132,8 @@ async def save_vectorstore(documents: list[Document], chunks, size, doc_info, la
                     separators=separators
                 )
                 splits = await text_splitter.atransform_documents([document])
-            case "md":
-                text_splitter = MarkdownTextSplitter(headers)
+            case "document":
+                text_splitter = MarkdownTextSplitter()
                 temp_docs = await text_splitter.atransform_documents([document])
                 splits = []
                 for doc in temp_docs:
