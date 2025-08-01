@@ -127,6 +127,11 @@ class RAGChatInterface:
             # 清空聊天历史
             self.chat_history.clear()
             
+            # 清空所有缓存
+            from cache_manager import clear_all_cache
+            clear_all_cache()
+            print("🗑️ 所有缓存已清空")
+            
             # 强制垃圾回收
             gc.collect()
             
@@ -206,6 +211,8 @@ class RAGChatInterface:
             error_msg = f"处理消息时出错: {str(e)}"
             history.append({"role": "user", "content": message})
             history.append({"role": "assistant", "content": error_msg})
+            # 即使出现异常也要清空临时文件
+            self.clear_temp()
             return history, ""
     
     def clear_chat(self) -> Tuple[List[Dict], str]:
@@ -231,9 +238,13 @@ class RAGChatInterface:
     def clear_temp(self):
         """清空临时文件"""
         try:
+            print(f"DEBUG: 清空前，temp_files包含: {self.temp_files}")
+            print(f"DEBUG: 清空前，uploaded_documents包含 {len(self.uploaded_documents)} 个文档")
             # 清空临时文件列表
             self.temp_files.clear()
             self.uploaded_documents.clear()
+            print(f"DEBUG: 清空后，temp_files包含: {self.temp_files}")
+            print(f"DEBUG: 清空后，uploaded_documents包含 {len(self.uploaded_documents)} 个文档")
             return "临时文件已清空", ""
             
         except Exception as e:

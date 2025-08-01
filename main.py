@@ -136,7 +136,7 @@ async def save_node(state: RouterState) -> Dict:
         print(size)
     except KeyError as e:
         return {"output": f"文件分块失败，响应内容缺少必要字段 {e}: {raw}"}
-    temp_output,embedded = await save_vectorstore(state["documents"],chunks,size,state["temp_doc_names"],language)
+    temp_output,embedded = await save_vectorstore(state["documents"],chunks,size,state["doc_list"],language)
     state["doc_list"].extend(embedded)
     return {"output": temp_output}
 
