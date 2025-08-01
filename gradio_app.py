@@ -6,6 +6,8 @@ import atexit
 import gc
 import threading
 import time
+import json
+import  asyncio
 from typing import List, Tuple, Optional, Dict
 from pathlib import Path
 
@@ -20,9 +22,9 @@ load_dotenv()
 class HeartbeatMonitor:
     """心跳监控器，用于检测浏览器是否关闭"""
     
-    def __init__(self, timeout=30, initial_delay=10):
+    def __init__(self, timeout=60, initial_delay=10):
         self.last_heartbeat = time.time()
-        self.timeout = timeout  # 30秒超时
+        self.timeout = timeout  # 60秒超时，与页面检测保持一致
         self.initial_delay = initial_delay  # 10秒初始延迟
         self.is_running = True
         self.monitor_thread = None
@@ -69,9 +71,22 @@ class HeartbeatMonitor:
     def _force_exit(self):
         """强制退出程序"""
         try:
+            # 在强制退出前，确保调用清理函数保存数据
+            global rag_instance
+            if rag_instance:
+                print(" 浏览器连接丢失，正在保存数据...")
+                rag_instance.cleanup_on_exit()
+            
             print("RAG智能问答系统已关闭，感谢使用！")
             os._exit(0)
-        except:
+        except Exception as e:
+            print(f"⚠️ 退出时出现错误: {e}")
+            # 即使出错也要尝试保存数据
+            try:
+                if rag_instance:
+                    rag_instance.cleanup_on_exit()
+            except:
+                pass
             os._exit(1)
 
 
@@ -84,9 +99,16 @@ class RAGChatInterface:
     
     def __init__(self):
         """初始化RAG聊天接口"""
+        URI = os.getenv("URI", "./saved_files")
         self.uploaded_documents = []  # 存储上传的文档信息
         self.chat_history = []        # 存储聊天历史
         self.doc_info = []
+        self.temp_files = []
+        self.doc_count=0
+        self.doc_info_file = f"{URI}/doc_info.json"  # 本地存储文件路径
+        
+        # 从本地文件加载 doc_info
+        self.load_doc_info()
         
         # 注册程序退出时的清理函数
         atexit.register(self.cleanup_on_exit)
@@ -95,13 +117,15 @@ class RAGChatInterface:
         """程序退出时的清理函数"""
         try:
             print("🧹 正在清理数据...")
+            print(f"数据库中的文档为: {self.doc_info}")
+            # 保存 doc_info 到本地文件
+            self.save_doc_info()
             
-            # 清空上传文档列表
-            self.uploaded_documents.clear()
+            # 清空临时文件和上传文档
+            self.clear_temp()
             
             # 清空聊天历史
             self.chat_history.clear()
-
             
             # 强制垃圾回收
             gc.collect()
@@ -138,7 +162,8 @@ class RAGChatInterface:
             documents[0].metadata['source'] = file_name
             # 添加到文档列表
             self.uploaded_documents.extend(documents)
-            self.doc_info.append(file_name)
+            self.temp_files.append(file_name)
+            self.doc_count+=1
             
             return f"成功上传文件: {file_name}", f"{documents[0].page_content[:100]}..."
             
@@ -152,14 +177,18 @@ class RAGChatInterface:
         
         try:
             # 调用图进行问答
-            result = graph.invoke({
+            result = asyncio.run(graph.ainvoke({
                 "input": message,
                 "documents": self.uploaded_documents,
-                "doc_info": self.doc_info,
+                "doc_info": self.temp_files,
+                "doc_list": self.doc_info,
                 "route": "",
+                "knowledgebase": "",
+                "RetrievalEvaluator":None,
+                "query": "",
+                "answer": "",
                 "output": ""
-            })
-            
+            }))
             # 获取回答
             answer = result.get("output", "抱歉，我无法回答这个问题。")
             
@@ -167,7 +196,9 @@ class RAGChatInterface:
             history.append({"role": "user", "content": message})
             history.append({"role": "assistant", "content": answer})
             self.chat_history = history
-            self.clear_documents()
+            self.doc_info = result.get("doc_list", [])
+            print(self.doc_info)
+            self.clear_temp()
             
             return history, ""
             
@@ -186,21 +217,60 @@ class RAGChatInterface:
     def clear_documents(self) -> Tuple[str, str]:
         """清空已上传的文档"""
         try:
-            # 清空文档列表
-            self.uploaded_documents.clear()
-            self.doc_info.clear()
+            # 使用 clear_temp() 清空文档列表
+            self.clear_temp()
+            # 注意：保留 doc_info 不被清空
             # 强制垃圾回收
             gc.collect()
             
-            return "文档库已清空", ""
+            return "文档库已清空（文档信息已保留）", ""
             
         except Exception as e:
             return f"清空文档库时出错: {str(e)}", ""
     
+    def clear_temp(self):
+        """清空临时文件"""
+        try:
+            # 清空临时文件列表
+            self.temp_files.clear()
+            self.uploaded_documents.clear()
+            return "临时文件已清空", ""
+            
+        except Exception as e:
+            return f"清空临时文件时出错: {str(e)}", ""
+    
+    def save_doc_info(self):
+        """保存 doc_info 到本地文件"""
+        try:
+            # 确保目录存在
+            os.makedirs(os.path.dirname(self.doc_info_file), exist_ok=True)
+            
+            with open(self.doc_info_file, 'w', encoding='utf-8') as f:
+                json.dump(self.doc_info, f, ensure_ascii=False, indent=2)
+            print(f" doc_info 已保存到 {self.doc_info_file}")
+            print(f" 保存的文档信息: {self.doc_info}")
+        except Exception as e:
+            print(f" 保存 doc_info 失败: {e}")
+            print(f" 尝试保存的文档信息: {self.doc_info}")
+            print(f" 目标文件路径: {self.doc_info_file}")
+    
+    def load_doc_info(self):
+        """从本地文件加载 doc_info"""
+        try:
+            if os.path.exists(self.doc_info_file):
+                with open(self.doc_info_file, 'r', encoding='utf-8') as f:
+                    self.doc_info = json.load(f)
+                print(f" 从 {self.doc_info_file} 加载了 {len(self.doc_info)} 个文档信息")
+            else:
+                print(f" {self.doc_info_file} 不存在，使用空的 doc_info")
+        except Exception as e:
+            print(f" 加载 doc_info 失败: {e}，使用空的 doc_info")
+            self.doc_info = []
+    
     def get_system_status(self) -> str:
         """获取系统状态"""
-        doc_count = len(self.uploaded_documents)
-        status = f"已上传文档块数: {doc_count}\n"
+        status = f"已上传文档块数: {self.doc_count}\n"
+        status += f"知识库中文档列表：{self.doc_info}\n"
         status += f"对话轮次: {len(self.chat_history)}\n"
         status += f"系统状态: 正常运行"
         return status
@@ -212,7 +282,7 @@ class RAGChatInterface:
     def shutdown_application(self) -> str:
         """关闭应用程序"""
         try:
-            print("🔄 接收到浏览器关闭信号，正在关闭应用...")
+            print(" 接收到浏览器关闭信号，正在关闭应用...")
             self.cleanup_on_exit()
             
             # 使用更强制的方式关闭程序
@@ -221,7 +291,7 @@ class RAGChatInterface:
             
             def force_shutdown():
                 time.sleep(0.5)  # 给一点时间让响应返回
-                print("👋 RAG智能问答系统已关闭，感谢使用！")
+                print(" RAG智能问答系统已关闭，感谢使用！")
                 os._exit(0)  # 强制退出
             
             # 在后台线程中执行关闭
@@ -341,18 +411,31 @@ def create_interface():
         });
         
         // 监听页面可见性变化
+        let visibilityTimer = null;
         document.addEventListener('visibilitychange', function() {
             if (document.visibilityState === 'hidden' && !isClosing) {
-                console.log('📱 页面被隐藏，可能是用户关闭了标签页');
+                console.log('📱 页面被隐藏，可能是切换标签页或最小化窗口');
                 
-                // 延迟检查，如果页面持续隐藏则认为是关闭
-                setTimeout(() => {
+                // 清除之前的定时器
+                if (visibilityTimer) {
+                    clearTimeout(visibilityTimer);
+                }
+                
+                // 延迟检查，如果页面持续隐藏较长时间则认为是关闭
+                visibilityTimer = setTimeout(() => {
                     if (document.visibilityState === 'hidden' && !isClosing) {
                         isClosing = true;
-                        console.log('✅ 确认页面关闭，发送关闭信号');
+                        console.log('✅ 页面长时间隐藏，确认为关闭，发送关闭信号');
                         triggerShutdown();
                     }
-                }, 1500); // 减少到1.5秒检查
+                }, 30000); // 增加到30秒检查，避免误判
+            } else if (document.visibilityState === 'visible') {
+                console.log('👁️ 页面重新可见，取消关闭检测');
+                // 页面重新可见，取消关闭检测
+                if (visibilityTimer) {
+                    clearTimeout(visibilityTimer);
+                    visibilityTimer = null;
+                }
             }
         });
         
@@ -528,6 +611,9 @@ def create_interface():
             inputs=[file_upload],
             outputs=[upload_status, doc_preview]
         ).then(
+            fn=lambda: None,  # 重置文件上传组件
+            outputs=[file_upload]
+        ).then(
             fn=rag_instance.get_system_status,
             outputs=[system_status]
         )
@@ -638,7 +724,8 @@ def main():
         print("可以点击页面右上角的红色按钮关闭应用")
         print("也可以按 Ctrl+C 安全关闭程序")
         print("关闭浏览器页面时程序会自动退出")
-        print("心跳监控: 已启用，每5秒发送一次心跳，30秒超时")
+        print("心跳监控: 已启用，每5秒发送一次心跳，60秒超时")
+        print("页面检测: 页面隐藏30秒后才认为是关闭，避免误判切换/最小化")
         print("初始延迟: 10秒后开始监控，确保页面完全加载")
         
         # 启动心跳监控
