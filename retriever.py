@@ -70,10 +70,8 @@ async def retrieve(strategy, query, filters, embeddings):
         reranker = get_reranker()
         
         # 初始化hyde模板
-        hyde_template = """请直接回答以下问题，要求：
-                1. 只回答问题中明确提到的内容，不要扩展到其他相关话题
-                2. 保持答案简洁，控制在50字以内
-                3. 如果问题提到具体疾病名称，答案中必须包含该疾病名称
+        hyde_template = """请用最直接，最好的方式回答以下问题，你的问题将作为在数据库中匹配搜索的实例文档。
+                        注意：为了提高搜索到的答案与原本问题的关联性，你的回答应该尽可能包含并多提到原问题中的关键词。
                 问题: {query}
                 答案:"""
         prompt_hyde = ChatPromptTemplate.from_template(hyde_template)
