@@ -11,3 +11,4 @@ wheels/
 .env
 ./vector_db
 .doc_info.json
+./saved_files
