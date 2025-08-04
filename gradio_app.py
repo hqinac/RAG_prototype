@@ -182,11 +182,13 @@ class RAGChatInterface:
         
         try:
             # 调用图进行问答
+            # 始终传递完整的doc_info，让saver.py能够正确检查文档重复
+            doc_list_to_pass = self.doc_info
             result = asyncio.run(graph.ainvoke({
                 "input": message,
                 "documents": self.uploaded_documents,
                 "temp_doc_names": self.temp_files,
-                "doc_list": self.doc_info,
+                "doc_list": doc_list_to_pass,
                 "route": "",
                 "knowledgebase": "",
                 "RetrievalEvaluator":None,

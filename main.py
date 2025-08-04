@@ -150,7 +150,7 @@ async def retrieve_node(state: RouterState) -> Dict:
     system_prompt = (
         "你是一个高效的知识库检索器，请够根据用户问题提出的问题决定检索策略。"
         "共有四种检索方式：`HyDE`、`FaissBert`、`BM25Rerank`、`default`；"
-        "`HyDE`表示生成假设文档进行检索，`FaissBERT`表示Faiss近似最近邻搜索，`BM25Rerank`表示语义重排；"
+        "`HyDE`表示生成假设文档进行检索，`FaissBERT`表示Faiss近似最近邻搜索，`BM25Rerank`表示语义重排,'default'表示将以上三种策略结合使用；"
         "如果用户问题中提到了对检索方式的要求，你应该按照要求选择策略，如果没有，你应该选择`default`。"
         "请只回答HyDE或FaissBERT或BM25Rerank或default，,不要包含其他内容。"
     )
@@ -169,15 +169,63 @@ async def retrieve_node(state: RouterState) -> Dict:
         return {"output": "知识库为空，请先上传文档到知识库。"}
     
     guery_prompt = (
-        "你是一个高效的知识库检索器，请够根据输入内容提出的问题提取需要检索的问题与可能的过滤条件。"
-        "如果问题中没有提到如“在某文件中查找...”之类明确的主观的过滤条件，你应该设置为空列表。"
-        "问题中也可能提到一个或多个文件过滤条件，你应该根据问题内容进行判断，文件列表中哪些文件可能是相关的，在给出的文件列表中找出对应文件并加入到文件过滤列表中。"
-        "注意语义之间的联系，例如手术可能与外科相关，婴幼儿疾病可能跟妇产科儿科都相关等。"
-        "举例如下："
-        "`输入内容`:请用HyDE方式对python.md文件进行检索，告诉我Python的GIL机制。"
-        "`文件列表`:['Python.md','java.md','c.md']"
-        "你的输出格式如下，应严格遵循json格式："
-        "{{\"文件过滤\": [\"Python.md\"], \"问题\": \"Python的GIL机制\"}}"
+        "你是一个高效的知识库检索器，请根据输入内容提取需要检索的问题与可能的过滤条件。"
+        
+        "**核心原则：严格区分过滤条件和问题内容**"
+        "- 过滤条件：仅来自用户明确指定的文件范围要求"
+        "- 问题内容：用户想要查询的具体问题"
+        "- **绝对禁止**：将问题内容中的主题词汇用于文件过滤"
+        
+        "**过滤条件判断规则（严格执行）：**"
+        "1. **默认无过滤**：如果输入中没有明确的文件范围指示词，文件过滤必须设置为空列表[]"
+        "2. **文件范围指示词识别**：只有包含以下明确指示词时才进行过滤："
+        "   - '在...文件中' / 'in...file'"
+        "   - '从...文档中' / 'from...document'"
+        "   - '...相关文件' / '...related files'"
+        "   - '查看...类型的文档' / 'check...type documents'"
+        "3. **问题内容排除**：问题中的疾病名、技术名等主题词汇绝不用于文件过滤"
+        
+        "**关键示例（重点学习）：**"
+        "正确示例："
+        "输入内容：'What is GIL in python?' → 文件过滤:[] （无文件范围指示词）"
+        "输入内容：'如何治疗阑尾？' → 文件过滤:[] （无文件范围指示词）"
+        "输入内容：'Python的GIL机制是什么？' → 文件过滤:[] （无文件范围指示词）"
+        "输入内容：'please tell me what is GIL in python, retrieve from python.md?'→ 文件过滤:['python.md'] （有明确指示词）"
+        "输入内容：'请在肿瘤科相关文件中查询阑尾治疗' → 文件过滤:['肿瘤科疾病治疗方案汇总.md'] （有明确指示词）"
+
+        
+        "错误示例："
+        "输入内容：'Tell me treatments of throat cancer.' → 文件过滤:['肿瘤科疾病治疗方案汇总.md'] （错误：将问题内容用于过滤）"
+
+        
+        "**语义匹配表（仅在有明确文件范围指示词时使用）（示例）：**"
+        "- 外科、手术、Surgery、Surgical → ['外科疾病治疗方案汇总.md', 'Summary of Treatment Plans for Surgical Diseases.md']"
+        "- 肿瘤、癌症、Oncology、Cancer → ['肿瘤科疾病治疗方案汇总.md']"
+        "- 儿科、小儿、Pediatric → ['儿科疾病治疗方案汇总.md']"
+        
+        "**标准示例：**"
+        "输入内容：'请用HyDE方式对python.md文件进行检索，告诉我Python的GIL机制'"
+
+        ""
+        "文件列表：['python.md', 'python2.md', 'GIL.md']"
+        "分析：有明确文件指定'python.md文件'"
+        "输出：{{\"文件过滤\": [\"Python.md\"], \"问题\": \"Python的GIL机制\"}}"
+        
+        "输入：'请在python相关的文件中为我搜索Python的GIL机制'"
+        "文件列表：['python.md', 'python2.md', 'GIL.md']"
+        "分析：有文件范围指示词'python相关的文件中'"
+        "输出：{{\"文件过滤\": [\"python.md\",\"python2.md\"], \"问题\": \"Python的GIL机制\"}}"
+        
+        "输入：'为我搜索Python的GIL机制'"
+        "分析：无任何文件范围指示词"
+        "输出：{{\"文件过滤\": [], \"问题\": \"Python的GIL机制\"}}"
+        
+        "输入：'What is GIL in python?'"
+        "分析：无任何文件范围指示词，'GIL in python'是问题内容不是过滤条件"
+        "输出：{{\"文件过滤\": [], \"问题\": \"What is GIL in python?\"}}"
+        
+        "你的输出格式必须严格遵循json格式："
+        "{{\"文件过滤\": [], \"问题\": \"提取的问题内容\"}}"
     )
     Query_prompt = ChatPromptTemplate.from_messages([
         ("system", guery_prompt),
@@ -240,6 +288,7 @@ async def retrieve_node(state: RouterState) -> Dict:
             answer_prompt = (
                 "你是一个高效的回答生成器，能根据检索到的相关文件内容为问题生成对应的回答。"
                 "请严格按照文件内容生成回答，不要添加任何额外的内容。"
+                "你的回答使用的语言应该根据问题使用的语言。如果问题是中文，用中文回答，如果问题是英语，用英语回答。"
             )
             answer_chain = ChatPromptTemplate.from_messages([
                 ("system", answer_prompt),

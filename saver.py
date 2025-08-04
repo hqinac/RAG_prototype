@@ -86,7 +86,11 @@ async def save_vectorstore(documents: list[Document], chunks, size, doc_info, la
         ("###", "三级标题")
     ]
     existed = []
+    existed_chunk = []
+    existed_size = []
     embedded = []
+    embedded_chunk = []
+    embedded_size = []
     totalsplits = []
     
     # 对每个文档分别处理
@@ -102,9 +106,14 @@ async def save_vectorstore(documents: list[Document], chunks, size, doc_info, la
             exists = document.metadata["source"] in doc_info
         if exists:
             existed.append(document.metadata["source"])
+            existed_chunk.append(chunks[i])
+            existed_size.append(size[i])
             print(f"文件已存在：{document.metadata['source']}")
         else: 
             embedded.append(document.metadata["source"])
+            embedded_chunk.append(chunks[i])
+            embedded_size.append(size[i])
+
         
         # 根据语言设置分隔符和正则表达式
         current_language = language[i] if language and i < len(language) else "cn"
@@ -157,6 +166,12 @@ async def save_vectorstore(documents: list[Document], chunks, size, doc_info, la
                     min_chunk_size=max(50, int(size[i]/5)),
                 )
                 splits = await text_splitter.atransform_documents([document])
+        
+        # 确保每个切片都保留原始文档的source元数据
+        for split in splits:
+            if "source" not in split.metadata or not split.metadata["source"]:
+                split.metadata["source"] = document.metadata.get("source", "未知来源")
+        
         totalsplits.extend(splits)
     
     split_time = time.time() - split_start
@@ -183,65 +198,28 @@ async def save_vectorstore(documents: list[Document], chunks, size, doc_info, la
     if db and existed == []:
         # 没有重复文档，使用增量更新（最快）
         print("使用增量更新模式...")
-        
+        tempdocs.append(totalsplits)
         # 批量计算embedding以提高性能
         if totalsplits:
-            texts = [doc.page_content for doc in totalsplits]
-            embeddings_vectors = embeddings.embed_documents(texts)
-            
-            # 使用预计算的embedding创建FAISS
-            import numpy as np
-            vectors_array = np.array(embeddings_vectors).astype('float32')
-            ndb = FAISS.from_embeddings(
-                list(zip(texts, vectors_array)), 
-                embeddings
-            )
-            
-            # 更新文档元数据
-            for i, doc in enumerate(totalsplits):
-                ndb.docstore.add({str(i): doc})
+            # 直接使用FAISS.from_documents确保元数据正确关联
+            ndb = FAISS.from_documents(totalsplits, embeddings)
             
             # 合并到现有数据库
             db.merge_from(ndb)
             
             # 增量更新BM25
             for split in totalsplits:
-                bm25.add_document(split)
+                bm25.from_document(tempdocs)
     else:
         # 有重复文档或首次创建，需要重建
         print("使用重建模式...")
         tempdocs = [doc for doc in docs if doc.metadata["source"] not in existed] if existed != [] else tempdocs
         tempdocs.extend(totalsplits)
         
-        # 批量处理embedding以提高性能
+        # 直接使用FAISS.from_documents确保元数据正确关联
         if tempdocs:
-            print(f"批量处理 {len(tempdocs)} 个文档切片的embedding...")
-            texts = [doc.page_content for doc in tempdocs]
-            
-            # 分批处理大量文档以避免内存问题
-            batch_size = 100
-            if len(texts) > batch_size:
-                print(f"分批处理，每批 {batch_size} 个文档...")
-                all_embeddings = []
-                for i in range(0, len(texts), batch_size):
-                    batch_texts = texts[i:i+batch_size]
-                    batch_embeddings = embeddings.embed_documents(batch_texts)
-                    all_embeddings.extend(batch_embeddings)
-                    print(f"已处理 {min(i+batch_size, len(texts))}/{len(texts)} 个文档")
-            else:
-                all_embeddings = embeddings.embed_documents(texts)
-            
-            # 使用预计算的embedding创建FAISS
-            import numpy as np
-            vectors_array = np.array(all_embeddings).astype('float32')
-            db = FAISS.from_embeddings(
-                list(zip(texts, vectors_array)), 
-                embeddings
-            )
-            
-            # 更新文档元数据
-            for i, doc in enumerate(tempdocs):
-                db.docstore.add({str(i): doc})
+            print(f"处理 {len(tempdocs)} 个文档切片...")
+            db = FAISS.from_documents(tempdocs, embeddings)
         else:
             db = FAISS.from_documents(tempdocs, embeddings)
             
@@ -282,9 +260,9 @@ async def save_vectorstore(documents: list[Document], chunks, size, doc_info, la
     print(f"===============")
     
     if existed:
-        return f"在数据库中能找到与{existed}同名的文档，已在数据库中进行更新，如果想要两份文档同时存在，请为数据库中原有的文档改名，其余文档{embedded}已成功以切片方式{chunks}保存到数据库中。", embedded
+        return f"在数据库中能找到与{existed}同名的文档，已在数据库中以切片方式{existed_chunk}与切片大小{existed_size}进行更新，如果想要两份文档同时存在，请为数据库中原有的文档改名，其余文档{embedded}已成功以切片方式{embedded_chunk}与切片大小{embedded_size}保存到数据库中。", embedded
 
-    return f"文档{embedded}已成功以切片方式{chunks}保存到数据库中。", embedded
+    return f"文档{embedded}已成功以切片方式{embedded_chunk}与切片大小{embedded_size}保存到数据库中。", embedded
 
 def check_db_exist():
     return (os.path.exists(URI) and 

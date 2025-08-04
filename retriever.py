@@ -70,28 +70,53 @@ async def retrieve(strategy, query, filters, embeddings):
         reranker = get_reranker()
         
         # 初始化hyde模板
-        hyde_template = """请用最直接，最好的方式回答以下问题，你的问题将作为在数据库中匹配搜索的实例文档。
-                        注意：为了提高搜索到的答案与原本问题的关联性，你的回答应该尽可能包含并多提到原问题中的关键词。
+        hyde_template = """请用最直接，最好的方式回答用中文以下问题，你的问题将作为在数据库中匹配搜索的实例文档。
+                        注意：为了提高搜索到的答案与原本问题的关联性，你的回答应该尽可能包含并多提到原问题中的关键词。你的回答应该使用中文。
+                问题: {query}
+                答案:"""
+        eng_hyde_template = """请用最直接，最好的方式用英语回答以下问题，你的问题将作为在数据库中匹配搜索的实例文档。
+                        注意：为了提高搜索到的答案与原本问题的关联性，你的回答应该尽可能包含并多提到原问题中的关键词。你的回答应该使用英语。
                 问题: {query}
                 答案:"""
         prompt_hyde = ChatPromptTemplate.from_template(hyde_template)
-        
+        prompt_eng_hyde = ChatPromptTemplate.from_template(eng_hyde_template)
+        cn_template = """请用中文翻译提到的问题，不要改变问题原意。如果问题本来就是中文，直接输出原文。
+        问题: {query}
+        答案:"""
+        eng_template = """请用英语翻译提到的问题，不要改变问题原意。如果问题本来就是英语，直接输出原文。
+        问题: {query}
+        答案:"""
+        prompt_cn = ChatPromptTemplate.from_template(cn_template)
+        prompt_eng = ChatPromptTemplate.from_template(eng_template)
+        cn_chain = prompt_cn | get_llm() | StrOutputParser()
+        eng_chain = prompt_eng | get_llm() | StrOutputParser()
+        hydechain = (
+                prompt_hyde | get_llm() | StrOutputParser()     
+                )
+        eng_hydechain = (
+                prompt_eng_hyde | get_llm() | StrOutputParser()     
+                )
         # 选择策略
         match strategy:
             case "hyde":
-                hydechain = (
-                    prompt_hyde | get_llm() | StrOutputParser() | retriever 
-                )
-                docs = await hydechain.ainvoke({"query": query})
+                cn_query = await cn_chain.ainvoke({"query": query})
+                eng_query = await eng_chain.ainvoke({"query": query})
+                docs = await retriever.ainvoke({"query": cn_query})[:5]
+                eng_docs = await retriever.ainvoke({"query": eng_query})[:5]
+                docs.append(eng_docs)
                 Strategy = "虚拟文档检索"
             case "bm25rerank":
                 # 并行执行FAISS和BM25检索
-                faiss_docs, bm25_docs = await asyncio.gather(
-                    retriever.ainvoke(query),
-                    bm25.ainvoke(query)
+                cn_query = await cn_chain.ainvoke({"query": query})
+                eng_query = await eng_chain.ainvoke({"query": query})
+                faiss_docs, faiss_eng_docs, bm25_docs, bm25_eng_docs = await asyncio.gather(
+                    retriever.ainvoke(cn_query),
+                    retriever.ainvoke(eng_query),
+                    bm25.ainvoke(cn_query),
+                    bm25.ainvoke(eng_query)
                 )
                 # 合并结果
-                docs = faiss_docs + bm25_docs
+                docs = faiss_docs + faiss_eng_docs + bm25_docs + bm25_eng_docs
                 # 转换为rerankers库期望的Document格式
                 reranker_docs = [RerankerDocument(text=doc.page_content, doc_id=i, metadata=doc.metadata) for i, doc in enumerate(docs)]
                 results = await reranker.rank_async(query=query, docs=reranker_docs)
@@ -99,18 +124,24 @@ async def retrieve(strategy, query, filters, embeddings):
                 docs = [Document(page_content=result.text, metadata=result.metadata) for result in rerankresult]
                 Strategy = "与bm25结合进行重排序"
             case "faissbert":
-                docs = await retriever.ainvoke(query)
+                cn_query = await cn_chain.ainvoke({"query": query})
+                eng_query = await eng_chain.ainvoke({"query": query})
+                docs = await retriever.ainvoke(cn_query)[:5]
+                eng_docs = await retriever.ainvoke(eng_query)[:5]
+                docs.append(eng_docs)
                 Strategy = "faiss向量相似度检索"
             case _:
-                querychain = prompt_hyde | get_llm() | StrOutputParser()
-                createdquery = await querychain.ainvoke({"query": query})
+                createdquery = await hydechain.ainvoke({"query": query})
+                eng_createdquery = await eng_hydechain.ainvoke({"query": query})
                 print(f"假设文档为：{createdquery}")
-                faiss_docs, bm25_docs = await asyncio.gather(
+                faiss_docs, faiss_eng_docs, bm25_docs, bm25_eng_docs = await asyncio.gather(
                     retriever.ainvoke(createdquery),
-                    bm25.ainvoke(createdquery)
+                    retriever.ainvoke(eng_createdquery),
+                    bm25.ainvoke(createdquery),
+                    bm25.ainvoke(eng_createdquery)
                 )
                 # 合并结果
-                docs = faiss_docs + bm25_docs
+                docs = faiss_docs + faiss_eng_docs + bm25_docs + bm25_eng_docs
                 # 转换为rerankers库期望的Document格式
                 reranker_docs = [RerankerDocument(text=doc.page_content, doc_id=i, metadata=doc.metadata) for i, doc in enumerate(docs)]
                 results = await reranker.rank_async(query=createdquery, docs=reranker_docs)
