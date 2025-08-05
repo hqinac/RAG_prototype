@@ -47,7 +47,7 @@ class CacheManager:
         """获取embeddings实例（缓存版本）"""
         if self._embeddings_cache is None:
             self._embeddings_cache = DashScopeEmbeddings(
-                model="text-embedding-v3",
+                model=os.getenv("DASHSCOPE_EMBEDDING_MODEL"),
                 dashscope_api_key=os.getenv("DASHSCOPE_API_KEY")
             )
         return self._embeddings_cache

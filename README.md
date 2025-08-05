@@ -57,18 +57,8 @@ pip install -r requirements.txt
 ```
 
 3. **配置环境变量**
-创建 `.env` 文件并配置以下变量：
-```env
-# 通义千问 API 配置
-DASHSCOPE_API_KEY=your_api_key_here
-
-# 数据存储路径（可选）
-URI=./saved_files
-
-# 模型配置（可选）
-EMBEDDING_MODEL=text-embedding-v1
-LLM_MODEL=qwen-plus
-```
+根据.envexample配置环境变量
+存储在.env中
 
 ## 🚀 使用方法
 
@@ -82,18 +72,24 @@ uv run python gradio_app.py
 python gradio_app.py
 ```
 
-应用启动后，访问 `http://localhost:7860` 即可使用。
+应用启动后，浏览器会自动打开 `http://localhost:7860` ，即可使用。
 
 ### 基本使用流程
 
-1. **上传文档**：支持 Markdown (.md) 格式文档
-2. **选择分割策略**：
+1. **上传文档**：仅支持 Markdown (.md) 格式文档
+2. **选择分割策略与切片大小**：
    - `fixed`：固定长度分割
    - `recursive`：递归字符分割
    - `md`：Markdown 结构化分割
-   - `semantic`：语义分割
-3. **开始对话**：输入问题，系统自动检索相关内容并生成答案
-4. **查看评估**：系统会显示检索质量和答案质量评分
+   - `semantic`：语义分割，不定义策略时默认此分割方法
+   - 切片大小不定义时将设置为200。
+3. **输入上传指令**：为了方便定义分割策略与切片大小，只有在对话框要求上传或存储后文档才会被存储到数据库。
+4. **开始对话**：输入问题，系统自动检索相关内容并生成答案，提问时可以自定义检索策略：
+    - `hyde`：基于问题生成假设文档
+    - `bm25rerank`：关键词与向量混合检索进行重排序
+    - `faissbert`：基于faiss向量库进行检索。
+    - `default`: 以上三种方式结合，如果不定义策略默认使用此方法。
+5. **查看评估**：系统会显示检索质量和答案质量评分
 
 ## 🏗️ 核心组件
 
@@ -158,48 +154,10 @@ chunk_size = 1000
 chunk_overlap = 200
 
 # 递归分割
-separators = ["\n\n", "\n", " ", ""]
+可在saver.py中调整中英文separator与regx（用于语义切片）
 
 # 语义分割
+可在saver.py中调整中英文regx（用于语义切片）
 breakpoint_threshold_type = "percentile"
 ```
-
-## 📊 性能优化
-
-- **缓存机制**：避免重复加载模型和数据
-- **异步处理**：支持异步操作提升响应速度
-- **内存管理**：智能垃圾回收和资源清理
-- **心跳监控**：自动检测连接状态，及时释放资源
-
-## 🤝 贡献指南
-
-1. Fork 项目
-2. 创建功能分支 (`git checkout -b feature/AmazingFeature`)
-3. 提交更改 (`git commit -m 'Add some AmazingFeature'`)
-4. 推送到分支 (`git push origin feature/AmazingFeature`)
-5. 开启 Pull Request
-
-## 📄 许可证
-
-本项目采用 MIT 许可证 - 查看 [LICENSE](LICENSE) 文件了解详情。
-
-## 🙏 致谢
-
-- [LangChain](https://github.com/langchain-ai/langchain) - 强大的 LLM 应用开发框架
-- [LangGraph](https://github.com/langchain-ai/langgraph) - 状态图工作流引擎
-- [Gradio](https://github.com/gradio-app/gradio) - 快速构建机器学习 Web 界面
-- [FAISS](https://github.com/facebookresearch/faiss) - 高效向量相似度搜索
-- [通义千问](https://dashscope.aliyun.com/) - 阿里云大语言模型服务
-- [Reranker](# https://github.com/AnswerDotAI/rerankers) - 提供方便的重排序操作
-
-## 📞 联系方式
-
-如有问题或建议，请通过以下方式联系：
-
-- 提交 Issue
-- 发起 Discussion
-- 邮件联系：[your-email@example.com]
-
----
-
 **注意**：使用前请确保已正确配置 API 密钥和环境变量。

@@ -2,7 +2,6 @@ from langchain_core.documents import Document
 from langchain_core.prompts import ChatPromptTemplate
 from langchain_core.output_parsers import StrOutputParser
 import numpy as np
-from pandas.core.apply import relabel_result
 
 
 
@@ -38,7 +37,7 @@ class RetrievalEvaluator:
         }
     
     def _calculate_diversity(self, embeddings):
-        """基于嵌入向量的方差计算多样性"""
+        """基于嵌入向量的平均值计算多样性"""
         pairwise_dist = [cosine_similarity(e1, e2) 
                         for i, e1 in enumerate(embeddings) 
                         for e2 in embeddings[i+1:]]

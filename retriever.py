@@ -1,30 +1,16 @@
 from dotenv import load_dotenv
-from langchain_community.vectorstores import FAISS
-from langchain_community.embeddings import DashScopeEmbeddings
-from langchain_text_splitters import CharacterTextSplitter, RecursiveCharacterTextSplitter, MarkdownHeaderTextSplitter
 from langchain_core.output_parsers import StrOutputParser
 from langchain_core.prompts import ChatPromptTemplate
-from langchain.chains import LLMChain, HypotheticalDocumentEmbedder
-from langchain_qwq import ChatQwen
-from langchain_experimental.text_splitter import SemanticChunker
 from langchain_core.documents import Document
 from langchain_community.retrievers import BM25Retriever
-from langchain.retrievers import EnsembleRetriever
-from langchain.retrievers.self_query.base import SelfQueryRetriever
-from langchain.chains.query_constructor.base import AttributeInfo
-from langchain_community.document_compressors import FlashrankRerank
-from rerankers import Reranker
 from rerankers import Document as RerankerDocument
-from typing import Any
 from cache_manager import get_llm, get_faiss, get_bm25, get_doc_cache, get_reranker
 
-import os
-import pickle
 import asyncio
 
 load_dotenv()
 
-async def retrieve(strategy, query, filters, embeddings):
+async def retrieve(strategy, query, filters):
     '''
     使用缓存的检索器进行检索
     '''
@@ -101,9 +87,9 @@ async def retrieve(strategy, query, filters, embeddings):
             case "hyde":
                 cn_query = await cn_chain.ainvoke({"query": query})
                 eng_query = await eng_chain.ainvoke({"query": query})
-                docs = await retriever.ainvoke({"query": cn_query})[:5]
-                eng_docs = await retriever.ainvoke({"query": eng_query})[:5]
-                docs.append(eng_docs)
+                docs = (await retriever.ainvoke(cn_query))[:5]
+                eng_docs = (await retriever.ainvoke(eng_query))[:5]
+                docs.extend(eng_docs)
                 Strategy = "虚拟文档检索"
             case "bm25rerank":
                 # 并行执行FAISS和BM25检索
@@ -126,9 +112,9 @@ async def retrieve(strategy, query, filters, embeddings):
             case "faissbert":
                 cn_query = await cn_chain.ainvoke({"query": query})
                 eng_query = await eng_chain.ainvoke({"query": query})
-                docs = await retriever.ainvoke(cn_query)[:5]
-                eng_docs = await retriever.ainvoke(eng_query)[:5]
-                docs.append(eng_docs)
+                docs = (await retriever.ainvoke(cn_query))[:5]
+                eng_docs = (await retriever.ainvoke(eng_query))[:5]
+                docs.extend(eng_docs)
                 Strategy = "faiss向量相似度检索"
             case _:
                 createdquery = await hydechain.ainvoke({"query": query})

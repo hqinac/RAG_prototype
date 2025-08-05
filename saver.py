@@ -1,16 +1,11 @@
 import os
 import asyncio
-from re import A
 from langchain_community.vectorstores import FAISS
 from langchain_community.embeddings import DashScopeEmbeddings
 from langchain_community.retrievers import BM25Retriever
 from langchain_core.documents import Document
-from langchain_core.prompts import ChatPromptTemplate
-from langchain_core.output_parsers import StrOutputParser
-from langchain_core.runnables import RunnablePassthrough
-from langchain_text_splitters import CharacterTextSplitter, RecursiveCharacterTextSplitter, MarkdownTextSplitter
+from langchain_text_splitters import CharacterTextSplitter, RecursiveCharacterTextSplitter, MarkdownHeaderTextSplitter
 from langchain_experimental.text_splitter import SemanticChunker
-from langchain_qwq import ChatQwen
 from dotenv import load_dotenv
 import pickle
 from cache_manager import get_embeddings, get_faiss, get_bm25, get_doc_cache, update_faiss_cache, update_bm25_cache, update_doc_cache
@@ -82,8 +77,7 @@ async def save_vectorstore(documents: list[Document], chunks, size, doc_info, la
     
     headers = [
         ("#", "一级标题"),
-        ("##", "二级标题"),
-        ("###", "三级标题")
+        ("##", "二级标题")
     ]
     existed = []
     existed_chunk = []
@@ -142,7 +136,10 @@ async def save_vectorstore(documents: list[Document], chunks, size, doc_info, la
                 )
                 splits = await text_splitter.atransform_documents([document])
             case "md":
-                text_splitter = MarkdownTextSplitter(headers)
+                text_splitter = MarkdownHeaderTextSplitter(
+                                headers_to_split_on=headers,  # 指定标题层级
+                                strip_headers=True  # 保留标题在内容中（可选）
+                                )
                 temp_docs = await text_splitter.atransform_documents([document])
                 splits = []
                 for doc in temp_docs:

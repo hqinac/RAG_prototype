@@ -1,13 +1,11 @@
 import os
 import gradio as gr
-import signal
-import sys
 import atexit
 import gc
 import threading
 import time
 import json
-import  asyncio
+import asyncio
 from typing import List, Tuple, Optional, Dict
 from pathlib import Path
 
@@ -15,7 +13,6 @@ from pathlib import Path
 from main import graph, RouterState
 from langchain_community.document_loaders import UnstructuredMarkdownLoader
 from dotenv import load_dotenv
-from langchain_text_splitters import RecursiveCharacterTextSplitter
 
 load_dotenv()
 

@@ -1,0 +1,12 @@
+DASH_MODEL_NAME=qwen-turbo
+DASHSCOPE_EMBEDDING_MODEL=text-embedding-v3
+DASHSCOPE_API_KEY=your_dashscope_api_key
+DASHSCOPE_BASE_URL=https://dashscope.aliyuncs.com/compatible-mode/v1
+#默认使用通义千文的在线大语言与嵌入模型对数据库进行嵌入索引，如果需要修改模型种类，请参照langchain的对应类修改cache_manager中的get_llm与get_embeddings
+
+
+URI = ./saved_files
+#默认数据库存储路径
+RERANKER_NAME_OR_PATH=BAAI/bge-reranker-large
+#可以使用本地重排序模型路径，也可以使用在线重排序模型，如：BAAI/bge-reranker-large，默认支持cross-encoder，如果使用其他类型的重排序模型，请参考：
+# https://github.com/AnswerDotAI/rerankers 修改 cache_manager中的get_reranker方法

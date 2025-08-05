@@ -198,10 +198,15 @@ async def retrieve_node(state: RouterState) -> Dict:
         "输入内容：'Tell me treatments of throat cancer.' → 文件过滤:['肿瘤科疾病治疗方案汇总.md'] （错误：将问题内容用于过滤）"
 
         
-        "**语义匹配表（仅在有明确文件范围指示词时使用）（示例）：**"
-        "- 外科、手术、Surgery、Surgical → ['外科疾病治疗方案汇总.md', 'Summary of Treatment Plans for Surgical Diseases.md']"
-        "- 肿瘤、癌症、Oncology、Cancer → ['肿瘤科疾病治疗方案汇总.md']"
-        "- 儿科、小儿、Pediatric → ['儿科疾病治疗方案汇总.md']"
+        "**语义匹配表（仅在有明确文件范围指示词时使用）：**"
+        "**重要提醒：此表仅用于文件范围指示词的匹配，绝不用于问题内容的匹配**"
+        "- 当用户说'在外科相关文件中'时：外科、手术、Surgery、Surgical → ['外科疾病治疗方案汇总.md']"
+        "- 当用户说'在肿瘤科相关文件中'时：肿瘤、癌症、Oncology、Cancer → ['肿瘤科疾病治疗方案汇总.md']"
+        "- 当用户说'在儿科相关文件中'时：儿科、小儿、Pediatric → ['儿科疾病治疗方案汇总.md']"
+        "**严禁示例：**"
+        "- '小孩发烧怎么办' → 文件过滤:[] （'小孩'是问题内容，不是文件范围指示词）"
+        "- '癌症如何治疗' → 文件过滤:[] （'癌症'是问题内容，不是文件范围指示词）"
+        "- '外科手术注意事项' → 文件过滤:[] （'外科手术'是问题内容，不是文件范围指示词）"
         
         "**标准示例：**"
         "输入内容：'请用HyDE方式对python.md文件进行检索，告诉我Python的GIL机制'"
@@ -223,6 +228,14 @@ async def retrieve_node(state: RouterState) -> Dict:
         "输入：'What is GIL in python?'"
         "分析：无任何文件范围指示词，'GIL in python'是问题内容不是过滤条件"
         "输出：{{\"文件过滤\": [], \"问题\": \"What is GIL in python?\"}}"
+        
+        "输入：'小孩发烧怎么办'"
+        "分析：无任何文件范围指示词，'小孩发烧'是问题内容不是过滤条件"
+        "输出：{{\"文件过滤\": [], \"问题\": \"小孩发烧怎么办\"}}"
+        
+        "输入：'请在儿科相关文件中查询小孩发烧的处理方法'"
+        "分析：有明确文件范围指示词'在儿科相关文件中'"
+        "输出：{{\"文件过滤\": [\"儿科疾病治疗方案汇总.md\"], \"问题\": \"小孩发烧的处理方法\"}}"
         
         "你的输出格式必须严格遵循json格式："
         "{{\"文件过滤\": [], \"问题\": \"提取的问题内容\"}}"
@@ -258,13 +271,12 @@ async def retrieve_node(state: RouterState) -> Dict:
         print(f"查询内容: {query}")
         print(f"文件过滤: {filters}")
         
-        embeddings = get_embeddings()
         print("Embeddings初始化成功")
         
         # 检索文档
         try:
             print("开始调用retrieve函数...")
-            docs, Strategy = await retrieve(strategy, query, filters, embeddings)
+            docs, Strategy = await retrieve(strategy, query, filters)
             print(f"检索完成，策略: {Strategy}")
             if not docs:
                 return {"output": "未检索到相关文档，请尝试调整搜索关键词或检查知识库内容。"}
@@ -277,8 +289,6 @@ async def retrieve_node(state: RouterState) -> Dict:
         
         contents = [doc.page_content for doc in docs]
         names = [doc.metadata.get("source", "未知来源") for doc in docs]
-        print(contents[0])
-        print(contents[1])
         print(f"检索到的文档来源: {names}")
         print(f"检索到的文档数量: {len(docs)}")
         
@@ -286,17 +296,20 @@ async def retrieve_node(state: RouterState) -> Dict:
         try:
             print("开始生成回答...")
             answer_prompt = (
-                "你是一个高效的回答生成器，能根据检索到的相关文件内容为问题生成对应的回答。"
-                "请严格按照文件内容生成回答，不要添加任何额外的内容。"
+                "你是一个高效的回答编辑器，能根据检索到的相关文件内容为问题生成对应的回答或对已有答案进行修改。"
+                "如果存在回答，根据你读到的文档内容对回答进行修改，否则根据文档内容生成回答。"
+                "请严格按照文件内容与已有的回答生成与修改回答，不要添加任何额外的内容。"
                 "你的回答使用的语言应该根据问题使用的语言。如果问题是中文，用中文回答，如果问题是英语，用英语回答。"
             )
             answer_chain = ChatPromptTemplate.from_messages([
                 ("system", answer_prompt),
-                ("human", "问题：{query}\n相关文档内容：{contents}")
+                ("human", "问题：{query}\n相关文档内容：{contents}\n已有回答：{answer}")
             ]) | llm | SafeStrOutputParser()
             
             # 调用链并获取结果
-            answer = await answer_chain.ainvoke({"query": query, "contents": contents})
+            answer = ""
+            for content in contents:
+                answer = await answer_chain.ainvoke({"query": query, "contents": content, "answer": answer})
             print(f"回答类型: {type(answer)}")
             print(f"最终回答: {answer}")
             
