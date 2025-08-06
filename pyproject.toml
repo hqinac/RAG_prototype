@@ -2,7 +2,7 @@
 name = "rag-prototype"
 version = "0.1.0"
 description = "Add your description here"
-readme = "README.md"
+readme = "RAG复盘.md"
 requires-python = ">=3.12"
 dependencies = [
     "dashscope>=1.24.0",
