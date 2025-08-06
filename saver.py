@@ -1,6 +1,7 @@
 import os
 import asyncio
 from langchain_community.vectorstores import FAISS
+from langchain_milvus import Milvus
 from langchain_community.embeddings import DashScopeEmbeddings
 from langchain_community.retrievers import BM25Retriever
 from langchain_core.documents import Document
@@ -44,30 +45,18 @@ async def save_vectorstore(documents: list[Document], chunks, size, doc_info, la
     
     if check_db_exist():
         # 优先从缓存中获取FAISS数据库
+        '''
         db = get_faiss()
-        if db is None:
-            # 如果缓存中没有，则从磁盘加载
-            db = FAISS.load_local(f"{URI}/faiss_index", embeddings, allow_dangerous_deserialization=True)
-            # 加载后更新缓存
-            update_faiss_cache(db)
+        '''
+        #获取milvus数据库
+        db = get_milvus()
+
         
         # 优先从缓存中获取文档列表
         docs = get_doc_cache()
-        if docs is None:
-            # 如果缓存中没有，则从磁盘加载
-            with open(f"{URI}/split_docs.pkl", "rb") as f:
-                docs = pickle.load(f)
-            # 加载后更新缓存
-            update_doc_cache(docs)
         
         # 优先从缓存中获取BM25检索器
         bm25 = get_bm25()
-        if bm25 is None:
-            # 如果缓存中没有，则从磁盘加载
-            with open(f"{URI}/bm25.pkl", "rb") as f:
-                bm25 = pickle.load(f)
-            # 加载后更新缓存
-            update_bm25_cache(bm25)
     
     load_time = time.time() - load_start
     print(f"数据库加载完成，耗时: {load_time:.2f}秒")
@@ -198,15 +187,16 @@ async def save_vectorstore(documents: list[Document], chunks, size, doc_info, la
         tempdocs.append(totalsplits)
         # 批量计算embedding以提高性能
         if totalsplits:
+            '''
             # 直接使用FAISS.from_documents确保元数据正确关联
             ndb = FAISS.from_documents(totalsplits, embeddings)
             
             # 合并到现有数据库
             db.merge_from(ndb)
-            
-            # 增量更新BM25
-            for split in totalsplits:
-                bm25.from_document(tempdocs)
+            '''
+            db.add_documents(totalsplits)
+             # 增量更新BM25
+        bm25.from_documents(tempdocs)
     else:
         # 有重复文档或首次创建，需要重建
         print("使用重建模式...")
@@ -214,12 +204,22 @@ async def save_vectorstore(documents: list[Document], chunks, size, doc_info, la
         tempdocs.extend(totalsplits)
         
         # 直接使用FAISS.from_documents确保元数据正确关联
-        if tempdocs:
-            print(f"处理 {len(tempdocs)} 个文档切片...")
-            db = FAISS.from_documents(tempdocs, embeddings)
+        '''
+        db = FAISS.from_documents(tempdocs, embeddings)
+        '''
+        #由于milvus支持删除，不用全部重建
+        if not db:
+            db = Milvus.from_documents(
+                tempdocs,
+                embeddings,
+                connection_args={"uri": f"{URI}/milvus.db"},
+            )
         else:
-            db = FAISS.from_documents(tempdocs, embeddings)
-            
+            db.delete(
+            expr=f"source in {existed}",
+        )
+            db.add_documents(totalsplits)
+
         bm25 = BM25Retriever.from_documents(tempdocs)
         bm25.k = 10
 

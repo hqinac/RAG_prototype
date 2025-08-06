@@ -3,6 +3,8 @@ from langchain_core.output_parsers import StrOutputParser
 from langchain_core.prompts import ChatPromptTemplate
 from langchain_core.documents import Document
 from langchain_community.retrievers import BM25Retriever
+from langchain_milvus import Milvus
+
 from rerankers import Document as RerankerDocument
 from cache_manager import get_llm, get_faiss, get_bm25, get_doc_cache, get_reranker
 
@@ -16,13 +18,14 @@ async def retrieve(strategy, query, filters):
     '''
     try:
         # 使用缓存的组件
-        vectorstore = get_faiss()
+        #vectorstore = get_faiss()
+        vectorstore = get_milvus()
         slices = get_doc_cache()
         bm25 = get_bm25()
         
         # 检查数据库是否存在
         if vectorstore is None:
-            raise ValueError("FAISS索引不存在，请先上传文档")
+            raise ValueError("向量索引不存在，请先上传文档")
         if slices is None:
             raise ValueError("文档缓存不存在，请先上传文档")
         if bm25 is None:

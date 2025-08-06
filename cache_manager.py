@@ -7,6 +7,7 @@ import pickle
 from typing import Optional
 from dotenv import load_dotenv
 from langchain_community.vectorstores import FAISS
+from langchain_milvus import Milvus
 from langchain_community.embeddings import DashScopeEmbeddings
 from langchain_community.retrievers import BM25Retriever
 from langchain_qwq import ChatQwen
@@ -24,6 +25,7 @@ class CacheManager:
         
         # 检索器缓存
         self._faiss_cache: Optional[FAISS] = None
+        self._milvus_cache: Optional[Milvus] = None
         self._bm25_cache: Optional[BM25Retriever] = None
         self._reranker_cache: Optional[Reranker] = None
         
@@ -65,6 +67,19 @@ class CacheManager:
                 allow_dangerous_deserialization=True
             )
         return self._faiss_cache
+    
+    def get_milvus(self) -> Optional[Milvus]:
+        """获取Milvus索引（缓存版本）"""
+        if self._milvus_cache is None:
+            URI = os.getenv("URI", "./saved_files")
+            if not os.path.exists(f"{URI}/milvus.db"):
+                return None
+            embeddings = self.get_embeddings()
+            self._milvus_cache =Milvus(
+                embeddings,
+                connection_args={"uri": f"{URI}/milvus.db"}
+            )
+        return self._milvus_cache
     
     def get_bm25(self) -> Optional[BM25Retriever]:
         """获取BM25检索器（缓存版本）"""
