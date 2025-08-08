@@ -1,5 +1,4 @@
-"""
-统一缓存管理器
+"""统一缓存管理器
 集中管理所有模型和检索器的缓存，确保整个graph都能高效访问
 """
 import os
@@ -7,7 +6,6 @@ import pickle
 from typing import Optional
 from dotenv import load_dotenv
 from langchain_community.vectorstores import FAISS
-from langchain_milvus import Milvus
 from langchain_community.embeddings import DashScopeEmbeddings
 from langchain_community.retrievers import BM25Retriever
 from langchain_qwq import ChatQwen
@@ -25,7 +23,6 @@ class CacheManager:
         
         # 检索器缓存
         self._faiss_cache: Optional[FAISS] = None
-        self._milvus_cache: Optional[Milvus] = None
         self._bm25_cache: Optional[BM25Retriever] = None
         self._reranker_cache: Optional[Reranker] = None
         
@@ -34,6 +31,8 @@ class CacheManager:
         
         # 缓存状态标记
         self._cache_loaded = False
+        
+
         
     def get_llm(self) -> ChatQwen:
         """获取LLM实例（缓存版本）"""
@@ -67,19 +66,6 @@ class CacheManager:
                 allow_dangerous_deserialization=True
             )
         return self._faiss_cache
-    
-    def get_milvus(self) -> Optional[Milvus]:
-        """获取Milvus索引（缓存版本）"""
-        if self._milvus_cache is None:
-            URI = os.getenv("URI", "./saved_files")
-            if not os.path.exists(f"{URI}/milvus.db"):
-                return None
-            embeddings = self.get_embeddings()
-            self._milvus_cache =Milvus(
-                embeddings,
-                connection_args={"uri": f"{URI}/milvus.db"}
-            )
-        return self._milvus_cache
     
     def get_bm25(self) -> Optional[BM25Retriever]:
         """获取BM25检索器（缓存版本）"""
@@ -158,7 +144,7 @@ class CacheManager:
             print("所有缓存预加载完成")
         except Exception as e:
             print(f"缓存预加载失败: {e}")
-
+            
 # 全局缓存管理器实例
 cache_manager = CacheManager()
 
@@ -195,6 +181,8 @@ def clear_all_cache():
     """清除所有缓存"""
     cache_manager.clear_all_cache()
 
+
+
 def preload_all_cache():
     """预加载所有缓存"""
     cache_manager.preload_all()
@@ -202,6 +190,8 @@ def preload_all_cache():
 def update_faiss_cache(faiss_instance: FAISS):
     """更新FAISS缓存"""
     cache_manager.update_faiss_cache(faiss_instance)
+
+
 
 def update_bm25_cache(bm25_instance: BM25Retriever):
     """更新BM25缓存"""

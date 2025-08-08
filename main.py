@@ -300,6 +300,8 @@ async def retrieve_node(state: RouterState) -> Dict:
                 "如果存在回答，根据你读到的文档内容对回答进行修改，否则根据文档内容生成回答。"
                 "请严格按照文件内容与已有的回答生成与修改回答，不要添加任何额外的内容。"
                 "你的回答使用的语言应该根据问题使用的语言。如果问题是中文，用中文回答，如果问题是英语，用英语回答。"
+                "注意：只用返回你生成或修改后的回答内容，不用写“根据文档内容生成回答”或“根据文档内容修改回答”"
+
             )
             answer_chain = ChatPromptTemplate.from_messages([
                 ("system", answer_prompt),

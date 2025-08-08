@@ -6,6 +6,8 @@ import threading
 import time
 import json
 import asyncio
+import signal
+import sys
 from typing import List, Tuple, Optional, Dict
 from pathlib import Path
 
@@ -289,6 +291,8 @@ class RAGChatInterface:
         """处理心跳请求"""
         return heartbeat_monitor.update_heartbeat()
     
+
+    
     def shutdown_application(self) -> str:
         """关闭应用程序"""
         try:
@@ -557,6 +561,8 @@ def create_interface():
             with gr.Column(scale=1):
                 gr.Markdown("### 文档管理")
                 
+
+                
                 file_upload = gr.File(
                     label="上传Markdown文档",
                     file_types=[".md"],
@@ -614,6 +620,8 @@ def create_interface():
                     refresh_status_btn = gr.Button(" 刷新状态", variant="secondary")
         
         # 事件绑定
+        
+
         
         # 文件上传事件
         file_upload.upload(

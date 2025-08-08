@@ -3,7 +3,6 @@ from langchain_core.output_parsers import StrOutputParser
 from langchain_core.prompts import ChatPromptTemplate
 from langchain_core.documents import Document
 from langchain_community.retrievers import BM25Retriever
-from langchain_milvus import Milvus
 
 from rerankers import Document as RerankerDocument
 from cache_manager import get_llm, get_faiss, get_bm25, get_doc_cache, get_reranker
@@ -18,8 +17,7 @@ async def retrieve(strategy, query, filters):
     '''
     try:
         # 使用缓存的组件
-        #vectorstore = get_faiss()
-        vectorstore = get_milvus()
+        vectorstore = get_faiss()
         slices = get_doc_cache()
         bm25 = get_bm25()
         
@@ -41,7 +39,7 @@ async def retrieve(strategy, query, filters):
             retriever = vectorstore.as_retriever(
                 search_type="similarity",
                 search_kwargs={"filter": {"source": {"$in": filters}},
-                                "k": 10}   
+                            "k": 10}   
             )
         
         # 如果有过滤条件，创建过滤后的BM25检索器
