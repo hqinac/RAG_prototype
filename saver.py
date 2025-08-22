@@ -15,6 +15,9 @@ load_dotenv()
 # 设置默认的向量数据库存储路径
 URI = os.getenv("URI", "./saved_files")
 
+async def async_transform_documents(splitter, docs):
+    return await asyncio.to_thread(splitter.split_text, docs)
+
 async def save_vectorstore(documents: list[Document], chunks, size, doc_info, language=None):
     """
     保存向量数据库
@@ -29,6 +32,15 @@ async def save_vectorstore(documents: list[Document], chunks, size, doc_info, la
     Returns:
         str: 保存结果信息
     """
+    # 检查documents参数的有效性
+    if not documents:
+        return "错误：没有文档可处理", []
+    
+    # 检查documents中的每个元素是否为有效的Document对象
+    for i, document in enumerate(documents):
+        if not hasattr(document, 'page_content') or not hasattr(document, 'metadata'):
+            return f"错误：文档索引 {i} 不是有效的Document对象，类型为: {type(document)}", []
+    
     import time
     start_time = time.time()
     
@@ -119,12 +131,13 @@ async def save_vectorstore(documents: list[Document], chunks, size, doc_info, la
                     separators=separators
                 )
                 splits = await text_splitter.atransform_documents([document])
-            case "md":
+            case "document":
                 text_splitter = MarkdownHeaderTextSplitter(
                                 headers_to_split_on=headers,  # 指定标题层级
                                 strip_headers=True  # 保留标题在内容中（可选）
                                 )
-                temp_docs = await text_splitter.atransform_documents([document])
+                temp_docs = await async_transform_documents(text_splitter, document.page_content)
+                temp_docs = [Document(page_content=doc.page_content, metadata=document.metadata) for doc in temp_docs]
                 splits = []
                 for doc in temp_docs:
                     if len(doc.page_content) > size[i]:
@@ -179,7 +192,7 @@ async def save_vectorstore(documents: list[Document], chunks, size, doc_info, la
     if check_db_exist() and existed == []:
         # 没有重复文档，使用增量更新（最快）
         print("使用增量更新模式...")
-        tempdocs.append(totalsplits)
+        tempdocs.extend(totalsplits)
         # 批量计算embedding以提高性能
         if totalsplits:
             

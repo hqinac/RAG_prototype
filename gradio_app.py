@@ -8,6 +8,7 @@ import json
 import asyncio
 import signal
 import sys
+import copy
 from typing import List, Tuple, Optional, Dict
 from pathlib import Path
 
@@ -163,6 +164,15 @@ class RAGChatInterface:
             loader = UnstructuredMarkdownLoader(file_path, encoding='utf-8')
             documents = loader.load()
             file_name = Path(file_path).name
+            
+            # 检查是否成功加载文档
+            if not documents:
+                return "❌ 文件加载失败，未能解析出文档内容", ""
+            
+            # 检查第一个文档是否有效
+            if not hasattr(documents[0], 'page_content') or not hasattr(documents[0], 'metadata'):
+                return f"❌ 文档对象无效，类型为: {type(documents[0])}", ""
+            
             documents[0].metadata['source'] = file_name
             # 添加到文档列表
             self.uploaded_documents.extend(documents)
@@ -183,10 +193,13 @@ class RAGChatInterface:
             # 调用图进行问答
             # 始终传递完整的doc_info，让saver.py能够正确检查文档重复
             doc_list_to_pass = self.doc_info
+            # 创建documents和temp_files的深拷贝，避免在异步处理过程中被清空
+            documents_copy = copy.deepcopy(self.uploaded_documents)
+            temp_files_copy = self.temp_files.copy()
             result = asyncio.run(graph.ainvoke({
                 "input": message,
-                "documents": self.uploaded_documents,
-                "temp_doc_names": self.temp_files,
+                "documents": documents_copy,
+                "temp_doc_names": temp_files_copy,
                 "doc_list": doc_list_to_pass,
                 "route": "",
                 "knowledgebase": "",

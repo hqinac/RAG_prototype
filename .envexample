@@ -1,0 +1,9 @@
+DASH_MODEL_NAME=qwen-turbo
+DASHSCOPE_API_KEY=
+DASHSCOPE_BASE_URL=https://dashscope.aliyuncs.com/compatible-mode/v1
+DASHSCOPE_EMBEDDING_MODEL=text-embedding-v3
+
+URI = ./saved_files
+RERANKER_NAME_OR_PATH=BAAI/bge-reranker-large
+
+KMP_DUPLICATE_LIB_OK="TRUE"

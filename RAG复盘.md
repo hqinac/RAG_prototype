@@ -33,7 +33,9 @@ RAG_prototype/
   3. RERANKER_NAME_OR_PATH=BAAI/bge-reranker-large
      - 配置线上重排序模型名称或本地模型路径，默认使用BAAI/bge-reranker-large, 使用reranker包调用模型进行重排序。
      - 默认为cross_encoder模型，如果使用的重排序模型不是cross_encoder,请根据https://github.com/AnswerDotAI/rerankers 修改 cache_manager中的get_reranker方法。
-  4. 注意：需要在项目根目录下创建.env文件，根据.envexample配置环境变量，存储在.env中。
+  4. KMP_DUPLICATE_LIB_OK="TRUE"
+     - 配置环境变量，解决多线程环境下的动态链接库重复加载问题。
+  5. 注意：需要在项目根目录下创建.env文件，根据.envexample配置环境变量，存储在.env中。
 
 ## 项目实现与复盘
 ### 1. 工作流构建（main.py）
