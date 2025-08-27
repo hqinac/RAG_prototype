@@ -2045,6 +2045,7 @@ dependencies = [
     { name = "markdown" },
     { name = "rank-bm25" },
     { name = "rerankers", extra = ["transformers"] },
+    { name = "tiktoken" },
     { name = "unstructured" },
 ]
 
@@ -2065,6 +2066,7 @@ requires-dist = [
     { name = "markdown", specifier = ">=3.4.0" },
     { name = "rank-bm25", specifier = ">=0.2.2" },
     { name = "rerankers", extras = ["transformers"], specifier = ">=0.10.0" },
+    { name = "tiktoken", specifier = ">=0.9.0" },
     { name = "unstructured", specifier = ">=0.18.13" },
 ]
 
