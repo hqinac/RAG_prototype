@@ -485,48 +485,25 @@ type: text
 
 当本标准未给出具体方法时，可采用现行国家标准《建筑抗震设计规范》GB 50011 规定的方法，按下式进行结构构件抗震验算:
 
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
-
 $$
-
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
-
 S \leqslant R / \gamma _ { \mathrm { R a } }
-
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
-
 $$
-
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
 
 S——结构构件内力（轴向力、剪力、弯矩等）组合的设计值；计算时，有关的荷载、地震作用、作用分项系数、组合值系数，应按现行国家标准《建筑抗震设计规范》GB 50011 的规定采用；其中，场地的设计特征周期可按表 3.0.5 确定，地震作用效应（内力）调整系数应按本标准各章的规定采用，8、9 度的大跨度和长悬臂结构应计算竖向地震作用。
-
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
-
 R——结构构件承载力设计值，按现行国家标准《建筑抗震设计规范》GB 50011 的规定采用；其中，各类结构材料强度的设计指标应按本标准附录 A 采用，材料强度等级按现场实际情况确定。
-
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
-
 γ_{Ra}——抗震鉴定的承载力调整系数，除本标准各章节另有规定外，一般情况下，可按现行国家标准《建筑抗震设计规范》GB 50011 的承载力抗震调整系数值采用，A 类建筑抗震鉴定时，钢筋混凝土构件应按现行国家标准《建筑抗震设计规范》GB 50011 承载力抗震调整系数值的 0.85 倍采用。
 
 source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
+type: equation
+equation_name: 当本标准未给出具体方法时，可采用现行国家标准《建筑抗震设计规范》GB 50011 规定的方法，按下式进行结构构件抗震验算:
 
 表 3.0.5 特征周期值 (s)
-
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
 
 <table><tr><td rowspan="2">设计地震分组</td><td colspan="4">场地类别</td></tr><tr><td>Ⅰ</td><td>Ⅱ</td><td>Ⅲ</td><td>Ⅳ</td></tr><tr><td>第一、二组</td><td>0.20</td><td>0.30</td><td>0.40</td><td>0.65</td></tr><tr><td>第三组</td><td>0.25</td><td>0.40</td><td>0.55</td><td>0.85</td></tr></table>
 
 source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
+type: table
+table_name: 表 3.0.5 特征周期值 (s)
 
 3.0.6 现有建筑的抗震鉴定要求，可根据建筑所在场地、地基和基础等的有利和不利因素，作下列调整：
 
@@ -730,48 +707,20 @@ type: text
 
 1 天然地基的竖向承载力，可按现行国家标准《建筑抗震设计规范》GB 50011 规定的方法验算，其中，地基土静承载力特征值应改用长期压密地基土静承载力特征值，其值可按下式计算:
 
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
-
 $$
-
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
-
 f _ { \mathrm { s E } } = \xi _ { \mathrm { s } } f _ { \mathrm { s c } }
-
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
-
 $$
 
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
-
 $$
-
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
-
 f _ { \mathrm { s c } } = \xi _ { \mathrm { c } } f _ { \mathrm { s } }
-
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
-
 $$
-
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
 
 式中 $f_{\mathrm{sE}}$ ——调整后的地基土抗震承载力特征值（kPa）；
-
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
-
 $\xi_{\mathrm{s}}$——地基土抗震承载力调整系数，可按现行国家标准 《建筑抗震设计规范》GB 50011 采用； $f_{\mathrm{sc}}$——长期压密地基土静承载力特征值（kPa）； $f_{\mathrm{s}}$——地基土静承载力特征值（kPa），其值可按现行国家 标准《建筑地基基础设计规范》GB 50007 采用； $\xi_{\mathrm{c}}$——地基土静承载力长期压密提高系数，其值可按表 4.2.7 采用。
 
 source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
+type: equation
+equation_name: 1 天然地基的竖向承载力，可按现行国家标准《建筑抗震设计规范》GB 50011 规定的方法验算，其中，地基土静承载力特征值应改用长期压密地基土静承载力特征值，其值可按下式计算:
 
 2 承受水平力为主的天然地基验算水平抗滑时, 抗滑阻力可采用基础底面摩擦力和基础正侧面土的水平抗力之和; 基础正侧面土的水平抗力, 可取其被动土压力的 1/3; 抗滑安全系数不宜小于 1.1; 当刚性地坪的宽度不小于地坪孔口承压面宽度的 3 倍时, 尚可利用刚性地坪的抗滑能力。
 
@@ -780,18 +729,13 @@ type: text
 
 表 4.2.7 地基土静承载力长期压密提高系数
 
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
-
 <table><tr><th rowspan="2" colspan="1">年限与岩土类别</th><th colspan="4">$p_0/f_s$</th></tr><tr><th>1.0</th><th>0.8</th><th>0.4</th><th>&lt;0.4</th></tr><tr><th>2 年以上的砾、粗、中、细、粉砂</th><td rowspan="3">1.2</td><td rowspan="3">1.1</td><td rowspan="3">1.05</td><td rowspan="3">1.0</td></tr><tr><th>5 年以上的粉土和粉质黏土</th></tr><tr><th>8 年以上地基土静承载力标准值大于<br>100kPa 的黏土</th></tr></table>
-
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
 
 注：1 $p_{0}$ 指基础底面实际平均压应力（kPa）； 2 使用期不够或岩石、碎石土、其他软弱土，提高系数值可取1.0。
 
 source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
+type: table
+table_name: 表 4.2.7 地基土静承载力长期压密提高系数
 
 4.2.8 桂基的抗震承载力验算，可按现行国家标准《建筑抗震设计规范》GB 50011 规定的方法进行。
 
@@ -805,13 +749,11 @@ type: text
 
 表 4.2.9 挡土结构的地震角
 
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
-
 <table><tr><th rowspan="2">类别</th><th colspan="2">7度</th><th colspan="2">8度</th><th>9度</th></tr><tr><th>0.1g</th><th>0.15g</th><th>0.2g</th><th>0.3g</th><th>0.4g</th></tr><tr><th>水上</th><td>1.5°</td><td>2.3°</td><td>3°</td><td>4.5°</td><td>6°</td></tr><tr><th>水下</th><td>2.5°</td><td>3.8°</td><td>5°</td><td>7.5°</td><td>10°</td></tr></table>
 
 source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
+type: table
+table_name: 表 4.2.9 挡土结构的地震角
 
 4.2.10 同一建筑单元存在不同类型基础或基础埋深不同时, 宜根据地震时可能产生的不利影响, 估算地震导致两部分地基的差异沉降, 检查基础抵抗差异沉降的能力, 并检查上部结构相应部位的构造抵抗附加地震作用和差异沉降的能力。
 
@@ -930,18 +872,13 @@ type: text
 
 表 5.2.1 A 类砌体房屋的最大高度（m）和层数限值
 
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
-
 <table><tr><td rowspan="2">墙体类别</td><td rowspan="2">墙体厚度 (mm)</td><td colspan="3">6度</td><td colspan="3">7度</td><td colspan="3">8度</td><td colspan="3">9度</td></tr><tr><td>高度</td><td>层数</td><td>高度</td><td>层数</td><td>高度</td><td>层数</td><td>高度</td><td>层数</td><td>高度</td><td>层数</td></tr><tr><td rowspan="2">普通砖实心墙</td><td>≥240</td><td>24</td><td>八</td><td>22</td><td>七</td><td>19</td><td>六</td><td>13</td><td>四</td><td>三</td></tr><tr><td>180</td><td>16</td><td>五</td><td>16</td><td>五</td><td>13</td><td>四</td><td>10</td><td>三</td><td>三</td></tr><tr><td>多孔砖墙</td><td>180~240</td><td>16</td><td>五</td><td>16</td><td>五</td><td>13</td><td>四</td><td>10</td><td>三</td><td>三</td></tr><tr><td rowspan="2">普通砖空心墙</td><td>420</td><td>19</td><td>六</td><td>19</td><td>六</td><td>13</td><td>四</td><td>10</td><td>三</td><td>三</td></tr><tr><td>300</td><td>10</td><td>三</td><td>10</td><td>三</td><td>10</td><td>三</td><td>三</td><td>0</td><td>三</td></tr><tr><td>普通砖空斗墙</td><td>240</td><td>10</td><td>三</td><td>10</td><td>三</td><td>10</td><td>三</td><td>0</td><td>三</td><td>0</td></tr><tr><td>混凝土中砌块墙</td><td>≥240</td><td>19</td><td>六</td><td>19</td><td>六</td><td>13</td><td>四</td><td></td><td></td><td></td></tr><tr><td>混凝土小砌块墙</td><td>≥190</td><td>22</td><td>七</td><td>22</td><td>七</td><td>16</td><td>五</td><td></td><td></td><td></td></tr><tr><td rowspan="2">粉煤灰中砌块墙</td><td>≥240</td><td>19</td><td>六</td><td>19</td><td>六</td><td>13</td><td>四</td><td></td><td></td><td></td></tr><tr><td>180~240</td><td>16</td><td>五</td><td>16</td><td>五</td><td>10</td><td>三</td><td></td><td></td><td></td></tr></table>
-
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
 
 注：1 房屋高度计算方法同现行国家标准《建筑抗震设计规范》GB 50011 的 规定； 2 空心墙指由两片120mm厚砖墙或120mm厚砖与240mm厚砖通过卧砌形 成的墙体； 3 乙类设防时应允许按本地区设防烈度查表，但层数应减少一层且总高度应 降低3m；其抗震墙不应为180mm普通砖实心墙、普通砖空斗墙。
 
 source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
+type: table
+table_name: 表 5.2.1 A 类砌体房屋的最大高度（m）和层数限值
 
 1) 抗震横墙的最大间距应符合表 5.2.2 的规定;
 
@@ -970,18 +907,13 @@ type: text
 
 表 5.2.2 A 类砌体房屋刚性体系抗震横墙的最大间距 (m)
 
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
-
 <table><tr><th>楼、屋盖类别</th><th>墙体类别</th><th>墙体厚度<br>(mm)</th><th>6、7度</th><th>8度</th><th>9度</th></tr><tr><td rowspan="2">现浇或装配整体式混凝土</td><td>砖实心墙</td><td>≥240</td><td>15</td><td>15</td><td>11</td></tr><tr><td>其他墙体</td><td>≥180</td><td>13</td><td>10</td><td></td></tr><tr><td rowspan="2">装配式混凝土</td><td>砖实心墙</td><td>≥240</td><td>11</td><td>11</td><td>7</td></tr><tr><td>其他墙体</td><td>≥180</td><td>10</td><td>7</td><td></td></tr><tr><td>木、砖拱</td><td>砖实心墙</td><td>≥240</td><td>7</td><td>7</td><td>4</td></tr></table>
-
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
 
 注：对Ⅴ类场地，表内的最大间距值应减少3m或4m以内的一开间。
 
 source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
+type: table
+table_name: 表 5.2.2 A 类砌体房屋刚性体系抗震横墙的最大间距 (m)
 
 3 跨度不小于 6m 的大梁, 不宜由独立砖柱支承; 乙类设防时不应由独立砖柱支承。
 
@@ -1020,18 +952,13 @@ type: text
 
 表 5.2.4-1 乙类设防时 A 类砖房构造柱设置要求
 
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
-
 <table><tr><th colspan="4">房屋层数</th><th rowspan="2">设置部位</th></tr><tr><th>6度</th><th>7度</th><th>8度</th><th>9度</th></tr><tr><td>四、五</td><td>三、四</td><td>二、三</td><td></td><td rowspan="2">外墙四角,错层部位横墙与外纵墙交接处,较大洞口两侧,大房间内外墙交接处</td><td>7、8度时,楼梯间、电梯间四角</td></tr><tr><td>六、七</td><td>五、六</td><td>四</td><td>二</td><td>隔开间横墙(轴线)与外墙交接处,山墙与内纵墙交接处;7~9度时,楼梯间、电梯间四角</td></tr><tr><td></td><td></td><td>五</td><td>三</td><td>内墙(轴线)与外墙交接处,内墙的局部较小墙垛处;7~9度时,楼梯间、电梯间四角;9度时内纵墙与横墙(轴线)交接处</td></tr></table>
-
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
 
 注：横墙较少时，按增加一层的层数查表。砌块房屋按表中提高一度的要求检查芯柱或构造柱。
 
 source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
+type: table
+table_name: 表 5.2.4-1 乙类设防时 A 类砖房构造柱设置要求
 
 2 木屋架不应为无下弦的人字屋架，隔开间应有一道竖向支撑或有木望板和木龙骨顶棚。
 
@@ -1050,28 +977,13 @@ type: text
 
 表 5.2.4-2 A 类砌体房屋圈梁的布置和构造要求
 
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
-
-<table><tr><td colspan="2">位置和配筋量</td><td>7度</td><td>8度</td><td>9度</td></tr><tr><td rowspan="2">屋盖</td><td>外墙</td><td>除层数为二层的预制板或有木望板、木龙骨吊顶时,均应有</td><td>均应有</td><td>均应有</td></tr><tr><td>内墙</td><td>同外墙,且纵横墙上圈梁的水平间距分别不应大于8m和16m</td><td>纵横墙上圈梁的水平间距分别不应大于8m和12m</td><td>纵横墙上圈梁的水平间距均不应大于8m</td></tr></table>
-
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
-
-续表 5.2.4-2
-
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
-
-<table><tr><th colspan="2">位置和配筋量</th><th>7 度</th><th>8 度</th><th>9 度</th></tr><tr><th rowspan="3">楼层</th><th>外墙</th><td>横墙间距大于8m或层数超过四层时应隔层有</td><td>横墙间距大于8m时每层应有,横墙间距不大于8m层数超过三层时,应隔层有</td><td>层数超过二层且横墙间距大于4m时,每层均应有</td></tr><tr><th>内墙</th><td>横墙间距大于8m或层数超过四层时,应隔层有且圈梁的水平间距不应大于16m</td><td>同外墙,且圈梁的水平间距不应大于12m</td><td>同外墙,且圈梁的水平间距不应大于8m</td></tr><tr><th>配筋量</th><td>4≠8</td><td>4≠10</td><td>4≠12</td></tr></table>
-
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
+<table><tr><td colspan="2">位置和配筋量</td><td>7度</td><td>8度</td><td>9度</td></tr><tr><td rowspan="2">屋盖</td><td>外墙</td><td>除层数为二层的预制板或有木望板、木龙骨吊顶时,均应有</td><td>均应有</td><td>均应有</td></tr><tr><td>内墙</td><td>同外墙,且纵横墙上圈梁的水平间距分别不应大于8m和16m</td><td>纵横墙上圈梁的水平间距分别不应大于8m和12m</td><td>纵横墙上圈梁的水平间距均不应大于8m</td></tr><tr><th colspan="2">位置和配筋量</th><th>7 度</th><th>8 度</th><th>9 度</th></tr><tr><th rowspan="3">楼层</th><th>外墙</th><td>横墙间距大于8m或层数超过四层时应隔层有</td><td>横墙间距大于8m时每层应有,横墙间距不大于8m层数超过三层时,应隔层有</td><td>层数超过二层且横墙间距大于4m时,每层均应有</td></tr><tr><th>内墙</th><td>横墙间距大于8m或层数超过四层时,应隔层有且圈梁的水平间距不应大于16m</td><td>同外墙,且圈梁的水平间距不应大于12m</td><td>同外墙,且圈梁的水平间距不应大于8m</td></tr><tr><th>配筋量</th><td>4≠8</td><td>4≠10</td><td>4≠12</td></tr></table>
 
 注：6度时，同非抗震要求。
 
 source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
+type: table
+table_name: 表 5.2.4-2 A 类砌体房屋圈梁的布置和构造要求
 
 5.2.5 现有房屋的整体性连接构造，尚应满足下列要求:
 
@@ -1100,13 +1012,11 @@ type: text
 
 表 5.2.5 楼盖、屋盖构件的最小支承长度 (mm)
 
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
-
 <table><tr><td>构件名称</td><td colspan="2">混凝土预制板</td><td>预制进深梁</td><td>木屋架、木大梁</td><td>对接棒条</td><td>木龙骨、木棉条</td></tr><tr><td>位置</td><td>墙上</td><td>梁上</td><td>墙上</td><td>墙上</td><td>屋架上</td><td>墙上</td></tr><tr><td>支承长度</td><td>100</td><td>80</td><td>180且有梁垫</td><td>240</td><td>60</td><td>120</td></tr></table>
 
 source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
+type: table
+table_name: 表 5.2.5 楼盖、屋盖构件的最小支承长度 (mm)
 
 3 圈梁的布置和构造尚应符合下列要求:
 
@@ -1235,43 +1145,23 @@ type: text
 
 表 5.2.9-1 抗震承载力简化验算的抗震横墙间距和房屋宽度限值（m）
 
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
-
-<table><tr><th rowspan="3">楼<br>层<br>总<br>数</th><th rowspan="3">检查<br>楼<br>层</th><th colspan="14">砂浆强度等级</th></tr><tr><th colspan="2">M0.4</th><th colspan="2">M1</th><th colspan="2">M2.5</th><th colspan="2">M5</th><th colspan="2">M10</th><th colspan="2">M0.4</th><th colspan="2">M1</th><th colspan="2">M2.5</th><th colspan="2">M5</th><th colspan="2">M10</th></tr><tr><th>L</th><th>B</th><th>L</th><th>B</th><th>L</th><th>B</th><th>L</th><th>B</th><th>L</th><th>B</th><th>L</th><th>B</th><th>L</th><th>B</th><th>L</th><th>B</th><th>L</th><th>B</th><th>L</th><th>B</th></tr><tr><td>二</td><td>2<br>1</td><td>6.9<br>6.0</td><td>10<br>8.8</td><td>11<br>9.2</td><td>15<br>14</td><td>15<br>13</td><td>15<br>15</td><td>—</td><td>—</td><td>—</td><td>—</td><td>4.8<br>4.2</td><td>7.1<br>6.2</td><td>7.9<br>6.4</td><td>11<br>9.5</td><td>12<br>6.4</td><td>15<br>13</td><td>15<br>12</td><td>15<br>13</td><td>15<br>12</td><td>—</td><td>—</td></tr><tr><td>三</td><td>3<br>1~2</td><td>6.1<br>4.7</td><td>9.0<br>7.1</td><td>10<br>7.0</td><td>14<br>11</td><td>15<br>14</td><td>15<br>15</td><td>15<br>14</td><td>15<br>15</td><td>—</td><td>—</td><td>—</td><td>4.8<br>4.2</td><td>7.1<br>6.2</td><td>7.9<br>6.4</td><td>11<br>10</td><td>12<br>6.8</td><td>15<br>10</td><td>15<br>12</td><td>15<br>13</td><td>15<br>13</td><td>—</td><td>—</td></tr><tr><td>四</td><td>4<br>3<br>1~2</td><td>5.7<br>4.3</td><td>8.4<br>6.3</td><td>9.4<br>6.6</td><td>14<br>9.6</td><td>14<br>8.9</td><td>15<br>14</td><td>15<br>15</td><td>15<br>15</td><td>15<br>15</td><td>—</td><td>—</td><td>—</td><td>6.6<br>4.6</td><td>9.5<br>6.7</td><td>9.8<br>6.5</td><td>12<br>6.7</td><td>9.8<br>6.5</td><td>12<br>8.9</td><td>12<br>12</td><td>12<br>12</td><td>—</td><td>—</td></tr><tr><td>五</td><td>5<br>4<br>1~3</td><td>5.6<br>3.8</td><td>9.2<br>6.5</td><td>9.0<br>6.1</td><td>12<br>9.0</td><td>8.7<br>7.9</td><td>12<br>7.0</td><td>12<br>12</td><td>12<br>12</td><td>12<br>12</td><td>—</td><td>—</td><td>—</td><td>6.3<br>4.3</td><td>9.0<br>6.3</td><td>9.4<br>3.6</td><td>12<br>8.9</td><td>12<br>8.9</td><td>8.9<br>7.4</td><td>12<br>12</td><td>12<br>—</td><td>—</td><td>—</td></tr><tr><td>六</td><td>6<br>5<br>4<br>1~3</td><td>—</td><td>—</td><td>8.9<br>5.9</td><td>12<br>8.6</td><td>8.6<br>6.8</td><td>12<br>6.3</td><td>12<br>10</td><td>12<br>12</td><td>12<br>12</td><td>—</td><td>—</td><td>—</td><td>6.1<br>4.1</td><td>8.8<br>6.0</td><td>9.2<br>5.8</td><td>12<br>8.5</td><td>8.5<br>4.8</td><td>7.8<br>6.6</td><td>12<br>12.4</td><td>12<br>11.9</td><td>—</td><td>—</td></tr><tr><td>七</td><td>7<br>6<br>5<br>1~4</td><td>—</td><td>—</td><td>8.2<br>5.2</td><td>12<br>8.3</td><td>12<br>6.4</td><td>12<br>8.5</td><td>12<br>11</td><td>12<br>12</td><td>12<br>12</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>3.9<br>3.9</td><td>7.2<br>7.2</td><td>3.9<br>3.9</td><td>7.2<br>7.2</td><td>7.2<br>3.9</td><td>7.2<br>7.2</td><td>—</td><td>—</td></tr><tr><td>八</td><td>6~8<br>1~5</td><td>—</td><td>—</td><td>—</td><td>3.9<br>3.9</td><td>7.8<br>7.8</td><td>3.9<br>3.9</td><td>7.8<br>7.8</td><td>3.9<br>3.9</td><td>7.8<br>7.8</td><td>3.9<br>3.9</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr></table>
-
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
-
-续表 5.2.9-1
-
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
-
-<table><tr><th rowspan="3">楼层<br/>总数</th><th rowspan="3">检查<br/>层数</th><th colspan="14">砂浆强度等级</th></tr><tr><th colspan="2">M0.4</th><th colspan="2">M1</th><th colspan="2">M2.5</th><th colspan="2">M5</th><th colspan="2">M10</th><th colspan="2">M0.4</th><th colspan="2">M1</th><th colspan="2">M2.5</th><th colspan="2">M5</th><th colspan="2">M10</th></tr><tr><th>L</th><th>B</th><th>L</th><th>B</th><th>L</th><th>B</th><th>L</th><th>B</th><th>L</th><th>B</th><th>L</th><th>B</th><th>L</th><th>B</th><th>L</th><th>B</th><th>L</th><th>B</th><th>L</th><th>B</th></tr><tr><th>二</th><td>2<br/>1</td><td>—</td><td>5.3<br/>4.3</td><td>7.8<br/>6.4</td><td>7.8<br/>6.2</td><td>12<br/>8.9</td><td>10<br/>8.4</td><td>15<br/>12</td><td>—</td><td>—</td><td>—</td><td>3.1<br/>—</td><td>4.6<br/>—</td><td>4.7<br/>3.7</td><td>7.1<br/>5.3</td><td>6.0<br/>5.0</td><td>9.2<br/>7.1</td><td>11<br/>6.4</td><td>10<br/>6.7</td></tr><tr><th>三</th><td>3<br/>1~2</td><td>—</td><td>4.7<br/>3.3</td><td>6.7<br/>4.9</td><td>7.0<br/>4.6</td><td>9.9<br/>6.8</td><td>9.7<br/>6.2</td><td>14<br/>8.8</td><td>13<br/>7.7</td><td>—</td><td>—</td><td>—</td><td>4.6<br/>—</td><td>4.7<br/>3.7</td><td>5.9<br/>—</td><td>5.8<br/>3.7</td><td>8.2<br/>5.3</td><td>7.7<br/>4.6</td><td>10<br/>6.7</td></tr><tr><th>四</th><td>4<br/>3<br/>1~2</td><td>—</td><td>4.4<br/>—</td><td>5.7<br/>—</td><td>6.5<br/>4.3</td><td>9.2<br/>6.3</td><td>9.1<br/>5.9</td><td>12<br/>8.5</td><td>12<br/>7.6</td><td>12<br/>9.1</td><td>—</td><td>—</td><td>—</td><td>—</td><td>3.3<br/>—</td><td>5.8<br/>—</td><td>3.3<br/>2.8</td><td>5.9<br/>4.8</td><td>5.9<br/>4.0</td></tr><tr><th>五</th><td>5<br/>4<br/>1~3</td><td>—</td><td>—</td><td>—</td><td>6.3<br/>4.1</td><td>8.9<br/>3.3</td><td>8.8<br/>4.5</td><td>8.8<br/>4.3</td><td>12<br/>7.8</td><td>7.1<br/>5.3</td><td>12<br/>7.8</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr><tr><th>六</th><td>6<br/>5<br/>4<br/>1~3</td><td>—</td><td>—</td><td>—</td><td>3.9<br/>—</td><td>6.0<br/>—</td><td>3.9<br/>—</td><td>6.0<br/>—</td><td>3.9<br/>—</td><td>3.9<br/>—</td><td>5.9<br/>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr></table>
-
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
+<table><tr><th rowspan="3">楼<br/>层<br/>总<br/>数</th><th rowspan="3">检查<br/>楼<br/>层</th><th colspan="14">砂浆强度等级</th></tr><tr><th colspan="2">M0.4</th><th colspan="2">M1</th><th colspan="2">M2.5</th><th colspan="2">M5</th><th colspan="2">M10</th><th colspan="2">M0.4</th><th colspan="2">M1</th><th colspan="2">M2.5</th><th colspan="2">M5</th><th colspan="2">M10</th></tr><tr><th>L</th><th>B</th><th>L</th><th>B</th><th>L</th><th>B</th><th>L</th><th>B</th><th>L</th><th>B</th><th>L</th><th>B</th><th>L</th><th>B</th><th>L</th><th>B</th><th>L</th><th>B</th><th>L</th><th>B</th></tr><tr><td>二</td><td>2<br/>1</td><td>6.9<br/>6.0</td><td>10<br/>8.8</td><td>11<br/>9.2</td><td>15<br/>14</td><td>15<br/>13</td><td>15<br/>15</td><td>—</td><td>—</td><td>—</td><td>—</td><td>4.8<br/>4.2</td><td>7.1<br/>6.2</td><td>7.9<br/>6.4</td><td>11<br/>9.5</td><td>12<br/>6.4</td><td>15<br/>13</td><td>15<br/>12</td><td>15<br/>13</td><td>15<br/>12</td><td>—</td><td>—</td></tr><tr><td>三</td><td>3<br/>1~2</td><td>6.1<br/>4.7</td><td>9.0<br/>7.1</td><td>10<br/>7.0</td><td>14<br/>11</td><td>15<br/>14</td><td>15<br/>15</td><td>15<br/>14</td><td>15<br/>15</td><td>—</td><td>—</td><td>—</td><td>4.8<br/>4.2</td><td>7.1<br/>6.2</td><td>7.9<br/>6.4</td><td>11<br/>10</td><td>12<br/>6.8</td><td>15<br/>10</td><td>15<br/>12</td><td>15<br/>13</td><td>15<br/>13</td><td>—</td><td>—</td></tr><tr><td>四</td><td>4<br/>3<br/>1~2</td><td>5.7<br/>4.3</td><td>8.4<br/>6.3</td><td>9.4<br/>6.6</td><td>14<br/>9.6</td><td>14<br/>8.9</td><td>15<br/>14</td><td>15<br/>15</td><td>15<br/>15</td><td>15<br/>15</td><td>—</td><td>—</td><td>—</td><td>6.6<br/>4.6</td><td>9.5<br/>6.7</td><td>9.8<br/>6.5</td><td>12<br/>6.7</td><td>9.8<br/>6.5</td><td>12<br/>8.9</td><td>12<br/>12</td><td>12<br/>12</td><td>—</td><td>—</td></tr><tr><td>五</td><td>5<br/>4<br/>1~3</td><td>5.6<br/>3.8</td><td>9.2<br/>6.5</td><td>9.0<br/>6.1</td><td>12<br/>9.0</td><td>8.7<br/>7.9</td><td>12<br/>7.0</td><td>12<br/>12</td><td>12<br/>12</td><td>12<br/>12</td><td>—</td><td>—</td><td>—</td><td>6.3<br/>4.3</td><td>9.0<br/>6.3</td><td>9.4<br/>3.6</td><td>12<br/>8.9</td><td>12<br/>8.9</td><td>8.9<br/>7.4</td><td>12<br/>12</td><td>12<br/>—</td><td>—</td><td>—</td></tr><tr><td>六</td><td>6<br/>5<br/>4<br/>1~3</td><td>—</td><td>—</td><td>8.9<br/>5.9</td><td>12<br/>8.6</td><td>8.6<br/>6.8</td><td>12<br/>6.3</td><td>12<br/>10</td><td>12<br/>12</td><td>12<br/>12</td><td>—</td><td>—</td><td>—</td><td>6.1<br/>4.1</td><td>8.8<br/>6.0</td><td>9.2<br/>5.8</td><td>12<br/>8.5</td><td>8.5<br/>4.8</td><td>7.8<br/>6.6</td><td>12<br/>12.4</td><td>12<br/>11.9</td><td>—</td><td>—</td></tr><tr><td>七</td><td>7<br/>6<br/>5<br/>1~4</td><td>—</td><td>—</td><td>8.2<br/>5.2</td><td>12<br/>8.3</td><td>12<br/>6.4</td><td>12<br/>8.5</td><td>12<br/>11</td><td>12<br/>12</td><td>12<br/>12</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>3.9<br/>3.9</td><td>7.2<br/>7.2</td><td>3.9<br/>3.9</td><td>7.2<br/>7.2</td><td>7.2<br/>3.9</td><td>7.2<br/>7.2</td><td>—</td><td>—</td></tr><tr><td>八</td><td>6~8<br/>1~5</td><td>—</td><td>—</td><td>—</td><td>3.9<br/>3.9</td><td>7.8<br/>7.8</td><td>3.9<br/>3.9</td><td>7.8<br/>7.8</td><td>3.9<br/>3.9</td><td>7.8<br/>7.8</td><td>3.9<br/>3.9</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr><tr><th rowspan="3">楼层<br/>总数</th><th rowspan="3">检查<br/>层数</th><th colspan="14">砂浆强度等级</th></tr><tr><th colspan="2">M0.4</th><th colspan="2">M1</th><th colspan="2">M2.5</th><th colspan="2">M5</th><th colspan="2">M10</th><th colspan="2">M0.4</th><th colspan="2">M1</th><th colspan="2">M2.5</th><th colspan="2">M5</th><th colspan="2">M10</th></tr><tr><th>L</th><th>B</th><th>L</th><th>B</th><th>L</th><th>B</th><th>L</th><th>B</th><th>L</th><th>B</th><th>L</th><th>B</th><th>L</th><th>B</th><th>L</th><th>B</th><th>L</th><th>B</th><th>L</th><th>B</th></tr><tr><th>二</th><td>2<br/>1</td><td>—</td><td>5.3<br/>4.3</td><td>7.8<br/>6.4</td><td>7.8<br/>6.2</td><td>12<br/>8.9</td><td>10<br/>8.4</td><td>15<br/>12</td><td>—</td><td>—</td><td>—</td><td>3.1<br/>—</td><td>4.6<br/>—</td><td>4.7<br/>3.7</td><td>7.1<br/>5.3</td><td>6.0<br/>5.0</td><td>9.2<br/>7.1</td><td>11<br/>6.4</td><td>10<br/>6.7</td></tr><tr><th>三</th><td>3<br/>1~2</td><td>—</td><td>4.7<br/>3.3</td><td>6.7<br/>4.9</td><td>7.0<br/>4.6</td><td>9.9<br/>6.8</td><td>9.7<br/>6.2</td><td>14<br/>8.8</td><td>13<br/>7.7</td><td>—</td><td>—</td><td>—</td><td>4.6<br/>—</td><td>4.7<br/>3.7</td><td>5.9<br/>—</td><td>5.8<br/>3.7</td><td>8.2<br/>5.3</td><td>7.7<br/>4.6</td><td>10<br/>6.7</td></tr><tr><th>四</th><td>4<br/>3<br/>1~2</td><td>—</td><td>4.4<br/>—</td><td>5.7<br/>—</td><td>6.5<br/>4.3</td><td>9.2<br/>6.3</td><td>9.1<br/>5.9</td><td>12<br/>8.5</td><td>12<br/>7.6</td><td>12<br/>9.1</td><td>—</td><td>—</td><td>—</td><td>—</td><td>3.3<br/>—</td><td>5.8<br/>—</td><td>3.3<br/>2.8</td><td>5.9<br/>4.8</td><td>5.9<br/>4.0</td></tr><tr><th>五</th><td>5<br/>4<br/>1~3</td><td>—</td><td>—</td><td>—</td><td>6.3<br/>4.1</td><td>8.9<br/>3.3</td><td>8.8<br/>4.5</td><td>8.8<br/>4.3</td><td>12<br/>7.8</td><td>7.1<br/>5.3</td><td>12<br/>7.8</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr><tr><th>六</th><td>6<br/>5<br/>4<br/>1~3</td><td>—</td><td>—</td><td>—</td><td>3.9<br/>—</td><td>6.0<br/>—</td><td>3.9<br/>—</td><td>6.0<br/>—</td><td>3.9<br/>—</td><td>3.9<br/>—</td><td>5.9<br/>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr></table>
 
 主：1  L 指240mm 厚承重横墙间距限值；楼盖、屋盖为刚性时取平均值，柔性时取最大值，中等刚性可相应换算； 2  B 指240mm 厚承重的房屋宽度限值；有一道同样厚度的内纵墙时可取1.4 倍，有2 道时可取1.8 倍；平面局部突出时， 房屋宽度可按加权平均值计算； 3  楼盖为混凝土而屋盖为木屋架或钢木屋架时，表中顶层的限值宜乘以0.7。
 
 source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
+type: table
+table_name: 表 5.2.9-1 抗震承载力简化验算的抗震横墙间距和房屋宽度限值（m）
 
 表 5.2.9-2 抗震墙体类别修正系数
 
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
-
 <table><tr><th>墙体类别</th><th>空斗墙</th><th colspan="2">空心墙</th><th>多孔砖墙</th><th>小型砌<br>块墙</th><th>中型砌<br>块墙</th><th colspan="3">实心墙</th></tr><tr><th>厚度<br>(mm)</th><td>240</td><td>300</td><td>420</td><td>190</td><td>t</td><td>t</td><td>180</td><td>370</td><td>480</td></tr><tr><th>修正系数</th><td>0.6</td><td>0.9</td><td>1.4</td><td>0.8</td><td>0.8/t/240</td><td>0.6/t/240</td><td>0.75</td><td>1.4</td><td>1.8</td></tr></table>
-
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
 
 注：$t$ 指小型砌块墙体的厚度。
 
 source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
+type: table
+table_name: 表 5.2.9-2 抗震墙体类别修正系数
 
 5.2.10 多层砌体房屋符合本节各项规定可评为综合抗震能力满足抗震鉴定要求；当遇下列情况之一时，可不再进行第二级鉴定，但应评为综合抗震能力不满足抗震鉴定要求，且要求对房屋采取加固或其他相应措施：
 
@@ -1320,48 +1210,19 @@ type: text
 
 一级鉴定要求，但横墙间距和房屋宽度均超过或其中一项超过第一级鉴定限值的房屋，可采用楼层平均抗震能力指数方法进行第二级鉴定。楼层平均抗震能力指数应按下式计算：
 
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
-
 $$
-
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
-
 \beta _ { i } = A _ { i } / ( A _ { \mathrm { b i } } \xi _ { 0 i } \lambda )
-
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
-
 $$
-
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
 
 式中 $\beta_{i}$ ——第 $i$ 楼层纵向或横向墙体平均抗震能力指数；
-
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
-
 $A_{i}$——第$i$楼层纵向或横向抗震墙在层高1/2处净截面积的总面积，其中不包括高宽比大于4的墙段截面面积；
-
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
-
 $A_{bi}$——第$i$楼层建筑平面面积；
-
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
-
 $\xi_{0i}$——第$i$楼层纵向或横向抗震墙的基准面积率，按本标准附录B采用；
-
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
-
 $\lambda$——烈度影响系数；6、7、8、9度时，分别按0.7、1.0、1.5和2.5采用，设计基本地震加速度为0.15g和0.30g，分别按1.25和2.0采用。当地处于本标准第4.1.3条规定的不利地段时，尚应乘以增大系数1.1\~1.6。
 
 source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
+type: equation
+equation_name: 一级鉴定要求，但横墙间距和房屋宽度均超过或其中一项超过第一级鉴定限值的房屋，可采用楼层平均抗震能力指数方法进行第二级鉴定。楼层平均抗震能力指数应按下式计算：
 
 5.2.14 现有结构体系、楼（屋）盖整体性连接、圈梁布置和构造及易引起局部倒塌的结构构件不符合第一级鉴定要求的房屋，可采用楼层综合抗震能力指数方法进行第二级鉴定，并应符合下列规定：
 
@@ -1370,38 +1231,17 @@ type: text
 
 1 楼层综合抗震能力指数应按下式计算:
 
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
-
 $$
-
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
-
 \beta _ { c i } = \psi _ { 1 } \psi _ { 2 } \beta _ { i }
-
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
-
 $$
-
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
 
 式中 $\beta_{c i}$ ——第 $i$ 楼层的纵向或横向墙体综合抗震能力指数；
-
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
-
 $\phi_{1}$ ——体系影响系数，可按本条第 2 款确定；
-
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
-
 $\phi_{2}$ ——局部影响系数，可按本条第 3 款确定。
 
 source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
+type: equation
+equation_name: 1 楼层综合抗震能力指数应按下式计算:
 
 2 体系影响系数可根据房屋不规则性、非刚性和整体性连接不符合第一级鉴定要求的程度, 经综合分析后确定; 也可由表 5.2.14-1 各项系数的乘积确定。当砖砌体的砂浆强度等级为 M0.4 时, 尚应乘以 0.9; 丙类设防的房屋当有构造柱或芯柱时, 尚可根据满足本标准第 5.3 节相关规定的程度乘以 1.0\~1.2 的
 
@@ -1420,93 +1260,43 @@ type: text
 
 表 5.2.14-1 体系影响系数值
 
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
-
 <table><tr><th>项目</th><th>不符合的程度</th><th>$\psi_1$</th><th>影响范围</th></tr><tr><td>房屋高宽比 $\eta$</td><td>2.2<&eta;2.6<br>2.6<&eta;3.0</td><td>0.85<br>0.75</td><td>上部 1/3 楼层<br>上部 1/3 楼层</td></tr><tr><td>横墙间距</td><td>超过表 5.2.2 最大值<br>4m 以内</td><td>0.90<br>1.00</td><td>楼层的 $\beta_{cij}$<br>墙段的 $\beta_{cij}$</td></tr><tr><td>错层高度</td><td>&gt;0.5m</td><td>0.90</td><td>错层上下</td></tr><tr><td>立面高度变化</td><td>超过一层</td><td>0.90</td><td>所有变化的楼层</td></tr><tr><td>相邻楼层的墙体<br>刚度比 $\lambda$</td><td>2<&lambda;3<&lambda;3<&lambda;3</td><td>0.85<br>0.75</td><td>刚度小的楼层<br>刚度小的楼层</td></tr><tr><td>楼盖、屋盖构件的<br>支承长度</td><td>比规定少 15%以内<br>比规定少 15%~25%</td><td>0.90<br>0.80</td><td>不满足的楼层<br>不满足的楼层</td></tr><tr><td>圈梁布置和构造</td><td>屋盖外墙不符合<br>楼盖外墙一道不符合<br>楼盖外墙二道不符合<br>内墙不符合</td><td>0.70<br>0.90<br>0.80</td><td>顶层<br>缺圈梁的上、下楼层<br>所有楼层<br>不满足的上、下楼层</td></tr></table>
-
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
 
 注：单项不符合的程度超过表内规定或不符合的项目超过3 项时，应采取加固或 其他相应措施。
 
 source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
+type: table
+table_name: 表 5.2.14-1 体系影响系数值
 
 表 5.2.14-2 局部影响系数值
 
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
-
 <table><tr><td>项目</td><td>不符合的程度</td><td>φ<sub>2</sub></td><td>影响范围</td></tr><tr><td>墙体局部尺寸</td><td>比规定少10%以内<br>比规定少10%~20%</td><td>0.95<br>0.90</td><td>不满足的楼层<br>不满足的楼层</td></tr><tr><td>楼梯间等大梁<br>的支承长度l</td><td>370mm<1l<490mm</td><td>0.80<br>0.70</td><td>该楼层的β<sub>cij</sub>该墙段的β<sub>cij</sub></td></tr><tr><td colspan="2">出屋面小房间</td><td>0.33</td><td>出屋面小房间</td></tr><tr><td colspan="2">支承悬挑结构构件的承重墙体</td><td>0.80</td><td>该楼层和墙段</td></tr><tr><td colspan="2">房屋尽端设过街楼或楼梯间</td><td>0.80</td><td>该楼层和墙段</td></tr><tr><td rowspan="2">有独立砌体柱承重的房屋</td><td>柱顶有拉结</td><td>0.80</td><td>楼层、柱两侧相邻墙段</td></tr><tr><td>柱顶无拉结</td><td>0.60</td><td>楼层、柱两侧相邻墙段</td></tr></table>
-
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
 
 注：不符合的程度超过表内规定时，应采取加固或其他相应措施。
 
 source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
+type: table
+table_name: 表 5.2.14-2 局部影响系数值
 
 5.2.15 实际横墙间距超过刚性体系规定的最大值、有明显扭转效应和易引起局部倒塌的结构构件不符合第一级鉴定要求的房屋, 当最弱的楼层综合抗震能力指数小于 1.0 时, 可采用墙段综合抗震能力指数方法进行第二级鉴定。墙段综合抗震能力指数应按下式计算:
 
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
-
 $$
-
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
-
 \beta _ { c i j } = \psi _ { 1 } \psi _ { 2 } \beta _ { i j }
-
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
-
 $$
 
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
-
 $$
-
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
-
 \beta _ { i j } = A _ { i j } / ( A _ { b i j } \xi _ { 0 i } \lambda )
-
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
-
 $$
-
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
 
 其中 $\beta_{ij}$ ——第 $i$ 层第 $j$ 墙段综合抗震能力指数；
-
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
-
 $\beta_{ij}$ ——第 $i$ 层第 $j$ 墙段抗震能力指数；
-
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
-
 $A_{ij}$ ——第 $i$ 层第 $j$ 墙段在 $1/2$ 层高处的净截面面积；
-
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
-
 $A_{bj}$ ——第 $i$ 层第 $j$ 墙段计及楼盖刚度影响的从属面积。
-
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
-
 注：考虑扭转效应时，式（5.2.15-1）中尚应包括扭转效应系数，其值可按现行国家标准《建筑抗震设计规范》GB 50011 的规定，取该墙段不考虑与考虑扭转时的内力比。
 
 source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
+type: equation
+equation_name: 5.2.15 实际横墙间距超过刚性体系规定的最大值、有明显扭转效应和易引起局部倒塌的结构构件不符合第一级鉴定要求的房屋, 当最弱的楼层综合抗震能力指数小于 1.0 时, 可采用墙段综合抗震能力指数方法进行第二级鉴定。墙段综合抗震能力指数应按下式计算:
 
 5.2.16 房屋的质量和刚度沿高度分布明显不均匀, 或 7、8、9度时房屋的层数分别超过六、五、三层, 可按本标准第 5.3 节的方法进行抗震承载力验算, 并可按本标准第 5.2.14 条的规定估算构造的影响, 由综合评定进行第二级鉴定。
 
@@ -1535,18 +1325,13 @@ type: text
 
 表 5.3.1 B 类多层砌体房屋的层数和总高度限值 (m)
 
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
-
 <table><tr><td rowspan="2">砌体类别</td><td rowspan="2">最小墙厚 (mm）</td><td colspan="7">烈度</td></tr><tr><td colspan="2">6</td><td colspan="2">7</td><td colspan="2">8</td><td colspan="2">9</td></tr><tr><td>普通砖</td><td>240</td><td>24</td><td>八</td><td>21</td><td>七</td><td>18</td><td>六</td><td>12</td><td>四</td></tr><tr><td rowspan="2">多孔砖</td><td>240</td><td>21</td><td>七</td><td>21</td><td>七</td><td>18</td><td>六</td><td>12</td><td>四</td></tr><tr><td>190</td><td>21</td><td>七</td><td>18</td><td>六</td><td>15</td><td>五</td><td rowspan="3" colspan="2">不宜采用</td></tr><tr><td>混凝土小砌块</td><td>190</td><td>21</td><td>七</td><td>18</td><td>六</td><td>15</td><td>五</td></tr><tr><td>混凝土中砌块</td><td>200</td><td>18</td><td>六</td><td>15</td><td>五</td><td>9</td><td>三</td></tr><tr><td>粉煤灰中砌块</td><td>240</td><td>18</td><td>六</td><td>15</td><td>五</td><td>9</td><td>三</td><td></td><td></td></tr></table>
-
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
 
 注：1 房屋高度计算方法同现行国家标准《建筑抗震设计规范》GB 50011 的 规定； 2 乙类设防时应允许按本地区设防烈度查表，但层数应减少一层且总高度应 降低3m。
 
 source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
+type: table
+table_name: 表 5.3.1 B 类多层砌体房屋的层数和总高度限值 (m)
 
 5.3.2 现有普通砖和 240mm 厚多孔砖房屋的层高，不宜超过 4m；190mm 厚多孔砖和砌块房屋的层高，不宜超过 3.6m。
 
@@ -1565,13 +1350,11 @@ type: text
 
 表 5.3.3-1 B 类多层砌体房屋的抗震横墙最大间距 (m)
 
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
-
 <table><tr><td rowspan="2">楼盖、屋 盖类别</td><td colspan="4">普通砖、多孔砖房屋</td><td colspan="4">中砌块房屋</td><td colspan="4">小砌块房屋</td></tr><tr><td>6度</td><td>7度</td><td>8度</td><td>9度</td><td>6度</td><td>7度</td><td>8度</td><td>6度</td><td>7度</td><td>7度</td><td>8度</td></tr><tr><td>现浇和装配 整体式钢 钋混凝土</td><td>18</td><td>18</td><td>15</td><td>11</td><td>13</td><td>13</td><td>10</td><td>15</td><td>15</td><td>11</td><td>11</td></tr><tr><td>装配式钢 钋 粮混凝土</td><td>15</td><td>15</td><td>11</td><td>7</td><td>10</td><td>10</td><td>7</td><td>11</td><td>11</td><td>7</td></tr><tr><td>木</td><td>11</td><td>11</td><td>7</td><td>4</td><td colspan="7">不宜采用</td></tr></table>
 
 source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
+type: table
+table_name: 表 5.3.3-1 B 类多层砌体房屋的抗震横墙最大间距 (m)
 
 2 房屋总高度与总宽度的最大比值（高宽比），宜符合表 5.3.3-2 的要求。
 
@@ -1580,18 +1363,13 @@ type: text
 
 表 5.3.3-2 房屋最大高宽比
 
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
-
 <table><tr><td>烈度</td><td>6</td><td>7</td><td>8</td><td>9</td></tr><tr><td>最大高宽比</td><td>2.5</td><td>2.5</td><td>2.0</td><td>1.5</td></tr></table>
-
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
 
 注：单面走廊房屋的总宽度不包括走廊宽度。
 
 source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
+type: table
+table_name: 表 5.3.3-2 房屋最大高宽比
 
 3 纵横墙的布置宜均匀对称，沿平面内宜对齐，沿竖向应上下连续；同一轴线上的窗间墙宽度宜均匀。
 
@@ -1665,13 +1443,11 @@ type: text
 
 表 5.3.5-1 砖砌体房屋构造柱设置要求
 
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
-
 <table><tr><th rowspan="2">房屋层数<br>6度</th><th rowspan="2">7度</th><th rowspan="2">8度</th><th rowspan="2">9度</th><th colspan="2">设置部位</th></tr><tr><th>7、8度时, 楼梯间、电梯<br>间四角</th></tr><tr><td>四、五</td><td>三、四</td><td>二、三</td><td>—</td><td rowspan="2">外墙四角, 错层部位横<br>墙与外纵墙<br>交接处, 较<br>大洞口两侧,大房间内外<br>墙交接处</td><td>7、8度时, 楼梯间、电梯<br>间四角</td></tr><tr><td>六~八</td><td>五、六</td><td>四</td><td>二</td><td>隔开间横墙(轴线)与外<br>墙交接处, 山墙与内纵墙交<br>接处; 7~9度时, 楼梯间、<br>电梯间四角</td></tr><tr><td>—</td><td>七</td><td>五、六</td><td>三、四</td><td>内墙(轴线)与外墙交接<br>处, 内墙的局部较小墙垛处; 7~9度时, 楼梯间、电梯间<br>四角; 9度时内纵墙与横墙<br>(轴线)交接处</td></tr></table>
 
 source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
+type: table
+table_name: 表 5.3.5-1 砖砌体房屋构造柱设置要求
 
 2) 混凝土小砌块房屋的钢筋混凝土芯柱应按表 5.3.5-2 的要求检查;
 
@@ -1680,13 +1456,11 @@ type: text
 
 表 5.3.5-2 混凝土小砌块房屋芯柱设置要求
 
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
-
 <table><tr><th>房屋层数</th><th rowspan="2">设置部位</th><th rowspan="2">设置数量</th></tr><tr><td>6度</td><td>7度</td><td>8度</td></tr><tr><td>四、五</td><td>三、四</td><td>二、三</td><td>外墙转角, 楼梯间四角;大房间内外墙交接处</td><td rowspan="2">外墙四角, 填实 3 个孔;内外墙交接处, 填实 4 个孔</td></tr><tr><td>六</td><td>五</td><td>四</td><td>外墙转角, 楼梯间四角,大房间内外墙交接处, 山墙与内纵墙交接处, 隔开间横墙 (轴线) 与外纵墙交接处</td></tr><tr><td>七</td><td>六</td><td>五</td><td>外墙转角, 楼梯间四角,大房间内外墙交接处; 各内墙 (轴线) 与外纵墙交接处; 8度时, 内纵墙与横墙 (轴线) 交接处和门洞两侧</td><td>外墙四角, 填实 5 个孔; 内外墙交接处, 填实 4 个孔; 内墙交接处, 填实 4~5 个孔; 洞口两侧各填实 1 个孔</td></tr></table>
 
 source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
+type: table
+table_name: 表 5.3.5-2 混凝土小砌块房屋芯柱设置要求
 
 3) 混凝土中砌块房屋的钢筋混凝土芯柱应按表 5.3.5-3 的要求检查;
 
@@ -1695,13 +1469,11 @@ type: text
 
 表 5.3.5-3 混凝土中砌块房屋芯柱设置要求
 
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
-
 <table><tr><td>烈度</td><td>设置部位</td></tr><tr><td>6、7度</td><td>外墙四角,楼梯间四角,大房间内外墙交接处,山墙与内纵墙交接处,隔开间横墙(轴线)与外纵墙交接处</td></tr><tr><td>8度</td><td>外墙四角,楼梯间四角,横墙(轴线)与纵墙交接处,横墙门洞两侧,大房间内外墙交接处</td></tr></table>
 
 source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
+type: table
+table_name: 表 5.3.5-3 混凝土中砌块房屋芯柱设置要求
 
 4) 外廊式和单面走廊式的多层房屋, 应根据房屋增加一层后的层数, 分别按本款第 1) ～3) 项的要求检查构造柱或芯柱, 且单面走廊两侧的纵墙均应按外墙处理;
 
@@ -1730,13 +1502,11 @@ type: text
 
 表 5.3.5-4 多层砖房现浇钢筋混凝土圈梁设置和配筋要求
 
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
-
 <table><tr><td rowspan="2" colspan="2">墙类和配筋量</td><td rowspan="1" colspan="3">烈度</td></tr><tr><td>6、7度</td><td>8度</td><td>9度</td></tr><tr><td rowspan="2" colspan="1">墙类</td><td>外墙和内纵墙</td><td>屋盖处及隔层楼<br>盖处应有</td><td>屋盖处及每层楼<br>盖处均应有</td><td>屋盖处及每层楼<br>盖处均应有</td></tr><tr><td rowspan="2" colspan="1">内横墙</td><td>屋盖处及隔层楼<br>盖处应有；屋盖处<br>间距不应大于7m；<br>楼盖处间距不应大<br>于15m；构造柱对<br>应部位</td><td>屋盖处及每层楼<br>盖处均应有；屋盖<br>处沿所有横墙，且<br>间距不应大于7m；<br>楼盖处间距不应大<br>于7m；构造柱对应<br>部位</td><td>屋盖处及每层楼<br>盖处均应有；各层<br>所有横墙应有</td></tr><tr><td>最小纵筋</td><td>498</td><td>4910</td><td>4912</td></tr><tr><td>最大箍筋间距<br>(mm)</td><td>250</td><td>200</td><td>150</td></tr></table>
 
 source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
+type: table
+table_name: 表 5.3.5-4 多层砖房现浇钢筋混凝土圈梁设置和配筋要求
 
 4 现有房屋楼盖、屋盖及其与墙体的连接应符合下列要求:
 
@@ -1910,13 +1680,11 @@ type: text
 
 表 5.3.10 房屋的局部尺寸限值（m）
 
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
-
 <table><tr><th rowspan="2">部位</th><th colspan="4">烈度</th></tr><tr><th>6度</th><th>7度</th><th>8度</th><th>9度</th></tr><tr><th>承重窗间墙最小宽度</th><td>1.0</td><td>1.0</td><td>1.2</td><td>1.5</td></tr><tr><th>承重外墙尽端至门窗洞边的最小距离</th><td>1.0</td><td>1.0</td><td>1.5</td><td>2.0</td></tr><tr><th>非承重外墙尽端至门窗洞边的最小距离</th><td>1.0</td><td>1.0</td><td>1.0</td><td>1.0</td></tr><tr><th>内墙阳角至门窗洞边的最小距离</th><td>1.0</td><td>1.0</td><td>1.5</td><td>2.0</td></tr><tr><th>无锡固女儿墙（非出入口或人流通道处）最大高度</th><td>0.5</td><td>0.5</td><td>0.5</td><td>0.0</td></tr></table>
 
 source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
+type: table
+table_name: 表 5.3.10 房屋的局部尺寸限值（m）
 
 5.3.11 楼梯间应符合下列要求:
 
@@ -1960,33 +1728,16 @@ type: text
 
 5.3.13 各类砌体沿阶梯形截面破坏的抗震抗剪强度设计值，应按下式确定:
 
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
-
 $$
-
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
-
 f _ { \mathrm { v E } } = \xi _ { \mathrm { N } } f _ { \mathrm { v } }
-
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
-
 $$
-
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
 
 f_{\mathrm{vE}}——砌体沿阶梯形截面破坏的抗震抗剪强度设计值；
-
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
-
 f_{\mathrm{v}}——非抗震设计的砌体抗剪强度设计值，按本标准表
 
 source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
+type: equation
+equation_name: 5.3.13 各类砌体沿阶梯形截面破坏的抗震抗剪强度设计值，应按下式确定:
 
 A. 0.1-2 采用；
 
@@ -2000,153 +1751,68 @@ type: text
 
 表 5.3.13 砌体抗震抗剪强度的正应力影响系数
 
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
-
 <table><tr><th rowspan="2">砌体类别</th><th colspan="9">$\sigma_0/f_{\rm v}$</th></tr><tr><th>0.0</th><th>1.0</th><th>3.0</th><th>5.0</th><th>7.0</th><th>10.0</th><th>15.0</th><th>20.0</th><th>25.0</th></tr><tr><th>普通砖、多孔砖</th><td>0.80</td><td>1.00</td><td>1.28</td><td>1.50</td><td>1.70</td><td>1.95</td><td>2.32</td><td>—</td><td>—</td></tr><tr><th>粉煤灰中砌块混凝土中砌块</th><td>—</td><td>1.18</td><td>1.54</td><td>1.90</td><td>2.20</td><td>2.65</td><td>3.40</td><td>4.15</td><td>4.90</td></tr><tr><th>混凝土小砌块</th><td>—</td><td>1.25</td><td>1.75</td><td>2.25</td><td>2.60</td><td>3.10</td><td>3.95</td><td>4.80</td><td>—</td></tr></table>
-
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
 
 注：$\sigma_{0}$ 为对应于重力荷载代表值的砌体截面平均压应力。
 
 source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
+type: table
+table_name: 表 5.3.13 砌体抗震抗剪强度的正应力影响系数
 
 5.3.14 普通砖、多孔砖、粉煤灰中砌块和混凝土中砌块墙体的截面抗震承载力，应按下式验算:
 
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
-
 $$
-
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
-
 V \leqslant f _ { \mathrm { v E } } A / \gamma _ { \mathrm { R a } }
-
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
-
 $$
-
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
 
 中 V——墙体剪力设计值；
-
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
-
 $f_{\mathrm{E}}$——砌体沿阶梯形截面破坏的抗震抗剪强度设计值；
-
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
-
 A——墙体横截面面积；
-
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
-
 $\gamma_{\mathrm{Ra}}$——抗震鉴定的承载力调整系数，应按本标准第 3.0.5 条采用。
 
 source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
+type: equation
+equation_name: 5.3.14 普通砖、多孔砖、粉煤灰中砌块和混凝土中砌块墙体的截面抗震承载力，应按下式验算:
 
 5.3.15 当按式（5.3.14）验算不满足时，可计入设置于墙段中部、截面不小于 240mm×240mm 且间距不大于 4m 的构造柱对受剪承载力的提高作用，按下列简化方法验算:
 
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
-
 $$
-
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
-
 V \leqslant \frac { 1 } { \gamma _ { \mathrm { R a } } } \left[ \eta _ { \mathrm { c } } f _ { \mathrm { v E } } ( A - A _ { \mathrm { c } } ) + \zeta f _ { \mathrm { t } } A _ { \mathrm { c } } + 0 . 0 8 f _ { \mathrm { y } } A _ { \mathrm { s } } \right]
-
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
-
 $$
-
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
 
 式中 $A_{c}$——中部构造柱的横截面总面积（对横墙和内纵墙， $A_{c} > 0.15A$ 时，取0.15A；对外纵墙， $A_{c} > 0.25A$ 时，取0.25A）； $f_{1}$——中部构造柱的混凝土轴心抗拉强度设计值，按本 标准表A.0.2\-2采用；
-
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
-
 $A_{\mathrm{s}}$——中部构造柱的纵向钢筋截面总面积（配筋率不大于0.6%，大于1.4%取1.4%）；
-
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
-
 $f_{y}$——钢筋抗拉强度设计值，按本标准表A.0.3-2采用；
-
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
-
 $\zeta$——中部构造柱参与工作系数；居中设一根时取0.5，多于一根取0.4；
-
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
-
 $\eta_{c}$——墙体约束修正系数；一般情况下取1.0，构造柱间距不大于2.8m时取1.1。
 
 source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
+type: equation
+equation_name: 5.3.15 当按式（5.3.14）验算不满足时，可计入设置于墙段中部、截面不小于 240mm×240mm 且间距不大于 4m 的构造柱对受剪承载力的提高作用，按下列简化方法验算:
 
 5.3.16 横向配筋普通砖、多孔砖墙的截面抗震承载力，可按下式验算:
 
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
-
 $$
-
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
-
 V \leqslant \frac { 1 } { \gamma _ { \mathrm { R a } } } ( f _ { \mathrm { v E } } A + 0 . 1 5 f _ { \mathrm { y } } A _ { \mathrm { s } } )
-
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
-
 $$
-
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
 
 式中 $A_{\mathrm{s}}$——层间竖向截面中钢筋总截面面积。
 
 source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
+type: equation
+equation_name: 5.3.16 横向配筋普通砖、多孔砖墙的截面抗震承载力，可按下式验算:
 
 5.3.17 混凝土小砌块墙体的截面抗震承载力，应按下式验算:
 
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
-
 $$
-
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
-
 V \leqslant \frac { 1 } { \gamma _ { \mathrm { R a } } } [ f _ { \mathrm { v E } } A + ( 0 . 3 f _ { \mathrm { t } } A _ { \mathrm { c } } + 0 . 0 5 f _ { \mathrm { y } } A _ { \mathrm { s } } ) \zeta _ { \mathrm { c } } ]
-
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
-
 $$
-
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
 
 式中 $f_{\mathrm{a}}$——芯柱混凝土轴心抗拉强度设计值，按本标准表
 
 source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
+type: equation
+equation_name: 5.3.17 混凝土小砌块墙体的截面抗震承载力，应按下式验算:
 
 A. 0.2-2 采用;
 
@@ -2170,18 +1836,13 @@ type: text
 
 表 5.3.17 芯柱影响系数
 
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
-
 <table><tr><td>填孔率ρ</td><td>ρ<0.15</td><td>0.15≤ρ<0.25</td><td>0.25≤ρ<0.5</td><td>ρ≥0.5</td></tr><tr><td>ζ<sub>c</sub></td><td>0.0</td><td>1.0</td><td>1.10</td><td>1.15</td></tr></table>
-
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
 
 注：填孔率指芯柱根数与孔洞总数之比。
 
 source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
+type: table
+table_name: 表 5.3.17 芯柱影响系数
 
 5.3.18 各层层高相当且较规则均匀的 B 类多层砌体房屋, 尚可按本标准第 5.2.12\~第 5.2.15 条的规定采用楼层综合抗震能力指数的方法进行综合抗震能力验算。其中, 公式 (5.2.13) 中的烈度影响系数, 6、7、8、9度时应分别按 0.7、1.0、2.0 和 4.0 采用, 设计基本地震加速度为 0.15g 和 0.30g 时应分别按 1.5 和 3.0 采用。
 
@@ -2215,18 +1876,13 @@ type: text
 
 表 6.1.1 B 类现浇钢筋混凝土房屋适用的最大高度 (m)
 
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
-
 <table><tr><td rowspan="2" colspan="2" >结构类型</td><td colspan="3">烈度</td></tr><tr><td>6度</td><td>7度</td><td>8度</td><td>9度</td></tr><tr><td>框架结构</td><td rowspan="3" colspan="1">同非抗震设计</td><td>55</td><td>45</td><td>25</td></tr><tr><td>框架-抗震墙结构</td><td>120</td><td>100</td><td>50</td></tr><tr><td>抗震墙结构</td><td>120</td><td>100</td><td>60</td></tr><tr><td>框支抗震墙结构</td><td>120</td><td>100</td><td>80</td><td>不应采用</td></tr></table>
-
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
 
 注：1 房屋高度指室外地面到主要屋面板板顶的高度（不包括局部突出屋顶部分）； 2 本章中的“抗震墙”指结构抗侧力体系中的钢筋混凝土剪力墙，不包括只 承担重力荷载的混凝土墙。
 
 source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
+type: table
+table_name: 表 6.1.1 B 类现浇钢筋混凝土房屋适用的最大高度 (m)
 
 6.1.2 现有钢筋混凝土房屋的抗震鉴定，应依据其设防烈度重点检查下列薄弱部位：
 
@@ -2355,13 +2011,11 @@ type: text
 
 表 6.2.1-1 A 类钢筋混凝土房屋抗震墙无大洞口的楼盖、屋盖的长宽比
 
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
-
 <table><tr><td rowspan="2">楼盖、屋盖类别</td><td colspan="2">烈度</td></tr><tr><td>8度</td><td>9度</td></tr><tr><td>现浇、叠合梁板</td><td>3.0</td><td>2.0</td></tr><tr><td>装配式楼盖</td><td>2.5</td><td>1.0</td></tr></table>
 
 source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
+type: table
+table_name: 表 6.2.1-1 A 类钢筋混凝土房屋抗震墙无大洞口的楼盖、屋盖的长宽比
 
 5 8度时, 厚度不小于 240mm、砌筑砂浆强度等级不低于 M2.5 的抗侧力黏土砖填充墙, 其平均间距应不大于表 6.2.1-2 规定的限值。
 
@@ -2370,13 +2024,11 @@ type: text
 
 表 6.2.1-2 抗侧力黏土砖填充墙平均间距的限值
 
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
-
 <table><tr><th>总层数</th><th>三</th><th>四</th><th>五</th><th>六</th></tr><tr><th>间距 (m)</th><td>17</td><td>14</td><td>12</td><td>11</td></tr></table>
 
 source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
+type: table
+table_name: 表 6.2.1-2 抗侧力黏土砖填充墙平均间距的限值
 
 6.2.2 梁、柱、墙实际达到的混凝土强度等级，6、7度时不应低于 C13，8、9度时不应低于 C18。
 
@@ -2415,18 +2067,13 @@ type: text
 
 表 6.2.4 乙类设防时框架柱箍筋的最大间距和最小直径
 
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
-
 <table><tr><th>烈度和场地</th><th>7度(0.10g), 7度(0.15g)Ⅰ、Ⅱ类场地</th><th>7度(0.15g)Ⅲ、Ⅳ场地~8度(0.30g)Ⅰ、Ⅱ类场地</th><th>8度(0.30g)Ⅲ、Ⅳ类场地和9度</th></tr><tr><th>箍筋最大间距 (取较小值)</th><td>8d, 150mm</td><td>8d, 100mm</td><td>6d, 100mm</td></tr><tr><th>箍筋最小直径</th><td>8mm</td><td>8mm</td><td>10mm</td></tr></table>
-
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
 
 注：$d$ 为纵向钢筋直径。
 
 source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
+type: table
+table_name: 表 6.2.4 乙类设防时框架柱箍筋的最大间距和最小直径
 
 3 净高与截面高度之比不大于 4 的柱, 包括因嵌砌黏土砖填充墙形成的短柱, 沿柱全高范围内的箍筋直径不应小于 $8$, 簧筋间距, 8 度时不应大于 150mm, 9 度时不应大于 100mm。
 
@@ -2555,33 +2202,16 @@ type: text
 
 6.2.11 楼层综合抗震能力指数可按下列公式计算:
 
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
-
 $$
-
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
-
 \begin{array} { r } { \beta = \psi _ { 1 } \psi _ { 2 } \xi _ { \mathrm { y } } } \\ { \xi _ { \mathrm { y } } = V _ { \mathrm { y } } / V _ { \mathrm { e } } } \end{array}
-
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
-
 $$
-
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
 
 式中 $\beta$——平面结构楼层综合抗震能力指数；
-
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
-
 $\phi_{2}$ 局部影响系数；可按本标准第6.2.13条确定； $\xi_{y}$ ——楼层屈服强度系数； $\nabla_{y}$ ——楼层现有受剪承载力，可按本标准附录C计算； $\nabla_{e}$ ——楼层的弹性地震剪力，可按本标准第6.2.14条计算。 6.2.12 A类钢筋混凝土房屋的体系影响系数可根据结构体系、 梁柱箍筋、轴压比等符合第一级鉴定要求的程度和部位，按下列 情况确定： 1 当上述各项构造均符合现行国家标准《建筑抗震设计规 范》GB 50011的规定时，可取1.4。 2 当各项构造均符合本标准第6.3节B类建筑的规定时， 可取1.25。 3 当各项构造均符合本节第一级鉴定的规定时，可取1.0。 4 当各项构造均符合非抗震设计规定时，可取0.8。 5 当结构受损伤或发生倾斜但已修复纠正，上述数值尚宜 乘以0.8\\~1.0。 6.2.13 局部影响系数可根据局部构造不符合第一级鉴定要求的 程度，采用下列三项系数选定后的最小值： 1 与承重砌体结构相连的框架，取0.8\\~0.95。 2 填充墙等与框架的连接不符合第一级鉴定要求，取0.7\\~ 0.95。 3 抗震墙之间楼盖、屋盖长宽比超过表6.2.1\-1的规定值， 可按超过的程度，取0.6\\~0.9。 6.2.14 楼层的弹性地震剪力，对规则结构可采用底部剪力法计 算，地震作用按本标准第3.0.5条的规定计算，地震作用分项系 数取1.0；对考虑扭转影响的边槌结构，可按现行国家标准《建 筑抗震设计规范》GB 50011规定的方法计算。当场地处于本标
 
 source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
+type: equation
+equation_name: 6.2.11 楼层综合抗震能力指数可按下列公式计算:
 
 准第4.1.3条规定的不利地段时，地震作用尚应乘以增大系数1.1\~1.6。
 
@@ -2620,18 +2250,13 @@ type: text
 
 表 6.3.1 钢筋混凝土结构的抗震等级
 
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
-
 <table><tr><td rowspan="2" colspan="2">结构类型</td><td colspan="6">烈度</td></tr><tr><td>6度</td><td colspan="2">7度</td><td colspan="2">8度</td><td>9度</td></tr><tr><td rowspan="2" colspan="1">框架<br>结构</td><td>房屋高<br>度(m)</td><td>≤25</td><td>>25</td><td>≤35</td><td>>35</td><td>≤35</td><td>>35</td><td>≤25</td></tr><tr><td>框架</td><td>四</td><td>三</td><td>三</td><td>二</td><td>二</td><td>一</td><td>一</td></tr><tr><td rowspan="3" colspan="1">框架一<br>抗震墙<br>结构</td><td>房屋高度(m)</td><td>≤50</td><td>>50</td><td>≤60</td><td>>60</td><td>≤50</td><td>50～80</td><td>>80</td><td>≤25</td><td>>25</td></tr><tr><td>框架</td><td>四</td><td>三</td><td>三</td><td>二</td><td>三</td><td>二</td><td>一</td><td>二</td><td>一</td></tr><tr><td>抗震墙</td><td colspan="2">三</td><td colspan="2">二</td><td>二</td><td colspan="2">一</td><td colspan="2">一</td></tr><tr><td rowspan="5" colspan="1">抗震<br>墙<br>结构</td><td>房屋高度(m)</td><td>≤60</td><td>>60</td><td>≤80</td><td>>80</td><td>≤35</td><td>35～80</td><td>>80</td><td>≤25</td><td>>25</td></tr><tr><td>一般抗震墙</td><td>四</td><td>三</td><td>三</td><td>二</td><td>三</td><td>二</td><td>一</td><td>二</td><td>一</td></tr><tr><td>有框支层的落<br>地抗震墙底部<br>加强部位</td><td>三</td><td>二</td><td colspan="2">二</td><td>二</td><td>一</td><td rowspan="2">不宜<br>采用</td><td rowspan="2" colspan="2">不<br>应采用</td></tr><tr><td>框支层框架</td><td>三</td><td>二</td><td>二</td><td>一</td><td>二</td><td>一</td></tr><tr><td>框支层框架</td><td>三</td><td>二</td><td>二</td><td>一</td><td>二</td><td>一</td><td></td></tr></table>
-
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
 
 注：乙类设防时，抗震等级应提高一度查表。
 
 source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
+type: table
+table_name: 表 6.3.1 钢筋混凝土结构的抗震等级
 
 6.3.2 现有房屋的结构体系应按下列规定检查:
 
@@ -2675,13 +2300,11 @@ type: text
 
 表 6.3.2-1 轴压比限值
 
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
-
 <table><tr><td rowspan="2">类别</td><td colspan="3">抗震等级</td></tr><tr><td>一</td><td>二</td><td>三</td></tr><tr><td>框架柱</td><td>0.7</td><td>0.8</td><td>0.9</td></tr><tr><td>框架-抗震墙的柱</td><td>0.9</td><td>0.9</td><td>0.95</td></tr><tr><td>框支柱</td><td>0.6</td><td>0.7</td><td>0.8</td></tr></table>
 
 source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
+type: table
+table_name: 表 6.3.2-1 轴压比限值
 
 4 钢筋混凝土框架—抗震墙房屋的结构布置尚应按下列规定检查:
 
@@ -2710,13 +2333,11 @@ type: text
 
 表 6.3.2-2 B 类钢筋混凝土房屋抗震墙无大洞口的楼盖、屋盖长宽比
 
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
-
 <table><tr><td rowspan="2">楼盖、屋盖类别</td><td colspan="4">烈度</td></tr><tr><td>6度</td><td>7度</td><td>8度</td><td>9度</td></tr><tr><td>现浇、叠合梁板</td><td>4.0</td><td>4.0</td><td>3.0</td><td>2.0</td></tr><tr><td>装配式楼盖</td><td>3.0</td><td>3.0</td><td>2.5</td><td>不宜采用</td></tr><tr><td>框支层现浇梁板</td><td>2.5</td><td>2.5</td><td>2.0</td><td>不宜采用</td></tr></table>
 
 source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
+type: table
+table_name: 表 6.3.2-2 B 类钢筋混凝土房屋抗震墙无大洞口的楼盖、屋盖长宽比
 
 5）抗震墙墙板厚度不应小于160mm且不应小于层高的1/20，在墙板周边应有梁（或暗梁）和端柱组成的边框。
 
@@ -2815,18 +2436,13 @@ type: text
 
 表 6.3.4 梁加密区的长度、箍筋最大间距和最小直径
 
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
-
 <table><tr><th>抗震等级</th><th>加密区长度(采用最大值)(mm)</th><th>箍筋最大间距(采用最小值)(mm)</th><th>箍筋最小直径(mm)</th></tr><tr><td>一</td><td>2h<sub>b</sub>, 500</td><td>h<sub>b</sub>/4, 6d, 100</td><td>10</td></tr><tr><td>二</td><td>1.5h<sub>b</sub>, 500</td><td>h<sub>b</sub>/4, 8d, 100</td><td>8</td></tr><tr><td>三</td><td>1.5h<sub>b</sub>, 500</td><td>h<sub>b</sub>/4, 8d, 150</td><td>8</td></tr><tr><td>四</td><td>1.5h<sub>b</sub>, 500</td><td>h<sub>b</sub>/4, 8d, 150</td><td>6</td></tr></table>
-
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
 
 注：$d$ 为纵向钢筋直径；$h_{\mathrm{b}}$ 为梁高。
 
 source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
+type: table
+table_name: 表 6.3.4 梁加密区的长度、箍筋最大间距和最小直径
 
 6.3.5 现有框架柱的配筋与构造应按下列要求检查:
 
@@ -2840,13 +2456,11 @@ type: text
 
 表 6.3.5-1 柱纵向钢筋的最小总配筋率（%）
 
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
-
 <table><tr><td rowspan="2">类 别</td><td colspan="4">抗 震 等 级</td></tr><tr><td>一</td><td>二</td><td>三</td><td>四</td></tr><tr><td>框架中柱和边柱</td><td>0.8</td><td>0.7</td><td>0.6</td><td>0.5</td></tr><tr><td>框架角柱、框支柱</td><td>1.0</td><td>0.9</td><td>0.8</td><td>0.7</td></tr></table>
 
 source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
+type: table
+table_name: 表 6.3.5-1 柱纵向钢筋的最小总配筋率（%）
 
 2 柱箍筋在规定的范围内应加密，加密区的箍筋最大间距和最小直径，不宜低于表 6.3.5-2 的要求。
 
@@ -2855,18 +2469,13 @@ type: text
 
 表 6.3.5-2 柱加密区的箍筋最大间距和最小直径
 
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
-
 <table><tr><th>抗震等级</th><th>箍筋最大间距 (采用较小值)<br>(mm)</th><th>箍筋最小直径<br>(mm)</th></tr><tr><td>一</td><td>6d, 100</td><td>10</td></tr><tr><td>二</td><td>8d, 100</td><td>8</td></tr><tr><td>三</td><td>8d, 150</td><td>8</td></tr><tr><td>四</td><td>8d, 150</td><td>8</td></tr></table>
-
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
 
 注：1 $d$ 为柱纵筋最小直径；
 
 source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
+type: table
+table_name: 表 6.3.5-2 柱加密区的箍筋最大间距和最小直径
 
 2 二级框架柱的箍筋直径不小于10mm时，最大间距应允许为150mm；
 
@@ -2925,18 +2534,13 @@ type: text
 
 表 6.3.5-3 柱加密区的箍筋最小体积配箍率（%）
 
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
-
 <table><tr><th rowspan="2">抗震等级</th><th rowspan="2">箍筋形式</th><th colspan="3">柱轴压比</th></tr><tr><th>&lt;0.4</th><th>0.4~0.6</th><th>&gt;0.6</th></tr><tr><td rowspan="2">一</td><td>普通箍、复合箍</td><td>0.8</td><td>1.2</td><td>1.6</td></tr><tr><td>螺旋箍</td><td>0.8</td><td>1.0</td><td>1.2</td></tr><tr><td rowspan="2">二</td><td>普通箍、复合箍</td><td>0.6~0.8</td><td>0.8~1.2</td><td>1.2~1.6</td></tr><tr><td>螺旋箍</td><td>0.6</td><td>0.8~1.0</td><td>1.0~1.2</td></tr><tr><td rowspan="2">三</td><td>普通箍、复合箍</td><td>0.4~0.6</td><td>0.6~0.8</td><td>0.8~1.2</td></tr><tr><td>螺旋箍</td><td>0.4</td><td>0.6</td><td>0.8</td></tr></table>
-
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
 
 注：1 表中的数值适用于HPB235 级钢筋、混凝土强度等级不高于C35 的情况， 对HRB335 级钢筋和混凝土强度等级高于C35 的情况可按强度相应换算， 但不应小于0.4； 2 井字复合箍的肢距不大于200mm 且直径不小于10mm 时，可采用表中螺 旋箍对应数。
 
 source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
+type: table
+table_name: 表 6.3.5-3 柱加密区的箍筋最小体积配箍率（%）
 
 6.3.6 框架节点核心区内箍筋的最大间距和最小直径宜按本标准表 6.3.5-2 检查, 一、二、三级的体积配箍率分别不宜小于 1.0%、0.8%、0.6%, 但轴压比小于 0.4 时仍按本标准表 6.3.5-3 检查。
 
@@ -2960,13 +2564,11 @@ type: text
 
 表 6.3.7-1 抗震墙墙板横向、竖向分布钢筋的配筋要求
 
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
-
 <table><tr><th rowspan="2">抗震等级</th><th colspan="2">最小配筋率 (%)</th><th rowspan="2">最大间距<br>(mm)</th><th rowspan="2">最小直径<br>(mm)</th></tr><tr><th>一般部位</th><th>加强部位</th></tr><tr><td>一</td><td>0.25</td><td>0.25</td><td rowspan="3">300</td><td rowspan="3">8</td></tr><tr><td>二</td><td>0.20</td><td>0.25</td></tr><tr><td>三、四</td><td>0.15</td><td>0.20</td></tr></table>
 
 source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
+type: table
+table_name: 表 6.3.7-1 抗震墙墙板横向、竖向分布钢筋的配筋要求
 
 2 抗震墙边缘构件的配筋，应符合表 6.3.7-2 的要求；框架一抗震墙端柱在全高范围内箍筋，均应符合表 6.3.7-2 中底部加强部位的要求。
 
@@ -2980,18 +2582,13 @@ type: text
 
 表 6.3.7-2 抗震墙边缘构件的配筋要求
 
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
-
 <table><tr><th rowspan="2">抗震等级</th><th colspan="3">底部加强部位</th><th colspan="3">其他部位</th></tr><tr><th>纵向钢筋<br>最小量<br>(取较大值)</th><th colspan="2">箍筋或拉筋</th><th>纵向钢筋<br>最小量<br>(取较大值)</th><th>最小直径<br>(mm)</th><th>最大间距<br>(mm)</th></tr><tr><td>一</td><td>0.010A<sub>c</sub>4π16</td><td>8</td><td>100</td><td>0.008A<sub>c</sub>4π14</td><td>8</td><td>150</td></tr><tr><td>二</td><td>0.008A<sub>c</sub>4π14</td><td>8</td><td>150</td><td>0.006A<sub>c</sub>4π12</td><td>8</td><td>200</td></tr><tr><td>三</td><td>0.005A<sub>c</sub>2π14</td><td>6</td><td>150</td><td>0.004A<sub>c</sub>2π12</td><td>6</td><td>200</td></tr><tr><td>四</td><td>2π12</td><td>6</td><td>200</td><td>2π12</td><td>6</td><td>250</td></tr></table>
-
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
 
 注：$A_{c}$为边缘构件的截面面积。
 
 source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
+type: table
+table_name: 表 6.3.7-2 抗震墙边缘构件的配筋要求
 
 6.3.8 钢筋的接头和锚固应符合现行国家标准《混凝土结构设计规范》GB 50010 的要求。
 
@@ -3175,18 +2772,13 @@ type: text
 
 表 7.2.1 A 类内框架和底层框架砖房最大高度（m）和层数限值
 
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
-
 <table><tr><td rowspan="2">房屋类别</td><td rowspan="2">墙体厚度 (mm)</td><td colspan="2">6度</td><td colspan="2">7度</td><td colspan="2">8度</td><td colspan="2">9度</td></tr><tr><td>高度</td><td>层数</td><td>高度</td><td>层数</td><td>高度</td><td>层数</td><td>高度</td><td>层数</td></tr><tr><td rowspan="2">底层框架砖房</td><td>≥240</td><td>19</td><td>六</td><td>19</td><td>六</td><td>16</td><td>五</td><td>10</td><td>三</td></tr><tr><td>180</td><td>13</td><td>四</td><td>13</td><td>四</td><td>10</td><td>三</td><td>7</td><td>二</td></tr><tr><td rowspan="2">底层内框架砖房</td><td>≥240</td><td>13</td><td>四</td><td>13</td><td>四</td><td>10</td><td>三</td><td></td><td></td></tr><tr><td>180</td><td>7</td><td>二</td><td>7</td><td>二</td><td>7</td><td>二</td><td></td><td></td></tr><tr><td>多排柱内框架砖房</td><td>≥240</td><td>18</td><td>五</td><td>17</td><td>五</td><td>15</td><td>四</td><td>8</td><td>二</td></tr><tr><td>单排柱内框架砖房</td><td>≥240</td><td>16</td><td>四</td><td>15</td><td>四</td><td>12</td><td>三</td><td>7</td><td>二</td></tr></table>
-
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
 
 注：1 类似的砌块房屋可按照本章规定的原则进行鉴定，但9度时不适用，6\~8度时，高度相应降低3m，层数相应减少一层；
 
 source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
+type: table
+table_name: 表 7.2.1 A 类内框架和底层框架砖房最大高度（m）和层数限值
 
 2 房屋的层数和高度超过表内规定值一层和3m以内时，应进行第二级鉴定。
 
@@ -3205,13 +2797,11 @@ type: text
 
 表 7.2.2 A 类内框架和底层框架砖房抗震横墙的最大间距 (m)
 
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
-
 <table><tr><td>房屋类型</td><td>6度</td><td>7度</td><td>8度</td><td>9度</td></tr><tr><td>底层框架砖房的底层</td><td>25</td><td>21</td><td>19</td><td>15</td></tr><tr><td>底层内框架砖房的底层</td><td>18</td><td>18</td><td>15</td><td>11</td></tr><tr><td>多排柱内框架砖房</td><td>30</td><td>30</td><td>30</td><td>20</td></tr><tr><td>单排柱内框架砖房</td><td>18</td><td>18</td><td>15</td><td>11</td></tr></table>
 
 source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
+type: table
+table_name: 表 7.2.2 A 类内框架和底层框架砖房抗震横墙的最大间距 (m)
 
 2 底层框架、底层内框架砖房的底层和第二层，应符合下列要求:
 
@@ -3325,23 +2915,15 @@ type: text
 
 表 7.2.6 底层框架砖房抗震承载力简化验算的底层
 
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
-
 抗震横墙间距和房屋宽度限值（m）
 
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
-
 <table><tr><th rowspan="5">楼层<br/>总数</th><th colspan="4">6度</th><th colspan="4">7度</th><th colspan="4">8度</th><th colspan="4">9度</th></tr><tr><th colspan="4">砂浆强<br/>级</th><th colspan="4">等级</th><th colspan="4">M10</th><th colspan="4">M5</th></tr><tr><th>L</th><th>B</th><th>L</th><th>B</th><th>L</th><th>B</th><th>L</th><th>B</th><th>L</th><th>B</th><th>L</th><th>B</th><th>L</th><th>B</th><th>L</th><th>B</th></tr><tr><td>二</td><td>25</td><td>15</td><td>25</td><td>15</td><td>19</td><td>14</td><td>21</td><td>15</td><td>17</td><td>13</td><td>18</td><td>15</td><td>11</td><td>8</td><td>14</td><td>10</td><td>7</td></tr><tr><td>三</td><td>20</td><td>15</td><td>25</td><td>15</td><td>15</td><td>11</td><td>19</td><td>14</td><td>13</td><td>10</td><td>16</td><td>12</td><td>10</td><td>—</td><td>—</td><td>—</td><td>—</td></tr><tr><td>五</td><td>18</td><td>13</td><td>22</td><td>15</td><td>12</td><td>9</td><td>16</td><td>12</td><td>11</td><td>8</td><td>13</td><td>10</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr><tr><td>六</td><td>15</td><td>11</td><td>20</td><td>15</td><td>11</td><td>8</td><td>14</td><td>10</td><td>—</td><td>—</td><td>12</td><td>9</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr></table>
-
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
 
 注：L 指 370mm 厚横墙的间距限值，B 指 240mm 厚纵墙的房屋宽度限值。
 
 source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
+type: table
+table_name: 表 7.2.6 底层框架砖房抗震承载力简化验算的底层
 
 7.2.7 内框架和底层框架砖房符合本节各项规定可评为综合抗震能力满足抗震要求；当遇下列情况之一时，可不再进行第二级鉴定，但应评为不符合鉴定要求并提出采取加固或其他相应措施:
 
@@ -3425,13 +3007,11 @@ type: text
 
 表 7.3.1 B 类内框架和底层框架砖房最大高度（m）和层数限值
 
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
-
 <table><tr><th rowspan="2">房屋类别</th><th colspan="2">6度</th><th colspan="2">7度</th><th colspan="2">8度</th><th colspan="2">9度</th></tr><tr><th>高度</th><th>层数</th><th>高度</th><th>层数</th><th>高度</th><th>层数</th><th>高度</th><th>层数</th></tr><tr><td>底层框架砖房</td><td>19</td><td>六</td><td>19</td><td>六</td><td>16</td><td>五</td><td>11</td><td>三</td></tr><tr><td>多排柱内框架砖房</td><td>16</td><td>五</td><td>16</td><td>五</td><td>14</td><td>四</td><td>7</td><td>二</td></tr><tr><td>单排柱内框架砖房</td><td>14</td><td>四</td><td>14</td><td>四</td><td>11</td><td>三</td><td colspan="2">不宜采用</td></tr></table>
 
 source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
+type: table
+table_name: 表 7.3.1 B 类内框架和底层框架砖房最大高度（m）和层数限值
 
 7.3.2 现有房屋的结构体系应符合下列规定:
 
@@ -3445,13 +3025,11 @@ type: text
 
 表 7.3.2 B 类内框架和底层框架砖房抗震横墙的最大间距 (m)
 
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
-
 <table><tr><td rowspan="2" colspan="2">房屋类型</td><td rowspan="1" colspan="4">烈度 6度</td></tr><tr><td>7度</td><td>8度</td><td>9度</td></tr><tr><td rowspan="2" colspan="1">底层框架砖房</td><td>上部各层</td><td colspan="4">同表5.3.3-1砖房部分</td></tr><tr><td>底层</td><td>25</td><td>21</td><td>18</td><td>15</td></tr><tr><td colspan="2">多排柱内框架砖房</td><td>30</td><td>30</td><td>30</td><td>20</td></tr><tr><td colspan="2">单排柱内框架砖房</td><td colspan="4">同表5.3.3-1砖房部分</td></tr></table>
 
 source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
+type: table
+table_name: 表 7.3.2 B 类内框架和底层框架砖房抗震横墙的最大间距 (m)
 
 2 底层框架砖房的底层和第二层，应符合下列要求:
 
@@ -3535,68 +3113,29 @@ type: text
 
 7.3.6 多层内框架砖房各柱的地震剪力，可按下式确定:
 
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
-
 $$
-
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
-
 V _ { \mathrm { c } } \geqslant \frac { \phi _ { \mathrm { c } } } { n _ { \mathrm { b } } n _ { \mathrm { s } } } \, ( \xi _ { 1 } + \xi _ { 2 } \lambda ) V
-
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
-
 $$
-
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
 
 式中 $V_{c}$——各柱的地震剪力设计值；
-
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
-
 V——楼层地震剪力设计值；
-
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
-
 $\phi_{\mathrm{c}}$——柱类型系数，钢筋混凝土内柱可采用0.012，外墙组合砖柱可采用0.0075，无筋砖柱（墙）可采用0.005；
-
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
-
 $n_{\mathrm{b}}$——抗震横墙间的开间数；
-
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
-
 $n_{\mathrm{s}}$——内框架的跨数；
-
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
-
 $\lambda$——抗震横墙间距与房屋总宽度的比值，当小于0.75时，采用0.75；
-
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
-
 $\xi_{1}$、$\xi_{2}$——分别为计算系数，可按表7.3.6采用。
 
 source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
+type: equation
+equation_name: 7.3.6 多层内框架砖房各柱的地震剪力，可按下式确定:
 
 表 7.3.6 计 算 系 数
-
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
 
 <table><tr><td>房屋总层数</td><td>2</td><td>3</td><td>4</td><td>5</td></tr><tr><td>ζ<sub>1</sub></td><td>2.0</td><td>3.0</td><td>5.0</td><td>7.5</td></tr><tr><td>ζ<sub>2</sub></td><td>7.5</td><td>7.0</td><td>6.5</td><td>6.0</td></tr></table>
 
 source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
+type: table
+table_name: 表 7.3.6 计 算 系 数
 
 7.3.7 外墙砖柱的抗震验算，应符合下列要求:
 
@@ -3810,23 +3349,19 @@ type: text
 
 表 8.2.3-1 A 类厂房无襟屋盖的支撑布置
 
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
-
 <table><tr><td rowspan="2" colspan="2">支撑名称</td><td rowspan="1" colspan="3">烈度</td></tr><tr><td>6、7度</td><td>8度</td><td>9度</td></tr><tr><td rowspan="1" colspan="2">上弦横向支撑</td><td rowspan="2" colspan="1">同非抗震设计</td><td rowspan="1" colspan="2">厂房单元端开间及柱间支撑开间各有一道；天窗跨度大于6m时，天窗开洞范围的两端有局部的支撑一道</td></tr><tr><td rowspan="2" colspan="1">下弦横向支撑</td><td rowspan="2" colspan="2">同非抗震设计</td><td rowspan="2" colspan="1">厂房单元端开间各有一道</td></tr><tr><td>跨中竖向支撑</td><td>同非抗震设计</td><td>同上弦横向支撑</td></tr><tr><td rowspan="2" colspan="2">两端竖向支撑</td><td>屋架端部高度≤900mm</td><td>同非抗震设计</td><td>厂房单元端开间及每隔48m各有一道</td></tr><tr><td>屋架端部高度>900mm</td><td>同非抗震设计</td><td>同上弦横向支撑，且间距不大于30m</td></tr><tr><td rowspan="1" colspan="2">天窗两侧竖向支撑</td><td>厂房单元天窗端开间及每隔42m各有一道</td><td>厂房单元天窗端开间及每隔30m各有一道</td><td>厂房单元天窗端开间及每隔18m各有一道</td></tr><tr></tr></table>
 
 source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
+type: table
+table_name: 表 8.2.3-1 A 类厂房无襟屋盖的支撑布置
 
 表 8.2.3-2 A 类厂房中间井式天窗无檐屋盖支撑布置
-
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
 
 <table><tr><td rowspan="2">支撑名称</td><td colspan="3">烈度</td></tr><tr><td>6、7度</td><td>8度</td><td>9度</td></tr><tr><td>上、下弦横向支撑</td><td>厂房单元端开 间各有一道</td><td colspan="2">厂房单元端开间及柱间支撑开间各 有一道</td></tr><tr><td>上弦通长水平系杆</td><td colspan="3">在天窗范围内屋架跨中上弦节点处有</td></tr><tr><td>下弦通长水平系杆</td><td colspan="3">在天窗两侧及天窗范围内屋架下弦节点处有</td></tr><tr><td>跨中竖向支撑</td><td colspan="3">在上弦横向支撑开间处有,位置与下弦通长系杆相对应</td></tr><tr><td rowspan="2">两端竖 向支撑</td><td>屋架端部高 度≤900mm</td><td colspan="2">同非抗震设计</td></tr><tr><td>屋架端部高 度>900mm</td><td>厂房单元端开 间各有一道</td><td>同上弦横向支撑, 且间距不大于48m</td></tr><tr><td></td><td>屋架端部高 度>900mm</td><td>厂房单元端开 间各有一道</td><td>同上弦横向支撑, 且间距不大于30m</td></tr></table>
 
 source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
+type: table
+table_name: 表 8.2.3-2 A 类厂房中间井式天窗无檐屋盖支撑布置
 
 2 屋架支撑布置尚应符合下列要求:
 
@@ -3860,13 +3395,11 @@ type: text
 
 表 8.2.3-3 A 类厂房有檐屋盖的支撑布置
 
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
-
 <table><tr><td rowspan="2" colspan="2">支撑名称</td><td colspan="3">烈度</td></tr><tr><td>6、7度</td><td>8度</td><td>9度</td></tr><tr><td rowspan="3" colspan="1">屋架支撑</td><td>上弦横向支撑</td><td colspan="2">厂房单元端开间各有一道</td><td rowspan="3" colspan="1">厂房单元端开<br>间及厂房单元长<br>度大于42m时在<br>柱间支撑的开间<br>各有一道</td></tr><tr><td>下弦横向支撑</td><td rowspan="2" colspan="2" >同非抗震设计</td></tr><tr><td>竖向支撑</td></tr><tr><td rowspan="2" colspan="1">天窗<br>架支撑</td><td>上弦横向支撑</td><td colspan="2">厂房单元的天<br>窗端开间各有一道</td><td rowspan="2" colspan="1">厂房单元的天<br>窗端开间及柱间<br>支撑的开间各有一道</td></tr><tr><td>两侧竖向支撑</td><td>厂房单元的天<br>窗端开间及每隔<br>42m各有一道</td></tr><tr><td></td><td></td><td>厂房单元的天<br>窗端开间及每隔<br>30m各有一道</td><td>厂房单元的天<br>窗端开间及每隔<br>18m各有一道</td></tr></table>
 
 source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
+type: table
+table_name: 表 8.2.3-3 A 类厂房有檐屋盖的支撑布置
 
 3 锯齿形厂房三角形刚架立柱间的竖向支撑布置，应符合表 8.2.3-4 的规定。
 
@@ -3875,13 +3408,11 @@ type: text
 
 表 8.2.3-4 A 类锯齿形厂房三角形刚架立柱间竖向支撑布置
 
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
-
 <table><tr><td>窗框类型</td><td>6度、7度</td><td>8度</td><td>9度</td></tr><tr><td>钢筋混凝土</td><td colspan="2">同非抗震设计</td><td>厂房单元端开间各有一道</td></tr><tr><td>钢、木</td><td>厂房单元端开 间各有一道</td><td>厂房单元端开 间及每隔36m各 有一道</td><td>厂房单元端开间 及每隔24m各 有一道</td></tr></table>
 
 source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
+type: table
+table_name: 表 8.2.3-4 A 类锯齿形厂房三角形刚架立柱间竖向支撑布置
 
 4  壤盖支撑的构造尚应符合下列要求：
 
@@ -4155,23 +3686,11 @@ type: text
 
 表 8.3.3-1 B 类厂房无镍屋盖的支撑布置
 
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
-
-<table><tr><td rowspan="2" colspan="2">支撑名称</td><td colspan="3">烈度</td></tr><tr><td>6、7度</td><td>8度</td><td>9度</td></tr><tr><td rowspan="2" colspan="1">屋架支撑</td><td>上弦横向支撑</td><td>屋架跨度小于18m时同非抗震设计,跨度不大于18m时在厂房单元端开间各有一道</td><td colspan="2">厂房单元端开间及柱间支撑开间各有一道;天窗开洞范围的两端各有局部的支撑一道</td></tr><tr><td>上弦通长水平系杆</td><td>同非抗震设计</td><td>沿屋架跨度不大于15m有一道,但装配整体式屋面可没有;围护墙在屋架上弦高度有现浇圈梁时,其端部处可没有</td><td>沿屋架跨度不大于12m有一道,但装配整体式屋面可没有;围护墙在屋架上弦高度有现浇圈梁时,其端部处可没有</td></tr></table>
+<table><tr><td colspan="2" rowspan="2">支撑名称</td><td colspan="3">烈度</td></tr><tr><td>6、7度</td><td>8度</td><td>9度</td></tr><tr><td colspan="1" rowspan="2">屋架支撑</td><td>上弦横向支撑</td><td>屋架跨度小于18m时同非抗震设计,跨度不大于18m时在厂房单元端开间各有一道</td><td colspan="2">厂房单元端开间及柱间支撑开间各有一道;天窗开洞范围的两端各有局部的支撑一道</td></tr><tr><td>上弦通长水平系杆</td><td>同非抗震设计</td><td>沿屋架跨度不大于15m有一道,但装配整体式屋面可没有;围护墙在屋架上弦高度有现浇圈梁时,其端部处可没有</td><td>沿屋架跨度不大于12m有一道,但装配整体式屋面可没有;围护墙在屋架上弦高度有现浇圈梁时,其端部处可没有</td></tr><tr><td colspan="1" rowspan="1">屋架支<br/>支撑</td><td>下弦横向支撑</td><td colspan="2">同非抗震设计</td><td>同上弦横向支撑</td></tr><tr><td colspan="2">跨中竖向支撑</td><td colspan="2">同非抗震设计</td><td>同上弦横向支撑</td></tr><tr><td colspan="1" rowspan="2">两端<br/>竖向支撑</td><td>屋架端部<br/>高度</td><td>同非抗震设计</td><td>厂房单元端开<br/>间各有一道</td><td>厂房单元端开<br/>间及每隔48m各有一道</td></tr><tr><td>屋架端部<br/>高度</td><td>厂房单元端开<br/>间各有一道</td><td>厂房单元端开<br/>间及柱间支撑开<br/>间各有一道</td><td>厂房单元端开<br/>间柱间支撑开<br/>间各有一道</td></tr><tr><td colspan="2" rowspan="1">天窗两侧竖向支撑</td><td>厂房单元天窗<br/>端开间及每隔<br/>30m各有一道</td><td>厂房单元天窗<br/>端开间及每隔<br/>24m各有一道</td><td>厂房单元天窗端<br/>开间及每隔18m各<br/>有一道</td></tr><tr><td colspan="2" rowspan="1">天窗上弦横向支撑</td><td>同非抗震设计</td><td>天窗跨度≥9m<br/>时，厂房单元天窗<br/>端开间及柱间<br/>支撑开间宜各有一道</td><td>厂房单元天窗端<br/>开间及柱间支撑开<br/>间宜各有一道</td></tr><tr></tr></table>
 
 source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
-
-续表 8.3.3-1
-
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
-
-<table><tr><td rowspan="2" colspan="2">支撑名称</td><td rowspan="1" colspan="3">烈度</td></tr><tr><td>6、7度</td><td>8度</td><td>9度</td></tr><tr><td rowspan="1" colspan="1">屋架支<br>支撑</td><td>下弦横向支撑</td><td colspan="2">同非抗震设计</td><td>同上弦横向支撑</td></tr><tr><td colspan="2">跨中竖向支撑</td><td colspan="2">同非抗震设计</td><td>同上弦横向支撑</td></tr><tr><td rowspan="2" colspan="1">两端<br>竖向支撑</td><td>屋架端部<br>高度</td><td>同非抗震设计</td><td>厂房单元端开<br>间各有一道</td><td>厂房单元端开<br>间及每隔48m各有一道</td></tr><tr><td>屋架端部<br>高度</td><td>厂房单元端开<br>间各有一道</td><td>厂房单元端开<br>间及柱间支撑开<br>间各有一道</td><td>厂房单元端开<br>间柱间支撑开<br>间各有一道</td></tr><tr><td rowspan="1" colspan="2">天窗两侧竖向支撑</td><td>厂房单元天窗<br>端开间及每隔<br>30m各有一道</td><td>厂房单元天窗<br>端开间及每隔<br>24m各有一道</td><td>厂房单元天窗端<br>开间及每隔18m各<br>有一道</td></tr><tr><td rowspan="1" colspan="2">天窗上弦横向支撑</td><td>同非抗震设计</td><td>天窗跨度≥9m<br>时，厂房单元天窗<br>端开间及柱间<br>支撑开间宜各有一道</td><td>厂房单元天窗端<br>开间及柱间支撑开<br>间宜各有一道</td></tr><tr></tr></table>
-
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
+type: table
+table_name: 表 8.3.3-1 B 类厂房无镍屋盖的支撑布置
 
 2  庭架支撑布置和构造尚应符合下列要求：
 
@@ -4200,23 +3719,19 @@ type: text
 
 表 8.3.3-2 B 类厂房中间井式天窗无橡屋盖支撑布置
 
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
-
 <table><tr><td rowspan="2" colspan="1">支撑名称</td><td colspan="3">烈度</td></tr><tr><td>6、7度</td><td>8度</td><td>9度</td></tr><tr><td rowspan="2" colspan="1">上、下弦横向支撑</td><td>厂房单元端开间各有一道</td><td colspan="2">厂房单元端开间及柱间支撑开间各有一道</td></tr><tr><td>上弦通长水平系杆</td><td colspan="3">在天窗范围内屋架跨中上弦节点处有</td></tr><tr><td>下弦通长水平系杆</td><td colspan="3">在天窗两侧及天窗范围内屋架下弦节点处有</td></tr><tr><td>跨中竖向支撑</td><td colspan="3">在上弦横向支撑开间处有,位置与下弦通长系杆相对应</td></tr><tr><td rowspan="2" colspan="1">两端竖向支撑</td><td>屋架端部高度≤900mm</td><td colspan="2">同非抗震设计</td></tr><tr><td>屋架端部高度>900mm</td><td>厂房单元端开间各有一道</td><td>同上弦横向支撑,且间距不大于48m</td></tr><tr><td></td><td></td><td></td><td>同上弦横向支撑,且间距不大于30m</td></tr></table>
 
 source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
+type: table
+table_name: 表 8.3.3-2 B 类厂房中间井式天窗无橡屋盖支撑布置
 
 表 8.3.3-3 B 类厂房有橡屋盖的支撑布置
-
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
 
 <table><tr><td rowspan="2" colspan="2">支撑名称</td><td colspan="3">烈度</td></tr><tr><td>6、7度</td><td>8度</td><td>9度</td></tr><tr><td rowspan="3" colspan="1">屋 架 支 �撑</td><td>上弦横 向支撑</td><td>厂房单元端开 间及厂房单元长 度大于66m的柱 间支撑开间各有 一道</td><td>厂房单元端开间 及厂房单元长度大 于42m时的柱间支 撑开间各有一道 天窗开窗范围 的两端各有局部 的支撑一道</td><td>厂房单元端开间 及厂房单元长度大 于42m时的柱间支 撑开间各有一道 天窗开窗范围内 的两端各有局部的 上限横向支撑一道</td></tr><tr><td>下弦横向 支撑，跨中 竖向支撑</td><td colspan="3">同非抗震设计</td></tr><tr><td>端部竖 向支撑</td><td colspan="3">屋架端部高度大于900mm时，厂房单元端开间及柱间支撑 开间各有一道</td></tr><tr><td rowspan="2" colspan="1">天窗架 支撑</td><td>上弦横 向支撑</td><td>厂房单元的天窗 端开间各有一道</td><td>厂房单元的天 端开间及每隔 30m各有一道</td><td>厂房单元的天窗 端开间及每隔18m 各有一道</td></tr><tr><td>两侧竖 向支撑</td><td>厂房单元的天窗 端开间及每隔36m 各有一道</td><td></td><td></td></tr></table>
 
 source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
+type: table
+table_name: 表 8.3.3-3 B 类厂房有橡屋盖的支撑布置
 
 8.3.4 现有排架柱的构造与配筋应符合下列规定:
 
@@ -4255,13 +3770,11 @@ type: text
 
 表 8.3.4 加密区的最小箍筋直径（mm）
 
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
-
 <table><tr><td rowspan="2" colspan="1">加密区位置</td><td colspan="3">烈度和场地类别</td></tr><tr><td>6度和7度Ⅰ、Ⅱ<br>类场地</td><td>7度Ⅲ、Ⅳ类场地和<br>8度Ⅰ、Ⅱ类场地</td><td>8度Ⅲ、Ⅳ类场<br>地和9度</td></tr><tr><td>一般柱头、柱根</td><td>φ8</td><td>φ8</td><td>φ8</td></tr><tr><td>上柱、牛腿<br>有支撑的柱根</td><td>φ8</td><td>φ8</td><td>φ10</td></tr><tr><td>有支撑的柱头，柱<br>变位受约束的部位</td><td>φ8</td><td>φ10</td><td>φ10</td></tr></table>
 
 source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
+type: table
+table_name: 表 8.3.4 加密区的最小箍筋直径（mm）
 
 2 支承低跨屋架的中柱牛腿（柱肩）中，承受水平力的纵向钢筋应与预埋件焊牢。6\~7度时，承受水平力的纵向钢筋不应小于2ϕ12，8度时不应小于2ϕ14，9度时不应小于2ϕ16。
 
@@ -4285,13 +3798,11 @@ type: text
 
 表 8.3.5 柱间支撑交叉斜杆的最大长细比
 
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
-
 <table><tr><td rowspan="2" colspan="1">位<br/>置</td><td rowspan="1" colspan="4">烈<br/>度</td></tr><tr><td>6度</td><td>7度</td><td>8度</td><td>9度</td></tr><tr><td>上柱支撑</td><td>250</td><td>250</td><td>200</td><td>150</td></tr><tr><td>下柱支撑</td><td>200</td><td>200</td><td>150</td><td>150</td></tr></table>
 
 source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
+type: table
+table_name: 表 8.3.5 柱间支撑交叉斜杆的最大长细比
 
 3 8度时跨度不小于18m的多跨厂房中柱和9度时多跨厂房各柱，柱顶应有通长水平压杆，此压杆可与梯形屋架支座处通长水平系杆合并设置，钢筋混凝土系杆端头与屋架间的空隙应采用混凝土填实。
 
@@ -4645,13 +4156,11 @@ type: text
 
 表 9.2.5 A 类单层砖柱厂房木屋盖的支撑布置
 
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
-
 <table><tr><td rowspan="2" colspan="2">支撑<br>名称</td><td colspan="6">烈<br>度</td></tr><tr><td>6、7<br>度</td><td colspan="3">8度</td><td colspan="3">9度</td></tr><tr><td rowspan="2" colspan="1">屋<br>架<br>支撑</td><td>各类<br>屋盖</td><td>满铺望板</td><td>稀铺或无望板</td><td>满铺望板</td><td>稀铺或无望板</td><td>稀铺或无望板</td></tr><tr><td>上弦横<br>向支撑</td><td>同非抗震<br>要求</td><td>房屋单<br>元两端的<br>天窗开洞<br>范围内各<br>有一道</td><td>屋架跨度大<br>于6m时，房<br>屋单元端开间<br>及每隔30m<br>左右有一道</td><td>同非抗<br>震要求</td><td>同8度</td><td>屋架跨度<br>大于6m时，<br>房屋单元端<br>开间及每隔<br>20m左右各<br>有一道</td></tr><tr><td rowspan="2" colspan="2">下弦横<br>向支撑</td><td rowspan="2" colspan="3">同非抗震要求</td><td rowspan="1" colspan="2">同上</td></tr><tr><td>隔间有，并有下弦通长水<br>平系杆</td></tr><tr><td rowspan="2" colspan="2">天窗<br>架<br>支撑</td><td>两侧竖<br>向支撑</td><td>天窗两端第一开间各有一道</td><td>天窗端开间及每隔20m<br>左右各有一道</td><td>天窗端开间及每隔20m<br>左右各有一道</td><td>天窗端开间及每隔20m<br>左右各有一道</td></tr><tr><td>上弦横<br>向支撑</td><td>跨度较大的天窗，同无天窗屋盖的屋架支撑布置<br>(在天窗开洞范围<br>内的屋架脊点处应有通长系杆)</td><td></td><td></td><td></td></tr><tr></tr></table>
 
 source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
+type: table
+table_name: 表 9.2.5 A 类单层砖柱厂房木屋盖的支撑布置
 
 2 木屋盖的支撑与屋架、天窗架应为螺栓连接，6、7度时可为钉连接；对接襟条的搁置长度不应小于60mm，棕条在砖墙上的搁置长度不宜小于120mm。
 
@@ -4965,23 +4474,11 @@ type: text
 
 表 9.4.5 B 类单层砖柱厂房木屋盖的支撑布置
 
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
-
-<table><tr><td rowspan="2" colspan="2">支撑<br>名称</td><td colspan="4">烈<br>度</td></tr><tr><td>6、<br>7度</td><td colspan="2">8度</td><td colspan="2">9度</td></tr><tr><td rowspan="2" colspan="2">各<br>屋盖</td><td colspan="2">满铺望板</td><td rowspan="2">稀铺<br>或无望板</td><td rowspan="2">满铺望板</td><td rowspan="2">稀铺或无望板</td></tr><tr><td>无天窗</td><td>有天窗</td></tr><tr><td>屋<br>架<br>支撑</td><td>上弦横<br>向支撑</td><td colspan="2">同非抗<br>震要求</td><td>房屋单元<br>两端天窗开<br>洞范围内各<br>有一道</td><td>屋架跨度<br>大于6m<br>时，房屋单元两端第二<br>开间及每隔<br>20m有一道</td><td>屋架跨度<br>大于6m时，房屋单元两端第<br>二开间及每隔<br>20m有一道</td></tr></table>
+<table><tr><td colspan="2" rowspan="2">支撑<br/>名称</td><td colspan="4">烈<br/>度</td></tr><tr><td>6、<br/>7度</td><td colspan="2">8度</td><td colspan="2">9度</td></tr><tr><td colspan="2" rowspan="2">各<br/>屋盖</td><td colspan="2">满铺望板</td><td rowspan="2">稀铺<br/>或无望板</td><td rowspan="2">满铺望板</td><td rowspan="2">稀铺或无望板</td></tr><tr><td>无天窗</td><td>有天窗</td></tr><tr><td>屋<br/>架<br/>支撑</td><td>上弦横<br/>向支撑</td><td colspan="2">同非抗<br/>震要求</td><td>房屋单元<br/>两端天窗开<br/>洞范围内各<br/>有一道</td><td>屋架跨度<br/>大于6m<br/>时，房屋单元两端第二<br/>开间及每隔<br/>20m有一道</td><td>屋架跨度<br/>大于6m时，房屋单元两端第<br/>二开间及每隔<br/>20m有一道</td></tr><tr><td colspan="1" rowspan="2">屋<br/>架<br/>支撑</td><td>各<br/>屋盖</td><td colspan="2">满铺望板<br/>无天窗</td><td>稀铺<br/>或无望板</td><td>满铺望板</td><td>稀铺或无望板</td></tr><tr><td colspan="1" rowspan="2">跨中竖<br/>向支撑</td><td colspan="4" rowspan="2">同非抗震要求</td><td>屋架跨度大<br/>于6m时，房<br/>屋单元两端第<br/>二开间及每隔<br/>20m有一道</td></tr><tr><td>隔间设置并<br/>有下弦通长水<br/>平系杆</td></tr><tr><td colspan="1" rowspan="2">天<br/>窗<br/>架<br/>支撑</td><td>两侧竖<br/>向支撑</td><td colspan="3">天窗两端第一开间各有一道</td><td colspan="2">天窗两端第一开间及每隔<br/>20m左右有一道</td></tr><tr><td>上弦横<br/>向支撑</td><td colspan="5">跨度较大的天窗，参照无天窗屋架的支撑布置</td></tr></table>
 
 source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
-
-续表 9.4.5
-
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
-
-<table><tr><td rowspan="2" colspan="2" >支撑<br/>名称</td><td rowspan="1" colspan="4">烈<br/>度</td></tr><tr><td>6、<br/>7度</td><td colspan="2">8度</td><td colspan="2">9度</td></tr><tr><td rowspan="2" colspan="1">屋<br/>架<br/>支撑</td><td>各<br/>屋盖</td><td colspan="2">满铺望板<br/>无天窗</td><td>稀铺<br/>或无望板</td><td>满铺望板</td><td>稀铺或无望板</td></tr><tr><td rowspan="2" colspan="1">跨中竖<br/>向支撑</td><td rowspan="2" colspan="4">同非抗震要求</td><td>屋架跨度大<br/>于6m时，房<br/>屋单元两端第<br/>二开间及每隔<br/>20m有一道</td></tr><tr><td>隔间设置并<br/>有下弦通长水<br/>平系杆</td></tr><tr><td rowspan="2" colspan="1">天<br/>窗<br/>架<br/>支撑</td><td>两侧竖<br/>向支撑</td><td colspan="3">天窗两端第一开间各有一道</td><td colspan="2">天窗两端第一开间及每隔<br/>20m左右有一道</td></tr><tr><td>上弦横<br/>向支撑</td><td colspan="5">跨度较大的天窗，参照无天窗屋架的支撑布置</td></tr></table>
-
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
+type: table
+table_name: 表 9.4.5 B 类单层砖柱厂房木屋盖的支撑布置
 
 2 钢筋混凝土屋盖的构造鉴定要求，应符合本标准第 8.3 节的有关规定。
 
@@ -5249,14 +4746,12 @@ source: GB50023-2009：建筑抗震鉴定标准.md
 type: text
 
 ![](images/0c20df892d4b5133e4f4ed2fcbee395a57da4921153cc1081a43c3ed2cd33224.jpg)
-
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
-
 图 10.1.6-1 不合理的骨架构造示意图
 
 source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
+type: figure
+image_name: 图 10.1.6-1 不合理的骨架构造示意图
+image_link: images/0c20df892d4b5133e4f4ed2fcbee395a57da4921153cc1081a43c3ed2cd33224.jpg
 
 鸵与柱为榫接的五部委舱架（图 10.1.6-1c）和无连接措施的接舵（图 10.1.6-1d）；
 
@@ -5279,14 +4774,12 @@ source: GB50023-2009：建筑抗震鉴定标准.md
 type: text
 
 ![](images/7f02aa0018f025ebe436f53d909ad9fdb28b5796a3af947005e413090c78eb36.jpg)
-
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
-
 图 10.1.6-2 拍巴掌榫墩接图
 
 source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
+type: figure
+image_name: 图 10.1.6-2 拍巴掌榫墩接图
+image_link: images/7f02aa0018f025ebe436f53d909ad9fdb28b5796a3af947005e413090c78eb36.jpg
 
 6 槽与橡、牦（梁），龙骨与大梁、楼板应钉牢；对接舱下应有替木或爬木，并与瓜柱钉牢或为燕尾榫。
 
@@ -5375,13 +4868,11 @@ type: text
 
 表 10.1.8 槽在-CS（梁）或墙上的最小支承长度（mm）
 
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
-
 <table><tr><td rowspan="2">连接方式</td><td colspan="2">7度</td><td colspan="2">8度</td></tr><tr><td>吊顶(梁)上</td><td>墙上</td><td>吊顶(梁)上</td><td>墙上</td></tr><tr><td>对接</td><td>50</td><td>180</td><td>70</td><td>240且不小于墙厚</td></tr><tr><td>搭接</td><td>100</td><td>240</td><td>120</td><td>240且不小于墙厚</td></tr></table>
 
 source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
+type: table
+table_name: 表 10.1.8 槽在-CS（梁）或墙上的最小支承长度（mm）
 
 6 房屋的屋顶草泥（包括焦渣等）厚度，6、7度时不宜大于150mm，8度时不宜大于100mm。
 
@@ -5690,13 +5181,11 @@ type: text
 
 表 10.2.5 房屋檐口高度和横墙间距
 
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
-
 <table><tr><th>墙体类型</th><th>檐口最大高度(m)</th><th>厚度(mm)</th><th>横墙间距要求</th></tr><tr><td>卧砌土坯墙<br/>夯土墙<br/>灰土墙</td><td>2.9<br/>2.9<br/>6</td><td>≥250<br/>≥400<br/>≥250</td><td>每开间宜有横墙<br/>每开间宜有横墙,不应大于二开间</td></tr></table>
 
 source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
+type: table
+table_name: 表 10.2.5 房屋檐口高度和横墙间距
 
 2 墙体布置宜均匀，多层房屋立面不宜有错层；大梁不应支承在门窗洞口的上方。
 
@@ -5885,13 +5374,11 @@ type: text
 
 表 10.3.5 房屋檐口高度和横墙间距
 
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
-
 <table><tr><td>墙体类型</td><td>檐口最大高度(m)</td><td>厚度(mm)</td><td>横墙间距要求</td></tr><tr><td>浆砌毛石墙</td><td>2.9</td><td>≥400</td><td>每开间宜有横墙</td></tr><tr><td>毛料石墙</td><td>10</td><td>≥240</td><td>不宜大于二个开间</td></tr></table>
 
 source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
+type: table
+table_name: 表 10.3.5 房屋檐口高度和横墙间距
 
 4 硬山搁/mod房屋宜呈双坡屋面或弧形屋面；平屋顶上的土层厚度不宜大于 150mm；坐泥挂瓦的坡屋面，其坐泥厚度不宜大于 60mm。
 
@@ -5980,13 +5467,11 @@ type: text
 
 表 10.3.10-1 多层石房总高度（m）和层数限值
 
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
-
 <table><tr><td rowspan="3">墙体类别</td><td colspan="5">烈度</td></tr><tr><td colspan="2">6度</td><td colspan="2">7度</td><td colspan="2">8度</td></tr><tr><td>高度</td><td>层数</td><td>高度</td><td>层数</td><td>高度</td><td>层数</td></tr><tr><td>粗料石及毛料石砌体 (有垫片)</td><td>13</td><td>四</td><td>10</td><td>三</td><td>7</td><td>二</td></tr></table>
 
 source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
+type: table
+table_name: 表 10.3.10-1 多层石房总高度（m）和层数限值
 
 2 多层石墙房屋结构布置的检查，尚应符合下列要求：
 
@@ -6000,13 +5485,11 @@ type: text
 
 表 10.3.10-2 多层石房的抗震横墙间距（m）
 
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
-
 <table><tr><td rowspan="2">楼盖、屋盖类型</td><td colspan="3">烈度</td></tr><tr><td>6度</td><td>7度</td><td>8度</td></tr><tr><td>现浇及装配整体式钢筋混凝土</td><td>10</td><td>10</td><td>7</td></tr><tr><td>装配式钢筋混凝土</td><td>7</td><td>7</td><td>4</td></tr></table>
 
 source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
+type: table
+table_name: 表 10.3.10-2 多层石房的抗震横墙间距（m）
 
 2）抗震横墙洞口的水平截面面积，不应大于全截面面积的 1/3。
 
@@ -6130,18 +5613,13 @@ type: text
 
 表 11.1.4 A 类砖烟囱的最小配筋要求
 
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
-
 <table><tr><td>烈度</td><td colspan="2">7度</td><td colspan="2">8度</td><td>9度</td></tr><tr><td>场地类别</td><td>Ⅰ、Ⅱ</td><td>Ⅲ、Ⅳ</td><td>Ⅰ、Ⅱ</td><td>Ⅲ、Ⅳ</td><td>Ⅰ、Ⅱ</td></tr><tr><td>配筋范围</td><td>从0.6H到顶</td><td colspan="2">从0.4H到顶</td><td colspan="2">全高</td></tr><tr><td>竖向配筋</td><td colspan="2">φ8，间距500~750mm，且不少于6根</td><td colspan="2">φ8~φ10，间距500~700mm，且不少于6根</td><td></td></tr><tr><td>环向配筋</td><td colspan="2">φ6，间距500mm</td><td colspan="2">φ8，间距300mm</td><td></td></tr></table>
-
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
 
 注：$H$ 为烟囱高度。
 
 source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
+type: table
+table_name: 表 11.1.4 A 类砖烟囱的最小配筋要求
 
 2 不符合本条第1款规定的情况，可按本标准第11.1.7条进行抗震承载力验算。
 
@@ -6185,18 +5663,13 @@ type: text
 
 表 11.1.6 B 类砖烟囱的最小配筋要求
 
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
-
 <table><tr><td rowspan="2">配筋方式</td><td colspan="3">烈度和场地类别</td></tr><tr><td>6度Ⅲ、Ⅳ类场地</td><td>7度Ⅰ、Ⅱ类场地</td><td>7度Ⅲ、Ⅳ类场地<br>8度Ⅰ、Ⅱ类场地</td></tr><tr><td>配筋范围</td><td colspan="2">由0.5H到顶部</td><td>H≤30m时全高,<br>H＞30m时由0.4H到顶部</td></tr><tr><td>竖向配筋</td><td colspan="2">48,间距500~700mm,且不少于6根</td><td>φ10,间距500~700mm,且不少于6根</td></tr><tr><td>环向配筋</td><td colspan="2">φ8,间距500mm</td><td>φ8,间距300mm</td></tr></table>
-
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
 
 注：$H$ 为烟囱高度。
 
 source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
+type: table
+table_name: 表 11.1.6 B 类砖烟囱的最小配筋要求
 
 5 钢筋混凝土烟囱与烟道之间应设防震缝，其宽度应符合不列要求:
 
@@ -6269,19 +5742,12 @@ source: GB50023-2009：建筑抗震鉴定标准.md
 type: text
 
 $$
-
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
-
 T _ { 1 } = 0 . 2 6 + 0 . 0 0 2 4 H ^ { 2 } / d
-
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
-
 $$
 
+
 source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
+type: equation
 
 高度不超过 150m 的钢筋混凝土烟囱
 
@@ -6289,79 +5755,32 @@ source: GB50023-2009：建筑抗震鉴定标准.md
 type: text
 
 $$
-
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
-
 T _ { 1 } = 0 . 4 5 + 0 . 0 0 1 1 H ^ { 2 } / d
-
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
-
 $$
 
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
-
 式中 $T_{1}$——烟囱的基本自振周期（s）；
-
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
-
 $H$——自基础顶面算起的烟囱高度（m）；
-
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
-
 $d$——烟囱筒身半高处横截面的外径（m）。
 
 source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
+type: equation
 
 2）烟囱底部地震弯矩和剪力，应按下列公式计算：
 
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
-
 $$
-
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
-
 M _ { 0 } = \alpha _ { 1 } G _ { \mathrm { k } } H _ { 0 }
-
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
-
 $$
 
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
-
 $$
-
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
-
 V _ { 0 } = \eta _ { \mathrm { c } } \alpha _ { 1 } G _ { \mathrm { k } }
-
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
-
 $$
-
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
 
 式中 $M_{0}$——烟囱底部由水平地震作用标准值产生的弯矩；
-
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
-
 $\alpha_{1}$——相应于烟囱基本自振周期的水平地震影响系数，
 
 source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
+type: equation
+equation_name: 2）烟囱底部地震弯矩和剪力，应按下列公式计算：
 
 按本标准第3.0.5条的规定取值；
 
@@ -6390,13 +5809,11 @@ type: text
 
 表 11.1.7 烟闭环底部的剪力修正系数
 
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
-
 <table><tr><th rowspan="2">特征周期<br>T<sub>K</sub> (s)</th><th colspan="6">基本周期 T<sub>1</sub> (s)</th></tr><tr><th>0.5</th><th>1.0</th><th>1.5</th><th>2.0</th><th>2.5</th><th>3.0</th></tr><tr><th>0.20</th><td>0.80</td><td>1.10</td><td>1.10</td><td>0.95</td><td>0.85</td><td>0.75</td></tr><tr><th>0.25</th><td>0.75</td><td>1.00</td><td>1.10</td><td>1.05</td><td>0.95</td><td>0.85</td></tr><tr><th>0.30</th><td>0.65</td><td>0.90</td><td>1.10</td><td>1.10</td><td>1.00</td><td>0.95</td></tr><tr><th>0.40</th><td>0.60</td><td>0.80</td><td>1.00</td><td>1.10</td><td>1.15</td><td>1.05</td></tr><tr><th>0.55</th><td>0.55</td><td>0.70</td><td>0.85</td><td>1.00</td><td>1.10</td><td>1.10</td></tr><tr><th>0.65</th><td>0.55</td><td>0.65</td><td>0.75</td><td>0.90</td><td>1.05</td><td>1.10</td></tr><tr><th>0.85</th><td>0.55</td><td>0.60</td><td>0.70</td><td>0.80</td><td>0.90</td><td>1.00</td></tr></table>
 
 source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
+type: table
+table_name: 表 11.1.7 烟闭环底部的剪力修正系数
 
 3) 烟凶各截面的地震弯矩和剪力, 可按图 11.1.7 确定。
 
@@ -6404,14 +5821,12 @@ source: GB50023-2009：建筑抗震鉴定标准.md
 type: text
 
 ![](images/7447c497924601b8f5e147f04e1887cf1198eab6eb18060eb5375878fa64651c.jpg)
-
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
-
 图 11.1.7 烟凶地震作用效应分布
 
 source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
+type: figure
+image_name: 图 11.1.7 烟凶地震作用效应分布
+image_link: images/7447c497924601b8f5e147f04e1887cf1198eab6eb18060eb5375878fa64651c.jpg
 
 4 8、9度时应进行烟囱的竖向抗震验算，竖向地震作用可按现行国家标准《建筑抗震设计规范》GB 50011 的规定确定，竖向地震作用效应的增大系数可采用 2.5。
 
@@ -6635,13 +6050,11 @@ type: text
 
 表 11.3.5 砖筒壁配筋范围和最小配筋
 
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
-
 <table><tr><td rowspan="2">配筋方式</td><td colspan="2">烈度和场地类别</td></tr><tr><td>6度Ⅳ类场地和7度Ⅰ、Ⅱ类场地</td><td>7度Ⅲ、Ⅳ类场地和8度Ⅰ、Ⅱ类场地</td></tr><tr><td>配筋高度</td><td>底部到0.6倍塔身高度</td><td>全高</td></tr><tr><td>砌体内竖向配筋</td><td>oint10，间距500~700mm，并不少于6根</td><td>oint10，间距500~700mm，并不少于6根</td></tr><tr><td>竖槽配筋</td><td>每槽1#12，间距1000mm，并不少于6道</td><td>每槽1#14，间距1000mm，并不少于6道</td></tr><tr><td>环向配筋</td><td>oint8，间距360mm</td><td>oint8，间距250mm</td></tr></table>
 
 source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
+type: table
+table_name: 表 11.3.5 砖筒壁配筋范围和最小配筋
 
 2 砖筒壁内钢筋的搭接与锚固，应符合本标准第11.1.6条第4款的规定。
 
@@ -6710,33 +6123,16 @@ type: text
 
 1) 支架水塔和类似的其他水塔，相应于水平地震作用标准值产生的底部地震弯矩可按下式确定:
 
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
-
 $$
-
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
-
 M _ { 0 } = \alpha _ { 1 } ( G _ { i } + \psi _ { \mathrm { m } } G _ { \mathrm { t s } } ) H _ { 0 }
-
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
-
 $$
-
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
 
 式中 $M_{0}$——水塔底部地震作用标准值产生的弯矩；
-
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
-
 $\alpha_{1}$——相应于水塔基本自振周期的水平地震影响系数，
 
 source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
+type: equation
+equation_name: 1) 支架水塔和类似的其他水塔，相应于水平地震作用标准值产生的底部地震弯矩可按下式确定:
 
 按本标准第3.0.5条的规定取值；
 
@@ -6805,23 +6201,19 @@ type: text
 
 表 A.0.1-1 砌体非抗震设计的抗剪强度标准值（N/mm²）
 
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
-
 <table><tr><th rowspan="2">砌体类别</th><th colspan="6">砂浆强度等级</th></tr><tr><th>M10</th><th>M7.5</th><th>M5</th><th>M2.5</th><th>M1</th><th>M0.4</th></tr><tr><th>普通砖、多孔砖</th><td>0.27</td><td>0.23</td><td>0.19</td><td>0.13</td><td>0.08</td><td>0.05</td></tr><tr><th>粉煤灰中砌块</th><td>0.07</td><td>0.06</td><td>0.05</td><td>0.04</td><td>—</td><td>—</td></tr><tr><th>混凝土中砌块</th><td>0.11</td><td>0.10</td><td>0.08</td><td>0.06</td><td>—</td><td>—</td></tr><tr><th>混凝土小砌块</th><td>0.15</td><td>0.13</td><td>0.10</td><td>0.07</td><td>—</td><td>—</td></tr></table>
 
 source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
+type: table
+table_name: 表 A.0.1-1 砌体非抗震设计的抗剪强度标准值（N/mm²）
 
 表 A. 0.1-2 砌体非抗震设计的抗剪强度设计值（N/mm²）
-
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
 
 <table><tr><th rowspan="2">砌体类别</th><th colspan="6">砂浆强度等级</th></tr><tr><th>M10</th><th>M7.5</th><th>M5</th><th>M2.5</th><th>M1</th><th>M0.4</th></tr><tr><th>普通砖、多孔砖</th><td>0.18</td><td>0.15</td><td>0.12</td><td>0.09</td><td>0.06</td><td>0.04</td></tr><tr><th>粉煤灰中砌块</th><td>0.05</td><td>0.04</td><td>0.03</td><td>0.02</td><td>&mdash;</td><td>&mdash;</td></tr><tr><th>混凝土中砌块</th><td>0.08</td><td>0.06</td><td>0.05</td><td>0.04</td><td>&mdash;</td><td>&mdash;</td></tr><tr><th>混凝土小砌块</th><td>0.10</td><td>0.08</td><td>0.07</td><td>0.05</td><td>&mdash;</td><td>&mdash;</td></tr></table>
 
 source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
+type: table
+table_name: 表 A. 0.1-2 砌体非抗震设计的抗剪强度设计值（N/mm²）
 
 A. 0.2 混凝土强度标准值与设计值应分别按表 A. 0.2-1 和表 A. 0.2-2 采用。
 
@@ -6830,23 +6222,19 @@ type: text
 
 表 A.0.2-1 混凝土强度标准值（N/mm²）
 
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
-
 <table><tr><th rowspan="2">强度种类</th><th rowspan="2">符号</th><td colspan="14">混凝土强度等级</td></tr><tr><th>C13</th><th>C15</th><th>C18</th><th>C20</th><th>C23</th><th>C25</th><th>C28</th><th>C30</th><th>C35</th><th>C40</th><th>C45</th><th>C50</th><th>C55</th><th>C60</th></tr><tr><td>轴心抗压</td><td>$f_{ck}$</td><td>8.7</td><td>10.0</td><td>12.1</td><td>13.5</td><td>15.4</td><td>17.0</td><td>18.8</td><td>20.0</td><td>23.5</td><td>27.0</td><td>29.5</td><td>32.0</td><td>34.0</td><td>36.0</td></tr><tr><td>弯曲抗压</td><td>$f_{cmk}$</td><td>9.6</td><td>11.0</td><td>13.3</td><td>15.0</td><td>17.0</td><td>18.5</td><td>20.6</td><td>22.0</td><td>26.0</td><td>29.5</td><td>32.5</td><td>35.0</td><td>37.5</td><td>39.5</td></tr><tr><td>轴心抗拉</td><td>$f_{tk}$</td><td>1.0</td><td>1.2</td><td>1.35</td><td>1.5</td><td>1.65</td><td>1.75</td><td>1.85</td><td>2.0</td><td>2.25</td><td>2.45</td><td>2.6</td><td>2.75</td><td>2.85</td><td>2.95</td></tr></table>
 
 source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
+type: table
+table_name: 表 A.0.2-1 混凝土强度标准值（N/mm²）
 
 表 A.0.2-2 混凝土强度设计值（N/mm²）
-
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
 
 <table><tr><th rowspan="2">强度种类</th><th rowspan="2">符号</th><td colspan="14">混凝土强度等级</td></tr><tr><th>C13</th><th>C15</th><th>C18</th><th>C20</th><th>C23</th><th>C25</th><th>C28</th><th>C30</th><th>C35</th><th>C40</th><th>C45</th><th>C50</th><th>C55</th><th>C60</th></tr><tr><td>轴心抗压</td><td>$f_c$</td><td>6.5</td><td>7.5</td><td>9.0</td><td>10.0</td><td>11.0</td><td>12.5</td><td>14.0</td><td>15.0</td><td>17.5</td><td>19.5</td><td>21.5</td><td>23.5</td><td>25.0</td><td>26.5</td></tr><tr><td>弯曲抗压</td><td>$f_{c\text{m}}$</td><td>7.0</td><td>8.5</td><td>10.0</td><td>11.0</td><td>12.3</td><td>13.5</td><td>15.0</td><td>16.5</td><td>19.0</td><td>21.5</td><td>23.5</td><td>26.0</td><td>27.5</td><td>29.0</td></tr><tr><td>轴心抗拉</td><td>$f_{\text{t}}$</td><td>0.8</td><td>0.9</td><td>1.0</td><td>1.1</td><td>1.2</td><td>1.3</td><td>1.4</td><td>1.5</td><td>1.65</td><td>1.8</td><td>1.9</td><td>2.0</td><td>2.1</td><td>2.2</td></tr></table>
 
 source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
+type: table
+table_name: 表 A.0.2-2 混凝土强度设计值（N/mm²）
 
 A.0.3 钢筋强度标准值与设计值应分别按表 A.0.3-1 和表 A.0.3-2 采用。
 
@@ -6855,23 +6243,19 @@ type: text
 
 表 A.0.3-1 钢筋强度标准值（N/mm²）
 
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
-
 <table><tr><td colspan="2">种类</td><td>f<sub>yk</sub>或f<sub>pyk</sub>或f<sub>ptk</sub></td></tr><tr><td rowspan="3">热轧钢筋</td><td>HPB235 (Q235)</td><td>235</td></tr><tr><td>HRB335 [20MnSi、20MnNb (b)] (1996 年以前的d=28~40)</td><td>335 (315)</td></tr><tr><td>(1996 年以前的Ⅲ级25MnSi)</td><td>(370)</td></tr><tr><td>HRB400 (20MnSiV、20MnTi、K20MnSi)</td><td>400</td></tr><tr><td rowspan="2">热处理钢筋</td><td>40Si2Mn (d=6) 48Si2Mn (d=8.2) 45Si2Cr (d=10)</td><td>1470</td></tr><tr><td></td><td></td></tr></table>
 
 source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
+type: table
+table_name: 表 A.0.3-1 钢筋强度标准值（N/mm²）
 
 表 A.0.3-2 钢筋强度设计值（N/mm²）
-
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
 
 <table><tr><td colspan="2">种类</td><td>f<sub>y</sub>或f<sub>py</sub></td><td>f<sup>'</sup>或f<sup>'</sup><sub>py</sub></td></tr><tr><td rowspan="4">热轧钢筋</td><td>HPB235 (Q235)</td><td>210</td><td>210</td></tr><tr><td>HRB335 [20MnSi、20MnNb (b)] (1996 年以前的d=28~40)</td><td>310 (290)</td><td>310 (290)</td></tr><tr><td>(1996 年以前的Ⅲ级25MnSi)</td><td>(340)</td><td>(340)</td></tr><tr><td>HRB400 (20MnSiV、20MnTi、K20MnSi)</td><td>360</td><td>360</td></tr><tr><td rowspan="2">热处理钢筋</td><td>40Si2Mn (d=6) 48Si2Mn (d=8.2) 45Si2Cr (d=10)</td><td>1000</td><td>400</td></tr><tr><td></td><td></td><td></td></tr></table>
 
 source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
+type: table
+table_name: 表 A.0.3-2 钢筋强度设计值（N/mm²）
 
 A. 0.4 钢筋的弹性模量应按表 A. 0.4 采用。
 
@@ -6880,13 +6264,11 @@ type: text
 
 表 A.0.4 钢筋的弹性模量（N/mm²）
 
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
-
 <table><tr><td>种类</td><td>E<sub>s</sub></td></tr><tr><td>HPB235</td><td>2.1×10<sup>5</sup></td></tr><tr><td>HRB335、HRB400</td><td>2.0×10<sup>5</sup></td></tr></table>
 
 source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
+type: table
+table_name: 表 A.0.4 钢筋的弹性模量（N/mm²）
 
 附录 B 砖房抗震墙基准面积率
 
@@ -6930,88 +6312,47 @@ type: text
 
 B.0.3 多层内框架砖房的抗震墙基准面积率，可取按多层砖房相应规定值乘以下式计算的调整系数:
 
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
-
 $$
-
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
-
 \eta _ { i i } = [ 1 - \Sigma \psi _ { \mathrm { c } } ( \xi _ { 1 } + \xi _ { 2 } \lambda ) / n _ { \mathrm { b } } n _ { \mathrm { s } } ] \eta _ { 0 i }
-
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
-
 $$
-
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
 
 式中 $\eta_{\mathrm{fi}}$——$i$ 层基准面积率调整系数； $\eta_{0i}$——$i$ 层的位置调整系数，按表 B.0.3 采用； $\phi_{\mathrm{c}}$、$\zeta_{1}$、$\zeta_{2}$、$\lambda$、$n_{\mathrm{b}}$、$n_{\mathrm{s}}$——按现行国家标准《建筑抗震设计规范》 GB 50011 的规定采用。
 
 source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
+type: equation
+equation_name: B.0.3 多层内框架砖房的抗震墙基准面积率，可取按多层砖房相应规定值乘以下式计算的调整系数:
 
 表 B.0.1-1 抗震墙基准面积率（自承重墙）
 
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
-
-<table><tr><td rowspan="2">墙体类别</td><td rowspan="2">总层数n</td><td rowspan="2">验算楼层i</td><td rowspan="1" colspan="5">砂浆强度等级</td></tr><tr><td>M0.4</td><td>M1</td><td>M2.5</td><td>M5</td><td>M10</td></tr><tr><td rowspan="1" colspan="2"></td><td>一层</td><td>1</td><td>0.0219</td><td>0.0148</td><td>0.0095</td><td>0.0069</td><td>0.0050</td></tr><tr><td rowspan="1" colspan="2">二层</td><td>2 1</td><td>0.0292 0.0366</td><td>0.0197 0.0256</td><td>0.0127 0.0172</td><td>0.0092 0.0129</td><td>0.0066 0.0094</td></tr><tr><td rowspan="2" colspan="1">三层</td><td>3 1～2</td><td>0.0328 0.0478</td><td>0.0221 0.0343</td><td>0.0143 0.0236</td><td>0.0104 0.0180</td><td>0.0075 0.0133</td></tr><tr><td rowspan="2" colspan="1">四层</td><td>4 3 1～2</td><td>0.0350 0.0513 0.0577</td><td>0.0236 0.0358 0.0418</td><td>0.0152 0.0240 0.0293</td><td>0.0111 0.0179 0.0225</td><td>0.0080 0.0131 0.0169</td></tr><tr><td rowspan="2" colspan="1">五层</td><td>5 4 1～3</td><td>0.0365 0.0550 0.0656</td><td>0.0246 0.0384 0.0484</td><td>0.0159 0.0257 0.0343</td><td>0.0115 0.0192 0.0267</td><td>0.0083 0.0140 0.0202</td></tr><tr><td rowspan="2" colspan="1">六层</td><td>6 5 4 1～3</td><td>0.0375 0.0575 0.0688 0.0734</td><td>0.0253 0.0402 0.0490 0.0543</td><td>0.0163 0.0270 0.0337 0.0389</td><td>0.0119 0.0201 0.0255 0.0305</td><td>0.0085 0.0147 0.0190 0.0282</td></tr><tr><td rowspan="1" colspan="2">墙体平均压应力σ<sub>0</sub>(MPa)</td><td rowspan="1" colspan="6">0.06(n-i+1)</td></tr><tr><td rowspan="1" colspan="2">墙体平均压应力σ<sub>0</sub>(MPa)</td></tr><tr></tr></table>
+<table><tr><td rowspan="2">墙体类别</td><td rowspan="2">总层数n</td><td rowspan="2">验算楼层i</td><td colspan="5" rowspan="1">砂浆强度等级</td></tr><tr><td>M0.4</td><td>M1</td><td>M2.5</td><td>M5</td><td>M10</td></tr><tr><td colspan="2" rowspan="1"></td><td>一层</td><td>1</td><td>0.0219</td><td>0.0148</td><td>0.0095</td><td>0.0069</td><td>0.0050</td></tr><tr><td colspan="2" rowspan="1">二层</td><td>2 1</td><td>0.0292 0.0366</td><td>0.0197 0.0256</td><td>0.0127 0.0172</td><td>0.0092 0.0129</td><td>0.0066 0.0094</td></tr><tr><td colspan="1" rowspan="2">三层</td><td>3 1～2</td><td>0.0328 0.0478</td><td>0.0221 0.0343</td><td>0.0143 0.0236</td><td>0.0104 0.0180</td><td>0.0075 0.0133</td></tr><tr><td colspan="1" rowspan="2">四层</td><td>4 3 1～2</td><td>0.0350 0.0513 0.0577</td><td>0.0236 0.0358 0.0418</td><td>0.0152 0.0240 0.0293</td><td>0.0111 0.0179 0.0225</td><td>0.0080 0.0131 0.0169</td></tr><tr><td colspan="1" rowspan="2">五层</td><td>5 4 1～3</td><td>0.0365 0.0550 0.0656</td><td>0.0246 0.0384 0.0484</td><td>0.0159 0.0257 0.0343</td><td>0.0115 0.0192 0.0267</td><td>0.0083 0.0140 0.0202</td></tr><tr><td colspan="1" rowspan="2">六层</td><td>6 5 4 1～3</td><td>0.0375 0.0575 0.0688 0.0734</td><td>0.0253 0.0402 0.0490 0.0543</td><td>0.0163 0.0270 0.0337 0.0389</td><td>0.0119 0.0201 0.0255 0.0305</td><td>0.0085 0.0147 0.0190 0.0282</td></tr><tr><td colspan="2" rowspan="1">墙体平均压应力σ<sub>0</sub>(MPa)</td><td colspan="6" rowspan="1">0.06(n-i+1)</td></tr><tr><td colspan="2" rowspan="1">墙体平均压应力σ<sub>0</sub>(MPa)</td></tr><tr></tr><tr><td colspan="1" rowspan="10">每<br/>开<br/>间有<br/>一<br/>个<br/>个<br/>窗<br/>纵<br/>墙</td><td>一层</td><td>1</td><td>0.0198</td><td>0.0137</td><td>0.0090</td><td>0.0067</td><td>0.0032</td></tr><tr><td>二层</td><td>2<br/>1</td><td>0.0263<br/>0.0322</td><td>0.0183<br/>0.0228</td><td>0.0120<br/>0.0157</td><td>0.0089<br/>0.0120</td><td>0.0064<br/>0.0089</td></tr><tr><td>三层</td><td>3<br/>1~2</td><td>0.0298<br/>0.0411</td><td>0.0205<br/>0.0301</td><td>0.0135<br/>0.0213</td><td>0.0101<br/>0.0164</td><td>0.0072<br/>0.0124</td></tr><tr><td>四层</td><td>4<br/>3<br/>1~2</td><td>0.0318<br/>0.0450<br/>0.0499</td><td>0.0219<br/>0.0320<br/>0.0362</td><td>0.0144<br/>0.0221<br/>0.0260</td><td>0.0106<br/>0.0167<br/>0.0203</td><td>0.0077<br/>0.0124</td></tr><tr><td>五层</td><td>5<br/>4<br/>1~3</td><td>0.0331<br/>0.0482<br/>0.0573</td><td>0.0228<br/>0.0344<br/>0.0423</td><td>0.0150<br/>0.0237<br/>0.0303</td><td>0.0111<br/>0.0179<br/>0.0238</td><td>0.0080<br/>0.0133<br/>0.0183</td></tr><tr><td>六层</td><td>6<br/>5<br/>4<br/>1~3</td><td>0.0341<br/>0.0505<br/>0.0594<br/>0.0641</td><td>0.0235<br/>0.0360<br/>0.0430</td><td>0.0155<br/>0.0248<br/>0.0304</td><td>0.0114<br/>0.0188<br/>0.0234</td><td>0.0083<br/>0.0139<br/>0.0177</td></tr><tr><td>墙体平均压应力σ<sub>0</sub>(MPa)</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>墙体平均压应力σ<sub>0</sub>(MPa)</td><td></td><td></td><td></td><td></td><td></td></tr></table>
 
 source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
-
-续表 B. 0.1-1
-
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
-
-<table><tr><td rowspan="2" colspan="1">墙体类别</td><td rowspan="2" colspan="1">总层数<br>n</td><td rowspan="2" colspan="1">验算楼层<br>i</td><td rowspan="1" colspan="5">砂浆强度等级</td></tr><tr><td>M0.4</td><td>M1</td><td>M2.5</td><td>M5</td><td>M10</td></tr><tr><td rowspan="10" colspan="1">每<br>开<br>间有<br>一<br>个<br>个<br>窗<br>纵<br>墙</td><td>一层</td><td>1</td><td>0.0198</td><td>0.0137</td><td>0.0090</td><td>0.0067</td><td>0.0032</td></tr><tr><td>二层</td><td>2<br>1</td><td>0.0263<br>0.0322</td><td>0.0183<br>0.0228</td><td>0.0120<br>0.0157</td><td>0.0089<br>0.0120</td><td>0.0064<br>0.0089</td></tr><tr><td>三层</td><td>3<br>1~2</td><td>0.0298<br>0.0411</td><td>0.0205<br>0.0301</td><td>0.0135<br>0.0213</td><td>0.0101<br>0.0164</td><td>0.0072<br>0.0124</td></tr><tr><td>四层</td><td>4<br>3<br>1~2</td><td>0.0318<br>0.0450<br>0.0499</td><td>0.0219<br>0.0320<br>0.0362</td><td>0.0144<br>0.0221<br>0.0260</td><td>0.0106<br>0.0167<br>0.0203</td><td>0.0077<br>0.0124</td></tr><tr><td>五层</td><td>5<br>4<br>1~3</td><td>0.0331<br>0.0482<br>0.0573</td><td>0.0228<br>0.0344<br>0.0423</td><td>0.0150<br>0.0237<br>0.0303</td><td>0.0111<br>0.0179<br>0.0238</td><td>0.0080<br>0.0133<br>0.0183</td></tr><tr><td>六层</td><td>6<br>5<br>4<br>1~3</td><td>0.0341<br>0.0505<br>0.0594<br>0.0641</td><td>0.0235<br>0.0360<br>0.0430</td><td>0.0155<br>0.0248<br>0.0304</td><td>0.0114<br>0.0188<br>0.0234</td><td>0.0083<br>0.0139<br>0.0177</td></tr><tr><td>墙体平均压应力σ<sub>0</sub>(MPa)</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>墙体平均压应力σ<sub>0</sub>(MPa)</td><td></td><td></td><td></td><td></td><td></td></tr></table>
-
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
+type: table
+table_name: 表 B.0.1-1 抗震墙基准面积率（自承重墙）
 
 表 B. 0.1-2 抗震墙基准面积率（承重横墙）
 
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
-
-<table><tr><td rowspan="2">墙体类别</td><td rowspan="2">总层数<br>n</td><td rowspan="2">验算楼层<br>i</td><td rowspan="1" colspan="5">砂浆强度等级</td></tr><tr><td>M0.4</td><td>M1</td><td>M2.5</td><td>M5</td><td>M10</td></tr><tr><td rowspan="10">无门<br>窗<br>横<br>墙</td><td>一层</td><td>1</td><td>0.0258</td><td>0.0179</td><td>0.0118</td><td>0.0088</td><td>0.0064</td></tr><tr><td>二层</td><td>2<br>1</td><td>0.0344<br>0.0413</td><td>0.0238<br>0.0296</td><td>0.0158<br>0.0205</td><td>0.0117<br>0.0156</td><td>0.0085<br>0.0116</td></tr><tr><td>三层</td><td>3<br>1~2</td><td>0.0387<br>0.0528</td><td>0.0268<br>0.0388</td><td>0.0178<br>0.0275</td><td>0.0132<br>0.0213</td><td>0.0095<br>0.0161</td></tr><tr><td>四层</td><td>4<br>3<br>1~2</td><td>0.0413<br>0.0579<br>0.0628</td><td>0.0286<br>0.0414<br>0.0464</td><td>0.0189<br>0.0287</td><td>0.0140<br>0.0216</td><td>0.0102<br>0.0163</td></tr><tr><td>五层</td><td>5<br>4<br>1~3</td><td>0.0430<br>0.0620<br>0.0711</td><td>0.0297<br>0.0444<br>0.0532</td><td>0.0197<br>0.0308<br>0.0388</td><td>0.0147<br>0.0234<br>0.0307</td><td>0.0106<br>0.0174<br>0.0237</td></tr><tr><td>六层</td><td>6<br>5<br>4<br>1~3</td><td>0.0442<br>0.0649<br>0.0762</td><td>0.0305<br>0.0465<br>0.0554<br>0.0592</td><td>0.0203<br>0.0323<br>0.0393</td><td>0.0151<br>0.0245<br>0.0304</td><td>0.0109<br>0.0182<br>0.0230</td></tr><tr><td>墙体平均压应力<br>0<br>(MPa)</td><td></td><td></td><td></td><td>0.0430</td><td></td><td></td></tr><tr></tr></table>
+<table><tr><td rowspan="2">墙体类别</td><td rowspan="2">总层数<br/>n</td><td rowspan="2">验算楼层<br/>i</td><td colspan="5" rowspan="1">砂浆强度等级</td></tr><tr><td>M0.4</td><td>M1</td><td>M2.5</td><td>M5</td><td>M10</td></tr><tr><td rowspan="10">无门<br/>窗<br/>横<br/>墙</td><td>一层</td><td>1</td><td>0.0258</td><td>0.0179</td><td>0.0118</td><td>0.0088</td><td>0.0064</td></tr><tr><td>二层</td><td>2<br/>1</td><td>0.0344<br/>0.0413</td><td>0.0238<br/>0.0296</td><td>0.0158<br/>0.0205</td><td>0.0117<br/>0.0156</td><td>0.0085<br/>0.0116</td></tr><tr><td>三层</td><td>3<br/>1~2</td><td>0.0387<br/>0.0528</td><td>0.0268<br/>0.0388</td><td>0.0178<br/>0.0275</td><td>0.0132<br/>0.0213</td><td>0.0095<br/>0.0161</td></tr><tr><td>四层</td><td>4<br/>3<br/>1~2</td><td>0.0413<br/>0.0579<br/>0.0628</td><td>0.0286<br/>0.0414<br/>0.0464</td><td>0.0189<br/>0.0287</td><td>0.0140<br/>0.0216</td><td>0.0102<br/>0.0163</td></tr><tr><td>五层</td><td>5<br/>4<br/>1~3</td><td>0.0430<br/>0.0620<br/>0.0711</td><td>0.0297<br/>0.0444<br/>0.0532</td><td>0.0197<br/>0.0308<br/>0.0388</td><td>0.0147<br/>0.0234<br/>0.0307</td><td>0.0106<br/>0.0174<br/>0.0237</td></tr><tr><td>六层</td><td>6<br/>5<br/>4<br/>1~3</td><td>0.0442<br/>0.0649<br/>0.0762</td><td>0.0305<br/>0.0465<br/>0.0554<br/>0.0592</td><td>0.0203<br/>0.0323<br/>0.0393</td><td>0.0151<br/>0.0245<br/>0.0304</td><td>0.0109<br/>0.0182<br/>0.0230</td></tr><tr><td>墙体平均压应力<br/>0<br/>(MPa)</td><td></td><td></td><td></td><td>0.0430</td><td></td><td></td></tr><tr></tr><tr><td colspan="1" rowspan="2">墙体类别</td><td colspan="1" rowspan="2">总层数<br/>n</td><td colspan="1" rowspan="2">验算楼层</td><td colspan="5" rowspan="1">砂浆强度等级</td></tr><tr><td>M0.4</td><td>M1</td><td>M2.5</td><td>M5</td><td>M10</td></tr><tr><td colspan="1" rowspan="10">有一个<br/>门<br/>的<br/>横<br/>墙</td><td>一层</td><td>1</td><td>0.0245</td><td>0.0171</td><td>0.0115</td><td>0.0086</td><td>0.0062</td></tr><tr><td>二层</td><td>2<br/>1</td><td>0.0326<br/>0.0386</td><td>0.0228<br/>0.0279</td><td>0.0153<br/>0.0196</td><td>0.0114<br/>0.0150</td><td>0.0085<br/>0.0112</td></tr><tr><td>三层</td><td>3<br/>1~2</td><td>0.0367<br/>0.0491</td><td>0.0255<br/>0.0363</td><td>0.0172<br/>0.0260</td><td>0.0129<br/>0.0204</td><td>0.0094<br/>0.0155</td></tr><tr><td>四层</td><td>4<br/>3<br/>1~2</td><td>0.0391<br/>0.0541</td><td>0.0273<br/>0.0390</td><td>0.0183<br/>0.0274</td><td>0.0137<br/>0.0210</td><td>0.0100<br/>0.0157</td></tr><tr><td>五层</td><td>5<br/>4<br/>1~3</td><td>0.0408<br/>0.0580<br/>0.0658</td><td>0.0285<br/>0.0418<br/>0.0493</td><td>0.0191<br/>0.0294<br/>0.0363</td><td>0.0142<br/>0.0225<br/>0.0289</td><td>0.0104<br/>0.0169</td></tr><tr><td>六层</td><td>6<br/>5<br/>4<br/>1~3</td><td>0.0419<br/>0.0607<br/>0.0708<br/>0.0729</td><td>0.0293<br/>0.0438<br/>0.0518<br/>0.0548</td><td>0.0196<br/>0.0308<br/>0.0372</td><td>0.0146<br/>0.0236<br/>0.0289</td><td>0.0107<br/>0.0177<br/>0.0221</td></tr><tr><td>墙体平均压应力σ<sub>0</sub>(MPa)</td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>墙体平均压应力σ<sub>0</sub>(MPa)</td><td></td><td></td><td></td><td></td><td></td><td></td></tr></table>
 
 source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
-
-续表 B.0.1-2
-
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
-
-<table><tr><td rowspan="2" colspan="1">墙体类别</td><td rowspan="2" colspan="1">总层数<br>n</td><td rowspan="2" colspan="1">验算楼层</td><td rowspan="1" colspan="5">砂浆强度等级</td></tr><tr><td>M0.4</td><td>M1</td><td>M2.5</td><td>M5</td><td>M10</td></tr><tr><td rowspan="10" colspan="1">有一个<br>门<br>的<br>横<br>墙</td><td>一层</td><td>1</td><td>0.0245</td><td>0.0171</td><td>0.0115</td><td>0.0086</td><td>0.0062</td></tr><tr><td>二层</td><td>2<br>1</td><td>0.0326<br>0.0386</td><td>0.0228<br>0.0279</td><td>0.0153<br>0.0196</td><td>0.0114<br>0.0150</td><td>0.0085<br>0.0112</td></tr><tr><td>三层</td><td>3<br>1~2</td><td>0.0367<br>0.0491</td><td>0.0255<br>0.0363</td><td>0.0172<br>0.0260</td><td>0.0129<br>0.0204</td><td>0.0094<br>0.0155</td></tr><tr><td>四层</td><td>4<br>3<br>1~2</td><td>0.0391<br>0.0541</td><td>0.0273<br>0.0390</td><td>0.0183<br>0.0274</td><td>0.0137<br>0.0210</td><td>0.0100<br>0.0157</td></tr><tr><td>五层</td><td>5<br>4<br>1~3</td><td>0.0408<br>0.0580<br>0.0658</td><td>0.0285<br>0.0418<br>0.0493</td><td>0.0191<br>0.0294<br>0.0363</td><td>0.0142<br>0.0225<br>0.0289</td><td>0.0104<br>0.0169</td></tr><tr><td>六层</td><td>6<br>5<br>4<br>1~3</td><td>0.0419<br>0.0607<br>0.0708<br>0.0729</td><td>0.0293<br>0.0438<br>0.0518<br>0.0548</td><td>0.0196<br>0.0308<br>0.0372</td><td>0.0146<br>0.0236<br>0.0289</td><td>0.0107<br>0.0177<br>0.0221</td></tr><tr><td>墙体平均压应力σ<sub>0</sub>(MPa)</td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>墙体平均压应力σ<sub>0</sub>(MPa)</td><td></td><td></td><td></td><td></td><td></td><td></td></tr></table>
-
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
+type: table
+table_name: 表 B. 0.1-2 抗震墙基准面积率（承重横墙）
 
 表 B. 0.1-3 抗震墙基准面积率（承重纵墙）
-
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
 
 <table><tr><td rowspan="2">墙体类别</td><td rowspan="2">总层数 n</td><td rowspan="2">验算楼层 i</td><td rowspan="1" colspan="5">承重纵墙(每开间有一个门或一个窗)</td></tr><tr><td>M0.4</td><td>M1</td><td>M2.5</td><td>M5</td><td>M10</td></tr><tr><td rowspan="6">每<br>开<br>间<br>有<br>一个<br>门<br>或<br>一个<br>个<br>窗</td><td>一层</td><td>1</td><td>0.0223</td><td>0.0158</td><td>0.0108</td><td>0.0081</td><td>0.0060</td></tr><tr><td>二层</td><td>2</td><td>0.0298</td><td>0.0211</td><td>0.0135</td><td>0.0108</td><td>0.0080</td></tr><tr><td>三层</td><td>3<br>1~2</td><td>0.0335<br>0.0435</td><td>0.0237<br>0.0325</td><td>0.0162<br>0.0235</td><td>0.0122<br>0.0187</td><td>0.0090<br>0.0144</td></tr><tr><td>四层</td><td>4<br>3<br>1~2</td><td>0.0357<br>0.0484</td><td>0.0253</td><td>0.0173<br>0.0252</td><td>0.0130<br>0.0195</td><td>0.0096<br>0.0148</td></tr><tr><td>五层</td><td>5<br>4<br>1~3</td><td>0.0372<br>0.0519<br>0.0580</td><td>0.0264<br>0.0379<br>0.0437</td><td>0.0180<br>0.0270</td><td>0.0136<br>0.0209</td><td>0.0100<br>0.0159</td></tr><tr><td>六层</td><td>6<br>5<br>4<br>1~3</td><td>0.0383<br>0.0544<br>0.0627</td><td>0.0271<br>0.0397<br>0.0464</td><td>0.0185<br>0.0283</td><td>0.0140<br>0.0219</td><td>0.0108<br>0.0167</td></tr><tr><td>墙体平均压应力σ<sub>0</sub><br>(MPa)</td><td></td><td></td><td>0.0483</td><td>0.0361</td><td>0.0292</td><td>0.0231</td></tr><tr></tr></table>
 
 source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
+type: table
+table_name: 表 B. 0.1-3 抗震墙基准面积率（承重纵墙）
 
 表 B.0.3 位置调整系数
-
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
 
 <table><tr><td>总层数</td><td colspan="3">2</td><td colspan="3">3</td><td colspan="3">4</td><td colspan="3">5</td></tr><tr><td>检查层数</td><td>1</td><td>2</td><td>1</td><td>2</td><td>3</td><td>1~2</td><td>3</td><td>4</td><td>1~2</td><td>3</td><td>4</td><td>5</td></tr><tr><td>η<sub>0i</sub></td><td>1.0</td><td>1.1</td><td>1.0</td><td>1.05</td><td>1.2</td><td>1.0</td><td>1.1</td><td>1.3</td><td>1.0</td><td>1.05</td><td>1.15</td><td>1.4</td></tr></table>
 
 source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
+type: table
+table_name: 表 B.0.3 位置调整系数
 
 附录C 钢筋混凝土结构
 
@@ -7025,88 +6366,35 @@ type: text
 
 C.0.1 钢筋混凝土结构楼层现有受剪承载力应按下式计算:
 
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
-
 $$
-
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
-
 V _ { y } = \Sigma V _ { \mathrm { c y } } + 0 . 7 \Sigma V _ { \mathrm { m y } } + 0 . 7 \Sigma V _ { \mathrm { w y } }
-
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
-
 $$
-
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
 
 式中 $V_{y}$——楼层现有受剪承载力；
-
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
-
 $\Sigma V_{cy}$——框架柱层间现有受剪承载力之和；
-
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
-
 $\Sigma V_{my}$——砖填充墙框架层间现有受剪承载力之和；
-
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
-
 $\Sigma V_{wy}$——抗震墙层间现有受剪承载力之和。
 
 source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
+type: equation
+equation_name: C.0.1 钢筋混凝土结构楼层现有受剪承载力应按下式计算:
 
 C.0.2 矩形框架柱层间现有受剪承载力可按下列公式计算，并取较小值:
 
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
-
 $$
-
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
-
 V _ { \mathrm { c y } } = { \frac { M _ { \mathrm { c y } } ^ { \mathrm { u } } + M _ { \mathrm { c y } } ^ { \mathrm { L } } } { H _ { \mathrm { n } } } }
-
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
-
 $$
 
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
-
 $$
-
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
-
 \mathbf { V _ { c y } } = \frac { 0 . 1 6 } { \lambda + 1 . 5 } f _ { \mathrm { c k } } b h _ { 0 } + f _ { \mathrm { y v k } } \frac { A _ { \mathrm { s v } } } { s } h _ { 0 } + 0 . 0 5 6 N
-
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
-
 $$
-
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
 
 式中 $M_{\mathrm{cy}}^{\mathrm{u}}$、$M_{\mathrm{cy}}^{\mathrm{L}}$——分别为验算层偏压柱上、下端的现有受弯承载力；
-
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
-
 $\lambda$——框架柱的计算剪跨比，取 $\lambda{=}H_{\mathrm{n}}/2h_{0}$ ； $N$——对应于重力荷载代表值的柱轴向压力，当 $N>0.3f_{\mathrm{ck}}bh$ 时，取 $N=0.3f_{\mathrm{ck}}bh$ ； $A_{\mathrm{sv}}$——配置在同一截面内箍筋各肢的截面面积； $f_{\mathrm{yvk}}$——箍筋抗拉强度标准值，按本标准附录A表
 
 source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
+type: equation
+equation_name: C.0.2 矩形框架柱层间现有受剪承载力可按下列公式计算，并取较小值:
 
 A. 0.3-1 采用;
 
@@ -7149,19 +6437,12 @@ source: GB50023-2009：建筑抗震鉴定标准.md
 type: text
 
 $$
-
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
-
 M _ { \mathrm { c y } } = f _ { \mathrm { y k } } A _ { \mathrm { s } } ( h _ { 0 } - a _ { \mathrm { s } } ^ { \prime } ) + 0 . 5 N \hbar ( 1 - N / f _ { \mathrm { c m k } } b \hbar )
-
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
-
 $$
 
+
 source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
+type: equation
 
 当 $N>\xi_{\mathrm{bk}}f_{\mathrm{cnk}}bh_{0}$ 时,
 
@@ -7169,154 +6450,54 @@ source: GB50023-2009：建筑抗震鉴定标准.md
 type: text
 
 $$
-
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
-
 M _ { \mathrm { c y } } = f _ { \mathrm { y k } } A _ { \mathrm { s } } ( h _ { 0 } - a _ { \mathrm { s } } ^ { \prime } ) + \xi ( 1 - 0 . 5 \xi ) f _ { \mathrm { c m k } } b h _ { 0 } ^ { 2 } - N ( 0 . 5 h - a _ { \mathrm { s } } ^ { \prime } )
-
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
-
 $$
 
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
-
 $$
-
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
-
 \xi = [ ( \xi _ { \mathrm { b k } } - 0 . 8 ) N - \xi _ { \mathrm { b k } } f _ { \mathrm { y k } } A _ { \mathrm { s } } ] / [ ( \xi _ { \mathrm { b k } } - 0 . 8 ) f _ { \mathrm { c m k } } b \hbar _ { 0 } - f _ { \mathrm { y k } } A _ { \mathrm { s } } ]
-
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
-
 $$
-
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
 
 式中 N——对应于重力荷载代表值的柱轴向压力；
-
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
-
 $A_{s}$——柱实有纵向受拉钢筋截面面积；
-
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
-
 $f_{yk}$——现有钢筋抗拉强度标准值，按本标准附录A表A.0.3-1采用；
-
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
-
 $f_{cmk}$——现有混凝土弯曲抗压强度标准值，按本标准附录A表A.0.2-1采用；
-
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
-
 $a_{s}^{\prime}$——受压钢筋合力点至受压边缘的距离；
-
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
-
 $\xi_{bk}$——相对界限受压区高度，HPB级钢取0.6，HRB级钢取0.55；
-
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
-
 $h$、$h_{0}$——分别为柱截面高度和有效高度；
-
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
-
 $b$——柱截面宽度。
 
 source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
+type: equation
 
 C.0.4 砖填充墙钢筋混凝土框架结构的层间现有受剪承载力可按下列公式计算:
 
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
-
 $$
-
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
-
 \begin{array} { r } { V _ { \mathrm { m y } } = \sum ( M _ { \mathrm { c y } } ^ { \mathrm { u } } + M _ { \mathrm { c y } } ^ { \mathrm { L } } ) / H _ { 0 } + f _ { \mathrm { v E k } } A _ { \mathrm { m } } } \\ { f _ { \mathrm { v E k } } = \zeta _ { \mathrm { N } } f _ { \mathrm { v k } } } \end{array}
-
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
-
 $$
-
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
 
 式中 $\zeta_{\mathrm{N}}$——砌体强度的正压力影响系数，按本标准表 5.3.13 采用；
-
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
-
 $f_{\mathrm{vk}}$——砖墙的抗剪强度标准值，按本标准附录A表A.0.1-1采用；
-
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
-
 $A_{\mathrm{m}}$——砖填充墙水平截面面积，可不计入宽度小于洞口高度1/4的墙肢；
-
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
-
 $H_{0}$——柱的计算高度，两侧有填充墙时，可采用柱净高的2/3，一侧有填充墙时，可采用柱净高。
 
 source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
+type: equation
+equation_name: C.0.4 砖填充墙钢筋混凝土框架结构的层间现有受剪承载力可按下列公式计算:
 
 C.0.5 带边框柱的钢筋混凝土抗震墙的层间现有受剪承载力可按下式计算:
 
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
-
 $$
-
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
-
 V _ { \mathrm { w y } } = \frac { 1 } { \lambda - 0 . 5 } ( 0 . 0 4 f _ { \mathrm { c k } } A _ { \mathrm { w } } + 0 . 1 N ) + 0 . 8 f _ { \mathrm { y v k } } \frac { A _ { \mathrm { s h } } } { s } h _ { 0 }
-
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
-
 $$
-
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
 
 式中 $N$——对应于重力荷载代表值的柱轴向压力, 当 $N>0.2$ $f_{ck}A_{w}$ 时, 取 $N=0.2f_{ck}A_{w}$;
-
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
-
 $A_{w}$——抗震墙的截面面积;
-
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
-
 $A_{sh}$——配置在同一水平截面内的水平钢筋截面面积;
-
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
-
 $\lambda$——抗震墙的计算剪跨比; 其值可采用计算楼层至该抗震墙顶的 $1/2$ 高度与抗震墙截面高度之比, 当小于 $1.5$ 时取 $1.5$, 当大于 $2.2$ 时取 $2.2$。
 
 source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
+type: equation
+equation_name: C.0.5 带边框柱的钢筋混凝土抗震墙的层间现有受剪承载力可按下式计算:
 
 附录D 钢筋混凝土构件组合内力设计值调整
 
@@ -7334,19 +6515,12 @@ source: GB50023-2009：建筑抗震鉴定标准.md
 type: text
 
 $$
-
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
-
 V = 1 . 0 5 ( M _ { \mathrm { b u a } } ^ { l } + M _ { \mathrm { b u a } } ^ { r } ) / l _ { \mathrm { n } } + V _ { \mathrm { G b } }
-
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
-
 $$
 
+
 source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
+type: equation
 
 或
 
@@ -7354,19 +6528,12 @@ source: GB50023-2009：建筑抗震鉴定标准.md
 type: text
 
 $$
-
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
-
 V = 1 . 0 5 \lambda _ { \mathrm { b } } ( M _ { \mathrm { b } } ^ { l } + M _ { \mathrm { b } } ^ { r } ) / l _ { \mathrm { n } } + V _ { \mathrm { G b } }
-
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
-
 $$
 
+
 source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
+type: equation
 
 二级
 
@@ -7374,19 +6541,12 @@ source: GB50023-2009：建筑抗震鉴定标准.md
 type: text
 
 $$
-
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
-
 V = 1 . 0 5 ( M _ { \mathrm { b } } ^ { l } + M _ { \mathrm { b } } ^ { r } ) / l _ { \mathrm { n } } + V _ { \mathrm { G b } }
-
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
-
 $$
 
+
 source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
+type: equation
 
 三级
 
@@ -7394,24 +6554,13 @@ source: GB50023-2009：建筑抗震鉴定标准.md
 type: text
 
 $$
-
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
-
 V = ( M _ { \mathrm { b } } ^ { l } + M _ { \mathrm { b } } ^ { r } ) / l _ { \mathrm { n } } + V _ { \mathrm { G b } }
-
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
-
 $$
-
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
 
 $\lambda_{\mathrm{b}}$——梁实配增大系数，可按梁的左右端纵向受拉钢 筋的实际配筋面积之和与计算面积之和的比值 的1.1 倍采用； $\quad l_{\mathrm{n}}$——梁的净跨； $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\quad$ $\
 
 source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
+type: equation
 
 D.0.2 一、二级框架的梁柱节点处，除顶层和柱轴压比小于0.15者外，梁柱端弯矩应分别符合下列公式要求:
 
@@ -7424,19 +6573,12 @@ source: GB50023-2009：建筑抗震鉴定标准.md
 type: text
 
 $$
-
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
-
 \Sigma M _ { \mathrm { c } } = 1 . 1 \Sigma M _ { \mathrm { b u a } }
-
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
-
 $$
 
+
 source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
+type: equation
 
 或
 
@@ -7444,19 +6586,12 @@ source: GB50023-2009：建筑抗震鉴定标准.md
 type: text
 
 $$
-
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
-
 \Sigma M _ { \mathrm { c } } = 1 . 1 \lambda _ { j } \Sigma M _ { \mathrm { b } }
-
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
-
 $$
 
+
 source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
+type: equation
 
 二级
 
@@ -7464,24 +6599,13 @@ source: GB50023-2009：建筑抗震鉴定标准.md
 type: text
 
 $$
-
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
-
 \Sigma M _ { \mathrm { c } } = 1 . 1 \Sigma M _ { \mathrm { b } }
-
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
-
 $$
-
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
 
 $\Sigma M_{\mathrm{c}}$——节点上下柱端顺时针或反时针方向截面组合的弯 矩设计值之和，上下柱端的弯矩，一般情况可按 弹性分析分配； $\Sigma M_{\mathrm{b}}$——节点左右梁端反时针或顺时针方向截面组合的弯 矩设计值之和； $\Sigma M_{\mathrm{bua}}$——节点左右梁端反时针或顺时针方向实配的正截面 抗震受弯承载力所对应的弯矩值之和； $\lambda_{j}$——柱实配弯矩增大系数，可按节点左右梁端纵向受 拉钢筋的实际配筋面积之和与计算面积之和的比 值的1.1倍采用。
 
 source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
+type: equation
 
 D. 0.3 一、二级框架结构的底层柱底和框支层柱两端组合的弯矩设计值，分别乘以增大系数 1.5、1.25。
 
@@ -7499,19 +6623,12 @@ source: GB50023-2009：建筑抗震鉴定标准.md
 type: text
 
 $$
-
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
-
 V = 1 . 1 ( M _ { \mathrm { \ c u a } } ^ { \mathrm { \ u } } + M _ { \mathrm { \ c u a } } ^ { \i } ) / H _ { \mathrm { \ n } }
-
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
-
 $$
 
+
 source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
+type: equation
 
 或
 
@@ -7519,19 +6636,12 @@ source: GB50023-2009：建筑抗震鉴定标准.md
 type: text
 
 $$
-
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
-
 V = 1 . 1 \lambda _ { \mathrm { c } } ( M _ { \mathrm { c } } ^ { \mathrm { u } } + M _ { \mathrm { c } } ^ { l } ) / H _ { \mathrm { n } }
-
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
-
 $$
 
+
 source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
+type: equation
 
 二级
 
@@ -7539,39 +6649,16 @@ source: GB50023-2009：建筑抗震鉴定标准.md
 type: text
 
 $$
-
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
-
 V = 1 . 1 ( M _ { \mathrm { c } } ^ { \mathrm { u } } + M _ { \mathrm { c } } ^ { \prime } ) / H _ { \mathrm { n } }
-
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
-
 $$
 
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
-
 式中 $\lambda_{c}$——柱实配受剪增大系数，可按偏压柱上、下端实配的正截面抗震承载力所对应的弯矩值之和与其组合的弯矩设计值之和的比值采用；
-
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
-
 $H_{\mathrm{n}}$——柱的净高；
-
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
-
 $M_{\mathrm{c}}^{u}$、$M_{\mathrm{c}}^{l}$——分别为柱上、下端顺时针或反时针方向截面组合的弯矩设计值，应符合本附录第 D. 0.2、D. 0.3 条的要求；
-
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
-
 $M_{\mathrm{cua}}^{u}$、$M_{\mathrm{cua}}^{l}$——分别为柱上、下端顺时针或反时针方向实配的正截面抗震承载力所对应的弯矩值，可根据实际配筋面积、材料强度标准值和轴压力等确定。
 
 source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
+type: equation
 
 D. 0.5 框架节点核心区组合的剪力设计值，一、二级可按下列各式调整：
 
@@ -7584,19 +6671,12 @@ source: GB50023-2009：建筑抗震鉴定标准.md
 type: text
 
 $$
-
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
-
 V _ { j } = \frac { 1 . 0 5 \Sigma M _ { \mathrm { b u a } } } { h _ { \mathrm { b 0 } } - a _ { \mathrm { s } } ^ { \prime } } \Big ( 1 - \frac { h _ { \mathrm { b 0 } } - a _ { \mathrm { s } } ^ { \prime } } { H _ { \mathrm { c } } - h _ { \mathrm { b } } } \Big )
-
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
-
 $$
 
+
 source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
+type: equation
 
 或
 
@@ -7604,19 +6684,12 @@ source: GB50023-2009：建筑抗震鉴定标准.md
 type: text
 
 $$
-
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
-
 V _ { j } = \frac { 1 . 0 5 \lambda _ { j } \Sigma M _ { \mathrm { b } } } { h _ { \mathrm { b 0 } } - a _ { \mathrm { s } } ^ { \prime } } \Big ( 1 - \frac { h _ { \mathrm { b 0 } } - a _ { \mathrm { s } } ^ { \prime } } { H _ { \mathrm { c } } - h _ { \mathrm { b } } } \Big )
-
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
-
 $$
 
+
 source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
+type: equation
 
 二级
 
@@ -7624,44 +6697,17 @@ source: GB50023-2009：建筑抗震鉴定标准.md
 type: text
 
 $$
-
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
-
 V _ { j } = \frac { 1 . 0 5 \Sigma M _ { \mathrm { b } } } { h _ { \mathrm { b 0 } } - a _ { \mathrm { s } } ^ { \prime } } \left( 1 - \frac { h _ { \mathrm { b 0 } } - a _ { \mathrm { s } } ^ { \prime } } { H _ { \mathrm { c } } - h _ { \mathrm { b } } } \right)
-
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
-
 $$
 
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
-
 式中 $V_{j}$——节点核心区组合的剪力设计值;
-
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
-
 $h_{\mathrm{b}0}$——梁截面的有效高度，节点两侧梁截面高度不等时可采用平均值；
-
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
-
 $a_{\mathrm{s}}^{\prime}$——梁受压钢筋合力点至受压边缘的距离；
-
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
-
 $H_{\mathrm{c}}$——柱的计算高度，可采用节点上、下柱反弯点之间的距离；
-
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
-
 $h_{\mathrm{b}}$——梁的截面高度，节点两侧梁截面高度不等时可采用平均值。
 
 source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
+type: equation
 
 D.0.6 抗震墙底部加强部位截面组合的剪力设计值，一、二级应乘以下列增大系数，三级可不乘增大系数：
 
@@ -7674,19 +6720,12 @@ source: GB50023-2009：建筑抗震鉴定标准.md
 type: text
 
 $$
-
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
-
 \eta _ { \mathrm { v } } = 1 . 1 \, \frac { M _ { \mathrm { w u a } } } { M _ { \mathrm { w } } } = 1 . 1 \lambda _ { \mathrm { w } }
-
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
-
 $$
 
+
 source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
+type: equation
 
 二级
 
@@ -7694,29 +6733,14 @@ source: GB50023-2009：建筑抗震鉴定标准.md
 type: text
 
 $$
-
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
-
 \eta _ { \mathrm { v } } = 1 . 1
-
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
-
 $$
 
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
-
 式中 $\eta_{\mathrm{v}}$——墙剪力增大系数；
-
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
-
 $\lambda_{\mathrm{w}}$——墙实配增大系数，可按抗震墙底部实配的正截面抗 震承载力所对应的弯矩值与其组合的弯矩设计值的 比值采用； $M_{\mathrm{wua}}$——抗震墙底部实配的正截面抗震承载力所对应的弯矩 值，按实际配筋面积、材料强度标准值和轴向力等 确定； $M_{\mathrm{w}}$——抗震墙底部组合的弯矩设计值。
 
 source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
+type: equation
 
 D. 0.7 双肢抗震墙中, 当任一墙肢全截面平均出现拉应力且处于大偏心受拉状态时, 另一墙肢组合的剪力设计值、弯矩设计值应乘以增大系数 1.25。
 
@@ -7745,113 +6769,46 @@ type: text
 
 E.0.1 框架梁、柱、抗震墙和连梁，其端部截面组合的剪力设计值应符合下式要求:
 
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
-
 $$
-
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
-
 V \leqslant \frac { 1 } { \gamma _ { \mathrm { R a } } } ( 0 . 2 f _ { \mathrm { c } } b \hbar _ { 0 } )
-
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
-
 $$
-
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
 
 中 V——端部截面组合的剪力设计值，应按本标准附录 D 的规定采用；
-
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
-
 $f_{c}$——混凝土轴心抗压强度设计值，按本标准表 A.0.2-2 采用；
-
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
-
 $b$——梁、柱截面宽度或抗震墙墙板厚度；
-
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
-
 $h_{0}$——截面有效高度，抗震墙可取截面高度。
 
 source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
+type: equation
+equation_name: E.0.1 框架梁、柱、抗震墙和连梁，其端部截面组合的剪力设计值应符合下式要求:
 
 E. 0.2 框架梁的正截面抗震承载力应按下式计算:
 
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
-
 $$
-
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
-
 M _ { \mathrm { b } } \leqslant \frac { 1 } { \gamma _ { \mathrm { R a } } } \Big [ f _ { \mathrm { c m } } b x \Big ( h _ { 0 } - \frac { x } { 2 } \Big ) + f _ { \mathrm { y } } ^ { \prime } A _ { \mathrm { s } } ^ { \prime } ( h _ { 0 } - a _ { \mathrm { s } } ^ { \prime } ) \Big ]
-
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
-
 $$
 
+
 source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
+type: equation
+equation_name: E. 0.2 框架梁的正截面抗震承载力应按下式计算:
 
 混凝土受压区高度按下式计算:
 
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
-
 $$
-
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
-
 f _ { \mathrm { c m } } b x = f _ { \mathrm { y } } A _ { \mathrm { s } } - f _ { \mathrm { y } } ^ { \prime } A _ { \mathrm { s } } ^ { \prime }
-
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
-
 $$
-
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
 
 式中 $M_{\mathrm{b}}$——框架梁组合的弯矩设计值，应按本标准附录 D 的规定采用；
-
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
-
 $f_{\mathrm{cm}}$——混凝土弯曲抗压强度设计值，按本标准表 A.0.2-2 采用；
-
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
-
 $f_{\mathrm{y}}$、$f_{\mathrm{y}}^{\prime}$——受拉、受压钢筋屈服强度设计值，按标准表 A.0.3-2 采用；
-
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
-
 $A_{\mathrm{s}}$、$A_{\mathrm{s}}^{\prime}$——受拉、受压纵向钢筋截面面积；
-
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
-
 $a_{\mathrm{s}}^{\prime}$——受压区纵向钢筋合力点至受压区边缘的距离；
-
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
-
 $x$——混凝土受压区高度，一级框架应满足 $x \leqslant 0.25 h_{0}$
 
 source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
+type: equation
+equation_name: 混凝土受压区高度按下式计算:
 
 的要求，二、三级框架应满足 $x\leqslant0.35h_{0}$ 的要求。
 
@@ -7860,68 +6817,30 @@ type: text
 
 E.0.3 框架梁的斜截面抗震承载力应按下式计算:
 
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
-
 $$
-
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
-
 V _ { \mathrm { b } } \leqslant \frac { 1 } { \gamma _ { \mathrm { R a } } } \left( 0 . 0 5 6 f _ { \mathrm { c } } b \hbar _ { 0 } + 1 . 2 f _ { \mathrm { y v } } \frac { A _ { \mathrm { s v } } } { s } h _ { 0 } \right)
-
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
-
 $$
 
+
 source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
+type: equation
+equation_name: E.0.3 框架梁的斜截面抗震承载力应按下式计算:
 
 对集中荷载作用下的框架梁（包括有多种荷载，且其中集中荷载对节点边缘产生的剪力值占总剪力值的 75%以上的情况），其斜截面抗震承载力应按下式计算:
 
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
-
 $$
-
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
-
 V _ { \mathrm { b } } \leqslant \frac { 1 } { \gamma _ { \mathrm { R a } } } \Big ( \frac { 0 . 1 6 } { \lambda + 1 . 5 } f _ { \mathrm { c } } b h _ { 0 } + f _ { \mathrm { y v } } \frac { A _ { \mathrm { s v } } } { s } h _ { 0 } \Big )
-
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
-
 $$
-
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
 
 式中 $V_{\mathrm{b}}$——框架梁组合的剪力设计值，应按本标准附录 D 的规定采用；
-
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
-
 $f_{\mathrm{yv}}$——箍筋的抗拉强度设计值；
-
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
-
 $A_{\mathrm{sv}}$——配置在同一截面内箍筋各肢的全部截面面积；
-
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
-
 $s$——箍筋间距；
-
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
-
 $\lambda$——计算截面的剪跨比。
 
 source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
+type: equation
+equation_name: 对集中荷载作用下的框架梁（包括有多种荷载，且其中集中荷载对节点边缘产生的剪力值占总剪力值的 75%以上的情况），其斜截面抗震承载力应按下式计算:
 
 E.0.4 偏心受压框架柱、抗震墙的正截面抗震承载力应符合下列规定:
 
@@ -7930,93 +6849,31 @@ type: text
 
 1 验算公式:
 
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
-
 $$
-
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
-
 N \leqslant \frac { 1 } { \gamma _ { \mathrm { R a } } } ( f _ { \mathrm { c m } } b x + f _ { \mathrm { y } } ^ { \prime } A _ { \mathrm { s } } ^ { \prime } - \sigma _ { \mathrm { s } } A _ { \mathrm { s } } )
-
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
-
 $$
 
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
-
 $$
-
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
-
 N e \leqslant \frac { 1 } { \gamma _ { \mathrm { R a } } } \Big [ f _ { \mathrm { c n } } b x \Big ( h _ { 0 } - \frac { x } { 2 } \Big ) + f _ { \mathrm { y } } ^ { \prime } A _ { \mathrm { s } } ^ { \prime } ( h _ { 0 } - a _ { \mathrm { s } } ^ { \prime } ) \Big ]
-
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
-
 $$
 
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
-
 $$
-
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
-
 e = \mathfrak { P } _ { i } + \frac { h } { 2 } - a
-
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
-
 $$
 
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
-
 $$
-
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
-
 e _ { i } = e _ { 0 } + 0 . 1 2 ( 0 . 3 h _ { 0 } - e _ { 0 } ) \qquad \mathrm { ~ ( E . ~ } 0 . 4 \mathrm { - } 4 \mathrm { ) }
-
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
-
 $$
-
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
 
 式中 $N$——组合的轴向压力设计值；
-
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
-
 $e$——轴向力作用点至普通受拉钢筋合力点之间的距离；
-
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
-
 $e_{0}$——轴向力对截面重心的偏心距，$e_{0}=M/N$；
-
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
-
 $\eta$——偏心受压构件考虑挠曲影响的轴向力偏心距增大系数，按现行国家标准《混凝土结构设计规范》GB
-
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
-
 50010 的规定计算； $\sigma_{\mathrm{s}}$ ——纵向钢筋的应力，按本条第2 款的规定采用。
 
 source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
+type: equation
+equation_name: 1 验算公式:
 
 2 纵向钢筋的应力计算应符合下列规定:
 
@@ -8029,19 +6886,12 @@ source: GB50023-2009：建筑抗震鉴定标准.md
 type: text
 
 $$
-
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
-
 \sigma _ { \mathrm { s } } = f _ { \mathrm { y } }
-
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
-
 $$
 
+
 source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
+type: equation
 
 小偏心受压
 
@@ -8049,44 +6899,18 @@ source: GB50023-2009：建筑抗震鉴定标准.md
 type: text
 
 $$
-
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
-
 \sigma _ { \mathrm { s } } = \frac { f _ { \mathrm { y } } } { \xi _ { \mathrm { b } } - 0 . 8 } \left( \frac { x } { h _ { 0 i } } - 0 . 8 \right)
-
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
-
 $$
 
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
-
 $$
-
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
-
 \xi _ { \mathrm { b } } = \frac { 0 . 8 } { 1 + f _ { \mathrm { y } } / 0 . 0 0 3 3 E _ { \mathrm { s } } }
-
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
-
 $$
-
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
 
 式中 $E_{\mathrm{s}}$——钢筋的弹性模量，按本标准附录 A 表 A.0.4 采用；
-
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
-
 $h_{0i}$——第 $i$ 层纵向钢筋截面重心至混凝土受压区边缘的距离。
 
 source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
+type: equation
 
 E.0.5 偏心受拉框架柱、抗震墙的正截面抗震承载力应按下式计算:
 
@@ -8099,34 +6923,16 @@ source: GB50023-2009：建筑抗震鉴定标准.md
 type: text
 
 $$
-
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
-
 N e \leqslant \frac { 1 } { \gamma _ { \mathrm { { R a } } } } f _ { \mathrm { { y } } } ^ { \prime } A _ { \mathrm { { s } } } ^ { \prime } ( h _ { 0 } - a _ { \mathrm { { s } } } ^ { \prime } )
-
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
-
 $$
 
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
-
 $$
-
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
-
 N e ^ { \prime } \leqslant \frac { 1 } { \gamma _ { \mathrm { R a } } } f _ { y } ^ { \prime } A _ { \mathrm { s } } ( h _ { 0 } - a _ { \mathrm { s } } )
-
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
-
 $$
 
+
 source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
+type: equation
 
 2 大偏心受拉构件
 
@@ -8134,89 +6940,41 @@ source: GB50023-2009：建筑抗震鉴定标准.md
 type: text
 
 $$
-
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
-
 N \leqslant \frac { 1 } { \gamma _ { \mathrm { R a } } } ( f _ { \mathrm { y } } A _ { \mathrm { s } } - f _ { \mathrm { y } } ^ { \prime } A _ { \mathrm { s } } ^ { \prime } )
-
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
-
 $$
 
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
-
 $$
-
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
-
 N e \leqslant \frac { 1 } { \gamma _ { \mathrm { R a } } } \Big [ f _ { \mathrm { c m } } b x \Big ( h _ { 0 } - \frac { x } { 2 } \Big ) + f _ { \mathrm { y } } ^ { \prime } A _ { \mathrm { s } } ^ { \prime } ( h _ { 0 } - a _ { \mathrm { s } } ^ { \prime } ) \Big ]
-
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
-
 $$
 
+
 source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
+type: equation
 
 E. 0.6 框架柱的斜截面抗震承载力应按下式计算:
 
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
-
 $$
-
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
-
 V _ { \mathrm { c } } \leqslant \frac { 1 } { \gamma _ { \mathrm { R a } } } \left( \frac { 0 . 1 6 } { \lambda + 1 . 5 } f _ { \mathrm { c } } b \hbar _ { 0 } + f _ { \mathrm { y v } } \frac { A _ { \mathrm { s v } } } { s } h _ { 0 } + 0 . 0 5 6 N \right)
-
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
-
 $$
 
+
 source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
+type: equation
+equation_name: E. 0.6 框架柱的斜截面抗震承载力应按下式计算:
 
 当框架柱出现拉力时，其斜截面抗震承载力应按下式计算:
 
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
-
 $$
-
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
-
 V _ { \mathrm { c } } \leqslant \frac { 1 } { \gamma _ { \mathrm { R a } } } \left( \frac { 0 . 1 6 } { \lambda + 1 . 5 } f _ { \mathrm { c } } b \hbar _ { 0 } + f _ { \mathrm { y v } } \frac { A _ { \mathrm { s v } } } { s } h _ { 0 } - 0 . 1 6 N \right)
-
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
-
 $$
-
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
 
 式中 $V_{c}$——框架柱组合的剪力设计值，应按本标准附录 D 的规定采用；
-
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
-
 $\lambda$——框架柱的计算剪跨比，$\lambda=H_{n}/2h_{0}$；当 $\lambda<1$ 时，取 $\lambda=1$；当 $\lambda>3$ 时，取 $\lambda=3$；
-
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
-
 $N$——框架柱组合的轴向压力设计值；当 $N>0.3f_{c}A$ 时，取 $N=0.3f_{c}A$。
 
 source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
+type: equation
+equation_name: 当框架柱出现拉力时，其斜截面抗震承载力应按下式计算:
 
 E. 0.7 抗震墙的斜截面抗震承载力应下列公式计算:
 
@@ -8229,19 +6987,12 @@ source: GB50023-2009：建筑抗震鉴定标准.md
 type: text
 
 $$
-
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
-
 V _ { \mathrm { w } } \leqslant \frac { 1 } { \gamma _ { \mathrm { R a } } } \Big [ \frac { 1 } { \lambda - 0 . 5 } \Big ( 0 . 0 4 f _ { \mathrm { c } } b \hbar _ { 0 } + 0 . 1 N \frac { A _ { \mathrm { w } } } { A } \Big ) + 0 . 8 f _ { \mathrm { y v } } \frac { A _ { \mathrm { s h } } } { s } \hbar _ { 0 } \Big ]
-
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
-
 $$
 
+
 source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
+type: equation
 
 偏心受拉
 
@@ -8249,29 +7000,14 @@ source: GB50023-2009：建筑抗震鉴定标准.md
 type: text
 
 $$
-
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
-
 V _ { \mathrm { w } } \leqslant \frac { 1 } { \gamma _ { \mathrm { R a } } } \Big [ \frac { 1 } { \lambda - 0 . 5 } \Big ( 0 . 0 4 f _ { \mathrm { c } } b \hbar _ { 0 } - 0 . 1 N \frac { A _ { \mathrm { w } } } { A } \Big ) + 0 . 8 f _ { \mathrm { y v } } \frac { A _ { \mathrm { s h } } } { s } h _ { 0 } \Big ]
-
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
-
 $$
 
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
-
 式中 $V_{\mathrm{w}}$——抗震墙组合的剪力设计值，应按本标准附录 D 的规定采用；
-
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
-
 $\lambda$——计算截面处的剪跨比，$\lambda=M/Vh_{0}$；当 $\lambda<1.5$ 时，取 $\lambda=1.5$；当 $\lambda>2.2$ 时，取 $\lambda=2.2$。
 
 source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
+type: equation
 
 E. 0.8 节点核心区组合的剪力设计值应符合下列规定:
 
@@ -8280,48 +7016,20 @@ type: text
 
 1 验算公式:
 
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
-
 $$
-
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
-
 V _ { j } \leqslant \frac { 1 } { \gamma _ { \mathrm { R a } } } ( 0 . 3 \eta _ { j } f _ { \mathrm { c } } b _ { j } h _ { j } )
-
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
-
 $$
 
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
-
 $$
-
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
-
 V _ { j } \leqslant \frac { 1 } { \gamma _ { \mathrm { R a } } } \Big ( 0 . 1 \eta _ { j } f _ { \mathrm { c } } b _ { j } h _ { j } + 0 . 1 \eta _ { j } N \frac { b _ { j } } { b _ { \mathrm { c } } } + f _ { \mathrm { y v } } A _ { \mathrm { s v j } } \frac { h _ { \mathrm { b 0 } } - a _ { \mathrm { s } } ^ { \prime } } { s } \Big )
-
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
-
 $$
-
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
 
 式中 $V_{j}$——节点核心区组合的剪力设计值，应按本标准第 D.0.5 条的规定采用；
-
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
-
 $\eta_{b}$——交叉梁的约束影响系数，四侧各梁截面宽度不小 于该侧柱截面宽度的1/2，且次梁高度不小于主梁 高度的3/4，可采用1.5，其他情况均可采用1.0； $N$——对应于组合的剪力设计值的上柱轴向压力，其取 值不应大于柱截面面积和混凝土抗压强度设计值
 
 source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
+type: equation
+equation_name: 1 验算公式:
 
 乘积的50%；
 
@@ -8365,78 +7073,33 @@ type: text
 
 1) 当验算方向的梁截面宽度不小于该侧柱截面宽度的1/2时, 可采用该侧柱截面宽度, 当小于时可采用下列二者的较小值:
 
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
-
 $$
-
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
-
 b _ { j } = b _ { \mathrm { b } } + 0 . 5 h _ { \mathrm { c } }
-
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
-
 $$
 
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
-
 $$
-
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
-
 b _ { j } = b _ { \mathrm { c } }
-
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
-
 $$
-
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
 
 式中 $b_{\mathrm{b}}$——梁截面宽度；
-
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
-
 $h_{\mathrm{c}}$——验算方向的柱截面高度；
-
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
-
 $b_{\mathrm{c}}$——验算方向的柱截面宽度。
 
 source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
+type: equation
+equation_name: 1) 当验算方向的梁截面宽度不小于该侧柱截面宽度的1/2时, 可采用该侧柱截面宽度, 当小于时可采用下列二者的较小值:
 
 2) 当梁柱的中线不重合时, 核心区的截面宽度可采用上款和下式计算结果的较小值:
 
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
-
 $$
-
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
-
 b _ { j } = 0 . 5 ( b _ { \mathrm { b } } + b _ { \mathrm { c } } ) + 0 . 2 5 h _ { \mathrm { c } } - e
-
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
-
 $$
-
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
 
 式中 $e$——梁与柱中线偏心距。
 
 source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
+type: equation
+equation_name: 2) 当梁柱的中线不重合时, 核心区的截面宽度可采用上款和下式计算结果的较小值:
 
 E.0.9 抗震墙结构框支层楼板的截面抗震验算，应符合下列规定:
 
@@ -8445,63 +7108,23 @@ type: text
 
 1 验算公式:
 
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
-
 $$
-
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
-
 V _ { \mathrm { f } } \leqslant \frac { 1 } { \gamma _ { \mathrm { R a } } } ( 0 . 1 f _ { \mathrm { c } } b _ { \mathrm { f } } t _ { \mathrm { f } } )
-
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
-
 $$
 
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
-
 $$
-
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
-
 \mathrm { V _ { f } \leqslant \frac { 1 } { \gamma _ { R a } } ( 0 . 6 f _ { y } A _ { s } ) }
-
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
-
 $$
-
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
 
 其中 $V_{\mathrm{f}}$——由不落地抗震墙传到落地抗震墙处框支层楼板组合的剪力设计值；
-
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
-
 $b_{\mathrm{f}}$——框支层楼板的宽度；
-
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
-
 $t_{\mathrm{f}}$——框支层楼板的厚度；
-
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
-
 $A_{\mathrm{s}}$——穿过落地抗震墙的框支层楼盖（包括梁和板）的全部钢筋的截面面积；
-
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
-
 $\gamma_{\mathrm{Ra}}$——承载力抗震调整系数，可采用 0.85。
 
 source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
+type: equation
+equation_name: 1 验算公式:
 
 2 框支层楼板应采用现浇，厚度不宜小于 180mm，混凝土强度等级不宜低于 C30，应采用双层双向配筋，且每方向的配筋率不应小于 0.25%。
 
@@ -8530,58 +7153,23 @@ type: text
 
 F.0.1 黏土砖填充墙框架考虑抗侧力作用时，层间侧移刚度可按下列公式确定:
 
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
-
 $$
-
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
-
 K _ { \mathrm { f w } } = K _ { \mathrm { f } } + K _ { \mathrm { w } }
-
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
-
 $$
 
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
-
 $$
-
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
-
 K _ { \mathrm { w } } = 3 \phi _ { \mathrm { k } } \Sigma E _ { \mathrm { w } } I _ { \mathrm { w } } ^ { \mathrm { t } } / [ H _ { \mathrm { w } } ^ { 3 } ( \phi _ { \mathrm { m } } + \gamma \psi _ { \mathrm { v } } ) ]
-
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
-
 $$
 
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
-
 $$
-
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
-
 \gamma = 9 I _ { \mathrm { w } } ^ { \mathrm { t } } / A _ { \mathrm { w } } ^ { \mathrm { t } } H _ { \mathrm { w } } ^ { 2 }
-
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
-
 $$
-
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
 
 式中 $K_{fw}$——填充墙框架的层间侧移刚度；
 
 source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
+type: equation
+equation_name: F.0.1 黏土砖填充墙框架考虑抗侧力作用时，层间侧移刚度可按下列公式确定:
 
 $K_{\mathrm{f}}$ 坩儿墙砌米的层间侧移刚度;
 
@@ -8624,64 +7212,31 @@ source: GB50023-2009：建筑抗震鉴定标准.md
 type: text
 
 ![](images/c9bb88bd5c84e6d9270dc4bb8b07fefd79964d16062f5d533920268fe204fcf1.jpg)
-
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
-
 图 F.0.1 开洞填充墙截面面积和惯性矩
 
 source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
+type: figure
+image_name: 图 F.0.1 开洞填充墙截面面积和惯性矩
+image_link: images/c9bb88bd5c84e6d9270dc4bb8b07fefd79964d16062f5d533920268fe204fcf1.jpg
 
 $\psi_{\mathrm{m}}$、$\psi_{\mathrm{v}}$——洞口影响系数，可按下列规定采用：
 
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
-
 $$
-
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
-
 \text{无洞口时}，\phi _ { \mathrm { m } } = \phi _ { \mathrm { v } } = 1
-
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
-
 $$
 
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
-
 $$
-
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
-
 \begin{array} { r } { \mathrm { 有 洞 口 时 } , \phi _ { \mathrm { m } } = \left( \frac { h } { H _ { \mathrm { w } } } \right) ^ { 3 } \left( 1 - \frac { I _ { \mathrm { w } } ^ { \mathrm { t } } } { I _ { \mathrm { w } } ^ { \mathrm { b } } } \right) + \frac { I _ { \mathrm { w } } ^ { \mathrm { t } } } { I _ { \mathrm { w } } ^ { \mathrm { b } } } } \end{array}
-
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
-
 $$
 
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
-
 $$
-
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
-
 \phi _ { \mathrm { v } } = \frac { h } { H _ { \mathrm { w } } } \bigg ( 1 - \frac { A _ { \mathrm { w } } ^ { \mathrm { t } } } { A _ { \mathrm { w } } ^ { \mathrm { b } } } \bigg ) + \frac { A _ { \mathrm { w } } ^ { \mathrm { t } } } { A _ { \mathrm { w } } ^ { \mathrm { b } } }
-
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
-
 $$
 
+
 source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
+type: equation
+equation_name: $\psi_{\mathrm{m}}$、$\psi_{\mathrm{v}}$——洞口影响系数，可按下列规定采用：
 
 F.0.2 地震作用效应应符合下列规定:
 
@@ -8695,98 +7250,38 @@ type: text
 
 2 填充墙框架的柱轴向压力和剪力，应考虑填充墙引起的附加轴向压力和附加剪力，其值可按下列公式确定:
 
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
-
 $$
-
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
-
 N _ { \mathrm { f } } = V _ { \mathrm { w } } H _ { \mathrm { f } } / l
-
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
-
 $$
 
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
-
 $$
-
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
-
 \mathbf { V _ { f } } = \mathbf { V _ { w } }
-
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
-
 $$
-
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
 
 式中 $N_{f}$——框架柱的附加轴压力设计值;
-
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
-
 $V_{\mathrm{w}}$——填充墙承担的剪力设计值，柱两侧有填充墙时可 采用两者的较大值； $H_{\mathrm{f}}$——框架的层高； $ l$——框架的跨度； $V_{\mathrm{f}}$——框架柱的附加剪力设计值。
 
 source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
+type: equation
+equation_name: 2 填充墙框架的柱轴向压力和剪力，应考虑填充墙引起的附加轴向压力和附加剪力，其值可按下列公式确定:
 
 F. 0.3 填充墙框架的截面抗震验算，应采用下列设计表达式:
 
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
-
 $$
-
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
-
 V _ { \mathrm { f w } } \leqslant \frac { 1 } { \gamma _ { \mathrm { R a c } } } \Sigma ( M _ { \mathrm { y c } } ^ { \mathrm { u } } + M _ { \mathrm { y c } } ^ { l } ) / H _ { \mathrm { c } } + \frac { 1 } { \gamma _ { \mathrm { R a w } } } \Sigma f _ { \mathrm { v E } } A _ { \mathrm { w 0 } } \, ( \
-
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
-
 $$
 
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
-
 $$
-
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
-
 0 . 4 V _ { \mathrm { f w } } \leqslant \frac { 1 } { \gamma _ { \mathrm { R a c } } } \Sigma ( M _ { \mathrm { y c } } ^ { \mathrm { u } } + M _ { \mathrm { y c } } ^ { \mathrm { f } } ) / H _ { \mathrm { c } }
-
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
-
 $$
-
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
 
 式中 $V_{\mathrm{fw}}$——填充墙框架承担的剪力设计值；
-
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
-
 $f_{\mathrm{vE}}$——砖墙的抗震抗剪强度设计值；
-
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
-
 $A_{\mathrm{w0}}$——砖墙水平截面的计算面积，无洞口可采用1.25倍实际截面面积，有洞口可采用截面净面积，但宽
 
 source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
+type: equation
+equation_name: F. 0.3 填充墙框架的截面抗震验算，应采用下列设计表达式:
 
 度小于洞口高度 1/4 的墙肢不考虑;
 
@@ -8860,53 +7355,31 @@ type: text
 
 表 G.0.1 木柱常用圆截面尺寸（cm）
 
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
-
 <table><tr><th rowspan="2">进深<br>(m)</th><th rowspan="2">部位</th><th colspan="4">合瓦或仰瓦灰梗屋面</th><th colspan="4">干棱瓦、灰平顶或泥卧水泥瓦屋面</th></tr><tr><th colspan="4">开间 (m)</th><th colspan="4">开间 (m)</th></tr><tr><td>2.80</td><td>3.00</td><td>3.20</td><td>3.40</td><td>2.80</td><td>3.00</td><td>3.20</td><td>3.40</td><td>3.20</td><td>3.40</td></tr><tr><td>3.60</td><td>檐柱<br>排山柱<br>角柱</td><td>14<br>12<br>12</td><td>—</td><td>—</td><td>—</td><td>14<br>12<br>12</td><td>—</td><td>—</td><td>—</td></tr><tr><td>3.90</td><td>檐柱<br>排山柱<br>角柱</td><td>14<br>12<br>12</td><td>16<br>13<br>12</td><td>—</td><td>—</td><td>15<br>12<br>—</td><td>15<br>12<br>12</td><td>15<br>12<br>12</td><td>—</td></tr><tr><td>4.20</td><td>檐柱<br>排山柱<br>角柱</td><td>16<br>13<br>12</td><td>16<br>13<br>12</td><td>16<br>13</td><td>—</td><td>15<br>12<br>—</td><td>15<br>12<br>12</td><td>15<br>12<br>12</td><td>—</td></tr><tr><td>4.50</td><td>檐柱<br>排山柱<br>角柱</td><td>16<br>13<br>12</td><td>16<br>13</td><td>17<br>13</td><td>17<br>13</td><td>15<br>12<br>—</td><td>15<br>12<br>12</td><td>16<br>13<br>13</td><td>16<br>13<br>13</td></tr></table>
 
 source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
+type: table
+table_name: 表 G.0.1 木柱常用圆截面尺寸（cm）
 
 表 G.0.2 楼层木大梁常用截面尺寸（cm）
 
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
-
 <table><tr><td rowspan="2" colspan="1">跨度(m)</td><td rowspan="2" colspan="1">截面形状</td><td colspan="2">宿舍、办公室等</td><td colspan="2">教室、过道、楼梯间等</td></tr><tr><td>龙骨长度(m)</td><td>龙骨长度(m)</td><td>龙骨长度(m)</td></tr><tr><td>3.60</td><td>圆<br>方</td><td>24<br>12×27</td><td>25<br>12×28</td><td>27<br>12×30</td><td>28<br>15×30</td></tr><tr><td>3.80</td><td>圆<br>方</td><td>25<br>12×28</td><td>26<br>12×29</td><td>28<br>15×30</td><td>29<br>15×31</td></tr><tr><td>4.00</td><td>圆<br>方</td><td>26<br>12×29</td><td>27<br>12×30</td><td>29<br>15×31</td><td>30<br>15×32</td></tr><tr><td>4.20</td><td>圆<br>方</td><td>27<br>12×30</td><td>28<br>15×30</td><td>30<br>15×32</td><td>31<br>15×33</td></tr><tr><td>4.40</td><td>圆<br>方</td><td>28<br>15×30</td><td>29<br>15×31</td><td>31<br>15×33</td><td>32<br>15×34</td></tr><tr><td>4.60</td><td>圆<br>方</td><td>29<br>15×31</td><td>30<br>15×32</td><td>32<br>15×34</td><td>33<br>15×35</td></tr><tr><td>4.80</td><td>圆<br>方</td><td>30<br>15×32</td><td>31<br>15×33</td><td>33<br>15×35</td><td>34<br>18×36</td></tr><tr><td>5.00</td><td>圆<br>方</td><td>31<br>15×33</td><td>32<br>15×34</td><td>34<br>18×36</td><td>35<br>18×37</td></tr></table>
-
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
 
 注：1 本表适用于木板面层的楼地面； 2 本表中圆木直径尺寸系指中径。
 
 source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
+type: table
+table_name: 表 G.0.2 楼层木大梁常用截面尺寸（cm）
 
 表 G.0.3 木龙骨常用截面尺寸（cm）
 
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
-
-<table><tr><th>跨度 (m)</th><th>宿舍、办公室等</th><th>教室、过道、楼梯间等</th></tr><tr><td>2.00</td><td>5×9</td><td>5×11</td></tr><tr><td>2.20</td><td>5×10</td><td>5×12</td></tr><tr><td>2.40</td><td>5×11</td><td>5×13</td></tr><tr><td>2.60</td><td>5×12</td><td>5×14</td></tr><tr><td>2.80</td><td>5×13</td><td>5×15</td></tr><tr><td>3.00</td><td>5×14</td><td>5×16</td></tr></table>
-
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
-
-续表 G.0.3
-
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
-
-<table><tr><td>跨度(m)</td><td>宿舍、办公室等</td><td>教室、过道、楼梯间等</td></tr><tr><td>3.20</td><td>5×15</td><td>5×17</td></tr><tr><td>3.40</td><td>5×16</td><td>5×18</td></tr><tr><td>3.60</td><td>5×17</td><td>5×19</td></tr><tr><td>3.80</td><td>5×17</td><td>5×20</td></tr><tr><td>4.00</td><td>5×18</td><td>5×21</td></tr><tr><td>4.20</td><td>5×19</td><td>5×22</td></tr><tr><td>4.40</td><td>5×20</td><td>5×23</td></tr><tr><td>4.60</td><td>5×21</td><td>5×24</td></tr><tr><td>4.80</td><td>5×22</td><td>5×25</td></tr><tr><td>5.00</td><td>5×23</td><td>5×26</td></tr></table>
-
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
+<table><tr><th>跨度 (m)</th><th>宿舍、办公室等</th><th>教室、过道、楼梯间等</th></tr><tr><td>2.00</td><td>5×9</td><td>5×11</td></tr><tr><td>2.20</td><td>5×10</td><td>5×12</td></tr><tr><td>2.40</td><td>5×11</td><td>5×13</td></tr><tr><td>2.60</td><td>5×12</td><td>5×14</td></tr><tr><td>2.80</td><td>5×13</td><td>5×15</td></tr><tr><td>3.00</td><td>5×14</td><td>5×16</td></tr><tr><td>跨度(m)</td><td>宿舍、办公室等</td><td>教室、过道、楼梯间等</td></tr><tr><td>3.20</td><td>5×15</td><td>5×17</td></tr><tr><td>3.40</td><td>5×16</td><td>5×18</td></tr><tr><td>3.60</td><td>5×17</td><td>5×19</td></tr><tr><td>3.80</td><td>5×17</td><td>5×20</td></tr><tr><td>4.00</td><td>5×18</td><td>5×21</td></tr><tr><td>4.20</td><td>5×19</td><td>5×22</td></tr><tr><td>4.40</td><td>5×20</td><td>5×23</td></tr><tr><td>4.60</td><td>5×21</td><td>5×24</td></tr><tr><td>4.80</td><td>5×22</td><td>5×25</td></tr><tr><td>5.00</td><td>5×23</td><td>5×26</td></tr></table>
 
 注：1 龙骨间距按 40cm 计算；
 
 source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
+type: table
+table_name: 表 G.0.3 木龙骨常用截面尺寸（cm）
 
 2 龙骨间必须每隔 1\~1.5m 加 5cm×4cm 剪刀撑；
 
@@ -8920,43 +7393,31 @@ type: text
 
 表 G.0.4 木口常用截面尺寸（cm）
 
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
-
 <table><tr><td rowspan="2">进深<br>(m)</td><td rowspan="2">截面<br>形状</td><td colspan="4">合瓦屋面</td><td colspan="4">仰瓦灰梗屋面</td><td colspan="4">干搓瓦屋面</td><td colspan="4">灰顶或泥卧水泥瓦屋面</td></tr><tr><td colspan="4">开间(m)</td><td colspan="4">开间(m)</td><td colspan="4">开间(m)</td><td colspan="4">开间(m)</td></tr><tr><td>2.80</td><td>3.00</td><td>3.20</td><td>3.40</td><td>2.80</td><td>3.00</td><td>3.20</td><td>3.40</td><td>2.80</td><td>3.20</td><td>3.40</td><td>2.80</td><td>3.00</td><td>3.20</td><td>3.40</td><td>2.80</td><td>3.00</td><td>3.20</td></tr><tr><td>3.60</td><td>圆<br>方</td><td>27<br>20×25</td><td>-</td><td>-</td><td>-</td><td>25<br>18×23</td><td>-</td><td>-</td><td>-</td><td>-</td><td>24<br>17×21</td><td>-</td><td>-</td><td>-</td><td>19<br>14×18</td><td>20<br>14×18</td><td>20<br>14×18</td></tr><tr><td>3.90</td><td>圆<br>方</td><td>28<br>21×26</td><td>29<br>21×26</td><td>-</td><td>-</td><td>26<br>19×24</td><td>27<br>20×25</td><td>-</td><td>-</td><td>-</td><td>25<br>18×23</td><td>26<br>19×24</td><td>27<br>20×25</td><td>-</td><td>20<br>14×18</td><td>21<br>14×18</td><td>21<br>14×18</td></tr><tr><td>4.20</td><td>圆<br>方</td><td>29<br>21×26</td><td>30<br>22×28</td><td>32<br>23×29</td><td>-</td><td>27<br>20×25</td><td>28<br>21×26</td><td>29<br>22×28</td><td>-</td><td>-</td><td>26<br>19×24</td><td>27<br>21×25</td><td>28<br>21×26</td><td>-</td><td>21<br>14×18</td><td>22<br>15×19</td><td>22<br>15×19</td></tr><tr><td>4.50</td><td>圆<br>方</td><td>31<br>22×28</td><td>32<br>23×29</td><td>34<br>24×30</td><td>35<br>25×31</td><td>28<br>21×26</td><td>29<br>22×28</td><td>31<br>23×29</td><td>33<br>24×30</td><td>27<br>20×25</td><td>28<br>21×26</td><td>29<br>22×28</td><td>31<br>23×29</td><td>-</td><td>-</td><td>-</td><td>-</td></tr></table>
-
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
 
 注：本表中圆木直径尺寸系指中径。
 
 source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
+type: table
+table_name: 表 G.0.4 木口常用截面尺寸（cm）
 
 表 G.0.5 木槽常用截面尺寸（cm）
 
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
-
 <table><tr><td rowspan="3">跨度<br>(m)</td><td rowspan="3">截<br>面<br>形<br>状</td><td colspan="14">屋面类别</td></tr><tr><td colspan="5">合瓦</td><td colspan="5">仰瓦灰梗或干楼瓦</td><td colspan="5">灰顶</td><td>泥卧水泥瓦</td><td colspan="5">水泥瓦或陶瓦</td><td>小波形石棉瓦</td><td>铅铁或油毡</td></tr><tr><td colspan="5">iameter<br>(m)</td><td colspan="5">iameter<br>(m)</td><td colspan="5">iameter<br>(m)</td><td>iameter<br>(m)</td><td colspan="5">iameter<br>(m)</td><td>iameter<br>(m)</td></tr><tr><td>0.90</td><td>1.10</td><td>1.25</td><td>0.90</td><td>1.10</td><td>1.25</td><td>0.80</td><td>0.90</td><td>1.10</td><td>1.25</td><td>0.90</td><td>1.10</td><td>1.25</td><td>0.70</td><td>0.90</td><td>1.10</td><td>1.25</td><td>0.70</td><td>0.90</td><td>1.10</td><td>0.85</td><td>0.85</td></tr><tr><td>2.80</td><td>圆<br>方</td><td>16</td><td>-</td><td>-</td><td>15</td><td>16</td><td>17</td><td>13</td><td>13</td><td>14</td><td>15</td><td>15</td><td>13</td><td>14</td><td>14</td><td>14</td><td>11<br>6×15<br>(6×12)</td><td>12<br>8×15<br>(6×15)</td><td>12<br>8×15<br>(6×12)</td><td>11<br>6×15<br>(6×12)</td><td>11<br>6×15<br>(6×12)</td></tr><tr><td>3.00</td><td>圆<br>方</td><td>17</td><td>18</td><td>19</td><td>16</td><td>17</td><td>18</td><td>13</td><td>14</td><td>15</td><td>15</td><td>13</td><td>14</td><td>15</td><td>14</td><td>15</td><td>12<br>8×15<br>(6×12)</td><td>12<br>8×15<br>(6×15)</td><td>13<br>10×15<br>(8×15)</td><td>12<br>8×15<br>(6×12)</td><td>11<br>6×15<br>(6×12)</td></tr><tr><td>3.20</td><td>圆<br>方</td><td>18</td><td>19</td><td>20</td><td>16</td><td>18</td><td>19</td><td>14</td><td>14</td><td>15</td><td>16</td><td>14</td><td>15</td><td>15</td><td>15</td><td>12<br>8×15<br>(6×15)</td><td>13<br>10×15<br>(8×15)</td><td>13<br>10×15<br>(8×15)</td><td>12<br>8×15<br>(6×12)</td><td>12<br>8×15<br>(6×12)</td></tr><tr><td>3.40</td><td>圆<br>方</td><td>19</td><td>20</td><td>21</td><td>17</td><td>19</td><td>19</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>14</td><td>15</td><td>16</td><td>13<br>10×15<br>(6×15)</td><td>13<br>10×15<br>(8×15)</td><td>14<br>10×18<br>(10×15)</td><td>13<br>10×15<br>(6×15)</td><td>12<br>8×15<br>(6×15)</td><td>12<br>8×15<br>(6×15)</td></tr></table>
-
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
 
 注：1 灰顶房不考虑有顶棚； 2 表中所列圆槽直径尺寸系指跨中而言，欲求梢径须从表中尺寸减以0.4 倍跨长（m）即可； 3 表中括号内尺寸系直放槽尺寸，如木槽顺屋面放置，上钉有密排望板，或有橡条（间距 $\leqslant$ 15cm）时，可按直放槽考虑。
 
 source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
+type: table
+table_name: 表 G.0.5 木槽常用截面尺寸（cm）
 
 表 G.0.6 木橡常用截面尺寸（cm）
-
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
 
 <table><tr><th rowspan="2">跨度<br>(m)</th><th rowspan="2">截面<br>形状</th><th colspan="4">水泥瓦、陶瓦屋面</th><th rowspan="2">合瓦、筒瓦等屋面</th></tr><tr><th colspan="4">单跨橡擦距(m)</th></tr><tr><td></td><th></th><th>0.70</th><th>0.90</th><th>1.10</th><th>0.7~1.10</th><th>0.15</th></tr><tr><td>0.90</td><td>圆<br>方</td><td>—</td><td>—</td><td>—</td><td>—</td><td>5<br>5×5</td></tr><tr><td>1.25</td><td>圆<br>方</td><td>7<br>5×8</td><td>8<br>5×8</td><td>8<br>5×8</td><td>5×6</td><td>5<br>5×5</td></tr><tr><td>1.40</td><td>圆<br>方</td><td>8<br>5×8</td><td>8<br>5×8</td><td>8<br>5×8</td><td>5×6</td><td>—</td></tr><tr><td>1.70</td><td>圆<br>方</td><td>8<br>5×8</td><td>9<br>5×8</td><td>9<br>5×10</td><td>5×8</td><td>—</td></tr><tr><td>2.00</td><td>圆<br>方</td><td>9<br>5×8</td><td>9<br>5×10</td><td>9<br>5×10</td><td>5×8</td><td>—</td></tr></table>
 
 source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
+type: table
+table_name: 表 G.0.6 木橡常用截面尺寸（cm）
 
 本标准用词说明
 
@@ -9116,15 +7577,12 @@ header: ['附：条文说明', 'Addition: Explanation of Provisions', []]
 
 表 1 抗震设防烈度和设计基本地震加速度值的对应关系
 
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
-header: ['附：条文说明', 'Addition: Explanation of Provisions', []]
-
 <table><tr><td>抗震设防烈度</td><td>6</td><td>7</td><td>8</td><td>9</td></tr><tr><td>设计基本地震加速度值</td><td>0.05g</td><td>0.10(0.15)g</td><td>0.20(0.30)g</td><td>0.40g</td></tr></table>
 
 source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
+type: table
 header: ['附：条文说明', 'Addition: Explanation of Provisions', []]
+table_name: 表 1 抗震设防烈度和设计基本地震加速度值的对应关系
 
 由于新建建筑工程应符合设计规范的要求, 古建筑及属于文物的建筑, 有专门的要求, 危险房屋不能正常使用。因此, 本标准的现有建筑, 只是既有建筑中的一部分, 不包括古建筑、新建的建筑工程（含烂尾楼）和危险房屋, 一般情况, 在不遭受地震影响时, 仍在正常使用。
 
@@ -9404,33 +7862,16 @@ header: ['附：条文说明', 'Addition: Explanation of Provisions', []]
 
 本标准中给出的具体抗震验算方法，即综合抗震能力验算方法，可表示为:
 
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
-header: ['附：条文说明', 'Addition: Explanation of Provisions', []]
-
 $$
-
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
-header: ['附：条文说明', 'Addition: Explanation of Provisions', []]
-
 S \leqslant \psi _ { 1 } \psi _ { 2 } R
-
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
-header: ['附：条文说明', 'Addition: Explanation of Provisions', []]
-
 $$
-
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
-header: ['附：条文说明', 'Addition: Explanation of Provisions', []]
 
 式中 $\psi_{1}$——抗震鉴定的整体构造影响系数； $\psi_{2}$——抗震鉴定的局部构造影响系数。
 
 source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
+type: equation
 header: ['附：条文说明', 'Addition: Explanation of Provisions', []]
+equation_name: 本标准中给出的具体抗震验算方法，即综合抗震能力验算方法，可表示为:
 
 将抗震构造对结构抗震承载力的影响用具体数据表示，从而实现了综合抗震能力验算的量化。因此，在采用设计规范方法进行抗震承载力验算时，也可以加入 $\psi_{1}$、$\psi_{2}$ 来体现构造的影响。
 
@@ -9739,16 +8180,13 @@ type: text
 header: ['附：条文说明', 'Addition: Explanation of Provisions', []]
 
 ![](images/b7e2eb0f0a2651d9bb9c20f82c50ea8772b8b00c07c9c6004ea7e15d1d625cc9.jpg)
-
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
-header: ['附：条文说明', 'Addition: Explanation of Provisions', []]
-
 图 1 A 类多层砌体房屋两级鉴定
 
 source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
+type: figure
 header: ['附：条文说明', 'Addition: Explanation of Provisions', []]
+image_name: 图 1 A 类多层砌体房屋两级鉴定
+image_link: images/b7e2eb0f0a2651d9bb9c20f82c50ea8772b8b00c07c9c6004ea7e15d1d625cc9.jpg
 
 第一级鉴定分两种情况。对刚性体系的房屋，先检查其整体性和易引起局部倒塌的部位，当整体性良好且易引起局部倒塌的部位连接良好时，根据大量的计算分析，可不必计算墙体面积率而直接按房屋宽度、横墙间距和砌筑砂浆强度等级来判断是否满足抗震要求，不符合时才进行第二级鉴定；对非刚性体系的房屋，第一级鉴定只检查其整体性和易引起局部倒塌的部位，并需进行第二级鉴定。
 
@@ -9769,16 +8207,13 @@ type: text
 header: ['附：条文说明', 'Addition: Explanation of Provisions', []]
 
 ![](images/fb92924c7630ea595279ff22565133447d50293c77338b3471546f0b33515cd9.jpg)
-
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
-header: ['附：条文说明', 'Addition: Explanation of Provisions', []]
-
 图 2 B 类多层砌体房屋鉴定
 
 source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
+type: figure
 header: ['附：条文说明', 'Addition: Explanation of Provisions', []]
+image_name: 图 2 B 类多层砌体房屋鉴定
+image_link: images/fb92924c7630ea595279ff22565133447d50293c77338b3471546f0b33515cd9.jpg
 
 5.2 A 类砌体房屋抗震鉴定
 
@@ -9980,27 +8415,15 @@ header: ['附：条文说明', 'Addition: Explanation of Provisions', []]
 
 刚性楼房，从属面积由楼层建筑平面面积按墙段的侧移刚度分配:
 
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
-header: ['附：条文说明', 'Addition: Explanation of Provisions', []]
-
 $$
-
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
-header: ['附：条文说明', 'Addition: Explanation of Provisions', []]
-
 A _ { \mathrm { b } i j } = ( K _ { i j } / \Sigma K _ { i j } ) A _ { \mathrm { b } i }
-
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
-header: ['附：条文说明', 'Addition: Explanation of Provisions', []]
-
 $$
 
+
 source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
+type: equation
 header: ['附：条文说明', 'Addition: Explanation of Provisions', []]
+equation_name: 刚性楼房，从属面积由楼层建筑平面面积按墙段的侧移刚度分配:
 
 墙段抗震能力指数等于楼层平均抗震能力指数, $\beta_{ij}=\beta_{i}$;
 
@@ -10010,27 +8433,15 @@ header: ['附：条文说明', 'Addition: Explanation of Provisions', []]
 
 柔性楼房，从属面积按左右两侧相邻抗震墙间距之半计算：
 
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
-header: ['附：条文说明', 'Addition: Explanation of Provisions', []]
-
 $$
-
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
-header: ['附：条文说明', 'Addition: Explanation of Provisions', []]
-
 A _ { \mathrm { b } i j } = A _ { \mathrm { b } i j \, , 0 }
-
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
-header: ['附：条文说明', 'Addition: Explanation of Provisions', []]
-
 $$
 
+
 source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
+type: equation
 header: ['附：条文说明', 'Addition: Explanation of Provisions', []]
+equation_name: 柔性楼房，从属面积按左右两侧相邻抗震墙间距之半计算：
 
 墙段抗震能力指数 $\beta_{ij} = (A_{ij} / A_i)(A_{bi} / A_{bj}, 0) \beta_i$ ;
 
@@ -10040,27 +8451,15 @@ header: ['附：条文说明', 'Addition: Explanation of Provisions', []]
 
 中等刚性楼盖，从属面积取上述二者的平均值：
 
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
-header: ['附：条文说明', 'Addition: Explanation of Provisions', []]
-
 $$
-
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
-header: ['附：条文说明', 'Addition: Explanation of Provisions', []]
-
 A _ { \mathrm { b } i j } \, = \, 0 . 5 ( K _ { i j } / \Sigma K _ { i j } ) A _ { \mathrm { b } i } + 0 . 5 A _ { \mathrm { b } i j \, , 0 }
-
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
-header: ['附：条文说明', 'Addition: Explanation of Provisions', []]
-
 $$
 
+
 source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
+type: equation
 header: ['附：条文说明', 'Addition: Explanation of Provisions', []]
+equation_name: 中等刚性楼盖，从属面积取上述二者的平均值：
 
 墙段抗震能力指数 $\beta_{ij} = (A_{ij} / A_i)(A_{bi} / A_{bj}) \beta_i$ 。
 
@@ -10202,15 +8601,12 @@ header: ['附：条文说明', 'Addition: Explanation of Provisions', []]
 
 表 2 8度、9度设防时抗震承载力简化验算的抗震横墙间距和房屋宽度限值（m）
 
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
-header: ['附：条文说明', 'Addition: Explanation of Provisions', []]
-
 <table><tr><th rowspan="2">楼层<br>总数</th><th rowspan="2">检查<br>楼层</th><th colspan="6">8度</th><th colspan="6">9度</th></tr><tr><th colspan="2">M2.5</th><th colspan="2">M5</th><th colspan="2">M10</th><th colspan="2">M2.5</th><th colspan="2">M5</th><th colspan="2">M10</th></tr><tr><th>二</th><td>2<br>1</td><td>5.8<br>4.6</td><td>12<br>8.9</td><td>7.8<br>6.0</td><td>11<br>8.6</td><td>L<br>1</td><td>B<br>1</td><td>L<br>1</td><td>B<br>1</td><td>L<br>1</td><td>B<br>1</td><td>L<br>2</td><td>B<br>2</td><td>5.4<br>4.0</td><td>7.5<br>5.6</td></tr><tr><th>三</th><td>3<br>1~2</td><td>5.2<br>3.5</td><td>9.9<br>6.8</td><td>7.0<br>4.4</td><td>9.8<br>6.4</td><td>9.6<br>5.8</td><td>12<br>8.3</td><td>—</td><td>—</td><td>3.9<br>3.0</td><td>9.2<br>7.1</td><td>5.4<br>8.2</td><td>4.8<br>2.9</td><td>6.6<br>4.2</td></tr><tr><th>四</th><td>4<br>3<br>1~2</td><td>4.9<br>3.3</td><td>9.2<br>6.3</td><td>6.6<br>4.3</td><td>9.2<br>3.6</td><td>9.0<br>5.3</td><td>12<br>9.6</td><td>—</td><td>—</td><td>3.3<br>—</td><td>5.8<br>—</td><td>4.5<br>2.8</td><td>4.5<br>2.8</td><td>6.2<br>4.0</td></tr><tr><th>五</th><td>5<br>4<br>1~3</td><td>6.3<br>4.1</td><td>8.9<br>5.9</td><td>6.3<br>4.0</td><td>8.8<br>5.7</td><td>8.6<br>4.6</td><td>12<br>7.5</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr><tr><th>六</th><td>6<br>5<br>4<br>1~3</td><td>4.2<br>—</td><td>7.2<br>—</td><td>4.2<br>3.9</td><td>7.2<br>3.2</td><td>4.2<br>4.7</td><td>7.2<br>4.0</td><td>7.2<br>5.8</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr></table>
 
 source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
+type: table
 header: ['附：条文说明', 'Addition: Explanation of Provisions', []]
+table_name: 表 2 8度、9度设防时抗震承载力简化验算的抗震横墙间距和房屋宽度限值（m）
 
 6 多层及高层钢筋混凝土房屋
 
@@ -10297,16 +8693,13 @@ type: text
 header: ['附：条文说明', 'Addition: Explanation of Provisions', []]
 
 ![](images/9cab095b70d8b052dc506d4749e995b7646080d8dbcba435586fe4b90ba34970.jpg)
-
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
-header: ['附：条文说明', 'Addition: Explanation of Provisions', []]
-
 图 3 A 类多层钢筋混凝土房屋的两级鉴定
 
 source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
+type: figure
 header: ['附：条文说明', 'Addition: Explanation of Provisions', []]
+image_name: 图 3 A 类多层钢筋混凝土房屋的两级鉴定
+image_link: images/9cab095b70d8b052dc506d4749e995b7646080d8dbcba435586fe4b90ba34970.jpg
 
 B类混凝土房屋抗震鉴定与A类混凝土房屋抗震鉴定相同的是，同样强调了梁、柱的连接形式和跨数，混合承重体系的连接构造和填充墙与主体结构的连接问题，以及规则性要求和配筋构造要求；不同的是，B类混凝土房屋必须经过抗震承载力验算，方可对建筑的抗震能力进行评定，同时也可按照A类混凝土房屋抗震鉴定的方法，进行抗震能力的综合评定。B类钢筋混凝土房屋的鉴定可参照图4进行。
 
@@ -10321,16 +8714,13 @@ type: text
 header: ['附：条文说明', 'Addition: Explanation of Provisions', []]
 
 ![](images/62194dc9924ae26366fd91ad1dd194a2fd63417e6fb8a0e0e894e9cc61901dcc.jpg)
-
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
-header: ['附：条文说明', 'Addition: Explanation of Provisions', []]
-
 图 4 B 类钢筋混凝土房屋的鉴定
 
 source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
+type: figure
 header: ['附：条文说明', 'Addition: Explanation of Provisions', []]
+image_name: 图 4 B 类钢筋混凝土房屋的鉴定
+image_link: images/62194dc9924ae26366fd91ad1dd194a2fd63417e6fb8a0e0e894e9cc61901dcc.jpg
 
 侧移刚度大而分担了框架的一部分地震作用，受力状态与单一的砌体结构不同；框架部分也因二者侧移的协调而在连接部位形成附加内力。抗震鉴定时要适当考虑。
 
@@ -10927,16 +9317,13 @@ type: text
 header: ['附：条文说明', 'Addition: Explanation of Provisions', []]
 
 ![](images/593ccc6d7753c87dacce3b433297b0a7a2edab9ffd0e9b29ad3b5d4539d579a6.jpg)
-
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
-header: ['附：条文说明', 'Addition: Explanation of Provisions', []]
-
 图 5 单层钢筋混凝土柱厂房的分级鉴定
 
 source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
+type: figure
 header: ['附：条文说明', 'Addition: Explanation of Provisions', []]
+image_name: 图 5 单层钢筋混凝土柱厂房的分级鉴定
+image_link: images/593ccc6d7753c87dacce3b433297b0a7a2edab9ffd0e9b29ad3b5d4539d579a6.jpg
 
 对检查结果进行综合分析时, 先对不符合鉴定要求的关键薄弱部位提出加固或处理意见, 是提高厂房抗震安全性的经济而有效的措施; 一般部位的构造、抗震承载力不符合鉴定要求时, 则根据具体情况的分析判断, 采取相应对策。例如, 考虑构造不符合鉴定要求的部位和程度, 对其抗震承载力的鉴定要求予以适当调整, 再判断是否加固。
 
@@ -12188,69 +10575,22 @@ header: ['附：条文说明', 'Addition: Explanation of Provisions', []]
 
 砖房抗震墙基准面积率，即 77 版鉴定标准的 “最小面积率”。因新的砌体结构设计规范的材料指标和新的抗震设计规范地震作用取值改变，相应的计算公式也有所变化。为保持与 77 标准的衔接，M1 和 M2.5 的计算结果不变，M0.4 和 M5 有一定的调整。表 B. 0.1-1\~表 B. 0.1-3 的计算公式如下:
 
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
-header: ['附：条文说明', 'Addition: Explanation of Provisions', []]
-
 $$
-
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
-header: ['附：条文说明', 'Addition: Explanation of Provisions', []]
-
 \xi _ { 0 i } = \frac { 0 . 1 6 \lambda _ { 0 } g _ { 0 } } { f _ { \mathrm { v k } } \sqrt { 1 + \sigma _ { 0 } / f _ { \mathrm { v , m } } } } \cdot \frac { ( n + i ) ( n - i + 1 ) } { n + 1 }
-
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
-header: ['附：条文说明', 'Addition: Explanation of Provisions', []]
-
 $$
-
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
-header: ['附：条文说明', 'Addition: Explanation of Provisions', []]
 
 其中 $\xi_{0i}$——第 $i$ 层的基准面积率；
-
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
-header: ['附：条文说明', 'Addition: Explanation of Provisions', []]
-
 $g_{0}$——基本的楼层单位面积重力荷载代表值，取 12kN/m²；
-
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
-header: ['附：条文说明', 'Addition: Explanation of Provisions', []]
-
 $\sigma_{0}$——第 $i$ 层抗震墙在 1/2 层高处的截面平均压应力（MPa）；
-
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
-header: ['附：条文说明', 'Addition: Explanation of Provisions', []]
-
 $n$——房屋总层数；
-
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
-header: ['附：条文说明', 'Addition: Explanation of Provisions', []]
-
 $f_{\mathrm{v,m}}$——砖砌体抗剪强度平均值（MPa），M0.4 为 0.08，M1 为 0.125，M2.5 为 0.20，M5 为 0.28，M10 为 0.40；
-
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
-header: ['附：条文说明', 'Addition: Explanation of Provisions', []]
-
 $f_{\mathrm{vk}}$——砖砌体抗剪强度标准值（MPa），M0.4 为 0.05，M1 为 0.08，M2.5 为 0.13，M5 为 0.19，M10 为 0.27；
-
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
-header: ['附：条文说明', 'Addition: Explanation of Provisions', []]
-
 $\lambda_{0}$——墙体承重类别系数，承重墙为 1.0，自承重墙为 0.75。
 
 source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
+type: equation
 header: ['附：条文说明', 'Addition: Explanation of Provisions', []]
+equation_name: 砖房抗震墙基准面积率，即 77 版鉴定标准的 “最小面积率”。因新的砌体结构设计规范的材料指标和新的抗震设计规范地震作用取值改变，相应的计算公式也有所变化。为保持与 77 标准的衔接，M1 和 M2.5 的计算结果不变，M0.4 和 M5 有一定的调整。表 B. 0.1-1\~表 B. 0.1-3 的计算公式如下:
 
 同一方向有承重墙和自承重墙或砂浆强度等级不同时，基准面积率的换算方法如下：用 $A_{1}$、$A_{2}$ 分别表示承重墙和自承重墙的净面积或砂浆强度等级不同的墙体净面积，$\xi_{1}$、$\xi_{2}$ 分别表示按表 B. 0.1-1\~表 B. 0.1-3 查得的基准面积率，用 $\xi_{0}$ 表示“按各自的净面积比相应转换为同样条件下的基准面积率数值”，则
 
@@ -12259,21 +10599,12 @@ type: text
 header: ['附：条文说明', 'Addition: Explanation of Provisions', []]
 
 $$
-
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
-header: ['附：条文说明', 'Addition: Explanation of Provisions', []]
-
 \frac { 1 } { \xi _ { 0 } } = \frac { A _ { 1 } } { ( A _ { 1 } + A _ { 2 } ) \xi _ { 1 } } + \frac { A _ { 2 } } { ( A _ { 1 } + A _ { 2 } ) \xi _ { 2 } }
-
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
-header: ['附：条文说明', 'Addition: Explanation of Provisions', []]
-
 $$
 
+
 source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
+type: equation
 header: ['附：条文说明', 'Addition: Explanation of Provisions', []]
 
 考虑到多层内框架砖房采用底部剪力法计算时，顶部需附加相当于20%总地震作用的集中力（0.20F_{ek}），因此，其基准面积率要作相应的调整。
@@ -12290,69 +10621,30 @@ header: ['附：条文说明', 'Addition: Explanation of Provisions', []]
 
 底层框架砖房的底层，折减系数可取 0.85，或参照设计规范各柱承担的剪力予以折减，即折减系数 $\psi_{\mathrm{f}}$ 为:
 
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
-header: ['附：条文说明', 'Addition: Explanation of Provisions', []]
-
 $$
-
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
-header: ['附：条文说明', 'Addition: Explanation of Provisions', []]
-
 \psi _ { \mathrm { f } } = 1 - V _ { \mathrm { f } } / V \quad \mathrm { ~ 或 ~ } \quad \psi _ { \mathrm { f } } \approx 0 . 9 2 - 0 . 1 0 \lambda
-
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
-header: ['附：条文说明', 'Addition: Explanation of Provisions', []]
-
 $$
-
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
-header: ['附：条文说明', 'Addition: Explanation of Provisions', []]
 
 式中 $V_{\mathrm{f}}$——框架部分承担的剪力；
-
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
-header: ['附：条文说明', 'Addition: Explanation of Provisions', []]
-
 $V$——底层的地震剪力；
-
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
-header: ['附：条文说明', 'Addition: Explanation of Provisions', []]
-
 $\lambda$——抗震横墙间距与房屋总宽度之比。
 
 source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
+type: equation
 header: ['附：条文说明', 'Addition: Explanation of Provisions', []]
+equation_name: 底层框架砖房的底层，折减系数可取 0.85，或参照设计规范各柱承担的剪力予以折减，即折减系数 $\psi_{\mathrm{f}}$ 为:
 
 多层内框架砖房的各层，参照设计规范各柱承担的剪力予以 折减，即折减系数 $\psi_{t}$ 为：
 
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
-header: ['附：条文说明', 'Addition: Explanation of Provisions', []]
-
 $$
-
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
-header: ['附：条文说明', 'Addition: Explanation of Provisions', []]
-
 \psi _ { \mathrm { f } } = 1 - \Sigma \psi _ { \mathrm { c } } ( \xi _ { 1 } + \xi _ { 2 } L / B ) / n _ { \mathrm { b } } n _ { \mathrm { s } }
-
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
-header: ['附：条文说明', 'Addition: Explanation of Provisions', []]
-
 $$
 
+
 source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
+type: equation
 header: ['附：条文说明', 'Addition: Explanation of Provisions', []]
+equation_name: 多层内框架砖房的各层，参照设计规范各柱承担的剪力予以 折减，即折减系数 $\psi_{t}$ 为：
 
 附录C 钢筋混凝土结构楼层受剪承载力
 
@@ -12380,69 +10672,23 @@ header: ['附：条文说明', 'Addition: Explanation of Provisions', []]
 
 2 内框架砖房混合框架的楼层现有受剪承载力可采用下列各式确定:
 
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
-header: ['附：条文说明', 'Addition: Explanation of Provisions', []]
-
 $$
-
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
-header: ['附：条文说明', 'Addition: Explanation of Provisions', []]
-
 V _ { \mathrm { y w } } = \Sigma V _ { \mathrm { c y } } + V _ { \mathrm { m u } }
-
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
-header: ['附：条文说明', 'Addition: Explanation of Provisions', []]
-
 $$
 
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
-header: ['附：条文说明', 'Addition: Explanation of Provisions', []]
-
 $$
-
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
-header: ['附：条文说明', 'Addition: Explanation of Provisions', []]
-
 V _ { \mathrm { \ m u } } = N \cdot [ e ] / H _ { 0 }
-
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
-header: ['附：条文说明', 'Addition: Explanation of Provisions', []]
-
 $$
-
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
-header: ['附：条文说明', 'Addition: Explanation of Provisions', []]
 
 $V_{\mathrm{mu}}$——外墙砖柱（垛）层间现有受剪承载力；
-
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
-header: ['附：条文说明', 'Addition: Explanation of Provisions', []]
-
 $N$——对应于重力荷载代表值的砖柱轴向压力；
-
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
-header: ['附：条文说明', 'Addition: Explanation of Provisions', []]
-
 $H_{0}$——砖柱的计算高度，取反弯点至柱端的距离；
-
-source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
-header: ['附：条文说明', 'Addition: Explanation of Provisions', []]
-
 $[e]$——重力荷载代表值作用下现有砖柱的容许偏心距；
 
 source: GB50023-2009：建筑抗震鉴定标准.md
-type: text
+type: equation
 header: ['附：条文说明', 'Addition: Explanation of Provisions', []]
+equation_name: 2 内框架砖房混合框架的楼层现有受剪承载力可采用下列各式确定:
 
 无筋砖柱取0.9y（y为截面重心到轴向力所在偏心方向截面边缘的距离）；组合砖柱，可参照现行国家标准《砌体结构设计规范》GB 50003偏心受压承载力的计算公式确定；其中，将不等式改为等式，钢筋取实有纵向钢筋面积，材料强度设计值改取标准值，按本标准附录A取值。
 

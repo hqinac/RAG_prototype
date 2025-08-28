@@ -38,11 +38,29 @@ def fuzzy_match(outline:str,split:str,threshold=0.8):
     对目录结构进行模糊匹配
     '''
     end = 0
+    # 首先尝试精确匹配
     tmp = re.match(r'^' + re.escape(outline),split)
+    #print(tmp)
     if tmp:
         end = tmp.end()
+        print(f"精确匹配成功，end位置为{end},split[end]为{split[end-1]}")
         return True, end
-
+    
+    # 如果精确匹配失败，尝试忽略空格的匹配
+    outline_no_space = re.sub(r'\s+', '', outline)
+    split_no_space = re.sub(r'\s+', '', split[:len(outline)*2])  # 限制搜索范围
+    if outline_no_space == split_no_space[:len(outline_no_space)]:
+        # 找到原始split中对应的结束位置
+        char_count = 0
+        for i, char in enumerate(split):
+            if char != ' ':
+                char_count += 1
+                if char_count == len(outline_no_space):
+                    end = i + 1
+                    print(f"忽略空格匹配成功，end位置为{end}")
+                    return True, end
+    if re.match(r'^\d+\.\d+\.\d+',split):
+        return False, -1
     distance = Levenshtein.distance(outline,split[:len(outline)])
     similarity = 1 - distance / len(outline)
     bestscore = similarity
@@ -71,7 +89,28 @@ def check_unique(chunk, split):
                 chunk.metadata["equation_names"].append(split.metadata["equation_name"])
         case "figure":
             chunk.metadata["has_figure"] = True
-            if "figure_link" in split.metadata:
-                chunk.metadata["figure_links"].append(split.metadata["figure_link"])
-            chunk.metadata["figure_names"].append(split.page_content)
+            if "image_link" in split.metadata:
+                chunk.metadata["figure_links"].append(split.metadata["image_link"])
+            if "image_name" in split.metadata:
+                chunk.metadata["figure_names"].append(split.metadata["image_name"])
+
+    #if chunk.metadata["has_figure"] == True:
+        #print("图片加入情况为",chunk,'\n')
+
     return
+
+def delete_addition_splits(title_to_remove, addition):
+    for j in range(len(addition.base_splits)):
+        if addition.base_splits[j].page_content == title_to_remove:
+            addition.base_splits.pop(j)
+            return True
+    return False
+
+def merge_2chunk (chunk1, chunk2): #将chunk2的元数据合并到chunk1
+    chunk1.metadata["has_table"] = chunk1.metadata["has_table"] or chunk2.metadata["has_table"]
+    chunk1.metadata["has_equation"] = chunk1.metadata["has_equation"] or chunk2.metadata["has_equation"]
+    chunk1.metadata["has_figure"] = chunk1.metadata["has_figure"] or chunk2.metadata["has_figure"]
+    chunk1.metadata["table_names"] += chunk2.metadata["table_names"]
+    chunk1.metadata["equation_names"] += chunk2.metadata["equation_names"]
+    chunk1.metadata["figure_names"] += chunk2.metadata["figure_names"]
+    chunk1.metadata["figure_links"] += chunk2.metadata["figure_links"]
