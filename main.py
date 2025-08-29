@@ -14,6 +14,7 @@ from saver import save_vectorstore, check_db_exist
 from retriever import retrieve
 from evaluator import RetrievalEvaluator, GenerationEvaluator
 from cache_manager import get_llm, get_embeddings
+from detailed.utils import outputtest_file
 
 load_dotenv()
 
@@ -84,30 +85,31 @@ async def save_node(state: RouterState) -> Dict:
     
     # 构建system prompt，避免f-string中的花括号问题
     system_prompt = (
-        "你是一个高效的文档切片处理器。**默认情况下，所有文档都使用`semantic`语义切片方式。** 请根据问题内容，为每个文档单独决定切片处理方式与切片大小,同时根据文档预览内容，决定文档的语言。"
+        "你是一个高效的文档切片处理器。**默认情况下，所有文档都使用`default`自定义切片方式。** 请根据问题内容，为每个文档单独决定切片处理方式与切片大小,同时根据文档预览内容，决定文档的语言。"
         "重要规则："
         "1. 仔细分析问题内容，识别是否对特定文档有特殊要求"
         "2. 文档内容与文档预览内容的顺序是一一对应的。"
         "2. 如果问题中明确指定某个文档使用特定切片方式或切片大小（如'某某.md按文件格式切片，切片大小设置为100'），则只对该文档应用指定方式与指定切片大小"
-        "3. **重要：如果问题中没有明确指定切片方式，必须使用默认的`semantic`方式。**"
+        "3. **重要：如果问题中没有明确指定切片方式，必须使用默认的`default`方式。**"
         "4. 必须为文档内容中的每个文档都输出对应的切片方式和大小,并且决定每个文档的语言。"
         "5. 根据语义仔细分辨问题的要求，例如提到‘文档‘不一定是要按照文档格式切片，注意区分。"
         "\n 文档语言只包括`cn`,`en`两种，其中cn代表中文，en代表英语。"
         "\n切片处理方式说明："
-        "- `semantic`: 语义切片（**默认方式，优先使用**）"
+        "- `semantic`: 语义切片"
         "- `fixed`: 固定大小切片"
         "- `recursive`: 递归切片" 
         "- `document`: 按文档格式切片（仅当明确要求按markdown标题结构切片时使用）"
+        "- `default`: 自定义结构切片"
         "\n处理逻辑："
-        "- **首要原则：除非问题中明确指定其他切片方式，否则所有文档都使用`semantic`方式**"
+        "- **首要原则：除非问题中明确指定其他切片方式，否则所有文档都使用`default`方式**"
         "- 如果问题中提到特定文档名并指定切片方式、大小，只对该文档使用指定方式大小，其他文档使用默认值"
         "- 如果问题中对所有文档统一要求，则所有文档使用相同方式大小"
         "- 如果同时对所有文档进行要求并对特定文档指定方式大小，则对对应的特定文档使用指定方式大小，其他文档使用统一指定的方式大小"
         "- 文档内容中可能包含多个文档，每个文档的切片方式和大小必须独立指定"
-        "- **默认行为：如果问题中没有明确要求，所有文档必须使用`semantic`方式**"
+        "- **默认行为：如果问题中没有明确要求，所有文档必须使用`default`方式**"
         "- 切片大小默认为200。"
         "\n输出格式："
-        "{{'切片方式': ['semantic','semantic','semantic'], '切片大小': [200,200,200], '使用语言': ['cn','cn','en']}}"
+        "{{'切片方式': ['default','default','default'], '切片大小': [200,200,200], '使用语言': ['cn','cn','en']}}"
         "输出中切片方式、切片大小与使用语言的顺序必须与文档内容中各文档的顺序一一对应。"
     )
     preview = []
@@ -321,7 +323,7 @@ async def retrieve_node(state: RouterState) -> Dict:
         except Exception as ae:
             print(f"回答生成异常: {str(ae)}")
             return {"output": f"回答生成失败: {str(ae)}"}
-        
+        outputtest_file(docs,"answer.md")
         return {
             "knowledgebase": docs,
             "output": f"已经以检索方式{Strategy}为问题{query}检索到相关文档，回答如下：\n{answer}\n, 答案来源为{names}",

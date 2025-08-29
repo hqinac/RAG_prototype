@@ -14,7 +14,7 @@ from pathlib import Path
 
 # 导入现有的模块
 from main import graph, RouterState
-from langchain_community.document_loaders import UnstructuredMarkdownLoader
+from langchain_community.document_loaders import TextLoader
 from dotenv import load_dotenv
 
 load_dotenv()
@@ -161,7 +161,7 @@ class RAGChatInterface:
                 return "❌ 文件大小超过10MB限制", ""
             
             # 读取文件内容
-            loader = UnstructuredMarkdownLoader(file_path, encoding='utf-8')
+            loader = TextLoader(file_path, encoding='utf-8')
             documents = loader.load()
             file_name = Path(file_path).name
             

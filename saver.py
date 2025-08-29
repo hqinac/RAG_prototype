@@ -8,6 +8,7 @@ from langchain_text_splitters import CharacterTextSplitter, RecursiveCharacterTe
 from langchain_experimental.text_splitter import SemanticChunker
 from dotenv import load_dotenv
 import pickle
+from detailed.tablerecognizer import mdfile_recognizer
 from cache_manager import get_embeddings, get_faiss, get_bm25, get_doc_cache, update_faiss_cache, update_bm25_cache, update_doc_cache
 
 load_dotenv()
@@ -149,7 +150,7 @@ async def save_vectorstore(documents: list[Document], chunks, size, doc_info, la
                     else:
                         splits.append(doc)
 
-            case _:
+            case "semantic":
                 # 默认使用语义切片
                 print(f"使用语义切片处理文档({len(document.page_content)}字符)")
                 text_splitter = SemanticChunker(   
@@ -160,6 +161,10 @@ async def save_vectorstore(documents: list[Document], chunks, size, doc_info, la
                     min_chunk_size=max(50, int(size[i]/5)),
                 )
                 splits = await text_splitter.atransform_documents([document])
+            case _:
+                # 默认使用自定义结构切片
+                print(f"使用结构切片方式处理文档({len(document.page_content)}字符)")
+                splits = mdfile_recognizer(document, chunk_size=size[i])
         
         # 确保每个切片都保留原始文档的source元数据
         for split in splits:

@@ -43,7 +43,7 @@ def fuzzy_match(outline:str,split:str,threshold=0.8):
     #print(tmp)
     if tmp:
         end = tmp.end()
-        print(f"精确匹配成功，end位置为{end},split[end]为{split[end-1]}")
+        #print(f"精确匹配成功，end位置为{end},split[end]为{split[end-1]}")
         return True, end
     
     # 如果精确匹配失败，尝试忽略空格的匹配
@@ -57,10 +57,18 @@ def fuzzy_match(outline:str,split:str,threshold=0.8):
                 char_count += 1
                 if char_count == len(outline_no_space):
                     end = i + 1
-                    print(f"忽略空格匹配成功，end位置为{end}")
+                    #print(f"忽略空格匹配成功，end位置为{end}")
                     return True, end
     if re.match(r'^\d+\.\d+\.\d+',split):
         return False, -1
+    sign = re.search(r'\s*\S*?([^\w\s]|\n)', split)
+    if sign and sign.group(1) in ["。","！","？","，",","]:
+        return False, -1
+    if '.' in outline:
+        space_outline = outline.split(' ')[0]
+        space_split = split.split(' ')[0]
+        if space_outline == space_split:
+            return True, min(len(outline),len(split))
     distance = Levenshtein.distance(outline,split[:len(outline)])
     similarity = 1 - distance / len(outline)
     bestscore = similarity
@@ -100,17 +108,34 @@ def check_unique(chunk, split):
     return
 
 def delete_addition_splits(title_to_remove, addition):
-    for j in range(len(addition.base_splits)):
+    j=0
+    while j < len(addition.base_splits):
         if addition.base_splits[j].page_content == title_to_remove:
             addition.base_splits.pop(j)
             return True
+        j+=1
     return False
 
 def merge_2chunk (chunk1, chunk2): #将chunk2的元数据合并到chunk1
+    if chunk1.metadata["has_table"] and chunk2.metadata["has_table"]:
+        for name in chunk2.metadata["table_names"]:
+            if name not in chunk1.metadata["table_names"]:
+                chunk1.metadata["table_names"].append(name)
+    if chunk1.metadata["has_equation"] and chunk2.metadata["has_equation"]:
+        for name in chunk2.metadata["equation_names"]:
+            if name not in chunk1.metadata["equation_names"]:
+                chunk1.metadata["equation_names"].append(name)
+    if chunk1.metadata["has_figure"] and chunk2.metadata["has_figure"]:
+        for name in chunk2.metadata["figure_names"]:
+            if name not in chunk1.metadata["figure_names"]:
+                chunk1.metadata["figure_names"].append(name)
+        for link in chunk2.metadata["figure_links"]:
+            if link not in chunk1.metadata["figure_links"]:
+                chunk1.metadata["figure_links"].append(link)
     chunk1.metadata["has_table"] = chunk1.metadata["has_table"] or chunk2.metadata["has_table"]
     chunk1.metadata["has_equation"] = chunk1.metadata["has_equation"] or chunk2.metadata["has_equation"]
     chunk1.metadata["has_figure"] = chunk1.metadata["has_figure"] or chunk2.metadata["has_figure"]
-    chunk1.metadata["table_names"] += chunk2.metadata["table_names"]
-    chunk1.metadata["equation_names"] += chunk2.metadata["equation_names"]
-    chunk1.metadata["figure_names"] += chunk2.metadata["figure_names"]
-    chunk1.metadata["figure_links"] += chunk2.metadata["figure_links"]
+    #chunk1.metadata["table_names"] += chunk2.metadata["table_names"]
+    #chunk1.metadata["equation_names"] += chunk2.metadata["equation_names"]
+    #chunk1.metadata["figure_names"] += chunk2.metadata["figure_names"]
+    #chunk1.metadata["figure_links"] += chunk2.metadata["figure_links"]
