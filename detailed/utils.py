@@ -165,3 +165,29 @@ def merge_2chunk (chunk1, chunk2): #将chunk2的元数据合并到chunk1
     #chunk1.metadata["equation_names"] += chunk2.metadata["equation_names"]
     #chunk1.metadata["figure_names"] += chunk2.metadata["figure_names"]
     #chunk1.metadata["figure_links"] += chunk2.metadata["figure_links"]
+
+def extract_matching_parts(text,last_pattern_tuple, useCapture = False):
+    """
+    检测给定字符串是否符合 OUTLINE_PATTERN 最后一行中的正则表达式格式，
+    并提取出所有符合格式的部分。
+    """
+    # 获取 OUTLINE_PATTERN 的最后一行（即最后一个元组）中的正则表达式
+    
+    
+    # 遍历最后一个元组中的所有正则表达式
+    for pattern_str in last_pattern_tuple:
+        try:
+            # 编译正则表达式
+            pattern = re.compile(pattern_str)
+            # 查找所有匹配项
+            matches = pattern.match(text)
+            if matches:
+                #print(f"字符串 '{text}' 匹配正则表达式 '{pattern_str}'，提取到的部分：{matches}")
+                if useCapture:
+                    return matches.group(1)
+                return matches.group()
+        except re.error as e:
+            print(f"正则表达式 '{pattern_str}' 无效: {e}")
+    
+    #print(f"字符串 '{text}' 不符合 OUTLINE_PATTERN 最后一行中的任何格式。")
+    return ""

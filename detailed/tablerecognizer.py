@@ -11,9 +11,9 @@ import sys
 import os
 sys.path.append(os.path.dirname(os.path.abspath(__file__)))
 try:
-    from .utils import outputtest_file, struct, fuzzy_match,check_unique,delete_addition_splits,merge_2chunk
+    from .utils import outputtest_file, struct, fuzzy_match,check_unique,delete_addition_splits,merge_2chunk,extract_matching_parts
 except ImportError:
-    from utils import outputtest_file, struct, fuzzy_match,check_unique,delete_addition_splits,merge_2chunk
+    from utils import outputtest_file, struct, fuzzy_match,check_unique,delete_addition_splits,merge_2chunk,extract_matching_parts
 
 from dotenv import load_dotenv
 from bs4 import BeautifulSoup
@@ -45,7 +45,7 @@ HEAD_PATTERN = (
 OUTLINE_PATTERN = ((r"\d+ [\u4e00-\u9fa5a-zA-Z0-9\s]+",r"(附|付|符)录[A-Za-z0-9] [\u4e00-\u9fa5a-zA-Z0-9\s]+", r"[\u4e00-\u9fa5a-zA-Z]", ),
                    (r"\d+\.\d+ [\u4e00-\u9fa5a-zA-Z0-9\s]+",),
                    (r"^\([IVX\u2160-\u217F]+\) .*?(?=\n|$)",),
-                   (r"\d+\.\d+\.\d+ [\u4e00-\u9fa5a-zA-Z0-9\s]+",))
+                   (r"(\d+\.\d+\.\d+) [\u4e00-\u9fa5a-zA-Z0-9\s]+",))
 PARENT_DEPTH = 2 #目录在OUTLINE_PATTERN中的深度为[:2]
 
 
@@ -222,8 +222,8 @@ class Article:
                     break
             if not matched:
                 print(f"目录{t[0]}没有匹配到任何模式")
-        if PARENT_DEPTH <= maxdepth:
-            PARENT_DEPTH = maxdepth+1
+        
+        PARENT_DEPTH = maxdepth+1
         return outline
     
     #删除误识别的页码
@@ -613,59 +613,71 @@ def merge_chunk_through_outlines(article:Article,total_splits):
             切到目录条目的子标题 （目录条目中的父子条目已经在上面处理完了）
             结构为2.1->2.1.1或者2.1->(I)->2.1.1 或 1->1.0.1
             '''
+            '''
             if parent_match:
                 parent_num = parent_match.group(1)
                 numeric_child = rf"^({re.escape(parent_num)}\.(?!0)\d+)\s*"
                 #print(f"parent_numw为{parent_num},尝试匹配: '{numeric_child}' with '{total_splits[i].page_content[:20]}'")
-                tmp = re.match(numeric_child, total_splits[i].page_content)
-                if not tmp:
-                    tmp = re.match(rf"^({re.escape(parent_num)}\.0\.\d+)\s*", total_splits[i].page_content)
-                if tmp: 
-                    tmp = tmp.group(1)
-                    #print(f"识别到子标题{tmp}")
-                    '''
-                    处理 2.1->(I)->正文->2.1.1的情况可能会出现问题
-                    '''
-                    if (chunks[-1].metadata["outline"][:2] == outline[:2] or re.match(r"^\([IVX\u2160-\u217F]+\)",chunks[-1].metadata["outline"][0])) and chunks[-1].metadata["start"] == i-1: #父子标题相邻
-                        #print(f"{tmp}父子标题相邻")
-                        #print(chunks[-1].metadata["outlineend"], chunks[-1].page_content)
-                        if chunks[-1].metadata["outlineend"] == len(chunks[-1].page_content):#父标题紧接子标题\
-                            #print("父标题紧接子标题")
-                            #chunks[-1].metadata["outlineend"] += len(chunks[-1].metadata["outline"][0])
-                            chunks[-1].page_content = chunks[-1].page_content + total_splits[i].page_content
-                            chunks[-1].metadata["start"] = i
-                            #print(f"目前outlineend为{chunks[-1].metadata['outlineend']}，切片长度为{len(chunks[-1].page_content)}")
-                            chunks[-1].metadata["outline"] = [tmp,"",chunks[-1].metadata["outline"][2] + [chunks[-1].metadata["outline"][:2]] ]
-                            check_unique(chunks[-1], total_splits[i])
-                            i += 1
-                            continue
-                        else:
-                            #print(f"父标题不紧接子标题,创建新块{tmp}")
-                            #chunks[-1].page_content = chunks[-1].page_content+ "\n"+ total_splits[i].page_content
-                            #chunks[-1].metadata["outlineend"] += 1
-                            nfather = chunks[-1].metadata["outline"][2]+[chunks[-1].metadata["outline"][:2]]
+            '''
+            #检测最后一行标题格式（即标题树的末端，切片时在内容中保留这部分标题）
+            tmp = extract_matching_parts(total_splits[i].page_content,OUTLINE_PATTERN[-1],useCapture=True)
+            #if not tmp:
+                #tmp = re.match(rf"^({re.escape(parent_num)}\.0\.\d+)\s*", total_splits[i].page_content)
+            if tmp != "": 
+                #tmp = tmp.group(1)
+                #print(f"识别到子标题{tmp}")
+                '''
+                处理 2.1->(I)->正文->2.1.1的情况。
+                '''
+                ftmp = ""
+                for pattern in OUTLINE_PATTERN[PARENT_DEPTH:-1]:
+                    ftmp = extract_matching_parts(chunks[-1].metadata["outline"][0],pattern)
+                    if ftmp != "":
+                        break
+                if (chunks[-1].metadata["outline"][:2] == outline[:2] or ftmp!=""): #父子标题相邻
+                    #print(f"{tmp}父子标题相邻")
+                    #print(chunks[-1].metadata["outlineend"], chunks[-1].page_content)
+                    if chunks[-1].metadata["outlineend"] == len(chunks[-1].page_content):#父标题紧接子标题\
+                        #print("父标题紧接子标题")
+                        #chunks[-1].metadata["outlineend"] += len(chunks[-1].metadata["outline"][0])
+                        chunks[-1].page_content = chunks[-1].page_content + total_splits[i].page_content
+                        chunks[-1].metadata["start"] = i
+                        #print(f"目前outlineend为{chunks[-1].metadata['outlineend']}，切片长度为{len(chunks[-1].page_content)}")
+                        chunks[-1].metadata["outline"] = [tmp,"",chunks[-1].metadata["outline"][2] + [chunks[-1].metadata["outline"][:2]] ]
+                        check_unique(chunks[-1], total_splits[i])
+                        i += 1
+                        continue
                     else:
-                        #print("创建新块"+tmp)
-                        #print(chunks[-1].metadata["outline"][2])
-                        #print([chunks[-1].metadata["outline"][:2]])if "hasIVX" in chunks[-2].metadata:
-                        nfather = chunks[-1].metadata["outline"][2]
-                    fatheroutline = struct(chunks[-1].metadata["outline"][2])
-                    chunks[-1].page_content = fatheroutline + chunks[-1].page_content[chunks[-1].metadata["outlineend"]:]
-                    chunks[-1].metadata["outlineend"] = len(fatheroutline)
-                    chunks.append(copy.deepcopy(total_splits[i]))
-                    init_chunk(chunks[-1])
-                    new_outline = [tmp,"",nfather]
-                    chunks[-1].metadata["outline"] = new_outline
-                    chunks[-1].metadata["start"] = i
-                    chunks[-1].metadata["outlineend"] = 0
-                    check_unique(chunks[-1], total_splits[i])
-                    i += 1
-                    continue
-
-            tmp = re.match(r"^\([IVX\u2160-\u217F]+\) .*?(?=\n|$)",total_splits[i].page_content)
+                        #print(f"父标题不紧接子标题,创建新块{tmp}")
+                        #chunks[-1].page_content = chunks[-1].page_content+ "\n"+ total_splits[i].page_content
+                        #chunks[-1].metadata["outlineend"] += 1
+                        nfather = chunks[-1].metadata["outline"][2]+[chunks[-1].metadata["outline"][:2]]
+                else:
+                    #print("创建新块"+tmp)
+                    #print(chunks[-1].metadata["outline"][2])
+                    #print([chunks[-1].metadata["outline"][:2]])if "hasIVX" in chunks[-2].metadata:
+                    nfather = chunks[-1].metadata["outline"][2]
+                fatheroutline = struct(chunks[-1].metadata["outline"][2])
+                chunks[-1].page_content = fatheroutline + chunks[-1].page_content[chunks[-1].metadata["outlineend"]:]
+                chunks[-1].metadata["outlineend"] = len(fatheroutline)
+                chunks.append(copy.deepcopy(total_splits[i]))
+                init_chunk(chunks[-1])
+                new_outline = [tmp,"",nfather]
+                chunks[-1].metadata["outline"] = new_outline
+                chunks[-1].metadata["start"] = i
+                chunks[-1].metadata["outlineend"] = 0
+                check_unique(chunks[-1], total_splits[i])
+                i += 1
+                continue
+            
+            tmp = ""
+            for pattern in OUTLINE_PATTERN[PARENT_DEPTH:-1]:
+                    tmp = extract_matching_parts(total_splits[i].page_content,pattern)
+                    if tmp != "":
+                        break
             if tmp:
                 #print(f"识别到{tmp},原文为{total_splits[i].page_content}")
-                tmp = tmp.group()
+                #tmp = tmp.group()
                 #print(chunks[-1].metadata["outline"])
                 if chunks[-1].metadata["outline"][0] == outline[0] and chunks[-1].metadata["start"] == i-1: #父子标题相邻
                     #print(f"父子标题相邻，用于比较的长度分别为{chunks[-1].metadata["outlineend"]}， {len(chunks[-1].page_content)}")
