@@ -1,4 +1,5 @@
 import os,json,ast
+from pathlib import Path
 from dotenv import load_dotenv
 from langchain_core.documents import Document
 from langgraph.graph import StateGraph, END
@@ -10,9 +11,10 @@ from langchain_core.prompts import ChatPromptTemplate
 from langchain_core.output_parsers import StrOutputParser, BaseOutputParser
 from langchain_core.runnables import RunnablePassthrough
 from typing import Dict, TypedDict, Literal, Any
+# from detailed.tablerecognizer import output_content  # 注释掉错误的导入
 from saver import save_vectorstore, check_db_exist
 from retriever import retrieve
-from evaluator import RetrievalEvaluator, GenerationEvaluator
+from evaluator import RetrievalEvaluator, GenerationEvaluator, RagasEvaluator
 from cache_manager import get_llm, get_embeddings
 from detailed.utils import outputtest_file
 
@@ -172,6 +174,7 @@ async def retrieve_node(state: RouterState) -> Dict:
     
     guery_prompt = (
         "你是一个高效的知识库检索器，请根据输入内容提取需要检索的问题与可能的过滤条件。"
+        "注意：如果有对问题中概念的解释说明，也应该算在问题中。"
         
         "**核心原则：严格区分过滤条件和问题内容**"
         "- 过滤条件：仅来自用户明确指定的文件范围要求"
@@ -299,9 +302,18 @@ async def retrieve_node(state: RouterState) -> Dict:
             print("开始生成回答...")
             answer_prompt = (
                 "你是一个高效的回答编辑器，能根据检索到的相关文件内容为问题生成对应的回答或对已有答案进行修改。"
-                "如果存在回答，根据你读到的文档内容对回答进行修改，否则根据文档内容生成回答。"
+                "如果存在回答，根据你读到的文档内容对回答进行修改，并返回修改后的完整回答，否则根据文档内容生成回答。"
                 "请严格按照文件内容与已有的回答生成与修改回答，不要添加任何额外的内容。"
+                "注意：只用返回你生成或修改后的回答内容，不用写“根据文档内容生成回答”或“根据文档内容修改回答如下”，不需要提到这是你总结或修改的结果，也不需要提到哪些地方需要修改"
+                "你只需要返回你生成或修改过后的完整回答。"
                 "你的回答使用的语言应该根据问题使用的语言。如果问题是中文，用中文回答，如果问题是英语，用英语回答。"
+                "文件中可能包含HTML格式的表格与LaTeX格式的公式，你需要正确理解它们的意义并在回答中准确呈现。"
+                "如果回答问题涉及到文件中的表格或公式内容，一定附上完整表格或公式，保持原有格式不变，不要仅仅说可以用公式或参考表格。"
+                "当你的回答涉及表格或公式时："
+                "1) 完整复制相关的HTML表格代码，确保表格结构完整；"
+                "2) 完整复制相关的LaTeX公式代码，保持数学表达式准确；"
+                "3) 检查原文件中是否有对表格或公式的说明，如有则在回答中添加；"
+                "4) 仔细检查当前回答是否已包含相同的表格或公式，如已存在则不要重复添加。"
                 "注意：只用返回你生成或修改后的回答内容，不用写“根据文档内容生成回答”或“根据文档内容修改回答”"
 
             )
@@ -312,6 +324,7 @@ async def retrieve_node(state: RouterState) -> Dict:
             
             # 调用链并获取结果
             answer = ""
+            #answer = await answer_chain.ainvoke({"query": query, "contents": contents, "answer": answer})
             for content in contents:
                 answer = await answer_chain.ainvoke({"query": query, "contents": content, "answer": answer})
             print(f"回答类型: {type(answer)}")
@@ -323,6 +336,16 @@ async def retrieve_node(state: RouterState) -> Dict:
         except Exception as ae:
             print(f"回答生成异常: {str(ae)}")
             return {"output": f"回答生成失败: {str(ae)}"}
+        
+        ans_content = f"\n回答：{answer}\n\n\n"
+        with open("ans.md", "a", encoding='utf-8') as f:
+            f.write(ans_content)
+        
+        output_content = f"\n回答：{answer}\n\n\n回答来源：{names}\n\n检索方式： {Strategy}使用langchain的语义切片，切片大小设置为800。\n"
+        file_exists = Path("answer.md").exists()
+        mode = 'a' if file_exists else 'w'
+        with open("answer.md", mode, encoding='utf-8') as f:
+            f.write(output_content)
         outputtest_file(docs,"answer.md")
         return {
             "knowledgebase": docs,
@@ -344,13 +367,62 @@ async def evaluate_node(state: RouterState) -> Dict:
         return {"output": "回答生成失败，请检查原因"}
     retrieverevaluator = RetrievalEvaluator(get_embeddings())
     reeval = retrieverevaluator.evaluate(state["query"],state["knowledgebase"])
-    reanswer = f"检索评估结果由三个指标组成：平均相似度、最大相似度、多样性分数，三个分数均由向量相似度评估，在0-1之间，越大说明向量越相似，多样性越高。分别为：\n平均相似度：{reeval['avg_similarity']}\n最大相似度：{reeval['max_similarity']}\n多样性分数：{reeval['diversity_score']}"
+    avg_similarity = reeval.get('avg_similarity', 'N/A')
+    max_similarity = reeval.get('max_similarity', 'N/A')
+    diversity_score = reeval.get('diversity_score', 'N/A')
+    reanswer = ("检索评估结果由三个指标组成：平均相似度、最大相似度、多样性分数，"
+                "三个分数均由向量相似度评估，在0-1之间，越大说明向量越相似，多样性越高。分别为：\n"
+                "平均相似度：" + str(avg_similarity) + "\n"
+                "最大相似度：" + str(max_similarity) + "\n"
+                "多样性分数：" + str(diversity_score))
     generateevaluator = GenerationEvaluator(get_llm())
     geeval = await generateevaluator.evaluate(state["query"],state["answer"],state["knowledgebase"])
-    geanswer = f"生成评估结果由三个指标组成：事实一致性、回答相关性、信息完整性，三个分数均在0-5之间，越大说明越符合要求。分别为：\n事实一致性：{geeval['faithfulness']}\n回答相关性：{geeval['relevance']}\n信息完整性：{geeval['completeness']}"
+    faithfulness_val = str(geeval.get('faithfulness', 'N/A'))
+    relevance_val = str(geeval.get('relevance', 'N/A'))
+    completeness_val = str(geeval.get('completeness', 'N/A'))
+    geanswer = ("生成评估结果由三个指标组成：事实一致性、回答相关性、信息完整性，"
+                "三个分数均在0-5之间，越大说明越符合要求。分别为：\n"
+                "事实一致性：" + faithfulness_val + "\n"
+                "回答相关性：" + relevance_val + "\n"
+                "信息完整性：" + completeness_val)
     answeroutput = state["output"]
-    return {"output": answeroutput + "\n对回答的评估结果如下：\n" + reanswer + "\n" + geanswer}
+    with open("answer.md", 'a', encoding='utf-8') as f:
+        f.write(reanswer+'\n'+geanswer+'\n')
+    ragaseval = RagasEvaluator(get_llm(), get_embeddings())
+    metrics = await ragaseval.evaluate(state["query"],state["answer"],state["knowledgebase"])
+    append_metrics_to_file(metrics)
+    return {"output": answeroutput + "\n对回答的Ragas评估结果如下：\n" + reanswer + "\n" + geanswer + "\n" + str(metrics)}
 
+
+def append_metrics_to_file(metrics, filename='answer.md'):
+    """将metrics以表格形式追加到指定文件"""
+    #import os
+    #from datetime import datetime
+    #table_content = f"\n\n## RAGas评估指标 ({datetime.now().strftime('%Y-%m-%d %H:%M:%S')})\n\n"
+    table_content = "\n\n## RAGas评估指标\n\n"
+    table_content += "| 指标名称 | 分数 | 说明 |\n"
+    table_content += "|---------|------|------|\n"
+    
+    metric_descriptions = {
+        'answer_relevancy': '答案相关性',
+        'faithfulness': '忠实度',
+        'context_precision': '上下文精确度',
+        'llm_context_precision_without_reference': '上下文精确度(无参考)'
+    }
+    
+    # 处理ragas的EvaluationResult对象
+    metrics_df = metrics.to_pandas()
+    metrics_dict = metrics_df.iloc[0].to_dict()
+    
+    for metric_name, score in metrics_dict.items():
+        if isinstance(score, (int, float)):
+            description = metric_descriptions.get(metric_name, '未知指标')
+            table_content += "| " + description + " | " + f"{score:.4f}" + " | " + metric_name + " |\n"
+    
+    table_content += "\n\n===============================================================================\n"
+    
+    with open(filename, 'a', encoding='utf-8') as f:
+        f.write(table_content)
 
 
 def unknown_node(state: RouterState) -> Dict:

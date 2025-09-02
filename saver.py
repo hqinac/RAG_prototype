@@ -151,14 +151,14 @@ async def save_vectorstore(documents: list[Document], chunks, size, doc_info, la
                         splits.append(doc)
 
             case "semantic":
-                # 默认使用语义切片
+                # 使用语义切片
                 print(f"使用语义切片处理文档({len(document.page_content)}字符)")
                 text_splitter = SemanticChunker(   
                     embeddings=embeddings,
-                    buffer_size=max(10, int(size[i]/15)),
-                    number_of_chunks=max(3, int(len(document.page_content)//int(size[i]*0.8))),
+                    buffer_size=max(10, int(size[i]/15)), # 确保至少为1
+                    number_of_chunks=max(3, int(len(document.page_content)//max(1, int(size[i]*0.8)))), # 确保分母不为0，且至少为1
                     sentence_split_regex=regex_pattern,
-                    min_chunk_size=max(50, int(size[i]/5)),
+                    min_chunk_size=max(50, int(size[i]/5)), # 确保至少为1
                 )
                 splits = await text_splitter.atransform_documents([document])
             case _:

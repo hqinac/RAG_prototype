@@ -86,25 +86,32 @@ async def retrieve(strategy, query, filters):
         # 选择策略
         match strategy:
             case "hyde":
-                cn_query = await cn_chain.ainvoke({"query": query})
-                eng_query = await eng_chain.ainvoke({"query": query})
-                docs = (await retriever.ainvoke(cn_query))[:5]
-                eng_docs = (await retriever.ainvoke(eng_query))[:5]
-                docs.extend(eng_docs)
+                cn_query = await hydechain.ainvoke({"query": query})
+                eng_query = await eng_hydechain.ainvoke({"query": query})
+                print(f"假设文档为：{cn_query}")
+                docs = (await retriever.ainvoke(cn_query))[:10]
+                #eng_docs = (await retriever.ainvoke(eng_query))[:5]
+                #docs.extend(eng_docs)
                 Strategy = "虚拟文档检索"
             case "bm25rerank":
                 # 并行执行FAISS和BM25检索
                 cn_query = await cn_chain.ainvoke({"query": query})
                 eng_query = await eng_chain.ainvoke({"query": query})
+                '''
                 faiss_docs, faiss_eng_docs, bm25_docs, bm25_eng_docs = await asyncio.gather(
                     retriever.ainvoke(cn_query),
                     retriever.ainvoke(eng_query),
                     bm25.ainvoke(cn_query),
                     bm25.ainvoke(eng_query)
                 )
+                '''
+                faiss_docs, bm25_docs = await asyncio.gather(
+                    retriever.ainvoke(cn_query),
+                    bm25.ainvoke(cn_query),
+                )
                 # 合并结果
-                docs = faiss_docs + faiss_eng_docs + bm25_docs + bm25_eng_docs
-                # 转换为rerankers库期望的Document格式
+                #docs = faiss_docs + faiss_eng_docs + bm25_docs + bm25_eng_docs
+                docs = faiss_docs  + bm25_docs 
                 reranker_docs = [RerankerDocument(text=doc.page_content, doc_id=i, metadata=doc.metadata) for i, doc in enumerate(docs)]
                 results = await reranker.rank_async(query=query, docs=reranker_docs)
                 rerankresult = results.top_k(10)
@@ -112,25 +119,32 @@ async def retrieve(strategy, query, filters):
                 Strategy = "与bm25结合进行重排序"
             case "faissbert":
                 cn_query = await cn_chain.ainvoke({"query": query})
-                eng_query = await eng_chain.ainvoke({"query": query})
-                docs = (await retriever.ainvoke(cn_query))[:5]
-                eng_docs = (await retriever.ainvoke(eng_query))[:5]
-                docs.extend(eng_docs)
+                #eng_query = await eng_chain.ainvoke({"query": query})
+                docs = (await retriever.ainvoke(cn_query))[:10]
+                #eng_docs = (await retriever.ainvoke(eng_query))[:5]
+                #docs.extend(eng_docs)
                 Strategy = "faiss向量相似度检索"
             case _:
-                #createdquery = await hydechain.ainvoke({"query": query})
-                #eng_createdquery = await eng_hydechain.ainvoke({"query": query})
-                #print(f"假设文档为：{createdquery}")
-                cn_query = await cn_chain.ainvoke({"query": query})
-                eng_query = await eng_chain.ainvoke({"query": query})
+                createdquery = await hydechain.ainvoke({"query": query})
+                eng_createdquery = await eng_hydechain.ainvoke({"query": query})
+                print(f"假设文档为：{createdquery}")
+                cn_query = await cn_chain.ainvoke({"query": createdquery})
+                eng_query = await eng_chain.ainvoke({"query": eng_createdquery})
+                '''
                 faiss_docs, faiss_eng_docs, bm25_docs, bm25_eng_docs = await asyncio.gather(
                     retriever.ainvoke(cn_query),
                     retriever.ainvoke(eng_query),
                     bm25.ainvoke(cn_query),
                     bm25.ainvoke(eng_query)
                 )
+                '''
+                faiss_docs, bm25_docs = await asyncio.gather(
+                    retriever.ainvoke(cn_query),
+                    bm25.ainvoke(cn_query),
+                )
                 # 合并结果
-                docs = faiss_docs + faiss_eng_docs + bm25_docs + bm25_eng_docs
+                #docs = faiss_docs + faiss_eng_docs + bm25_docs + bm25_eng_docs
+                docs = faiss_docs  + bm25_docs 
                 # 转换为rerankers库期望的Document格式
                 reranker_docs = [RerankerDocument(text=doc.page_content, doc_id=i, metadata=doc.metadata) for i, doc in enumerate(docs)]
                 results = await reranker.rank_async(query=cn_query, docs=reranker_docs)

@@ -5,18 +5,44 @@ from langchain_core.documents import Document
 
 #将切片打印到指定mdfile里
 def outputtest_file(chunks,filename):
+    
+    # 检查文件是否存在
+    file_exists = Path(filename).exists()
+    
     output_content = []
-    for chunk in chunks:       
+    
+    # 如果文件存在，添加分隔符
+    if file_exists:
+        output_content.append("\n" + "="*80)
+        output_content.append("=== 召回切片 ===")
+        output_content.append("="*80)
+        output_content.append("")
+    
+    for i, chunk in enumerate(chunks):       
+        # 添加分界线（除了第一个切片）
+        if i > 0:
+            output_content.append("="*80)  # 分界线
+            output_content.append("")  # 空行
+        
+        # 添加切片编号
+        output_content.append(f"=== 文档 {i+1} ===")
+        output_content.append("")  # 空行
+        
         # page_content
         output_content.append(chunk.page_content)
         output_content.append("")  # 空行
+        
         # metadata信息
+        output_content.append("--- Metadata ---")
         metadata_lines = []
         for key, value in chunk.metadata.items():
             metadata_lines.append(f"{key}: {value}")
         output_content.extend(metadata_lines)
         output_content.append("")  # 空行
-    with open(filename, 'w', encoding='utf-8') as f:
+    
+    # 根据文件是否存在选择写入模式
+    mode = 'a' if file_exists else 'w'
+    with open(filename, mode, encoding='utf-8') as f:
         f.write('\n'.join(output_content))
 
 

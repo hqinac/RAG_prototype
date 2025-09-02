@@ -45,6 +45,7 @@ if __name__ == "__main__":
     ## 分块三
     内容三...
     """
+
     prompt = ChatPromptTemplate.from_template(prompt_template)
     chain = prompt | llm | StrOutputParser()
     news = chain.invoke({"name": name, "company": company, "job": job, "product": product})

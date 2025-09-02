@@ -40,7 +40,9 @@ class CacheManager:
             self._llm_cache = ChatQwen(
                 model=os.getenv("DASH_MODEL_NAME"),
                 api_key=os.getenv("DASHSCOPE_API_KEY"),
-                base_url=os.getenv("DASHSCOPE_BASE_URL")
+                base_url=os.getenv("DASHSCOPE_BASE_URL"),
+
+                timeout=os.getenv("DASHSCOPE_API_TIMEOUT", 60)
             )
         return self._llm_cache
     

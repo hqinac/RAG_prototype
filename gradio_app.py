@@ -370,12 +370,93 @@ def create_interface():
         border-radius: 5px !important;
         margin: 10px 0 !important;
     }
+    /* 支持HTML表格样式 */
+    .chatbot table {
+        border-collapse: collapse !important;
+        width: 100% !important;
+        margin: 10px 0 !important;
+    }
+    .chatbot table th, .chatbot table td {
+        border: 1px solid #ddd !important;
+        padding: 8px !important;
+        text-align: left !important;
+    }
+    .chatbot table th {
+        background-color: #f2f2f2 !important;
+        font-weight: bold !important;
+    }
+    .chatbot table tr:nth-child(even) {
+        background-color: #f9f9f9 !important;
+    }
+    /* LaTeX公式样式 */
+    .chatbot .MathJax {
+        font-size: 1em !important;
+    }
+    .chatbot .MathJax_Display {
+        margin: 10px 0 !important;
+    }
     """
     
-    # JavaScript代码来监听浏览器关闭事件
+    # JavaScript代码来监听浏览器关闭事件和支持MathJax
     custom_js = """
     function() {
         console.log('🚀 RAG应用已启动，监听浏览器关闭事件...');
+        
+        // 加载MathJax支持LaTeX公式渲染
+        if (!window.MathJax) {
+            const script = document.createElement('script');
+            script.src = 'https://polyfill.io/v3/polyfill.min.js?features=es6';
+            document.head.appendChild(script);
+            
+            const mathjaxScript = document.createElement('script');
+            mathjaxScript.id = 'MathJax-script';
+            mathjaxScript.async = true;
+            mathjaxScript.src = 'https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js';
+            
+            window.MathJax = {
+                tex: {
+                    inlineMath: [['$', '$'], ['\\(', '\\)']],
+                    displayMath: [['$$', '$$'], ['\\[', '\\]']]
+                },
+                options: {
+                    skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+                }
+            };
+            
+            document.head.appendChild(mathjaxScript);
+            console.log('📐 MathJax已加载，支持LaTeX公式渲染');
+        }
+        
+        // 监听聊天内容变化，重新渲染MathJax
+        function observeChatUpdates() {
+            const chatContainer = document.querySelector('.chatbot');
+            if (chatContainer) {
+                const observer = new MutationObserver(function(mutations) {
+                    mutations.forEach(function(mutation) {
+                        if (mutation.type === 'childList' && mutation.addedNodes.length > 0) {
+                            // 延迟渲染，确保DOM更新完成
+                            setTimeout(() => {
+                                if (window.MathJax && window.MathJax.typesetPromise) {
+                                    window.MathJax.typesetPromise([chatContainer]).then(() => {
+                                        console.log('🔄 MathJax公式已重新渲染');
+                                    }).catch((err) => console.log('MathJax渲染错误:', err));
+                                }
+                            }, 100);
+                        }
+                    });
+                });
+                
+                observer.observe(chatContainer, {
+                    childList: true,
+                    subtree: true
+                });
+                
+                console.log('👁️ 聊天内容监听器已启动');
+            }
+        }
+        
+        // 延迟启动聊天监听器
+        setTimeout(observeChatUpdates, 2000);
         
         let isClosing = false;
         let shutdownTriggered = false;
@@ -616,7 +697,9 @@ def create_interface():
                     type="messages",
                     elem_classes=["chat-container"],
                     height=500,
-                    placeholder=" 您好！我是RAG智能助手，您可以向我提问。"
+                    placeholder=" 您好！我是RAG智能助手，您可以向我提问。",
+                    sanitize_html=False,  # 允许HTML内容
+                    render_markdown=True   # 启用Markdown渲染
                 )
                 
                 with gr.Row():

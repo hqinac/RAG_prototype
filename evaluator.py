@@ -1,7 +1,13 @@
 from langchain_core.documents import Document
 from langchain_core.prompts import ChatPromptTemplate
 from langchain_core.output_parsers import StrOutputParser
+from datasets import Dataset
 import numpy as np
+import asyncio
+from ragas import evaluate
+from ragas.metrics import answer_relevancy, faithfulness, LLMContextPrecisionWithoutReference
+from ragas.llms import LangchainLLMWrapper
+from ragas.embeddings import LangchainEmbeddingsWrapper
 
 
 
@@ -69,18 +75,15 @@ class GenerationEvaluator:
     
     async def _check_faithfulness(self, answer, sources):
         """验证答案是否忠实于来源"""
-        faithfulness_prompt = f"""
-
+        system_prompt = """
         判断以下答案是否完全基于提供的参考内容（1-5分）：
-        参考内容：{" ".join([s.page_content[:500] for s in sources])}
-        答案：{answer}
         评分标准：
         - 5分：所有陈述均有明确依据
         - 3分：主要观点有依据，细节可能扩展
         - 1分：存在无依据的重要陈述
         """
         faithfulness_prompt = ChatPromptTemplate.from_messages([
-        ("system", faithfulness_prompt),
+        ("system", system_prompt),
         ("human", "参考内容：{sources}\n答案：{answer}")
         ])
         faithfulness_chain = faithfulness_prompt | self.llm | StrOutputParser()
@@ -95,17 +98,15 @@ class GenerationEvaluator:
     async def _check_relevance(self, query, answer):
 
         """验证答案与问题的相关性"""
-        relevance_prompt = f"""
+        system_prompt = """
         评估以下回答与问题的相关性（1-5分）：
-        问题：{query}
-        回答：{answer}
         评分标准：
         - 5分：完全解决所有问题点
         - 3分：解决主要问题但忽略细节
         - 1分：回答与问题无关
         """
         relevance_prompt = ChatPromptTemplate.from_messages([
-        ("system", relevance_prompt),
+        ("system", system_prompt),
         ("human", "问题：{query}\n回答：{answer}")
         ])
         relanvance_chain = relevance_prompt | self.llm | StrOutputParser()
@@ -120,16 +121,15 @@ class GenerationEvaluator:
     async def _check_completeness(self, answer):
 
         """验证答案的完整性"""
-        completeness_prompt = f"""
+        system_prompt = """
         评估以下回答的完整性（1-5分）： 
-        回答：{answer}
         评分标准：
         - 5分：回答完整，包含所有相关信息
         - 3分：回答大部分完整，有部分缺失
         - 1分：回答不完整，缺失重要信息
         """
         completeness_prompt = ChatPromptTemplate.from_messages([
-        ("system", completeness_prompt),
+        ("system", system_prompt),
         ("human", "回答：{answer}")
         ])
         completeness_chain = completeness_prompt | self.llm | StrOutputParser()
@@ -142,3 +142,31 @@ class GenerationEvaluator:
         return result.strip()
 
     
+class RagasEvaluator:
+    def __init__(self, llm, embedding):
+        self.llm = LangchainLLMWrapper(llm)
+        self.embedding = LangchainEmbeddingsWrapper(embedding)
+        
+    
+    async def evaluate(self, query, answer, sources):
+        """评估RAG系统性能"""
+        query = [query]
+        answer = [answer]
+        contexts = [[source.page_content for source in sources]]
+        dataset = Dataset.from_dict({
+            "query": query,
+            "answer": answer,
+            "contexts": contexts,
+            "user_input": query
+        })
+        answer_relevancy.llm=self.llm
+        answer_relevancy.embedding=self.embedding
+        faithfulness.llm=self.llm
+        context_precision = LLMContextPrecisionWithoutReference(llm=self.llm)
+        metrics = await asyncio.to_thread(
+        evaluate,
+        dataset,
+        metrics=[faithfulness, context_precision],
+        llm=self.llm
+        )
+        return metrics
