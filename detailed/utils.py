@@ -184,10 +184,10 @@ def extract_matching_parts(text,last_pattern_tuple, useCapture = False):
             if matches:
                 #print(f"字符串 '{text}' 匹配正则表达式 '{pattern_str}'，提取到的部分：{matches}")
                 if useCapture:
-                    return matches.group(1)
-                return matches.group()
+                    return matches.group(1),pattern_str
+                return matches.group(),pattern_str
         except re.error as e:
             print(f"正则表达式 '{pattern_str}' 无效: {e}")
     
     #print(f"字符串 '{text}' 不符合 OUTLINE_PATTERN 最后一行中的任何格式。")
-    return ""
+    return "",None

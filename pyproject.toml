@@ -13,6 +13,7 @@ dependencies = [
     "langchain-community>=0.3.27",
     "langchain-experimental>=0.3.4",
     "langchain-milvus>=0.2.1",
+    "langchain-ollama>=0.3.7",
     "langchain-qwq>=0.2.0",
     "langchain-text-splitters>=0.3.8",
     "langgraph>=0.5.4",
