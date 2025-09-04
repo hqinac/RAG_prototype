@@ -15,6 +15,7 @@ try:
 except ImportError:
     from utils import outputtest_file, struct, fuzzy_match,check_unique,delete_addition_splits,merge_2chunk,extract_matching_parts
 
+from outline_recognizer import infer_hierarchy
 from dotenv import load_dotenv
 from bs4 import BeautifulSoup
 
@@ -36,11 +37,9 @@ load_dotenv()
 # 设置默认的向量数据库存储路径
 URI = os.getenv("URI", "./saved_files")
 HEAD_PATTERN = (
-    ("cover", r"#.*公告.*"),
-    ("notice", r"# 前言"),
-    ("forehead", r"# 目(次|录)"),
-    ("outlines_cn", r"(?i)(?:#\s*)?CONTENTS"),
-    ("outlines_en", r"# \d+[\s]+[\u4e00-\u9fa5a-zA-Z]+")
+    ("forehead", r"#+ 目\s*(次|录)"),
+    ("outlines_cn", r"(?i)#+\s*CONTENTS"),
+    ("outlines_en", r"#+ \d+[\s]+[\u4e00-\u9fa5a-zA-Z]+")
 )#存储正文前各部分的名字与各部分结尾的正则表达式（即下一部分的开头）
 OUTLINE_PATTERN = ((r"\d+ [\u4e00-\u9fa5a-zA-Z0-9\s]+",r"(附|付|符)录[A-Za-z0-9] [\u4e00-\u9fa5a-zA-Z0-9\s]+", r"[\u4e00-\u9fa5a-zA-Z]", ),
                    (r"\d+\.\d+ [\u4e00-\u9fa5a-zA-Z0-9\s]+",),
@@ -114,12 +113,37 @@ class Article:
             file_name = document.metadata['source']
         self.lost_header = lost_header
         logging.info(f"文件{file_name}处理完成,缺失{lost_header}部分")
-        
-        if self.outlines_en.page_content == "":
-            use_en = False
-        self.content = Document(page_content=document.page_content[Start:],metadata=document.metadata)
-        self.additions = []  # 初始化additions属性
-        self.outline = self.outline_recognize(use_en)
+
+        if 'outlines_cn' and 'outlines_en' in lost_header:
+            logging.info("文件不存在目录，直接从正文中提取目录结构")
+            self.content = document
+            self.forehead.page_content = ""
+            self.lost_header.append('forehead')
+        else:
+            if self.outlines_en.page_content == "":
+                use_en = False
+            self.content = Document(page_content=document.page_content[Start:],metadata=document.metadata)
+            self.additions = []  # 初始化additions属性
+            self.outline = self.outline_recognize(use_en)
+    
+    def default_outline_recognize(self):
+        outlineline = []
+        outlines = []
+        contentlines = self.content.page_content.splitlines()
+        for line in contentlines:
+            line = line.strip()
+            if line == "":
+                continue
+            match = re.search(r"^#+",line)
+            if match is None:
+                continue
+            else:
+                line = re.sub(r"^#+ +","",processed_line)
+                outlineline.append(line)
+        outline, pattern_tree = infer_hierarchy(outlineline, useen=False)
+        return outline
+
+
 
     def outline_recognize(self,use_en = True):
         outline = []
@@ -128,7 +152,7 @@ class Article:
         lines = self.outlines_cn.page_content.splitlines()
         enlines = self.outlines_en.page_content.splitlines()
         if self.outlines_cn.page_content == "":
-            logging.error("文件不存在目录,目前只支持有中文目录的文件")
+            logging.info("文件不存在中文目录,目前只支持有中文目录的文件")
             return outline
         if self.outlines_en.page_content == "":
             logging.info("文件不存在英文目录")
@@ -149,7 +173,7 @@ class Article:
             else:
                 tail = len(line)
             processed_line = line[:tail].strip()
-            line = re.sub(r"^# +","",processed_line)
+            line = re.sub(r"^#+ +","",processed_line)
             # 确保处理后的行不为空且有实际内容
             if line and len(line) > 1:
                 cn.append(line)
@@ -182,7 +206,9 @@ class Article:
         #print(f"英文目录条目数量: {len(en)}")
         #print(f"中文目录前5条: {cn[:5]}")
         #print(f"英文目录前5条: {en[:5]}")
-        
+        outline, pattern_tree = infer_hierarchy(cn, en, use_en)
+        return outline
+        '''
         if not use_en or len(cn) != len(en):
             outline = [[line,"",[]] for line in cn]
             if use_en and len(cn) != len(en):
@@ -229,6 +255,7 @@ class Article:
         
         #PARENT_DEPTH = maxdepth+1
         return outline
+        '''
     
     #删除误识别的页码
     def clear_splits(self):
@@ -302,7 +329,7 @@ def mdfile_recognizer(document:Document, use_en = True, chunk_size = -1):
     figures, equations, tables = [], [], []
     head_splits = []
     head_docs = []
-    for head in HEAD_PATTERN[:3]:#不处理已经识别完的目录
+    for head in HEAD_PATTERN[:1]:#不处理已经识别完的目录
         if head[0] not in article.lost_header:
             tmp_attr = getattr(article, head[0])
             head_docs.extend(tmp_attr)
@@ -1096,7 +1123,7 @@ def simple_size_chunk(base_splits, chunk_size):
 
 
 if __name__ == "__main__":
-    file_path = r"JGJ125-2016：危险房屋鉴定标准.md"
+    file_path = r"GB50023-2009：建筑抗震鉴定标准.md"
     # 使用TextLoader保持原始markdown格式
     from langchain_community.document_loaders import TextLoader
     loader = TextLoader(file_path, encoding='utf-8')

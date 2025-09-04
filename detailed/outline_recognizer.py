@@ -1,116 +1,452 @@
 import re
 from collections import defaultdict, deque
 from typing import List, Dict, Tuple, Optional
+from utils import struct
 
-def extract_features(dir_str: str) -> Dict:
+HEADER_PATTERN = {
+    'number': r'^\d+$',
+    'cn_number': r'^[一二三四五六七八九十]+$',
+    'upper_cn_number': r'^[壹贰叁肆伍陆柒捌玖拾]+$',
+    'lower_alpha': r'^[a-z]+$',
+    'upper_alpha': r'^[A-Z]+$',
+    'upper_roma': r"^[IVX\u2160-\u217F]+$",
+    'lower_roma': r"^[ivxⅰ-ⅿ]+$"
+}
+
+def extract_features(dir_str: str, usePlain = False) -> Dict:
     """提取目录项的层级特征：前缀类型、点数量、基值等"""
     # 匹配数字前缀（如1.、2.1、3.1.1）
-    num_match = re.match(r'^(\d+)(\.\d+)*\s+', dir_str)
-    # 匹配字母前缀（如a 、b ）
-    alpha_match = re.match(r'^([a-zA-Z])\s+', dir_str)
+    num_match = re.match(r'^(\d+(\.\d+)*)(.*?)?\s+', dir_str)
 
-    parenttheses_match = re.match(r'^([（\(][^）\)]+[）\)])\s+', dir_str)
+    cn_num_match = re.match(r'^([一二三四五六七八九十]+)(.*?)?\s+', dir_str)
+
+    upper_cn_num_match = re.match(r'^([壹贰叁肆伍陆柒捌玖拾]+)(.*?)?\s+', dir_str)
+
+    circle_match = re.match(r'^([\u2460-\u2473\u3251-\u325F\u32B1-\u32BF]+)(.*?)?\s+', dir_str)
+
+    # 匹配字母前缀（如a 、b ）
+    lower_alpha_match = re.match(r'^([a-z]+(?:\.[a-zA-Z0-9]+)*)(.*?)?\s+', dir_str)
+
+    upper_alpha_match = re.match(r'^([A-Z]+(?:\.[a-zA-Z0-9]+)*)(.*?)?\s+', dir_str)
+
+    upper_roma_match = re.match(r'^([IVX\u2160-\u217F]+)(.*?)?\s+', dir_str)
+
+    lower_roma_match = re.match(r"^([ivxⅰ-ⅿ]+)(.*?)\s+", dir_str)
+
+    parenttheses_match = re.match(r'^([（\(][^）\)]+[）\)])(.*?)\s+', dir_str)
     
-    right_parenttheses_match = re.match("^.{1,2}[）\)]", dir_str)
+    right_parenttheses_match = re.match(r"(^.{1,3}[）\)])(.*?)\s+", dir_str)
+
+    appendix_match = re.match(r"^((附|付|符)\s*录\s*[A-Za-z0-9])\s+", dir_str)
+
+    annex_match = re.match(r"^((附|付|符)(:|：)\s*(.*?))(?:\s+|\n|$)", dir_str)
+
+    def structmatch(match):
+        print(f"匹配到{match}")
+        prefix = match.group(1)
+        matches = list(re.finditer(r'\.', prefix))
+        if matches == []:
+            dot_count = 0
+        else:
+            start = matches[-1].end()
+            if start == len(prefix):
+                dot_count = len(matches)-1
+            else:
+                dot_count = len(matches)
+        head_match = re.match(r'^(.*\s+)[^\s]*$', dir_str)
+        if head_match:
+            head = head_match.group(1)
+        else:
+            head = dir_str
+        return prefix, dot_count, head
+
+
+    if parenttheses_match:
+        prefix, dot_count, head = structmatch(parenttheses_match)
+        insider = prefix[1:-1].strip()
+        insidetype = None
+        for name, pattern in HEADER_PATTERN.items():
+            if re.match(pattern, insider):
+                insidetype = name
+                break
+        if not insidetype:
+            insidetype = 'other'
+        if usePlain:
+            content = dir_str
+        else:
+            content = checkcontent(head, dir_str)
+        if(len(insider)<=3):
+            return {
+                'type': insidetype+"_parentthese",
+                'prefix': prefix,
+                'inside': insider,
+                'dot_count': dot_count,
+                'depth': None,
+                'head': head.strip(),
+                'content': content
+            }
+    
+    if right_parenttheses_match:
+        prefix, dot_count, head = structmatch(right_parenttheses_match)
+        insider = prefix[:-1].strip()
+        insidetype = None
+        for name, pattern in HEADER_PATTERN.items():
+            if re.match(pattern, insider):
+                insidetype = name
+                break
+        if not insidetype:
+            insidetype = 'other'
+        if usePlain:
+            content = dir_str
+        else:
+            content = checkcontent(head, dir_str)
+        return {
+            'type': insidetype+"_right_parentthese",
+            'inside': insider,
+            'prefix': prefix,
+            'dot_count': dot_count,
+            'depth': None,
+            'head': head.strip(),
+            'content': content
+        }
+        
+    if appendix_match:
+        prefix, dot_count, head = structmatch(appendix_match)
+        if usePlain:
+            content = dir_str
+        else:
+            content = checkcontent(head, dir_str)
+        return {
+            'type': 'appendix',
+            'prefix': prefix,
+            'dot_count': dot_count,
+            'depth': None,
+            'head': head.strip(),
+            'content': content
+        }
+    
+    if annex_match:
+        prefix, dot_count, head = structmatch(annex_match)
+        if usePlain:
+            content = dir_str
+        else:
+            content = checkcontent(head, dir_str)
+        return {
+            'type': 'annex',
+            'prefix': prefix,
+            'dot_count': dot_count,
+            'depth': None,
+            'head': head.strip(),
+            'content': content
+        }
     
     if num_match:
-        prefix = num_match.group(0)
-        # 点数量（1. 含0个点，1.1 含1个点，用于表示层级深度）
-        dot_count = prefix.count('.')
+        prefix, dot_count, head = structmatch(num_match)
         # 基值（最前面的数字，用于匹配父目录）
-        base_num = int(re.findall(r'\d+', prefix)[0])
+        #base_num = int(re.findall(r'\d+', prefix)[0])
+        if usePlain:
+            content = dir_str
+        else:
+            content = checkcontent(head, dir_str)
         return {
             'type': 'number',
             'prefix': prefix,
             'dot_count': dot_count,
-            'base_num': base_num,
-            'content': dir_str[len(prefix):]
+            'depth': None,
+            'head': head.strip(),
+            'content': content
         }
-    elif alpha_match:
-        prefix = alpha_match.group(0)
+    
+    if cn_num_match:
+        prefix, dot_count, head = structmatch(cn_num_match)
+        # 基值（最前面的数字，用于匹配父目录）
+        #base_num = int(re.findall(r'\d+', prefix)[0])
+        if usePlain:
+            content = dir_str
+        else:
+            content = checkcontent(head, dir_str)
         return {
-            'type': 'alpha',
+            'type': 'cn_number',
             'prefix': prefix,
-            'dot_count': None,  # 字母前缀通常依赖上下文
-            'base_num': None,
-            'content': dir_str[len(prefix):]
+            'dot_count': dot_count,  # 字母前缀通常依赖上下文
+            'depth': None,
+            'head': head.strip(),
+            'content': content
         }
-    else:
+    
+    if upper_cn_num_match:
+        prefix, dot_count, head = structmatch(upper_cn_num_match)
+        # 基值（最前面的数字，用于匹配父目录）
+        #base_num = int(re.findall(r'\d+', prefix)[0])
+        if usePlain:
+            content = dir_str
+        else:
+            content = checkcontent(head, dir_str)
+        return {
+            'type': 'upper_cn_number',
+            'prefix': prefix,
+            'dot_count': dot_count,  # 字母前缀通常依赖上下文
+            'depth': None,
+            'head': head.strip(),
+            'content': content
+        }
+    
+    if circle_match:
+        prefix, dot_count, head = structmatch(circle_match)
+        # 基值（最前面的数字，用于匹配父目录）
+        #base_num = int(re.findall(r'\d+', prefix)[0])
+        if usePlain:
+            content = dir_str
+        else:
+            content = checkcontent(head, dir_str)
+        return {
+            'type': 'circle',
+            'prefix': prefix,
+            'dot_count': dot_count,  # 字母前缀通常依赖上下文
+            'depth': None,
+            'head': head.strip(),
+            'content': content
+        }
+
+    if lower_alpha_match:
+        prefix, dot_count, head = structmatch(lower_alpha_match)
+        # 基值（最前面的数字，用于匹配父目录）
+        #base_num = int(re.findall(r'\d+', prefix)[0])
+        if usePlain:
+            content = dir_str
+        else:
+            content = checkcontent(head, dir_str)
+        return {
+            'type': 'lower_alpha',
+            'prefix': prefix,
+            'dot_count': dot_count,  # 字母前缀通常依赖上下文
+            'depth': None,
+            'head': head.strip(),
+            'content': content
+        }
+
+    if upper_alpha_match:
+        prefix, dot_count, head = structmatch(upper_alpha_match)
+        # 基值（最前面的数字，用于匹配父目录）
+        #base_num = int(re.findall(r'\d+', prefix)[0])
+        if usePlain:
+            content = dir_str
+        else:
+            content = checkcontent(head, dir_str)
+        return {
+            'type': 'upper_alpha',
+            'prefix': prefix,
+            'dot_count': dot_count,  # 字母前缀通常依赖上下文
+            'depth': None,
+            'head': head.strip(),
+            'content': content
+        }
+    
+    if upper_roma_match:
+        prefix, dot_count, head = structmatch(upper_roma_match)
+        if usePlain:
+            content = dir_str
+        else:
+            content = checkcontent(head, dir_str)
+        return {
+            'type': 'upper_roma',
+            'prefix': prefix,
+            'dot_count': dot_count,  # 字母前缀通常依赖上下文
+            'depth': None,
+            'head': head.strip(),
+            'content': content
+        }
+    
         # 无明显前缀（如"参考文献"）
+    
+    if lower_roma_match:
+        prefix, dot_count, head = structmatch(lower_roma_match)
+        if usePlain:
+            content = dir_str
+        else:
+            content = checkcontent(head, dir_str)
+        return {
+            'type': 'lower_roma',
+            'prefix': prefix,
+            'dot_count': dot_count,  # 字母前缀通常依赖上下文
+            'depth': None,
+            'head': head.strip(),
+            'content': content
+        }
+    
+    if usePlain:
         return {
             'type': 'plain',
             'prefix': '',
-            'dot_count': -1,  # 标记为顶级
+            'dot_count': 0,  # 标记为顶级
             'base_num': None,
+            'depth': None,
             'content': dir_str
         }
+    return {
+        'type': 'content',
+        'prefix': '',
+        'dot_count': 0,  
+        'base_num': None,
+        'depth': None,
+        'content': dir_str
+    }
 
-def infer_hierarchy(directories: List[str]) -> List[Dict]:
+
+def checkcontent(head: str, content: str):
+    tmphead = content[len(head):]
+    tmphead = re.match(r"^(.*?)(?:\n|$)",tmphead)
+    if tmphead:
+        tmphead = tmphead.group(1)
+    tmp = re.search(r"\s+([,!?;:。，！？；：])(?=\n|$)",tmphead)
+    if tmp:
+        return head.strip()
+    return content[:len(head)+len(tmphead)+1].strip()
+
+
+def infer_hierarchy(directories: List[str], en_outlines=[], useen = True):
     """根据特征和顺序推断目录层级，返回带层级信息的列表"""
     # 提取所有目录的特征
-    dir_features = [extract_features(dir_str) for dir_str in directories]
+    dir_features = [extract_features(dir_str, usePlain = True) for dir_str in directories]
     
     # 存储每个目录的层级（0为顶级）和父目录索引
-    result = []
+    outlines = []
     # 用栈记录可能的父目录（按层级从深到浅）
-    parent_stack = []
+    parent_dic = {}
+    pattern_tree = []
+
+    def addoutline(features: Dict, i: int, parent):
+        print("新标题",features['content'],"深度为",features['depth'])
+        if useen:
+            outlines.append([features['content'], en_outlines[i], parent])
+        else:
+            outlines.append([features['content'], "", parent])
     
     for i, features in enumerate(dir_features):
-        dir_str = directories[i]
-        level = 0
-        parent_idx = -1  # -1表示无父目录
-        
-        if features['type'] == 'number':
-            # 数字前缀目录：通过dot_count和base_num找父目录
-            current_dot = features['dot_count']
-            current_base = features['base_num']
-            
-            # 栈中找最近的、dot_count = current_dot - 1且base_num匹配的目录
-            for j in reversed(range(len(parent_stack))):
-                parent_idx_candidate, parent_features = parent_stack[j]
-                if (parent_features['type'] == 'number' and 
-                    parent_features['dot_count'] == current_dot - 1 and 
-                    parent_features['base_num'] == current_base):
-                    level = parent_features['dot_count'] + 1
-                    parent_idx = parent_idx_candidate
+        print("处理标题",features)
+        if parent_dic == {}:
+            addoutline(features, i, [])
+            features['depth']=0
+            parent_dic = features
+            pattern_tree.append([[features['type'], features['dot_count']]])
+            continue
+        #处理附录附件情况：固定放在最高层
+        if features['type'] in ['plain','appendix','annex']:
+            if [features['type'], features['dot_count']] not in pattern_tree[0]:
+                pattern_tree[0].append([features['type'], features['dot_count']])
+            addoutline(features, i, [])
+            features['depth']=0
+            parent_dic = features
+            continue
+        if features['type'] == parent_dic['type']:
+            if features['dot_count'] == parent_dic['dot_count']:
+                features['depth'] = parent_dic['depth']
+                addoutline(features, i, outlines[-1][2])
+                parent_dic = features
+                continue
+            elif features['dot_count'] < parent_dic['dot_count']:
+                ndepth = parent_dic['depth']-parent_dic['dot_count']+features['dot_count']
+                exists = False
+                for j, patterns in enumerate(pattern_tree[:ndepth+1]):
+                    if [features['type'], features['dot_count']] in patterns:
+                        ndepth = j
+                        exists = True
+                        break
+                if not exists:
+                    pattern_tree[ndepth].append([features['type'], features['dot_count']])
+                features['depth'] = ndepth
+                addoutline(features, i, outlines[-1][2][:ndepth])
+                parent_dic = features
+                continue
+            else:
+                ndepth = parent_dic['depth']-parent_dic['dot_count']+features['dot_count']
+                if len(pattern_tree) <= ndepth:
+                    for j in range(len(pattern_tree),ndepth+1):
+                        pattern_tree.append([])
+                exists = False
+                for patterns in pattern_tree[ndepth:]:
+                    if [features['type'], features['dot_count']] in patterns:
+                        exists = True
+                        break
+                if not exists:
+                    pattern_tree[ndepth].append([features['type'], features['dot_count']])
+                #if [features['type'], features['dot_count']] not in pattern_tree[parent_dic['depth']+1]:
+                    #pattern_tree[ndepth].append([features['type'], features['dot_count']])
+                features['depth'] = ndepth
+                addoutline(features, i, outlines[-1][2]+[outlines[-1][:2]])
+                parent_dic = features
+                continue
+        else:
+            tmppattern = [features['type'], features['dot_count']]
+            exists, tmpdepth = False, parent_dic['depth']+1
+            for j, patterns in enumerate(pattern_tree[parent_dic['depth']+1:]):
+                if tmppattern in patterns:
+                    exists = True
+                    tmpdepth = j+parent_dic['depth']+1
                     break
-            # 如果没找到父目录，默认顶级（dot_count=0时通常为顶级）
-            if level == 0:
-                level = current_dot + 1  # dot_count=0 → level=1（顶级）
-        
-        elif features['type'] == 'alpha':
-            # 字母前缀目录：通常是前一个目录的子目录
-            if i > 0:
-                prev_features = dir_features[i-1]
-                level = result[i-1]['level'] + 1
-                parent_idx = i - 1
-        
-        else:  # plain类型
-            # 无前缀目录：默认顶级，或根据前一个目录层级调整
-            level = 0
-        
-        # 更新结果和父栈
-        result.append({
-            'dir_str': dir_str,
-            'level': level,
-            'parent_idx': parent_idx,
-            'features': features
-        })
-        
-        # 维护父栈：只保留当前目录之前、可能作为后续目录父级的项
-        # 清除栈中层级 >= 当前层级的项（它们不可能是后续目录的父级）
-        while parent_stack and parent_stack[-1][1]['dot_count'] >= features.get('dot_count', -1):
-            parent_stack.pop()
-        parent_stack.append((i, features))
-    
-    return result
+            if exists:
+                features['depth'] = tmpdepth
+                addoutline(features, i, outlines[-1][2]+[outlines[-1][:2]])
+                parent_dic = features
+                continue
 
+            check = False
+            if "parentthese" in features["type"]:
+                check = checkFirst(features['inside'])
+            else:
+                check = checkFirst(features['prefix'])
+            if check: #子层级
+                if tmppattern in pattern_tree[parent_dic['depth']]:
+                    pattern_tree[parent_dic['depth']].remove(tmppattern)
+                if len(pattern_tree) == parent_dic['depth']+1:
+                    pattern_tree.append(tmppattern)
+                    features['depth'] = parent_dic['depth']+1
+                else: 
+                    exists = False
+                    for j, patterns in enumerate(pattern_tree[parent_dic['depth']+1:]):
+                        if tmppattern in patterns:
+                            features['depth'] = j+parent_dic['depth']+1
+                            exists = True
+                            break
+                    if not exists:
+                        pattern_tree[parent_dic['depth']+1].append(tmppattern)
+                        features['depth'] = parent_dic['depth']+1
+                addoutline(features, i, outlines[-1][2]+[outlines[-1][:2]])
+                parent_dic = features
+                continue
+            else: #上级（默认相邻同级标题除了第一级一定是同类型的，已经处理过了）
+                for j, patterns in enumerate(pattern_tree[:parent_dic['depth']]):
+                    if tmppattern in patterns:
+                        features['depth'] = j
+                        addoutline(features, i, outlines[-1][2][:j])
+                        parent_dic = features
+                        break
+            if features['depth'] != None:
+                continue
+            print(f"未识别标题{features['content']},上级标题为{parent_dic}，当前格式树为{pattern_tree}，检查原因")
+    return outlines, pattern_tree
+
+def checkFirst(head):
+    matches = list(re.finditer(r'\.', head))
+    if matches == []:
+        start = 0
+    else:
+        start = matches[-1].end()
+        if start == len(head):
+            if len(matches) == 1:
+                return re.match(r"^[1一壹aAIⅠiⅰ\u2460]$",head[:-1])
+            return re.match(r"^[1一壹aAIⅠiⅰ\u2460]$",head[matches[-2].end():-1])
+
+    return re.match(r"^[1一壹aAIⅠiⅰ\u2460]$",head[start:])
+
+'''
 def print_hierarchy(hierarchy: List[Dict]):
     """可视化层级结构（用缩进表示层级）"""
     print("推断的目录层级结构：")
     for item in hierarchy:
         indent = '  ' * item['level']  # 每级缩进2个空格
         print(f"{indent}- {item['dir_str']}")
+'''
 
 # 示例用法
 if __name__ == "__main__":
@@ -125,22 +461,13 @@ if __name__ == "__main__":
     ]
     
     # 推断层级
-    hierarchy = infer_hierarchy(sample_directories)
+    hierarchy, pattern_tree = infer_hierarchy(sample_directories, useen=False)
     
     # 打印结果
-    print_hierarchy(hierarchy)
-    
-    # 额外输出各层级的格式特征
-    print("\n各层级格式特征：")
-    level_formats = defaultdict(list)
     for item in hierarchy:
-        level_formats[item['level']].append(item['features']['type'])
-    
-    for level in sorted(level_formats.keys()):
-        types = level_formats[level]
-        type_counts = defaultdict(int)
-        for t in types:
-            type_counts[t] += 1
-        print(f"层级{level}：{dict(type_counts)}（示例：{[item['dir_str'] for item in hierarchy if item['level']==level][:2]}）")
+        print(item)
+        
+    for pattern in pattern_tree:
+        print(pattern)
 
 
