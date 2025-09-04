@@ -378,7 +378,7 @@ def check_figures(base_splits, article=None):
             #print("开始处理图片"+base_splits[i+1].page_content)
             base_splits[i].metadata["type"] = "figure"
             image_link = re.search(r"images/([\s\S]*?)\.jpg",base_splits[i].page_content).group()
-            image_name = re.search(r"^图[\s　]+([^\n\r]*)",base_splits[i+1].page_content)
+            image_name = re.search(r"(?i)^(图|figure|image)\s*[^\s\n\r]*(?:\s+[^\n\r]*)?",base_splits[i+1].page_content)
             if image_name:
                 base_splits[i].metadata["image_name"] = image_name.group()
             base_splits[i].metadata["image_link"] = image_link
@@ -475,7 +475,7 @@ def check_table(base_splits, article=None):
             base_splits[i].metadata["type"] = "table"
             uptitle = min (i-5,-1)
             for j in range(i-1, uptitle, -1):
-                if re.match(r"^表 ",base_splits[j].page_content):
+                if re.match(r"(?i)^(表|table)\s*[^\s\n\r]*(?:\s+[^\n\r]*)?",base_splits[j].page_content):
                     uptitle = j
                     hasheader = True    
                     break
@@ -496,7 +496,11 @@ def check_table(base_splits, article=None):
             while True:
                 if i+1 >= len(base_splits):
                     break
-                if re.match(r"^续表 ",base_splits[i+1].page_content):
+                cont = re.match(r"^续表 ",base_splits[i+1].page_content)
+                if not cont:
+                    cont = base_splits[i+1].page_content.startswith(table_name)
+                #if re.match(r"^续表 ",base_splits[i+1].page_content):
+                if cont:
                     if re.match(r"^<table>",base_splits[i+2].page_content):
                         base_splits[i].page_content = merge_table(base_splits[i].page_content,base_splits[i+2].page_content)
                         for j in range(i+2,i,-1):
