@@ -15,7 +15,7 @@ try:
 except ImportError:
     from utils import outputtest_file, struct, fuzzy_match,check_unique,delete_addition_splits,merge_2chunk,extract_matching_parts
 
-from outline_recognizer import infer_hierarchy
+from outline_recognizer import infer_hierarchy, extract_features, checkFirst
 from dotenv import load_dotenv
 from bs4 import BeautifulSoup
 
@@ -38,18 +38,28 @@ load_dotenv()
 URI = os.getenv("URI", "./saved_files")
 HEAD_PATTERN = (
     ("forehead", r"#+ 目\s*(次|录)"),
-    ("outlines_cn", r"(?i)#+\s*CONTENTS"),
-    ("outlines_en", r"#+ \d+[\s]+[\u4e00-\u9fa5a-zA-Z]+")
+    ("outlines_cn", r"(?i)#+\s*(CONTENTS|TABLE\s*OF\s*CONTENTS)"),
+    ("outlines_en", r"#+[ \t]*(?!.*(?:\.{3,}|……))(?:[^ \t\n0-9]+|[^ \t\n]+.*[^ \t\n0-9]+)(?:[ \t]+(?!\d+(?:[ \t]*$))[^ \t\n]+)?[ \t]*\n")
+    #("outlines_en", r"#+ \d+[\s]+[\u4e00-\u9fa5a-zA-Z]+")
 )#存储正文前各部分的名字与各部分结尾的正则表达式（即下一部分的开头）
 OUTLINE_PATTERN = ((r"\d+ [\u4e00-\u9fa5a-zA-Z0-9\s]+",r"(附|付|符)录[A-Za-z0-9] [\u4e00-\u9fa5a-zA-Z0-9\s]+", r"[\u4e00-\u9fa5a-zA-Z]", ),
                    (r"\d+\.\d+ [\u4e00-\u9fa5a-zA-Z0-9\s]+",),
                    (r"^\([IVX\u2160-\u217F]+\) .*?(?=\n|$)",),
                    (r"^(\d+\.\d+\.\d+).+",))
 #PARENT_DEPTH = 2 #目录在OUTLINE_PATTERN中的深度为[:2]
-
+logging.basicConfig(level=logging.DEBUG)
 
 class Article:
     #读取正文前的内容，包括封面、公告、前言、目录、英文目录，识别目录，正文，分割附件。
+    '''
+    注意：变量中的outlines_cn其实是用于匹配正文中相同内容的目录，outlines_en是对主目录的翻译(有的文件会附上对中文目录的翻译)，use_en实际上是在生成目录时附上翻译
+    目前的逻辑是：
+    先正常读取中文目录outlines_cn与英文目录outlines_en(中文目录在英文目录前面),
+    如果中英文目录都存在，就不改变位置，outlines_cn作为主目录，outlines_en作为翻译目录,并且use_en设置为True;
+    如果只存在一种，就将其作为主目录，outline_en 设置为空的，use_en设置为False（在只有英文目录的情况下会将英文目录赋值给outlines_cn然后将outlines_en设置为空;
+    如果都不存在，从正文提取标题结构作为目录。
+    显然：该逻辑暂时无法处理二者都存在但需要英文目录作为主目录的情况或英文目录在中文目录前的情况。如果英文目录在中文目录前，只会读取到中文目录，并将英文目录作为forhead的一部分。
+    '''
     cover: Document
     notice: Document
     forehead: Document
@@ -60,6 +70,7 @@ class Article:
     additions: list['Article']
     base_splits: list[Document]
     lost_header: list[str]
+    pattern_tree: list
 
 
     def __init__(self, document,use_en = True):
@@ -67,11 +78,13 @@ class Article:
         lost_header = []
         for i,pattern in enumerate(HEAD_PATTERN):
             name,p = pattern
+            logging.info(f"文件{name}部分开头为{document.page_content[Start:Start+100]}")
             match = re.search(p, document.page_content[Start:])
             if match is None:
                 End = -1
             else:
                 End = Start + match.start()
+                logging.info(f"文件{name}部分结尾存在，位置为{match.group()}")
         
             if End == -1:
                 #print(f"文件{name}部分结尾不存在。")
@@ -83,7 +96,10 @@ class Article:
                 doc = Document(page_content=document.page_content[Start:End],metadata=document.metadata)
                 doc.metadata['type'] = name
                 setattr(self, name, doc)
-                Start = End
+                if name == 'outlines_en':
+                    Start = End
+                else:
+                    Start = Start + match.end()
         
         #处理有部分不存在的情况
         tmp_name = ""
@@ -114,17 +130,24 @@ class Article:
         self.lost_header = lost_header
         logging.info(f"文件{file_name}处理完成,缺失{lost_header}部分")
 
-        if 'outlines_cn' and 'outlines_en' in lost_header:
+        if 'outlines_cn' in lost_header and 'outlines_en' in lost_header:
             logging.info("文件不存在目录，直接从正文中提取目录结构")
             self.content = document
             self.forehead.page_content = ""
             self.lost_header.append('forehead')
+            self.additions = []
+            self.outline, self.pattern_tree = self.default_outline_recognize() # 确保outline被初始化
         else:
             if self.outlines_en.page_content == "":
                 use_en = False
+            elif self.outlines_cn.page_content == "":
+                use_en = False
+                self.outlines_cn = self.outlines_en
+                self.outlines_en = Document(page_content="",metadata=self.outlines_en.metadata)
             self.content = Document(page_content=document.page_content[Start:],metadata=document.metadata)
             self.additions = []  # 初始化additions属性
-            self.outline = self.outline_recognize(use_en)
+            self.outline, self.pattern_tree = self.outline_recognize(use_en)
+            
     
     def default_outline_recognize(self):
         outlineline = []
@@ -138,7 +161,7 @@ class Article:
             if match is None:
                 continue
             else:
-                line = re.sub(r"^#+ +","",processed_line)
+                line = re.sub(r"^#+ +","",line)
                 outlineline.append(line)
         outline, pattern_tree = infer_hierarchy(outlineline, useen=False)
         return outline
@@ -268,7 +291,10 @@ class Article:
                 self.base_splits.remove(split)
         return self.base_splits
 
-
+    def addtree(depth, pattern):
+        if depth >= len(self.pattern_tree):
+            self.pattern_tree.extend([[] for _ in range(depth + 1 - len(self.pattern_tree))])
+        self.pattern_tree[depth].append(pattern)
 
 
 def mdfile_recognizer(document:Document, use_en = True, chunk_size = -1):
@@ -283,14 +309,14 @@ def mdfile_recognizer(document:Document, use_en = True, chunk_size = -1):
         chunk_overlap=0
     )
     article = Article(document,use_en)
-    
+    print(f"目录完整内容: {article.outline}")
     #识别目录结构
     logging.info("正文目录结构搭建完成，开始识别附件")
     for outline in article.outline[::-1]:
         if re.match(r"(附|付|符)：[\u4e00-\u9fa5a-zA-Z0-9]",outline[0]) : #附件
             match = re.search(outline[0][2:],article.content.page_content)
             if match is not None:
-                #print("读取到附件"+outline[0][2:]+"位置在"+article.content.page_content[match.start():match.start()+100])
+                logging.info("读取到附件"+outline[0][2:]+"位置在"+article.content.page_content[match.start():match.start()+100])
                 tail = match.start()
             else:
                 logging.warning("未能读取附件"+outline[0])
@@ -344,7 +370,7 @@ def mdfile_recognizer(document:Document, use_en = True, chunk_size = -1):
     equations.extend(check_equations(total_splits, article))
     #outputtest_file(equations,"equations.md")
     tables.extend(check_table(total_splits, article))
-    #outputtest_file(tables,"tables.md")
+    outputtest_file(tables,"tables.md")
 
     #outputtest_file(total_splits,"total.md")
     #for addition in article.additions:
@@ -470,6 +496,7 @@ def check_table(base_splits, article=None):
     i=0
     hasheader = False
     hastail=False
+    firstnote = None
     while i < len(base_splits):
         if base_splits[i].page_content.startswith("<table>"):
             base_splits[i].metadata["type"] = "table"
@@ -513,12 +540,12 @@ def check_table(base_splits, article=None):
                                     if deleted:
                                         break
                     else: 
-                        print(table_name + "的续表格式错误或不存在,请检查原文档")
+                        logging.warning("表格\n"+ {base_splits[i+1].page_content} + "\n的续表格式错误或不存在,请检查原文档")
                     continue
                 if re.match(r"^(注|主)：",base_splits[i+1].page_content):
                     base_splits[i].page_content = base_splits[i].page_content + "\n\n" + base_splits[i+1].page_content
                     title_to_remove = base_splits[i+1].page_content
-                    base_splits.pop(i+1)
+                    firstnote = base_splits.pop(i+1)
                     if article:
                         for addition in article.additions:
                             deleted = delete_addition_splits(title_to_remove, addition)
@@ -526,6 +553,55 @@ def check_table(base_splits, article=None):
                                 break
                     #hastail=True
                     continue
+                elif re.match(r"(?i)^Notes?",base_splits[i+1].page_content):
+                    base_splits[i].page_content = base_splits[i].page_content + "\n\n" + base_splits[i+1].page_content
+                    title_to_remove = base_splits[i+1].page_content
+                    firstnote = base_splits.pop(i+1)
+                    if article:
+                        for addition in article.additions:
+                            deleted = delete_addition_splits(title_to_remove, addition)
+                            if deleted:
+                                break
+                    continue
+
+                if firstnote and len(firstnote.page_content) <= 6:#处理注下面分点的情况
+                    notetype = extract_features(base_splits[i+1].page_content)
+                    if notetype['type'] == 'content':
+                        logging.warning(f"表格备注识别错误，备注下的第一条是{base_splits[i+1].page_content}，如有需要，请检查文档，为备注加上序号或去掉错误备注再进行切片。")
+                        break
+                    if "parentthese" in features["type"]:
+                        check = checkFirst(features['inside'])
+                    else:
+                        check = checkFirst(features['prefix'])
+                    if not check:
+                        logging.warning(f"表格备注识别错误，备注下的第一条是{base_splits[i+1].page_content}，如有需要，请检查文档，为备注加上序号或更改错误序号或去掉错误备注再进行切片。")
+                        break
+                    else:
+                        base_splits[i].page_content = base_splits[i].page_content + "\n" + base_splits[i+1].page_content
+                        title_to_remove = base_splits[i+1].page_content
+                        if article and i+1>=len(base_splits)-sum(len(addition.base_splits) for addition in article.additions):
+                            for addition in article.additions:
+                                deleted = delete_addition_splits(title_to_remove, addition)
+                                if deleted:
+                                    break
+                        lastcode = sum(ord(c) for c in notetype["prefix"])
+                        while True:
+                            tmp = extract_features(base_splits[i+1].page_content)
+                            if tmp['type'] == notetype['type'] and tmp['dot_count'] == notetype['dot_count']:
+                                tmpcode = sum(ord(c) for c in tmp["prefix"])
+                                if tmpcode == lastcode + 1:
+                                    base_splits[i].page_content = base_splits[i].page_content + "\n" + base_splits[i+1].page_content
+                                    title_to_remove = base_splits[i+1].page_content
+                                    base_splits.pop(i+1)
+                                    if article:
+                                        for addition in article.additions:
+                                            deleted = delete_addition_splits(title_to_remove, addition)
+                                            if deleted:
+                                                break
+                                    lastcode = tmpcode
+                                    continue
+                            firstnote = None
+                            break
                 '''
                 原本用于处理注的1234点被分开的情况，但似乎ocr能够将注的分点识别到同一行，且会识别到紧接的正文数字分点。
                 if hastail and re.match(r"^\\d ",base_splits[i+1].page_content):
@@ -575,11 +651,15 @@ def merge_chunk_through_outlines(article:Article,total_splits):
     '''
     仅根据标题结构合并单一目录结构的文档（不含附件）
     '''
-    PARENT_DEPTH = max(len(outline[2])+1 for outline in article.outline[:len(article.outline)-len(article.additions)])
+    print(f"merge_chunk_through_outlines: article.outline 类型: {type(article.outline)}, 内容: {article.outline}")
+    print(f"merge_chunk_through_outlines: article.additions 类型: {type(article.additions)}, 内容: {article.additions}")
+
+    PARENT_DEPTH = len(article.pattern_tree)
     chunks = []
     threshold = 0.6
     i=0
     j = len(total_splits)
+    ftmp = {}
     for num, outline in enumerate(article.outline[:len(article.outline)-len(article.additions)]):
         #处理有数字编号的标题（子标题可能含有x.x.x)
         logging.info(f"开始处理标题{outline[0]}")
@@ -589,6 +669,11 @@ def merge_chunk_through_outlines(article:Article,total_splits):
         #print(f"标题数字部分为{parent_match.group(1)}")
 
         while i < j:
+            tmp= extract_features(total_splits[i].page_content)
+            for k, patterns in enumerate(article.pattern_tree):
+                if [tmp['type'],tmp['dot_count']] in patterns:
+                    tmp['depth'] = k
+                    break
             if num < len(article.outline)-1:
                 #print(f"DEBUG fuzzy_match调用: outline[0]={repr(article.outline[num+1][0])}, total_splits[i].page_content前50字符={repr(total_splits[i].page_content[:50])}")
                 isoutline, outlineend = fuzzy_match(article.outline[num+1][0],total_splits[i].page_content,threshold)
@@ -626,10 +711,12 @@ def merge_chunk_through_outlines(article:Article,total_splits):
                     chunks[-1].metadata["outlineend"] = len(newoutline)
                     check_unique(chunks[-1], total_splits[i])#检查特殊格式，并将相关参数合并到chunks中
                     i+=1
+                    ftmp = tmp
                     break
 
             isoutline, outlineend = fuzzy_match(outline[0],total_splits[i].page_content,threshold)
             if isoutline: #处理文件开头
+                logging.debug(f"识别到可能的文件开头")
                 if chunks!=[]: print("warning: 重复识别到同一标题"+outline[0]+"\n当前位置在："+total_splits[i-1].page_content+"\n\n"+total_splits[i].page_content+"\n\n"+total_splits[i+1].page_content)
                 else:
                     chunks.append(copy.deepcopy(total_splits[i]))
@@ -642,6 +729,7 @@ def merge_chunk_through_outlines(article:Article,total_splits):
                     chunks[-1].metadata["outlineend"] = len(newoutline)
                     check_unique(chunks[-1], total_splits[i])
                     i += 1
+                    ftmp = tmp
                     continue
 
             
@@ -656,14 +744,110 @@ def merge_chunk_through_outlines(article:Article,total_splits):
                 #print(f"parent_numw为{parent_num},尝试匹配: '{numeric_child}' with '{total_splits[i].page_content[:20]}'")
             '''
             #检测最后一行标题格式（即标题树的末端，切片时在内容中保留这部分标题）
-            tmp,_ = extract_matching_parts(total_splits[i].page_content,OUTLINE_PATTERN[-1],useCapture=True)
+            
             #if not tmp:
                 #tmp = re.match(rf"^({re.escape(parent_num)}\.0\.\d+)\s*", total_splits[i].page_content)
-            if tmp != "": 
+            if tmp['type'] != 'content': 
                 #tmp = tmp.group(1)
-                #print(f"识别到子标题{tmp}")
+                logging.debug(f"识别到子标题{tmp}")
+                logging.debug(f"当前最后一个切片为{chunks[-1]}")
+                if tmp['type'] in ['appendix','annex']: #用于处理default_outline_recognizer中没读取到的附件格式
+                    if ftmp["head"] == ftmp["content"]:
+                        fatheroutline = struct(chunks[-1].metadata["outline"][2])
+                    else:
+                        fatheroutline = struct(chunks[-1].metadata["outline"][2]) + struct([chunks[-1].metadata["outline"][:2]])
+                    chunks[-1].page_content = fatheroutline + chunks[-1].page_content[chunks[-1].metadata["outlineend"]:]
+                    chunks[-1].metadata["outlineend"] = len(fatheroutline)
+                    chunks.append(copy.deepcopy(total_splits[i]))
+                    init_chunk(chunks[-1])
+                    new_outline = [tmp['content'],"",[]]
+                    chunks[-1].metadata["outline"] = new_outline
+                    chunks[-1].metadata["start"] = i
+                    chunks[-1].metadata["outlineend"] = len(tmp['content'])
+                    check_unique(chunks[-1], total_splits[i])
+                    if not tmp['depth']:
+                        article.pattern_tree[0].append([tmp['type'],tmp['dot_count']])
+                    i += 1
+                    ftmp = tmp
+                    continue
+
+                if tmp['type'] == ftmp['type']:
+                    if tmp['dot_count'] <= ftmp['dot_count']:
+
+                        if not tmp['depth']:
+                            tmp['depth'] = ftmp['depth'] - tmp['dot_count'] + ftmp['dot_count']
+                            article.pattern_tree[tmp['depth']].append([tmp['type'],tmp['dot_count']])
+                        '''
+                        elif tmp['depth'] >= ftmp['depth'] and tmp['dot_count'] < ftmp['dot_count']:
+                            #纠正default_recognizer可能由于跳过目录而造成的错误识别。例如本来是A->A.1->A.1.1, B->B.0.1, C->C.1,但default读取掉了A.1导致A.1.1与A.1在目录树中为同一级别。
+                            #由于识别是从顶层向底层，所以将A.1.1的深度纠正为A.1的深度+1
+                            #格式相同的情况下，由于tree中只会有一个相同格式，无须纠正。
+                            #由于前面判断出A.1.1是A.1的子标题时就会得到纠正，此处必然是对的，无须修改。
+                            article.pattern_tree[ftmp['depth']].remove([ftmp['type'],ftmp['dot_count']])
+                            article.addtree(tmp['depth'] + tmp['dot_count'] - ftmp['dot_count'], [ftmp['type'],ftmp['dot_count']])
+                        '''
+                        new_outline = [tmp['content'],"",chunks[-1].metadata["outline"][2][:tmp['depth']]]
+                        if ftmp["head"] == ftmp["content"]:
+                            fatheroutline = struct(chunks[-1].metadata["outline"][2])
+                        else:
+                            fatheroutline = struct(chunks[-1].metadata["outline"][2]) + struct([chunks[-1].metadata["outline"][:2]])
+                        chunks[-1].page_content = fatheroutline + chunks[-1].page_content[chunks[-1].metadata["outlineend"]:]
+                        chunks[-1].metadata["outlineend"] = len(fatheroutline)
+                        chunks.append(copy.deepcopy(total_splits[i]))
+                        init_chunk(chunks[-1])
+                        chunks[-1].metadata["outline"] = new_outline
+                        chunks[-1].metadata["start"] = i
+                        if tmp['head'] == tmp['content']:
+                            chunks[-1].metadata["outlineend"] = 0
+                        else:
+                            chunks[-1].metadata["outlineend"] = len(tmp['content'])
+                        check_unique(chunks[-1], total_splits[i])
+                        i += 1
+                        ftmp = tmp
+                        continue
+                    else:
+                        addChild = False
+                        if not tmp['depth']:
+                            tmpdepth = ftmp['depth'] - tmp['dot_count'] + ftmp['dot_count']
+                            if tmpdepth < PARENT_DEPTH + 2: #只将两层以内的子标题记为新的标题
+                                tmp['depth'] = tmpdepth
+                                article.addtree(tmp['depth'], [tmp['type'],tmp['dot_count']])
+                                addChild = True
+                        else:
+                            addChild = True
+                        if addChild:        
+                            if chunks[-1].metadata["outlineend"] == len(chunks[-1].page_content):#父标题紧接子标题
+                                chunks[-1].page_content = chunks[-1].page_content + total_splits[i].page_content
+                                chunks[-1].metadata["start"] = i
+                                #print(f"目前outlineend为{chunks[-1].metadata['outlineend']}，切片长度为{len(chunks[-1].page_content)}")
+                                chunks[-1].metadata["outline"] = [tmp["content"],"",chunks[-1].metadata["outline"][2] + [chunks[-1].metadata["outline"][:2]] ]
+                                check_unique(chunks[-1], total_splits[i])
+                                i += 1
+                                ftmp = tmp
+                                continue
+                            else:
+                                nfather = chunks[-1].metadata["outline"][2]+[chunks[-1].metadata["outline"][:2]]
+                                if ftmp["head"] == ftmp["content"]:
+                                    fatheroutline = struct(chunks[-1].metadata["outline"][2])
+                                else:
+                                    fatheroutline = struct(chunks[-1].metadata["outline"][2]) + struct([chunks[-1].metadata["outline"][:2]])
+                                chunks[-1].page_content = fatheroutline + chunks[-1].page_content[chunks[-1].metadata["outlineend"]:]
+                                chunks[-1].metadata["outlineend"] = len(fatheroutline)
+                                chunks.append(copy.deepcopy(total_splits[i]))
+                                init_chunk(chunks[-1])
+                                new_outline = [tmp['content'],"",nfather]
+                                chunks[-1].metadata["outline"] = new_outline
+                                chunks[-1].metadata["start"] = i
+                                chunks[-1].metadata["outlineend"] = 0
+                                check_unique(chunks[-1], total_splits[i])
+                                i += 1
+                                continue
+                else:
+                    isChild = checkFirst(tmp['prefix'])
+                    
                 '''
                 处理 2.1->(I)->正文->2.1.1的情况。
+                '''
                 '''
                 ftmp = ""
                 for pattern in OUTLINE_PATTERN[PARENT_DEPTH:-1]:
@@ -766,6 +950,7 @@ def merge_chunk_through_outlines(article:Article,total_splits):
                 check_unique(chunks[-1], total_splits[i])
                 i += 1
                 continue
+            '''
             if chunks==[]: #开头必然是第一个标题，与之强行匹配
                 #print(f"开头必然是第一个标题，与之强行匹配。")
                 chunks.append(copy.deepcopy(total_splits[i]))
@@ -787,6 +972,7 @@ def merge_chunk_through_outlines(article:Article,total_splits):
             i += 1
             continue
     return chunks
+
 
 
 #存储特殊格式

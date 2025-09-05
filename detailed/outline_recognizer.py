@@ -1,4 +1,5 @@
 import re
+import logging
 from collections import defaultdict, deque
 from typing import List, Dict, Tuple, Optional
 from utils import struct
@@ -42,7 +43,7 @@ def extract_features(dir_str: str, usePlain = False) -> Dict:
     annex_match = re.match(r"^((附|付|符)(:|：)\s*(.*?))(?:\s+|\n|$)", dir_str)
 
     def structmatch(match):
-        print(f"匹配到{match}")
+        logging.info(f"匹配到{match}")
         prefix = match.group(1)
         matches = list(re.finditer(r'\.', prefix))
         if matches == []:
@@ -279,7 +280,6 @@ def extract_features(dir_str: str, usePlain = False) -> Dict:
             'type': 'plain',
             'prefix': '',
             'dot_count': 0,  # 标记为顶级
-            'base_num': None,
             'depth': None,
             'content': dir_str
         }
@@ -287,7 +287,6 @@ def extract_features(dir_str: str, usePlain = False) -> Dict:
         'type': 'content',
         'prefix': '',
         'dot_count': 0,  
-        'base_num': None,
         'depth': None,
         'content': dir_str
     }
@@ -298,8 +297,8 @@ def checkcontent(head: str, content: str):
     tmphead = re.match(r"^(.*?)(?:\n|$)",tmphead)
     if tmphead:
         tmphead = tmphead.group(1)
-    tmp = re.search(r"\s+([,!?;:。，！？；：])(?=\n|$)",tmphead)
-    if tmp:
+    tmp = re.search(r"\s+([,!?;。，！？；])(?=\n|$)",tmphead)
+    if tmp :
         return head.strip()
     return content[:len(head)+len(tmphead)+1].strip()
 
@@ -316,14 +315,14 @@ def infer_hierarchy(directories: List[str], en_outlines=[], useen = True):
     pattern_tree = []
 
     def addoutline(features: Dict, i: int, parent):
-        print("新标题",features['content'],"深度为",features['depth'])
+        logging.info(f"新标题{features['content']}深度为{features['depth']}")
         if useen:
             outlines.append([features['content'], en_outlines[i], parent])
         else:
             outlines.append([features['content'], "", parent])
     
     for i, features in enumerate(dir_features):
-        print("处理标题",features)
+        logging.info(f"处理标题{features['content']}")
         if parent_dic == {}:
             addoutline(features, i, [])
             features['depth']=0
