@@ -519,51 +519,48 @@ INFO - 匹配到<re.Match object; span=(0, 6), match='2.2.2 '>
 INFO - 目前ftmp为{'type': 'number', 'prefix': '2.2.1', 'dot_count': 2, 'depth': 2, 'head': '2.2.1', 'content': '2.2.1 作用和作用效应'},目录为['2.2.1 作用和作用效应', '', [['2 术语和符号', 'Chapter 2 Terms and Symbols'], ['2.2 主要符号', '2.2 Main Symbols']]]
 INFO - 当前处理的行为{'type': 'number', 'prefix': '2.2.2', 'dot_count': 2, 'depth': 2, 'head': '2.2.2', 'content': '2.2.2 材料性能和抗力'}
 INFO - isChild为None
-INFO - 同级标题差距太大，猜测是标题错误或为注释，作为正文加入当前分块
-INFO - 目前ftmp为{'type': 'number', 'prefix': '2.2.1', 'dot_count': 2, 'depth': 2, 'head': '2.2.1', 'content': '2.2.1 作用和作用效应'},目录为['2.2.1 作用和作用效应', '', [['2 术语和符号', 'Chapter 2 Terms and Symbols'], ['2.2 主要符号', '2.2 Main Symbols']]]
+INFO - 目前ftmp为{'type': 'number', 'prefix': '2.2.2', 'dot_count': 2, 'depth': 2, 'head': '2.2.2', 'content': '2.2.2 材料性能和抗力'},目录为['2.2.2 材料性能和抗力', '', [['2 术语和符号', 'Chapter 2 Terms and Symbols'], ['2.2 主要符号', '2.2 Main Symbols']]]
 INFO - 当前处理的行为{'type': 'content', 'prefix': '', 'dot_count': 0, 'depth': None, 'content': '$M_{y}$——构件现有受弯承载力'}
-INFO - 目前ftmp为{'type': 'number', 'prefix': '2.2.1', 'dot_count': 2, 'depth': 2, 'head': '2.2.1', 'content': '2.2.1 作用和作用效应'},目录为['2.2.1 作用和作用效应', '', [['2 术语和符号', 'Chapter 2 Terms and Symbols'], ['2.2 主要符号', '2.2 Main Symbols']]]
+INFO - 目前ftmp为{'type': 'number', 'prefix': '2.2.2', 'dot_count': 2, 'depth': 2, 'head': '2.2.2', 'content': '2.2.2 材料性能和抗力'},目录为['2.2.2 材料性能和抗力', '', [['2 术语和符号', 'Chapter 2 Terms and Symbols'], ['2.2 主要符号', '2.2 Main Symbols']]]
 INFO - 当前处理的行为{'type': 'content', 'prefix': '', 'dot_count': 0, 'depth': None, 'content': '$V_{y}$——构件或楼层现有受剪承载力'}
-INFO - 目前ftmp为{'type': 'number', 'prefix': '2.2.1', 'dot_count': 2, 'depth': 2, 'head': '2.2.1', 'content': '2.2.1 作用和作用效应'},目录为['2.2.1 作用和作用效应', '', [['2 术语和符号', 'Chapter 2 Terms and Symbols'], ['2.2 主要符号', '2.2 Main Symbols']]]
+INFO - 目前ftmp为{'type': 'number', 'prefix': '2.2.2', 'dot_count': 2, 'depth': 2, 'head': '2.2.2', 'content': '2.2.2 材料性能和抗力'},目录为['2.2.2 材料性能和抗力', '', [['2 术语和符号', 'Chapter 2 Terms and Symbols'], ['2.2 主要符号', '2.2 Main Symbols']]]
 INFO - 当前处理的行为{'type': 'content', 'prefix': '', 'dot_count': 0, 'depth': None, 'content': '$R$——结构构件承载力设计值'}
-INFO - 目前ftmp为{'type': 'number', 'prefix': '2.2.1', 'dot_count': 2, 'depth': 2, 'head': '2.2.1', 'content': '2.2.1 作用和作用效应'},目录为['2.2.1 作用和作用效应', '', [['2 术语和符号', 'Chapter 2 Terms and Symbols'], ['2.2 主要符号', '2.2 Main Symbols']]]
+INFO - 目前ftmp为{'type': 'number', 'prefix': '2.2.2', 'dot_count': 2, 'depth': 2, 'head': '2.2.2', 'content': '2.2.2 材料性能和抗力'},目录为['2.2.2 材料性能和抗力', '', [['2 术语和符号', 'Chapter 2 Terms and Symbols'], ['2.2 主要符号', '2.2 Main Symbols']]]
 INFO - 当前处理的行为{'type': 'content', 'prefix': '', 'dot_count': 0, 'depth': None, 'content': '$f$——材料现有强度设计值'}
-INFO - 目前ftmp为{'type': 'number', 'prefix': '2.2.1', 'dot_count': 2, 'depth': 2, 'head': '2.2.1', 'content': '2.2.1 作用和作用效应'},目录为['2.2.1 作用和作用效应', '', [['2 术语和符号', 'Chapter 2 Terms and Symbols'], ['2.2 主要符号', '2.2 Main Symbols']]]
+INFO - 目前ftmp为{'type': 'number', 'prefix': '2.2.2', 'dot_count': 2, 'depth': 2, 'head': '2.2.2', 'content': '2.2.2 材料性能和抗力'},目录为['2.2.2 材料性能和抗力', '', [['2 术语和符号', 'Chapter 2 Terms and Symbols'], ['2.2 主要符号', '2.2 Main Symbols']]]
 INFO - 当前处理的行为{'type': 'content', 'prefix': '', 'dot_count': 0, 'depth': None, 'content': '$f_{\\mathrm{k}}$——材料现有强度标准值'}
 INFO - 匹配到<re.Match object; span=(0, 6), match='2.2.3 '>
-INFO - 目前ftmp为{'type': 'number', 'prefix': '2.2.1', 'dot_count': 2, 'depth': 2, 'head': '2.2.1', 'content': '2.2.1 作用和作用效应'},目录为['2.2.1 作用和作用效应', '', [['2 术语和符号', 'Chapter 2 Terms and Symbols'], ['2.2 主要符号', '2.2 Main Symbols']]]
+INFO - 目前ftmp为{'type': 'number', 'prefix': '2.2.2', 'dot_count': 2, 'depth': 2, 'head': '2.2.2', 'content': '2.2.2 材料性能和抗力'},目录为['2.2.2 材料性能和抗力', '', [['2 术语和符号', 'Chapter 2 Terms and Symbols'], ['2.2 主要符号', '2.2 Main Symbols']]]
 INFO - 当前处理的行为{'type': 'number', 'prefix': '2.2.3', 'dot_count': 2, 'depth': 2, 'head': '2.2.3', 'content': '2.2.3 几何参数'}
 INFO - isChild为None
-INFO - 同级标题差距太大，猜测是标题错误或为注释，作为正文加入当前分块
-INFO - 目前ftmp为{'type': 'number', 'prefix': '2.2.1', 'dot_count': 2, 'depth': 2, 'head': '2.2.1', 'content': '2.2.1 作用和作用效应'},目录为['2.2.1 作用和作用效应', '', [['2 术语和符号', 'Chapter 2 Terms and Symbols'], ['2.2 主要符号', '2.2 Main Symbols']]]
+INFO - 目前ftmp为{'type': 'number', 'prefix': '2.2.3', 'dot_count': 2, 'depth': 2, 'head': '2.2.3', 'content': '2.2.3 几何参数'},目录为['2.2.3 几何参数', '', [['2 术语和符号', 'Chapter 2 Terms and Symbols'], ['2.2 主要符号', '2.2 Main Symbols']]]
 INFO - 当前处理的行为{'type': 'content', 'prefix': '', 'dot_count': 0, 'depth': None, 'content': '$A_{\\mathrm{s}}$——实有钢筋截面面积'}
-INFO - 目前ftmp为{'type': 'number', 'prefix': '2.2.1', 'dot_count': 2, 'depth': 2, 'head': '2.2.1', 'content': '2.2.1 作用和作用效应'},目录为['2.2.1 作用和作用效应', '', [['2 术语和符号', 'Chapter 2 Terms and Symbols'], ['2.2 主要符号', '2.2 Main Symbols']]]
+INFO - 目前ftmp为{'type': 'number', 'prefix': '2.2.3', 'dot_count': 2, 'depth': 2, 'head': '2.2.3', 'content': '2.2.3 几何参数'},目录为['2.2.3 几何参数', '', [['2 术语和符号', 'Chapter 2 Terms and Symbols'], ['2.2 主要符号', '2.2 Main Symbols']]]
 INFO - 当前处理的行为{'type': 'content', 'prefix': '', 'dot_count': 0, 'depth': None, 'content': '$A_{\\mathrm{w}}$——抗震墙截面面积'}
-INFO - 目前ftmp为{'type': 'number', 'prefix': '2.2.1', 'dot_count': 2, 'depth': 2, 'head': '2.2.1', 'content': '2.2.1 作用和作用效应'},目录为['2.2.1 作用和作用效应', '', [['2 术语和符号', 'Chapter 2 Terms and Symbols'], ['2.2 主要符号', '2.2 Main Symbols']]]
+INFO - 目前ftmp为{'type': 'number', 'prefix': '2.2.3', 'dot_count': 2, 'depth': 2, 'head': '2.2.3', 'content': '2.2.3 几何参数'},目录为['2.2.3 几何参数', '', [['2 术语和符号', 'Chapter 2 Terms and Symbols'], ['2.2 主要符号', '2.2 Main Symbols']]]
 INFO - 当前处理的行为{'type': 'content', 'prefix': '', 'dot_count': 0, 'depth': None, 'content': '$A_{\\mathrm{b}}$——楼层建筑平面面积'}
-INFO - 目前ftmp为{'type': 'number', 'prefix': '2.2.1', 'dot_count': 2, 'depth': 2, 'head': '2.2.1', 'content': '2.2.1 作用和作用效应'},目录为['2.2.1 作用和作用效应', '', [['2 术语和符号', 'Chapter 2 Terms and Symbols'], ['2.2 主要符号', '2.2 Main Symbols']]]
+INFO - 目前ftmp为{'type': 'number', 'prefix': '2.2.3', 'dot_count': 2, 'depth': 2, 'head': '2.2.3', 'content': '2.2.3 几何参数'},目录为['2.2.3 几何参数', '', [['2 术语和符号', 'Chapter 2 Terms and Symbols'], ['2.2 主要符号', '2.2 Main Symbols']]]
 INFO - 当前处理的行为{'type': 'content', 'prefix': '', 'dot_count': 0, 'depth': None, 'content': '$B$——房屋宽度'}
-INFO - 目前ftmp为{'type': 'number', 'prefix': '2.2.1', 'dot_count': 2, 'depth': 2, 'head': '2.2.1', 'content': '2.2.1 作用和作用效应'},目录为['2.2.1 作用和作用效应', '', [['2 术语和符号', 'Chapter 2 Terms and Symbols'], ['2.2 主要符号', '2.2 Main Symbols']]]
+INFO - 目前ftmp为{'type': 'number', 'prefix': '2.2.3', 'dot_count': 2, 'depth': 2, 'head': '2.2.3', 'content': '2.2.3 几何参数'},目录为['2.2.3 几何参数', '', [['2 术语和符号', 'Chapter 2 Terms and Symbols'], ['2.2 主要符号', '2.2 Main Symbols']]]
 INFO - 当前处理的行为{'type': 'content', 'prefix': '', 'dot_count': 0, 'depth': None, 'content': '$L$——抗震墙之间楼板长度、抗震墙间距，房屋长度'}
-INFO - 目前ftmp为{'type': 'number', 'prefix': '2.2.1', 'dot_count': 2, 'depth': 2, 'head': '2.2.1', 'content': '2.2.1 作用和作用效应'},目录为['2.2.1 作用和作用效应', '', [['2 术语和符号', 'Chapter 2 Terms and Symbols'], ['2.2 主要符号', '2.2 Main Symbols']]]
+INFO - 目前ftmp为{'type': 'number', 'prefix': '2.2.3', 'dot_count': 2, 'depth': 2, 'head': '2.2.3', 'content': '2.2.3 几何参数'},目录为['2.2.3 几何参数', '', [['2 术语和符号', 'Chapter 2 Terms and Symbols'], ['2.2 主要符号', '2.2 Main Symbols']]]
 INFO - 当前处理的行为{'type': 'content', 'prefix': '', 'dot_count': 0, 'depth': None, 'content': '$b$——构件截面宽度'}
-INFO - 目前ftmp为{'type': 'number', 'prefix': '2.2.1', 'dot_count': 2, 'depth': 2, 'head': '2.2.1', 'content': '2.2.1 作用和作用效应'},目录为['2.2.1 作用和作用效应', '', [['2 术语和符号', 'Chapter 2 Terms and Symbols'], ['2.2 主要符号', '2.2 Main Symbols']]]
+INFO - 目前ftmp为{'type': 'number', 'prefix': '2.2.3', 'dot_count': 2, 'depth': 2, 'head': '2.2.3', 'content': '2.2.3 几何参数'},目录为['2.2.3 几何参数', '', [['2 术语和符号', 'Chapter 2 Terms and Symbols'], ['2.2 主要符号', '2.2 Main Symbols']]]
 INFO - 当前处理的行为{'type': 'content', 'prefix': '', 'dot_count': 0, 'depth': None, 'content': '$h$——构件截面高度'}
-INFO - 目前ftmp为{'type': 'number', 'prefix': '2.2.1', 'dot_count': 2, 'depth': 2, 'head': '2.2.1', 'content': '2.2.1 作用和作用效应'},目录为['2.2.1 作用和作用效应', '', [['2 术语和符号', 'Chapter 2 Terms and Symbols'], ['2.2 主要符号', '2.2 Main Symbols']]]
+INFO - 目前ftmp为{'type': 'number', 'prefix': '2.2.3', 'dot_count': 2, 'depth': 2, 'head': '2.2.3', 'content': '2.2.3 几何参数'},目录为['2.2.3 几何参数', '', [['2 术语和符号', 'Chapter 2 Terms and Symbols'], ['2.2 主要符号', '2.2 Main Symbols']]]
 INFO - 当前处理的行为{'type': 'content', 'prefix': '', 'dot_count': 0, 'depth': None, 'content': '$l$——构件长度，屋架跨度'}
-INFO - 目前ftmp为{'type': 'number', 'prefix': '2.2.1', 'dot_count': 2, 'depth': 2, 'head': '2.2.1', 'content': '2.2.1 作用和作用效应'},目录为['2.2.1 作用和作用效应', '', [['2 术语和符号', 'Chapter 2 Terms and Symbols'], ['2.2 主要符号', '2.2 Main Symbols']]]
+INFO - 目前ftmp为{'type': 'number', 'prefix': '2.2.3', 'dot_count': 2, 'depth': 2, 'head': '2.2.3', 'content': '2.2.3 几何参数'},目录为['2.2.3 几何参数', '', [['2 术语和符号', 'Chapter 2 Terms and Symbols'], ['2.2 主要符号', '2.2 Main Symbols']]]
 INFO - 当前处理的行为{'type': 'content', 'prefix': '', 'dot_count': 0, 'depth': None, 'content': '$t$——抗震墙厚度'}
 INFO - 匹配到<re.Match object; span=(0, 6), match='2.2.4 '>
-INFO - 目前ftmp为{'type': 'number', 'prefix': '2.2.1', 'dot_count': 2, 'depth': 2, 'head': '2.2.1', 'content': '2.2.1 作用和作用效应'},目录为['2.2.1 作用和作用效应', '', [['2 术语和符号', 'Chapter 2 Terms and Symbols'], ['2.2 主要符号', '2.2 Main Symbols']]]
+INFO - 目前ftmp为{'type': 'number', 'prefix': '2.2.3', 'dot_count': 2, 'depth': 2, 'head': '2.2.3', 'content': '2.2.3 几何参数'},目录为['2.2.3 几何参数', '', [['2 术语和符号', 'Chapter 2 Terms and Symbols'], ['2.2 主要符号', '2.2 Main Symbols']]]
 INFO - 当前处理的行为{'type': 'number', 'prefix': '2.2.4', 'dot_count': 2, 'depth': 2, 'head': '2.2.4', 'content': '2.2.4 计算系数'}
 INFO - isChild为None
-INFO - 同级标题差距太大，猜测是标题错误或为注释，作为正文加入当前分块
-INFO - 目前ftmp为{'type': 'number', 'prefix': '2.2.1', 'dot_count': 2, 'depth': 2, 'head': '2.2.1', 'content': '2.2.1 作用和作用效应'},目录为['2.2.1 作用和作用效应', '', [['2 术语和符号', 'Chapter 2 Terms and Symbols'], ['2.2 主要符号', '2.2 Main Symbols']]]
+INFO - 目前ftmp为{'type': 'number', 'prefix': '2.2.4', 'dot_count': 2, 'depth': 2, 'head': '2.2.4', 'content': '2.2.4 计算系数'},目录为['2.2.4 计算系数', '', [['2 术语和符号', 'Chapter 2 Terms and Symbols'], ['2.2 主要符号', '2.2 Main Symbols']]]
 INFO - 当前处理的行为{'type': 'content', 'prefix': '', 'dot_count': 0, 'depth': None, 'content': '$\\beta$——综合抗震承载力指数 $\\gamma_{\\mathrm{Ra}}$——抗震鉴定的承载力调整系数 $\\xi_{y}$——楼层屈服强度系数'}
-INFO - 目前ftmp为{'type': 'number', 'prefix': '2.2.1', 'dot_count': 2, 'depth': 2, 'head': '2.2.1', 'content': '2.2.1 作用和作用效应'},目录为['2.2.1 作用和作用效应', '', [['2 术语和符号', 'Chapter 2 Terms and Symbols'], ['2.2 主要符号', '2.2 Main Symbols']]]
+INFO - 目前ftmp为{'type': 'number', 'prefix': '2.2.4', 'dot_count': 2, 'depth': 2, 'head': '2.2.4', 'content': '2.2.4 计算系数'},目录为['2.2.4 计算系数', '', [['2 术语和符号', 'Chapter 2 Terms and Symbols'], ['2.2 主要符号', '2.2 Main Symbols']]]
 INFO - 当前处理的行为{'type': 'content', 'prefix': '', 'dot_count': 0, 'depth': None, 'content': '$\\xi_{0}$ ——砖房抗震墙的基准面积率 $\\psi_{1}$ ——结构构造的体系影响系数 $\\psi_{2}$ ——结构构造的局部影响系数'}
 INFO - 匹配到<re.Match object; span=(0, 2), match='3 '>
-INFO - 目前ftmp为{'type': 'number', 'prefix': '2.2.1', 'dot_count': 2, 'depth': 2, 'head': '2.2.1', 'content': '2.2.1 作用和作用效应'},目录为['2.2.1 作用和作用效应', '', [['2 术语和符号', 'Chapter 2 Terms and Symbols'], ['2.2 主要符号', '2.2 Main Symbols']]]
+INFO - 目前ftmp为{'type': 'number', 'prefix': '2.2.4', 'dot_count': 2, 'depth': 2, 'head': '2.2.4', 'content': '2.2.4 计算系数'},目录为['2.2.4 计算系数', '', [['2 术语和符号', 'Chapter 2 Terms and Symbols'], ['2.2 主要符号', '2.2 Main Symbols']]]
 INFO - 当前处理的行为{'type': 'number', 'prefix': '3', 'dot_count': 0, 'depth': 0, 'head': '3', 'content': '3 基本规定'}
 INFO - 开始处理标题3 基本规定
 INFO - 匹配到<re.Match object; span=(0, 6), match='3.0.1 '>
@@ -597,9 +594,8 @@ INFO - 匹配到<re.Match object; span=(0, 6), match='3.0.2 '>
 INFO - 目前ftmp为{'type': 'number', 'prefix': '3.0.1', 'dot_count': 2, 'depth': 2, 'head': '3.0.1', 'content': '3.0.1 现有建筑的抗震鉴定应包括下列内容及要求:'},目录为['3.0.1 现有建筑的抗震鉴定应包括下列内容及要求:', '', [['3 基本规定', 'Chapter 3 Basic Requirements'], []]]
 INFO - 当前处理的行为{'type': 'number', 'prefix': '3.0.2', 'dot_count': 2, 'depth': 2, 'head': '3.0.2', 'content': '3.0.2'}
 INFO - isChild为None
-INFO - 同级标题差距太大，猜测是标题错误或为注释，作为正文加入当前分块
 INFO - 匹配到<re.Match object; span=(0, 2), match='1 '>
-INFO - 目前ftmp为{'type': 'number', 'prefix': '3.0.1', 'dot_count': 2, 'depth': 2, 'head': '3.0.1', 'content': '3.0.1 现有建筑的抗震鉴定应包括下列内容及要求:'},目录为['3.0.1 现有建筑的抗震鉴定应包括下列内容及要求:', '', [['3 基本规定', 'Chapter 3 Basic Requirements'], []]]
+INFO - 目前ftmp为{'type': 'number', 'prefix': '3.0.2', 'dot_count': 2, 'depth': 2, 'head': '3.0.2', 'content': '3.0.2'},目录为['3.0.2', '', [['3 基本规定', 'Chapter 3 Basic Requirements'], []]]
 INFO - 当前处理的行为{'type': 'number', 'prefix': '1', 'dot_count': 0, 'depth': 0, 'head': '1', 'content': '1'}
 INFO - isChild为<re.Match object; span=(0, 1), match='1'>
 INFO - 标题层次重复，直接作为正文
@@ -620,37 +616,25 @@ INFO - while循环中检查下一个元素: stmp={'type': 'number', 'prefix': '3
 INFO - tmpcode=242, lastcode=51
 INFO - 所有条件都不满足，执行break
 INFO - 匹配到<re.Match object; span=(0, 6), match='3.0.3 '>
-INFO - 目前ftmp为{'type': 'number', 'prefix': '3.0.1', 'dot_count': 2, 'depth': 2, 'head': '3.0.1', 'content': '3.0.1 现有建筑的抗震鉴定应包括下列内容及要求:'},目录为['3.0.1 现有建筑的抗震鉴定应包括下列内容及要求:', '', [['3 基本规定', 'Chapter 3 Basic Requirements'], []]]
+INFO - 目前ftmp为{'type': 'number', 'prefix': '3.0.2', 'dot_count': 2, 'depth': 2, 'head': '3.0.2', 'content': '3.0.2'},目录为['3.0.2', '', [['3 基本规定', 'Chapter 3 Basic Requirements'], []]]
 INFO - 当前处理的行为{'type': 'number', 'prefix': '3.0.3', 'dot_count': 2, 'depth': 2, 'head': '3.0.3', 'content': '3.0.3'}
 INFO - isChild为None
-INFO - 同级标题差距太大，猜测是标题错误或为注释，作为正文加入当前分块
-INFO - 目前ftmp为{'type': 'number', 'prefix': '3.0.1', 'dot_count': 2, 'depth': 2, 'head': '3.0.1', 'content': '3.0.1 现有建筑的抗震鉴定应包括下列内容及要求:'},目录为['3.0.1 现有建筑的抗震鉴定应包括下列内容及要求:', '', [['3 基本规定', 'Chapter 3 Basic Requirements'], []]]
+INFO - 目前ftmp为{'type': 'number', 'prefix': '3.0.3', 'dot_count': 2, 'depth': 2, 'head': '3.0.3', 'content': '3.0.3'},目录为['3.0.3', '', [['3 基本规定', 'Chapter 3 Basic Requirements'], []]]
 INFO - 当前处理的行为{'type': 'content', 'prefix': '', 'dot_count': 0, 'depth': None, 'content': 'A类建筑的抗震鉴定，当符合第一级鉴定的各项要求时，建筑可评为满足抗震鉴定要求，不再进行第二级鉴定；当不符合'}
-INFO - 目前ftmp为{'type': 'number', 'prefix': '3.0.1', 'dot_count': 2, 'depth': 2, 'head': '3.0.1', 'content': '3.0.1 现有建筑的抗震鉴定应包括下列内容及要求:'},目录为['3.0.1 现有建筑的抗震鉴定应包括下列内容及要求:', '', [['3 基本规定', 'Chapter 3 Basic Requirements'], []]]
+INFO - 目前ftmp为{'type': 'number', 'prefix': '3.0.3', 'dot_count': 2, 'depth': 2, 'head': '3.0.3', 'content': '3.0.3'},目录为['3.0.3', '', [['3 基本规定', 'Chapter 3 Basic Requirements'], []]]
 INFO - 当前处理的行为{'type': 'content', 'prefix': '', 'dot_count': 0, 'depth': None, 'content': '第一级鉴定要求时，除本标准各章有明确规定的情况外，应由第二级鉴定作出判断。'}
 INFO - 匹配到<re.Match object; span=(0, 2), match='B '>
-INFO - 目前ftmp为{'type': 'number', 'prefix': '3.0.1', 'dot_count': 2, 'depth': 2, 'head': '3.0.1', 'content': '3.0.1 现有建筑的抗震鉴定应包括下列内容及要求:'},目录为['3.0.1 现有建筑的抗震鉴定应包括下列内容及要求:', '', [['3 基本规定', 'Chapter 3 Basic Requirements'], []]]
+INFO - 目前ftmp为{'type': 'number', 'prefix': '3.0.3', 'dot_count': 2, 'depth': 2, 'head': '3.0.3', 'content': '3.0.3'},目录为['3.0.3', '', [['3 基本规定', 'Chapter 3 Basic Requirements'], []]]
 INFO - 当前处理的行为{'type': 'upper_alpha', 'prefix': 'B', 'dot_count': 0, 'depth': None, 'head': 'B', 'content': 'B'}
-WARNING - 可能新加切片B 类建筑的抗震鉴定, 应检查其抗震措施和现有抗震承载力再作出判断。当抗震措施不满足鉴定要求而现有抗震承载力较高时, 可通过构造影响系数进行综合抗震能力的评定; 当抗震措施鉴定满足要求时, 主要抗侧力构件的抗震承载力不低于规定的 95%、次要抗侧力构件的抗震承载力不低于规定的 90%, 也可不要求进行加固处理。的序号层级过低或3 基本规定（Chapter 3 Basic Requirements）：3.0.1 现有建筑的抗震鉴定应包括下列内容及要求:
-1 搜集建筑的勘察报告、施工和竣工验收的相关原始资料；当资料不全时，应根据鉴定的需要进行补充实测。
-2 调查建筑现状与原始资料相符合的程度、施工质量和维护状况，发现相关的非抗震缺陷。
-3 根据各类建筑结构的特点、结构布置、构造和抗震承载力等因素，采用相应的逐级鉴定方法，进行综合抗震能力分析。
-4 对现有建筑整体抗震性能作出评价，对符合抗震鉴定要求的建筑应说明其后续使用年限，对不符合抗震鉴定要求的建筑提出相应的抗震减灾对策和处理意见。
-3.0.2 现有建筑的抗震鉴定，应根据下列情况区别对待:
-1 建筑结构类型不同的结构，其检查的重点、项目内容和要求不同，应采用不同的鉴定方法。
-2 对重点部位与一般部位，应按不同的要求进行检查和鉴定。
-注：重点部位指影响该类建筑结构整体抗震性能的关键部位和易导致 局部倒塌伤人的构件、部件，以及地震时可能造成次生灾害的 部位。
-3 对抗震性能有整体影响的构件和仅有局部影响的构件，在综合抗震能力分析时应分别对待。
-3.0.3 抗震鉴定分为两级。第一级鉴定应以宏观控制和构造鉴定为主进行综合评价，第二级鉴定应以抗震验算为主结合构造影响进行综合评价。
+WARNING - 可能新加切片B 类建筑的抗震鉴定, 应检查其抗震措施和现有抗震承载力再作出判断。当抗震措施不满足鉴定要求而现有抗震承载力较高时, 可通过构造影响系数进行综合抗震能力的评定; 当抗震措施鉴定满足要求时, 主要抗侧力构件的抗震承载力不低于规定的 95%、次要抗侧力构件的抗震承载力不低于规定的 90%, 也可不要求进行加固处理。的序号层级过低或3.0.3 抗震鉴定分为两级。第一级鉴定应以宏观控制和构造鉴定为主进行综合评价，第二级鉴定应以抗震验算为主结合构造影响进行综合评价。
 A类建筑的抗震鉴定，当符合第一级鉴定的各项要求时，建筑可评为满足抗震鉴定要求，不再进行第二级鉴定；当不符合
 第一级鉴定要求时，除本标准各章有明确规定的情况外，应由第二级鉴定作出判断。与新加切片同级的父标题没有被识别出来或误在开头字符中加入了空格，请检查正文，暂且将该序号加入正文中
 INFO - 匹配到<re.Match object; span=(0, 6), match='3.0.4 '>
-INFO - 目前ftmp为{'type': 'number', 'prefix': '3.0.1', 'dot_count': 2, 'depth': 2, 'head': '3.0.1', 'content': '3.0.1 现有建筑的抗震鉴定应包括下列内容及要求:'},目录为['3.0.1 现有建筑的抗震鉴定应包括下列内容及要求:', '', [['3 基本规定', 'Chapter 3 Basic Requirements'], []]]
+INFO - 目前ftmp为{'type': 'number', 'prefix': '3.0.3', 'dot_count': 2, 'depth': 2, 'head': '3.0.3', 'content': '3.0.3'},目录为['3.0.3', '', [['3 基本规定', 'Chapter 3 Basic Requirements'], []]]
 INFO - 当前处理的行为{'type': 'number', 'prefix': '3.0.4', 'dot_count': 2, 'depth': 2, 'head': '3.0.4', 'content': '3.0.4'}
 INFO - isChild为None
-INFO - 同级标题差距太大，猜测是标题错误或为注释，作为正文加入当前分块
 INFO - 匹配到<re.Match object; span=(0, 2), match='1 '>
-INFO - 目前ftmp为{'type': 'number', 'prefix': '3.0.1', 'dot_count': 2, 'depth': 2, 'head': '3.0.1', 'content': '3.0.1 现有建筑的抗震鉴定应包括下列内容及要求:'},目录为['3.0.1 现有建筑的抗震鉴定应包括下列内容及要求:', '', [['3 基本规定', 'Chapter 3 Basic Requirements'], []]]
+INFO - 目前ftmp为{'type': 'number', 'prefix': '3.0.4', 'dot_count': 2, 'depth': 2, 'head': '3.0.4', 'content': '3.0.4'},目录为['3.0.4', '', [['3 基本规定', 'Chapter 3 Basic Requirements'], []]]
 INFO - 当前处理的行为{'type': 'number', 'prefix': '1', 'dot_count': 0, 'depth': 0, 'head': '1', 'content': '1'}
 INFO - isChild为<re.Match object; span=(0, 1), match='1'>
 INFO - 标题层次重复，直接作为正文
@@ -669,50 +653,48 @@ INFO - while循环中检查下一个元素: stmp={'type': 'number', 'prefix': '3
 INFO - tmpcode=244, lastcode=51
 INFO - 所有条件都不满足，执行break
 INFO - 匹配到<re.Match object; span=(0, 6), match='3.0.5 '>
-INFO - 目前ftmp为{'type': 'number', 'prefix': '3.0.1', 'dot_count': 2, 'depth': 2, 'head': '3.0.1', 'content': '3.0.1 现有建筑的抗震鉴定应包括下列内容及要求:'},目录为['3.0.1 现有建筑的抗震鉴定应包括下列内容及要求:', '', [['3 基本规定', 'Chapter 3 Basic Requirements'], []]]
+INFO - 目前ftmp为{'type': 'number', 'prefix': '3.0.4', 'dot_count': 2, 'depth': 2, 'head': '3.0.4', 'content': '3.0.4'},目录为['3.0.4', '', [['3 基本规定', 'Chapter 3 Basic Requirements'], []]]
 INFO - 当前处理的行为{'type': 'number', 'prefix': '3.0.5', 'dot_count': 2, 'depth': 2, 'head': '3.0.5', 'content': '3.0.5'}
 INFO - isChild为None
-INFO - 同级标题差距太大，猜测是标题错误或为注释，作为正文加入当前分块
 INFO - 匹配到<re.Match object; span=(0, 2), match='4 '>
-INFO - 目前ftmp为{'type': 'number', 'prefix': '3.0.1', 'dot_count': 2, 'depth': 2, 'head': '3.0.1', 'content': '3.0.1 现有建筑的抗震鉴定应包括下列内容及要求:'},目录为['3.0.1 现有建筑的抗震鉴定应包括下列内容及要求:', '', [['3 基本规定', 'Chapter 3 Basic Requirements'], []]]
+INFO - 目前ftmp为{'type': 'number', 'prefix': '3.0.5', 'dot_count': 2, 'depth': 2, 'head': '3.0.5', 'content': '3.0.5'},目录为['3.0.5', '', [['3 基本规定', 'Chapter 3 Basic Requirements'], []]]
 INFO - 当前处理的行为{'type': 'number', 'prefix': '4', 'dot_count': 0, 'depth': 0, 'head': '4', 'content': '4'}
 INFO - isChild为None
 INFO - 同级标题差距太大，猜测是标题错误或为注释，作为正文加入当前分块
 INFO - 匹配到<re.Match object; span=(0, 2), match='5 '>
-INFO - 目前ftmp为{'type': 'number', 'prefix': '3.0.1', 'dot_count': 2, 'depth': 2, 'head': '3.0.1', 'content': '3.0.1 现有建筑的抗震鉴定应包括下列内容及要求:'},目录为['3.0.1 现有建筑的抗震鉴定应包括下列内容及要求:', '', [['3 基本规定', 'Chapter 3 Basic Requirements'], []]]
+INFO - 目前ftmp为{'type': 'number', 'prefix': '3.0.5', 'dot_count': 2, 'depth': 2, 'head': '3.0.5', 'content': '3.0.5'},目录为['3.0.5', '', [['3 基本规定', 'Chapter 3 Basic Requirements'], []]]
 INFO - 当前处理的行为{'type': 'number', 'prefix': '5', 'dot_count': 0, 'depth': 0, 'head': '5', 'content': '5'}
 INFO - isChild为None
 INFO - 同级标题差距太大，猜测是标题错误或为注释，作为正文加入当前分块
 INFO - 匹配到<re.Match object; span=(0, 2), match='6 '>
-INFO - 目前ftmp为{'type': 'number', 'prefix': '3.0.1', 'dot_count': 2, 'depth': 2, 'head': '3.0.1', 'content': '3.0.1 现有建筑的抗震鉴定应包括下列内容及要求:'},目录为['3.0.1 现有建筑的抗震鉴定应包括下列内容及要求:', '', [['3 基本规定', 'Chapter 3 Basic Requirements'], []]]
+INFO - 目前ftmp为{'type': 'number', 'prefix': '3.0.5', 'dot_count': 2, 'depth': 2, 'head': '3.0.5', 'content': '3.0.5'},目录为['3.0.5', '', [['3 基本规定', 'Chapter 3 Basic Requirements'], []]]
 INFO - 当前处理的行为{'type': 'number', 'prefix': '6', 'dot_count': 0, 'depth': 0, 'head': '6', 'content': '6'}
 INFO - isChild为None
 INFO - 同级标题差距太大，猜测是标题错误或为注释，作为正文加入当前分块
 INFO - 匹配到<re.Match object; span=(0, 2), match='7 '>
-INFO - 目前ftmp为{'type': 'number', 'prefix': '3.0.1', 'dot_count': 2, 'depth': 2, 'head': '3.0.1', 'content': '3.0.1 现有建筑的抗震鉴定应包括下列内容及要求:'},目录为['3.0.1 现有建筑的抗震鉴定应包括下列内容及要求:', '', [['3 基本规定', 'Chapter 3 Basic Requirements'], []]]
+INFO - 目前ftmp为{'type': 'number', 'prefix': '3.0.5', 'dot_count': 2, 'depth': 2, 'head': '3.0.5', 'content': '3.0.5'},目录为['3.0.5', '', [['3 基本规定', 'Chapter 3 Basic Requirements'], []]]
 INFO - 当前处理的行为{'type': 'number', 'prefix': '7', 'dot_count': 0, 'depth': 0, 'head': '7', 'content': '7'}
 INFO - isChild为None
 INFO - 同级标题差距太大，猜测是标题错误或为注释，作为正文加入当前分块
 INFO - 匹配到<re.Match object; span=(0, 2), match='8 '>
-INFO - 目前ftmp为{'type': 'number', 'prefix': '3.0.1', 'dot_count': 2, 'depth': 2, 'head': '3.0.1', 'content': '3.0.1 现有建筑的抗震鉴定应包括下列内容及要求:'},目录为['3.0.1 现有建筑的抗震鉴定应包括下列内容及要求:', '', [['3 基本规定', 'Chapter 3 Basic Requirements'], []]]
+INFO - 目前ftmp为{'type': 'number', 'prefix': '3.0.5', 'dot_count': 2, 'depth': 2, 'head': '3.0.5', 'content': '3.0.5'},目录为['3.0.5', '', [['3 基本规定', 'Chapter 3 Basic Requirements'], []]]
 INFO - 当前处理的行为{'type': 'number', 'prefix': '8', 'dot_count': 0, 'depth': 0, 'head': '8', 'content': '8'}
 INFO - isChild为None
 INFO - 同级标题差距太大，猜测是标题错误或为注释，作为正文加入当前分块
-INFO - 目前ftmp为{'type': 'number', 'prefix': '3.0.1', 'dot_count': 2, 'depth': 2, 'head': '3.0.1', 'content': '3.0.1 现有建筑的抗震鉴定应包括下列内容及要求:'},目录为['3.0.1 现有建筑的抗震鉴定应包括下列内容及要求:', '', [['3 基本规定', 'Chapter 3 Basic Requirements'], []]]
+INFO - 目前ftmp为{'type': 'number', 'prefix': '3.0.5', 'dot_count': 2, 'depth': 2, 'head': '3.0.5', 'content': '3.0.5'},目录为['3.0.5', '', [['3 基本规定', 'Chapter 3 Basic Requirements'], []]]
 INFO - 当前处理的行为{'type': 'content', 'prefix': '', 'dot_count': 0, 'depth': None, 'content': '当6度第一级鉴定不满足时，可通过抗震验算进行综合抗震能力评定；其他情况，至少在两个主轴方向分别按本标准各章规定的具体方法进行结构的抗震验算。'}
-INFO - 目前ftmp为{'type': 'number', 'prefix': '3.0.1', 'dot_count': 2, 'depth': 2, 'head': '3.0.1', 'content': '3.0.1 现有建筑的抗震鉴定应包括下列内容及要求:'},目录为['3.0.1 现有建筑的抗震鉴定应包括下列内容及要求:', '', [['3 基本规定', 'Chapter 3 Basic Requirements'], []]]
+INFO - 目前ftmp为{'type': 'number', 'prefix': '3.0.5', 'dot_count': 2, 'depth': 2, 'head': '3.0.5', 'content': '3.0.5'},目录为['3.0.5', '', [['3 基本规定', 'Chapter 3 Basic Requirements'], []]]
 INFO - 当前处理的行为{'type': 'content', 'prefix': '', 'dot_count': 0, 'depth': None, 'content': '当本标准未给出具体方法时，可采用现行国家标准《建筑抗震设计规范》GB 50011 规定的方法，按下式进行结构构件抗震验算:\n\n$$\nS \\leqslant R / \\gamma _ { \\mathrm { R a } }\n$$\n\nS——结构构件内力（轴向力、剪力、弯矩等）组合的设计值；计算时，有关的荷载、地震作用、作用分项系数、组合值系数，应按现行国家标准《建筑抗震设计规范》GB 50011 的规定采用；其中，场地的设计特征周期可按表 3.0.5 确定，地震作用效应（内力）调整系数应按本标准各章的规定采用，8、9 度的大跨度和长悬臂结构应计算竖向地震作用。\nR——结构构件承载力设计值，按现行国家标准《建筑抗震设计规范》GB 50011 的规定采用；其中，各类结构材料强度的设计指标应按本标准附录 A 采用，材料强度等级按现场实际情况确定。\nγ_{Ra}——抗震鉴定的承载力调整系数，除本标准各章节另有规定外，一般情况下，可按现行国家标准《建筑抗震设计规范》GB 50011 的承载力抗震调整系数值采用，A 类建筑抗震鉴定时，钢筋混凝土构件应按现行国家标准《建筑抗震设计规范》GB 50011 承载力抗震调整系数值的 0.85 倍采用。'}
-INFO - 目前ftmp为{'type': 'number', 'prefix': '3.0.1', 'dot_count': 2, 'depth': 2, 'head': '3.0.1', 'content': '3.0.1 现有建筑的抗震鉴定应包括下列内容及要求:'},目录为['3.0.1 现有建筑的抗震鉴定应包括下列内容及要求:', '', [['3 基本规定', 'Chapter 3 Basic Requirements'], []]]
+INFO - 目前ftmp为{'type': 'number', 'prefix': '3.0.5', 'dot_count': 2, 'depth': 2, 'head': '3.0.5', 'content': '3.0.5'},目录为['3.0.5', '', [['3 基本规定', 'Chapter 3 Basic Requirements'], []]]
 INFO - 当前处理的行为{'type': 'content', 'prefix': '', 'dot_count': 0, 'depth': None, 'content': '表 3.0.5 特征周期值 (s)\n\n<table><tr><td rowspan="2">设计地震分组</td><td colspan="4">场地类别</td></tr><tr><td>Ⅰ</td><td>Ⅱ</td><td>Ⅲ</td><td>Ⅳ</td></tr><tr><td>第一、二组</td><td>0.20</td><td>0.30</td><td>0.40</td><td>0.65</td></tr><tr><td>第三组</td><td>0.25</td><td>0.40</td><td>0.55</td><td>0.85</td></tr></table>'}
 INFO - 匹配到<re.Match object; span=(0, 6), match='3.0.6 '>
-INFO - 目前ftmp为{'type': 'number', 'prefix': '3.0.1', 'dot_count': 2, 'depth': 2, 'head': '3.0.1', 'content': '3.0.1 现有建筑的抗震鉴定应包括下列内容及要求:'},目录为['3.0.1 现有建筑的抗震鉴定应包括下列内容及要求:', '', [['3 基本规定', 'Chapter 3 Basic Requirements'], []]]
+INFO - 目前ftmp为{'type': 'number', 'prefix': '3.0.5', 'dot_count': 2, 'depth': 2, 'head': '3.0.5', 'content': '3.0.5'},目录为['3.0.5', '', [['3 基本规定', 'Chapter 3 Basic Requirements'], []]]
 INFO - 当前处理的行为{'type': 'number', 'prefix': '3.0.6', 'dot_count': 2, 'depth': 2, 'head': '3.0.6', 'content': '3.0.6'}
 INFO - isChild为None
-INFO - 同级标题差距太大，猜测是标题错误或为注释，作为正文加入当前分块
-INFO - 目前ftmp为{'type': 'number', 'prefix': '3.0.1', 'dot_count': 2, 'depth': 2, 'head': '3.0.1', 'content': '3.0.1 现有建筑的抗震鉴定应包括下列内容及要求:'},目录为['3.0.1 现有建筑的抗震鉴定应包括下列内容及要求:', '', [['3 基本规定', 'Chapter 3 Basic Requirements'], []]]
+INFO - 目前ftmp为{'type': 'number', 'prefix': '3.0.6', 'dot_count': 2, 'depth': 2, 'head': '3.0.6', 'content': '3.0.6'},目录为['3.0.6', '', [['3 基本规定', 'Chapter 3 Basic Requirements'], []]]
 INFO - 当前处理的行为{'type': 'content', 'prefix': '', 'dot_count': 0, 'depth': None, 'content': '和基础等的有利和不利因素，作下列调整：'}
 INFO - 匹配到<re.Match object; span=(0, 2), match='1 '>
-INFO - 目前ftmp为{'type': 'number', 'prefix': '3.0.1', 'dot_count': 2, 'depth': 2, 'head': '3.0.1', 'content': '3.0.1 现有建筑的抗震鉴定应包括下列内容及要求:'},目录为['3.0.1 现有建筑的抗震鉴定应包括下列内容及要求:', '', [['3 基本规定', 'Chapter 3 Basic Requirements'], []]]
+INFO - 目前ftmp为{'type': 'number', 'prefix': '3.0.6', 'dot_count': 2, 'depth': 2, 'head': '3.0.6', 'content': '3.0.6'},目录为['3.0.6', '', [['3 基本规定', 'Chapter 3 Basic Requirements'], []]]
 INFO - 当前处理的行为{'type': 'number', 'prefix': '1', 'dot_count': 0, 'depth': 0, 'head': '1', 'content': '1'}
 INFO - isChild为<re.Match object; span=(0, 1), match='1'>
 INFO - 标题层次重复，直接作为正文
@@ -741,12 +723,11 @@ INFO - while循环中检查下一个元素: stmp={'type': 'number', 'prefix': '3
 INFO - tmpcode=246, lastcode=53
 INFO - 所有条件都不满足，执行break
 INFO - 匹配到<re.Match object; span=(0, 6), match='3.0.7 '>
-INFO - 目前ftmp为{'type': 'number', 'prefix': '3.0.1', 'dot_count': 2, 'depth': 2, 'head': '3.0.1', 'content': '3.0.1 现有建筑的抗震鉴定应包括下列内容及要求:'},目录为['3.0.1 现有建筑的抗震鉴定应包括下列内容及要求:', '', [['3 基本规定', 'Chapter 3 Basic Requirements'], []]]
+INFO - 目前ftmp为{'type': 'number', 'prefix': '3.0.6', 'dot_count': 2, 'depth': 2, 'head': '3.0.6', 'content': '3.0.6'},目录为['3.0.6', '', [['3 基本规定', 'Chapter 3 Basic Requirements'], []]]
 INFO - 当前处理的行为{'type': 'number', 'prefix': '3.0.7', 'dot_count': 2, 'depth': 2, 'head': '3.0.7', 'content': '3.0.7'}
 INFO - isChild为None
-INFO - 同级标题差距太大，猜测是标题错误或为注释，作为正文加入当前分块
 INFO - 匹配到<re.Match object; span=(0, 2), match='4 '>
-INFO - 目前ftmp为{'type': 'number', 'prefix': '3.0.1', 'dot_count': 2, 'depth': 2, 'head': '3.0.1', 'content': '3.0.1 现有建筑的抗震鉴定应包括下列内容及要求:'},目录为['3.0.1 现有建筑的抗震鉴定应包括下列内容及要求:', '', [['3 基本规定', 'Chapter 3 Basic Requirements'], []]]
+INFO - 目前ftmp为{'type': 'number', 'prefix': '3.0.7', 'dot_count': 2, 'depth': 2, 'head': '3.0.7', 'content': '3.0.7'},目录为['3.0.7', '', [['3 基本规定', 'Chapter 3 Basic Requirements'], []]]
 INFO - 当前处理的行为{'type': 'number', 'prefix': '4', 'dot_count': 0, 'depth': 0, 'head': '4', 'content': '4 场地、地基和基础'}
 INFO - 开始处理标题4 场地、地基和基础
 INFO - 匹配到<re.Match object; span=(0, 4), match='4.1 '>
@@ -865,9 +846,8 @@ INFO - 匹配到<re.Match object; span=(0, 6), match='4.2.6 '>
 INFO - 目前ftmp为{'type': 'number', 'prefix': '4.2.5', 'dot_count': 2, 'depth': 2, 'head': '4.2.5', 'content': '4.2.5 地基基础的第一级鉴定应符合下列要求:'},目录为['4.2.5 地基基础的第一级鉴定应符合下列要求:', '', [['4 场地、地基和基础', 'Chapter 4 Site, Soil and Foundation'], ['4.2 地基和基础', '4.2 Soil and Foundation']]]
 INFO - 当前处理的行为{'type': 'number', 'prefix': '4.2.6', 'dot_count': 2, 'depth': 2, 'head': '4.2.6', 'content': '4.2.6 地基基础的第二级鉴定应符合下列要求:'}
 INFO - isChild为None
-INFO - 同级标题差距太大，猜测是标题错误或为注释，作为正文加入当前分块
 INFO - 匹配到<re.Match object; span=(0, 2), match='1 '>
-INFO - 目前ftmp为{'type': 'number', 'prefix': '4.2.5', 'dot_count': 2, 'depth': 2, 'head': '4.2.5', 'content': '4.2.5 地基基础的第一级鉴定应符合下列要求:'},目录为['4.2.5 地基基础的第一级鉴定应符合下列要求:', '', [['4 场地、地基和基础', 'Chapter 4 Site, Soil and Foundation'], ['4.2 地基和基础', '4.2 Soil and Foundation']]]
+INFO - 目前ftmp为{'type': 'number', 'prefix': '4.2.6', 'dot_count': 2, 'depth': 2, 'head': '4.2.6', 'content': '4.2.6 地基基础的第二级鉴定应符合下列要求:'},目录为['4.2.6 地基基础的第二级鉴定应符合下列要求:', '', [['4 场地、地基和基础', 'Chapter 4 Site, Soil and Foundation'], ['4.2 地基和基础', '4.2 Soil and Foundation']]]
 INFO - 当前处理的行为{'type': 'number', 'prefix': '1', 'dot_count': 0, 'depth': 0, 'head': '1', 'content': '1'}
 INFO - isChild为<re.Match object; span=(0, 1), match='1'>
 INFO - 标题层次重复，直接作为正文
@@ -881,12 +861,11 @@ INFO - while循环中检查下一个元素: stmp={'type': 'number', 'prefix': '4
 INFO - tmpcode=249, lastcode=50
 INFO - 所有条件都不满足，执行break
 INFO - 匹配到<re.Match object; span=(0, 6), match='4.2.7 '>
-INFO - 目前ftmp为{'type': 'number', 'prefix': '4.2.5', 'dot_count': 2, 'depth': 2, 'head': '4.2.5', 'content': '4.2.5 地基基础的第一级鉴定应符合下列要求:'},目录为['4.2.5 地基基础的第一级鉴定应符合下列要求:', '', [['4 场地、地基和基础', 'Chapter 4 Site, Soil and Foundation'], ['4.2 地基和基础', '4.2 Soil and Foundation']]]
+INFO - 目前ftmp为{'type': 'number', 'prefix': '4.2.6', 'dot_count': 2, 'depth': 2, 'head': '4.2.6', 'content': '4.2.6 地基基础的第二级鉴定应符合下列要求:'},目录为['4.2.6 地基基础的第二级鉴定应符合下列要求:', '', [['4 场地、地基和基础', 'Chapter 4 Site, Soil and Foundation'], ['4.2 地基和基础', '4.2 Soil and Foundation']]]
 INFO - 当前处理的行为{'type': 'number', 'prefix': '4.2.7', 'dot_count': 2, 'depth': 2, 'head': '4.2.7', 'content': '4.2.7'}
 INFO - isChild为None
-INFO - 同级标题差距太大，猜测是标题错误或为注释，作为正文加入当前分块
 INFO - 匹配到<re.Match object; span=(0, 2), match='1 '>
-INFO - 目前ftmp为{'type': 'number', 'prefix': '4.2.5', 'dot_count': 2, 'depth': 2, 'head': '4.2.5', 'content': '4.2.5 地基基础的第一级鉴定应符合下列要求:'},目录为['4.2.5 地基基础的第一级鉴定应符合下列要求:', '', [['4 场地、地基和基础', 'Chapter 4 Site, Soil and Foundation'], ['4.2 地基和基础', '4.2 Soil and Foundation']]]
+INFO - 目前ftmp为{'type': 'number', 'prefix': '4.2.7', 'dot_count': 2, 'depth': 2, 'head': '4.2.7', 'content': '4.2.7'},目录为['4.2.7', '', [['4 场地、地基和基础', 'Chapter 4 Site, Soil and Foundation'], ['4.2 地基和基础', '4.2 Soil and Foundation']]]
 INFO - 当前处理的行为{'type': 'number', 'prefix': '1', 'dot_count': 0, 'depth': 0, 'head': '1', 'content': '1'}
 INFO - isChild为<re.Match object; span=(0, 1), match='1'>
 INFO - 标题层次重复，直接作为正文
@@ -902,24 +881,22 @@ INFO - while循环中检查下一个元素: stmp={'type': 'number', 'prefix': '4
 INFO - tmpcode=250, lastcode=50
 INFO - 所有条件都不满足，执行break
 INFO - 匹配到<re.Match object; span=(0, 6), match='4.2.8 '>
-INFO - 目前ftmp为{'type': 'number', 'prefix': '4.2.5', 'dot_count': 2, 'depth': 2, 'head': '4.2.5', 'content': '4.2.5 地基基础的第一级鉴定应符合下列要求:'},目录为['4.2.5 地基基础的第一级鉴定应符合下列要求:', '', [['4 场地、地基和基础', 'Chapter 4 Site, Soil and Foundation'], ['4.2 地基和基础', '4.2 Soil and Foundation']]]
+INFO - 目前ftmp为{'type': 'number', 'prefix': '4.2.7', 'dot_count': 2, 'depth': 2, 'head': '4.2.7', 'content': '4.2.7'},目录为['4.2.7', '', [['4 场地、地基和基础', 'Chapter 4 Site, Soil and Foundation'], ['4.2 地基和基础', '4.2 Soil and Foundation']]]
 INFO - 当前处理的行为{'type': 'number', 'prefix': '4.2.8', 'dot_count': 2, 'depth': 2, 'head': '4.2.8', 'content': '4.2.8'}
 INFO - isChild为None
-INFO - 同级标题差距太大，猜测是标题错误或为注释，作为正文加入当前分块
 INFO - 匹配到<re.Match object; span=(0, 6), match='4.2.9 '>
-INFO - 目前ftmp为{'type': 'number', 'prefix': '4.2.5', 'dot_count': 2, 'depth': 2, 'head': '4.2.5', 'content': '4.2.5 地基基础的第一级鉴定应符合下列要求:'},目录为['4.2.5 地基基础的第一级鉴定应符合下列要求:', '', [['4 场地、地基和基础', 'Chapter 4 Site, Soil and Foundation'], ['4.2 地基和基础', '4.2 Soil and Foundation']]]
+INFO - 目前ftmp为{'type': 'number', 'prefix': '4.2.8', 'dot_count': 2, 'depth': 2, 'head': '4.2.8', 'content': '4.2.8'},目录为['4.2.8', '', [['4 场地、地基和基础', 'Chapter 4 Site, Soil and Foundation'], ['4.2 地基和基础', '4.2 Soil and Foundation']]]
 INFO - 当前处理的行为{'type': 'number', 'prefix': '4.2.9', 'dot_count': 2, 'depth': 2, 'head': '4.2.9', 'content': '4.2.9'}
 INFO - isChild为None
-INFO - 同级标题差距太大，猜测是标题错误或为注释，作为正文加入当前分块
-INFO - 目前ftmp为{'type': 'number', 'prefix': '4.2.5', 'dot_count': 2, 'depth': 2, 'head': '4.2.5', 'content': '4.2.5 地基基础的第一级鉴定应符合下列要求:'},目录为['4.2.5 地基基础的第一级鉴定应符合下列要求:', '', [['4 场地、地基和基础', 'Chapter 4 Site, Soil and Foundation'], ['4.2 地基和基础', '4.2 Soil and Foundation']]]
+INFO - 目前ftmp为{'type': 'number', 'prefix': '4.2.9', 'dot_count': 2, 'depth': 2, 'head': '4.2.9', 'content': '4.2.9'},目录为['4.2.9', '', [['4 场地、地基和基础', 'Chapter 4 Site, Soil and Foundation'], ['4.2 地基和基础', '4.2 Soil and Foundation']]]
 INFO - 当前处理的行为{'type': 'content', 'prefix': '', 'dot_count': 0, 'depth': None, 'content': '表 4.2.9 挡土结构的地震角\n\n<table><tr><th rowspan="2">类别</th><th colspan="2">7度</th><th colspan="2">8度</th><th>9度</th></tr><tr><th>0.1g</th><th>0.15g</th><th>0.2g</th><th>0.3g</th><th>0.4g</th></tr><tr><th>水上</th><td>1.5°</td><td>2.3°</td><td>3°</td><td>4.5°</td><td>6°</td></tr><tr><th>水下</th><td>2.5°</td><td>3.8°</td><td>5°</td><td>7.5°</td><td>10°</td></tr></table>'}
 INFO - 匹配到<re.Match object; span=(0, 7), match='4.2.10 '>
-INFO - 目前ftmp为{'type': 'number', 'prefix': '4.2.5', 'dot_count': 2, 'depth': 2, 'head': '4.2.5', 'content': '4.2.5 地基基础的第一级鉴定应符合下列要求:'},目录为['4.2.5 地基基础的第一级鉴定应符合下列要求:', '', [['4 场地、地基和基础', 'Chapter 4 Site, Soil and Foundation'], ['4.2 地基和基础', '4.2 Soil and Foundation']]]
+INFO - 目前ftmp为{'type': 'number', 'prefix': '4.2.9', 'dot_count': 2, 'depth': 2, 'head': '4.2.9', 'content': '4.2.9'},目录为['4.2.9', '', [['4 场地、地基和基础', 'Chapter 4 Site, Soil and Foundation'], ['4.2 地基和基础', '4.2 Soil and Foundation']]]
 INFO - 当前处理的行为{'type': 'number', 'prefix': '4.2.10', 'dot_count': 2, 'depth': 2, 'head': '4.2.10', 'content': '4.2.10'}
 INFO - isChild为None
 INFO - 同级标题差距太大，猜测是标题错误或为注释，作为正文加入当前分块
 INFO - 匹配到<re.Match object; span=(0, 2), match='5 '>
-INFO - 目前ftmp为{'type': 'number', 'prefix': '4.2.5', 'dot_count': 2, 'depth': 2, 'head': '4.2.5', 'content': '4.2.5 地基基础的第一级鉴定应符合下列要求:'},目录为['4.2.5 地基基础的第一级鉴定应符合下列要求:', '', [['4 场地、地基和基础', 'Chapter 4 Site, Soil and Foundation'], ['4.2 地基和基础', '4.2 Soil and Foundation']]]
+INFO - 目前ftmp为{'type': 'number', 'prefix': '4.2.9', 'dot_count': 2, 'depth': 2, 'head': '4.2.9', 'content': '4.2.9'},目录为['4.2.9', '', [['4 场地、地基和基础', 'Chapter 4 Site, Soil and Foundation'], ['4.2 地基和基础', '4.2 Soil and Foundation']]]
 INFO - 当前处理的行为{'type': 'number', 'prefix': '5', 'dot_count': 0, 'depth': 0, 'head': '5', 'content': '5 多层砌体房屋'}
 INFO - 开始处理标题5 多层砌体房屋
 INFO - 匹配到<re.Match object; span=(0, 4), match='5.1 '>
@@ -972,24 +949,18 @@ INFO - 匹配到<re.Match object; span=(0, 6), match='5.1.4 '>
 INFO - 目前ftmp为{'type': 'number', 'prefix': '5.1.3', 'dot_count': 2, 'depth': 2, 'head': '5.1.3', 'content': '5.1.3 多层砌体房屋的外观和内在质量应符合下列要求:'},目录为['5.1.3 多层砌体房屋的外观和内在质量应符合下列要求:', '', [['5 多层砌体房屋', 'Chapter 5 Multi-story Masonry Buildings'], ['5.1 一般规定', '5.1 General Requirements'], []]]
 INFO - 当前处理的行为{'type': 'number', 'prefix': '5.1.4', 'dot_count': 2, 'depth': 2, 'head': '5.1.4', 'content': '5.1.4'}
 INFO - isChild为None
-INFO - 同级标题差距太大，猜测是标题错误或为注释，作为正文加入当前分块
-INFO - 目前ftmp为{'type': 'number', 'prefix': '5.1.3', 'dot_count': 2, 'depth': 2, 'head': '5.1.3', 'content': '5.1.3 多层砌体房屋的外观和内在质量应符合下列要求:'},目录为['5.1.3 多层砌体房屋的外观和内在质量应符合下列要求:', '', [['5 多层砌体房屋', 'Chapter 5 Multi-story Masonry Buildings'], ['5.1 一般规定', '5.1 General Requirements'], []]]
+INFO - 目前ftmp为{'type': 'number', 'prefix': '5.1.4', 'dot_count': 2, 'depth': 2, 'head': '5.1.4', 'content': '5.1.4'},目录为['5.1.4', '', [['5 多层砌体房屋', 'Chapter 5 Multi-story Masonry Buildings'], ['5.1 一般规定', '5.1 General Requirements'], []]]
 INFO - 当前处理的行为{'type': 'content', 'prefix': '', 'dot_count': 0, 'depth': None, 'content': '靠性以及墙体抗震承载力的综合分析，对整幢房屋的抗震能力进 行鉴定。'}
-INFO - 目前ftmp为{'type': 'number', 'prefix': '5.1.3', 'dot_count': 2, 'depth': 2, 'head': '5.1.3', 'content': '5.1.3 多层砌体房屋的外观和内在质量应符合下列要求:'},目录为['5.1.3 多层砌体房屋的外观和内在质量应符合下列要求:', '', [['5 多层砌体房屋', 'Chapter 5 Multi-story Masonry Buildings'], ['5.1 一般规定', '5.1 General Requirements'], []]]
+INFO - 目前ftmp为{'type': 'number', 'prefix': '5.1.4', 'dot_count': 2, 'depth': 2, 'head': '5.1.4', 'content': '5.1.4'},目录为['5.1.4', '', [['5 多层砌体房屋', 'Chapter 5 Multi-story Masonry Buildings'], ['5.1 一般规定', '5.1 General Requirements'], []]]
 INFO - 当前处理的行为{'type': 'content', 'prefix': '', 'dot_count': 0, 'depth': None, 'content': '当砌体房屋层数超过规定时，应评为不满足抗震鉴定要求； 当仅有出入口和人流通道处的女儿墙、出屋面烟囱等不符合规定 时，应评为局部不满足抗震鉴定要求。 5.1.5 A 类砌体房屋应进行综合抗震能力的两级鉴定。在第一 级鉴定中，墙体的抗震承载力应依据纵、横墙间距进行简化验 算，当符合第一级鉴定的各项规定时，应评为满足抗震鉴定要 求；不符合第一级鉴定要求时，除有明确规定的情况外，应在第 二级鉴定中采用综合抗震能力指数的方法，计入构造影响作出 判断。'}
 INFO - 匹配到<re.Match object; span=(0, 2), match='B '>
-INFO - 目前ftmp为{'type': 'number', 'prefix': '5.1.3', 'dot_count': 2, 'depth': 2, 'head': '5.1.3', 'content': '5.1.3 多层砌体房屋的外观和内在质量应符合下列要求:'},目录为['5.1.3 多层砌体房屋的外观和内在质量应符合下列要求:', '', [['5 多层砌体房屋', 'Chapter 5 Multi-story Masonry Buildings'], ['5.1 一般规定', '5.1 General Requirements'], []]]
+INFO - 目前ftmp为{'type': 'number', 'prefix': '5.1.4', 'dot_count': 2, 'depth': 2, 'head': '5.1.4', 'content': '5.1.4'},目录为['5.1.4', '', [['5 多层砌体房屋', 'Chapter 5 Multi-story Masonry Buildings'], ['5.1 一般规定', '5.1 General Requirements'], []]]
 INFO - 当前处理的行为{'type': 'upper_alpha', 'prefix': 'B', 'dot_count': 0, 'depth': None, 'head': 'B', 'content': 'B'}
-WARNING - 可能新加切片B 类砌体房屋，在整体性连接构造的检查中尚应包括构造柱的设置情况，墙体的抗震承载力应采用现行国家标准《建筑抗震设计规范》GB 50011 的底部剪力法等方法进行验算，或按照 A 类砌体房屋计入构造影响进行综合抗震能力的评定。的序号层级过低或5.1.3 多层砌体房屋的外观和内在质量应符合下列要求:
-1 墙体不空鼓、无严重酥碱和明显歪闪。
-2 支承大梁、屋架的墙体无竖向裂缝，承重墙、自承重墙及其交接处无明显裂缝。
-3 木楼、屋盖构件无明显变形、腐朽、蚁蚀和严重开裂。
-4 混凝土构件符合本标准第 6.1.3 条的有关规定。
-5.1.4 现有砌体房屋的抗震鉴定，应按房屋高度和层数、结构体系的合理性、墙体材料的实际强度、房屋整体性连接构造的可靠性、局部易损易倒部位构件自身及其与主体结构连接构造的可
+WARNING - 可能新加切片B 类砌体房屋，在整体性连接构造的检查中尚应包括构造柱的设置情况，墙体的抗震承载力应采用现行国家标准《建筑抗震设计规范》GB 50011 的底部剪力法等方法进行验算，或按照 A 类砌体房屋计入构造影响进行综合抗震能力的评定。的序号层级过低或5.1.4 现有砌体房屋的抗震鉴定，应按房屋高度和层数、结构体系的合理性、墙体材料的实际强度、房屋整体性连接构造的可靠性、局部易损易倒部位构件自身及其与主体结构连接构造的可
 靠性以及墙体抗震承载力的综合分析，对整幢房屋的抗震能力进 行鉴定。
 当砌体房屋层数超过规定时，应评为不满足抗震鉴定要求； 当仅有出入口和人流通道处的女儿墙、出屋面烟囱等不符合规定 时，应评为局部不满足抗震鉴定要求。 5.1.5 A 类砌体房屋应进行综合抗震能力的两级鉴定。在第一 级鉴定中，墙体的抗震承载力应依据纵、横墙间距进行简化验 算，当符合第一级鉴定的各项规定时，应评为满足抗震鉴定要 求；不符合第一级鉴定要求时，除有明确规定的情况外，应在第 二级鉴定中采用综合抗震能力指数的方法，计入构造影响作出 判断。与新加切片同级的父标题没有被识别出来或误在开头字符中加入了空格，请检查正文，暂且将该序号加入正文中
 INFO - 匹配到<re.Match object; span=(0, 4), match='5.2 '>
-INFO - 目前ftmp为{'type': 'number', 'prefix': '5.1.3', 'dot_count': 2, 'depth': 2, 'head': '5.1.3', 'content': '5.1.3 多层砌体房屋的外观和内在质量应符合下列要求:'},目录为['5.1.3 多层砌体房屋的外观和内在质量应符合下列要求:', '', [['5 多层砌体房屋', 'Chapter 5 Multi-story Masonry Buildings'], ['5.1 一般规定', '5.1 General Requirements'], []]]
+INFO - 目前ftmp为{'type': 'number', 'prefix': '5.1.4', 'dot_count': 2, 'depth': 2, 'head': '5.1.4', 'content': '5.1.4'},目录为['5.1.4', '', [['5 多层砌体房屋', 'Chapter 5 Multi-story Masonry Buildings'], ['5.1 一般规定', '5.1 General Requirements'], []]]
 INFO - 当前处理的行为{'type': 'number', 'prefix': '5.2', 'dot_count': 1, 'depth': 1, 'head': '5.2', 'content': '5.2 A类砌体房屋抗震鉴定'}
 INFO - 开始处理标题5.2 A 类砌体房屋抗震鉴定
 INFO - 匹配到<re.Match object; span=(0, 4), match='(I) '>
@@ -1016,9 +987,8 @@ INFO - 匹配到<re.Match object; span=(0, 6), match='5.2.2 '>
 INFO - 目前ftmp为{'type': 'number', 'prefix': '5.2.1', 'dot_count': 2, 'depth': 3, 'head': '5.2.1', 'content': '5.2.1 现有砌体房屋的高度和层数应符合下列要求:'},目录为['5.2.1 现有砌体房屋的高度和层数应符合下列要求:', '', [['5 多层砌体房屋', 'Chapter 5 Multi-story Masonry Buildings'], ['5.2 A 类砌体房屋抗震鉴定', '5.2 Seismic Appraisal of Category A Buildings'], ['(I) 第一级鉴定', '']]]
 INFO - 当前处理的行为{'type': 'number', 'prefix': '5.2.2', 'dot_count': 2, 'depth': 3, 'head': '5.2.2', 'content': '5.2.2'}
 INFO - isChild为None
-INFO - 同级标题差距太大，猜测是标题错误或为注释，作为正文加入当前分块
 INFO - 匹配到<re.Match object; span=(0, 2), match='1 '>
-INFO - 目前ftmp为{'type': 'number', 'prefix': '5.2.1', 'dot_count': 2, 'depth': 3, 'head': '5.2.1', 'content': '5.2.1 现有砌体房屋的高度和层数应符合下列要求:'},目录为['5.2.1 现有砌体房屋的高度和层数应符合下列要求:', '', [['5 多层砌体房屋', 'Chapter 5 Multi-story Masonry Buildings'], ['5.2 A 类砌体房屋抗震鉴定', '5.2 Seismic Appraisal of Category A Buildings'], ['(I) 第一级鉴定', '']]]
+INFO - 目前ftmp为{'type': 'number', 'prefix': '5.2.2', 'dot_count': 2, 'depth': 3, 'head': '5.2.2', 'content': '5.2.2'},目录为['5.2.2', '', [['5 多层砌体房屋', 'Chapter 5 Multi-story Masonry Buildings'], ['5.2 A 类砌体房屋抗震鉴定', '5.2 Seismic Appraisal of Category A Buildings'], ['(I) 第一级鉴定', '']]]
 INFO - 当前处理的行为{'type': 'number', 'prefix': '1', 'dot_count': 0, 'depth': 0, 'head': '1', 'content': '1'}
 INFO - isChild为<re.Match object; span=(0, 1), match='1'>
 INFO - 标题层次重复，直接作为正文
@@ -1058,12 +1028,11 @@ INFO - while循环中检查下一个元素: stmp={'type': 'number', 'prefix': '5
 INFO - tmpcode=246, lastcode=52
 INFO - 所有条件都不满足，执行break
 INFO - 匹配到<re.Match object; span=(0, 6), match='5.2.3 '>
-INFO - 目前ftmp为{'type': 'number', 'prefix': '5.2.1', 'dot_count': 2, 'depth': 3, 'head': '5.2.1', 'content': '5.2.1 现有砌体房屋的高度和层数应符合下列要求:'},目录为['5.2.1 现有砌体房屋的高度和层数应符合下列要求:', '', [['5 多层砌体房屋', 'Chapter 5 Multi-story Masonry Buildings'], ['5.2 A 类砌体房屋抗震鉴定', '5.2 Seismic Appraisal of Category A Buildings'], ['(I) 第一级鉴定', '']]]
+INFO - 目前ftmp为{'type': 'number', 'prefix': '5.2.2', 'dot_count': 2, 'depth': 3, 'head': '5.2.2', 'content': '5.2.2'},目录为['5.2.2', '', [['5 多层砌体房屋', 'Chapter 5 Multi-story Masonry Buildings'], ['5.2 A 类砌体房屋抗震鉴定', '5.2 Seismic Appraisal of Category A Buildings'], ['(I) 第一级鉴定', '']]]
 INFO - 当前处理的行为{'type': 'number', 'prefix': '5.2.3', 'dot_count': 2, 'depth': 3, 'head': '5.2.3', 'content': '5.2.3'}
 INFO - isChild为None
-INFO - 同级标题差距太大，猜测是标题错误或为注释，作为正文加入当前分块
 INFO - 匹配到<re.Match object; span=(0, 2), match='1 '>
-INFO - 目前ftmp为{'type': 'number', 'prefix': '5.2.1', 'dot_count': 2, 'depth': 3, 'head': '5.2.1', 'content': '5.2.1 现有砌体房屋的高度和层数应符合下列要求:'},目录为['5.2.1 现有砌体房屋的高度和层数应符合下列要求:', '', [['5 多层砌体房屋', 'Chapter 5 Multi-story Masonry Buildings'], ['5.2 A 类砌体房屋抗震鉴定', '5.2 Seismic Appraisal of Category A Buildings'], ['(I) 第一级鉴定', '']]]
+INFO - 目前ftmp为{'type': 'number', 'prefix': '5.2.3', 'dot_count': 2, 'depth': 3, 'head': '5.2.3', 'content': '5.2.3'},目录为['5.2.3', '', [['5 多层砌体房屋', 'Chapter 5 Multi-story Masonry Buildings'], ['5.2 A 类砌体房屋抗震鉴定', '5.2 Seismic Appraisal of Category A Buildings'], ['(I) 第一级鉴定', '']]]
 INFO - 当前处理的行为{'type': 'number', 'prefix': '1', 'dot_count': 0, 'depth': 0, 'head': '1', 'content': '1'}
 INFO - isChild为<re.Match object; span=(0, 1), match='1'>
 INFO - 标题层次重复，直接作为正文
@@ -1077,12 +1046,11 @@ INFO - while循环中检查下一个元素: stmp={'type': 'number', 'prefix': '5
 INFO - tmpcode=247, lastcode=50
 INFO - 所有条件都不满足，执行break
 INFO - 匹配到<re.Match object; span=(0, 6), match='5.2.4 '>
-INFO - 目前ftmp为{'type': 'number', 'prefix': '5.2.1', 'dot_count': 2, 'depth': 3, 'head': '5.2.1', 'content': '5.2.1 现有砌体房屋的高度和层数应符合下列要求:'},目录为['5.2.1 现有砌体房屋的高度和层数应符合下列要求:', '', [['5 多层砌体房屋', 'Chapter 5 Multi-story Masonry Buildings'], ['5.2 A 类砌体房屋抗震鉴定', '5.2 Seismic Appraisal of Category A Buildings'], ['(I) 第一级鉴定', '']]]
+INFO - 目前ftmp为{'type': 'number', 'prefix': '5.2.3', 'dot_count': 2, 'depth': 3, 'head': '5.2.3', 'content': '5.2.3'},目录为['5.2.3', '', [['5 多层砌体房屋', 'Chapter 5 Multi-story Masonry Buildings'], ['5.2 A 类砌体房屋抗震鉴定', '5.2 Seismic Appraisal of Category A Buildings'], ['(I) 第一级鉴定', '']]]
 INFO - 当前处理的行为{'type': 'number', 'prefix': '5.2.4', 'dot_count': 2, 'depth': 3, 'head': '5.2.4', 'content': '5.2.4'}
 INFO - isChild为None
-INFO - 同级标题差距太大，猜测是标题错误或为注释，作为正文加入当前分块
 INFO - 匹配到<re.Match object; span=(0, 2), match='1 '>
-INFO - 目前ftmp为{'type': 'number', 'prefix': '5.2.1', 'dot_count': 2, 'depth': 3, 'head': '5.2.1', 'content': '5.2.1 现有砌体房屋的高度和层数应符合下列要求:'},目录为['5.2.1 现有砌体房屋的高度和层数应符合下列要求:', '', [['5 多层砌体房屋', 'Chapter 5 Multi-story Masonry Buildings'], ['5.2 A 类砌体房屋抗震鉴定', '5.2 Seismic Appraisal of Category A Buildings'], ['(I) 第一级鉴定', '']]]
+INFO - 目前ftmp为{'type': 'number', 'prefix': '5.2.4', 'dot_count': 2, 'depth': 3, 'head': '5.2.4', 'content': '5.2.4'},目录为['5.2.4', '', [['5 多层砌体房屋', 'Chapter 5 Multi-story Masonry Buildings'], ['5.2 A 类砌体房屋抗震鉴定', '5.2 Seismic Appraisal of Category A Buildings'], ['(I) 第一级鉴定', '']]]
 INFO - 当前处理的行为{'type': 'number', 'prefix': '1', 'dot_count': 0, 'depth': 0, 'head': '1', 'content': '1'}
 INFO - isChild为<re.Match object; span=(0, 1), match='1'>
 INFO - 标题层次重复，直接作为正文
@@ -1110,12 +1078,11 @@ INFO - while循环中检查下一个元素: stmp={'type': 'number', 'prefix': '5
 INFO - tmpcode=248, lastcode=52
 INFO - 所有条件都不满足，执行break
 INFO - 匹配到<re.Match object; span=(0, 6), match='5.2.5 '>
-INFO - 目前ftmp为{'type': 'number', 'prefix': '5.2.1', 'dot_count': 2, 'depth': 3, 'head': '5.2.1', 'content': '5.2.1 现有砌体房屋的高度和层数应符合下列要求:'},目录为['5.2.1 现有砌体房屋的高度和层数应符合下列要求:', '', [['5 多层砌体房屋', 'Chapter 5 Multi-story Masonry Buildings'], ['5.2 A 类砌体房屋抗震鉴定', '5.2 Seismic Appraisal of Category A Buildings'], ['(I) 第一级鉴定', '']]]
+INFO - 目前ftmp为{'type': 'number', 'prefix': '5.2.4', 'dot_count': 2, 'depth': 3, 'head': '5.2.4', 'content': '5.2.4'},目录为['5.2.4', '', [['5 多层砌体房屋', 'Chapter 5 Multi-story Masonry Buildings'], ['5.2 A 类砌体房屋抗震鉴定', '5.2 Seismic Appraisal of Category A Buildings'], ['(I) 第一级鉴定', '']]]
 INFO - 当前处理的行为{'type': 'number', 'prefix': '5.2.5', 'dot_count': 2, 'depth': 3, 'head': '5.2.5', 'content': '5.2.5'}
 INFO - isChild为None
-INFO - 同级标题差距太大，猜测是标题错误或为注释，作为正文加入当前分块
 INFO - 匹配到<re.Match object; span=(0, 2), match='1 '>
-INFO - 目前ftmp为{'type': 'number', 'prefix': '5.2.1', 'dot_count': 2, 'depth': 3, 'head': '5.2.1', 'content': '5.2.1 现有砌体房屋的高度和层数应符合下列要求:'},目录为['5.2.1 现有砌体房屋的高度和层数应符合下列要求:', '', [['5 多层砌体房屋', 'Chapter 5 Multi-story Masonry Buildings'], ['5.2 A 类砌体房屋抗震鉴定', '5.2 Seismic Appraisal of Category A Buildings'], ['(I) 第一级鉴定', '']]]
+INFO - 目前ftmp为{'type': 'number', 'prefix': '5.2.5', 'dot_count': 2, 'depth': 3, 'head': '5.2.5', 'content': '5.2.5'},目录为['5.2.5', '', [['5 多层砌体房屋', 'Chapter 5 Multi-story Masonry Buildings'], ['5.2 A 类砌体房屋抗震鉴定', '5.2 Seismic Appraisal of Category A Buildings'], ['(I) 第一级鉴定', '']]]
 INFO - 当前处理的行为{'type': 'number', 'prefix': '1', 'dot_count': 0, 'depth': 0, 'head': '1', 'content': '1'}
 INFO - isChild为<re.Match object; span=(0, 1), match='1'>
 INFO - 标题层次重复，直接作为正文
@@ -1157,12 +1124,11 @@ INFO - while循环中检查下一个元素: stmp={'type': 'number', 'prefix': '5
 INFO - tmpcode=249, lastcode=51
 INFO - 所有条件都不满足，执行break
 INFO - 匹配到<re.Match object; span=(0, 6), match='5.2.6 '>
-INFO - 目前ftmp为{'type': 'number', 'prefix': '5.2.1', 'dot_count': 2, 'depth': 3, 'head': '5.2.1', 'content': '5.2.1 现有砌体房屋的高度和层数应符合下列要求:'},目录为['5.2.1 现有砌体房屋的高度和层数应符合下列要求:', '', [['5 多层砌体房屋', 'Chapter 5 Multi-story Masonry Buildings'], ['5.2 A 类砌体房屋抗震鉴定', '5.2 Seismic Appraisal of Category A Buildings'], ['(I) 第一级鉴定', '']]]
+INFO - 目前ftmp为{'type': 'number', 'prefix': '5.2.5', 'dot_count': 2, 'depth': 3, 'head': '5.2.5', 'content': '5.2.5'},目录为['5.2.5', '', [['5 多层砌体房屋', 'Chapter 5 Multi-story Masonry Buildings'], ['5.2 A 类砌体房屋抗震鉴定', '5.2 Seismic Appraisal of Category A Buildings'], ['(I) 第一级鉴定', '']]]
 INFO - 当前处理的行为{'type': 'number', 'prefix': '5.2.6', 'dot_count': 2, 'depth': 3, 'head': '5.2.6', 'content': '5.2.6'}
 INFO - isChild为None
-INFO - 同级标题差距太大，猜测是标题错误或为注释，作为正文加入当前分块
 INFO - 匹配到<re.Match object; span=(0, 2), match='1 '>
-INFO - 目前ftmp为{'type': 'number', 'prefix': '5.2.1', 'dot_count': 2, 'depth': 3, 'head': '5.2.1', 'content': '5.2.1 现有砌体房屋的高度和层数应符合下列要求:'},目录为['5.2.1 现有砌体房屋的高度和层数应符合下列要求:', '', [['5 多层砌体房屋', 'Chapter 5 Multi-story Masonry Buildings'], ['5.2 A 类砌体房屋抗震鉴定', '5.2 Seismic Appraisal of Category A Buildings'], ['(I) 第一级鉴定', '']]]
+INFO - 目前ftmp为{'type': 'number', 'prefix': '5.2.6', 'dot_count': 2, 'depth': 3, 'head': '5.2.6', 'content': '5.2.6'},目录为['5.2.6', '', [['5 多层砌体房屋', 'Chapter 5 Multi-story Masonry Buildings'], ['5.2 A 类砌体房屋抗震鉴定', '5.2 Seismic Appraisal of Category A Buildings'], ['(I) 第一级鉴定', '']]]
 INFO - 当前处理的行为{'type': 'number', 'prefix': '1', 'dot_count': 0, 'depth': 0, 'head': '1', 'content': '1'}
 INFO - isChild为<re.Match object; span=(0, 1), match='1'>
 INFO - 标题层次重复，直接作为正文
@@ -1181,17 +1147,15 @@ INFO - while循环中检查下一个元素: stmp={'type': 'number', 'prefix': '5
 INFO - tmpcode=250, lastcode=51
 INFO - 所有条件都不满足，执行break
 INFO - 匹配到<re.Match object; span=(0, 6), match='5.2.7 '>
-INFO - 目前ftmp为{'type': 'number', 'prefix': '5.2.1', 'dot_count': 2, 'depth': 3, 'head': '5.2.1', 'content': '5.2.1 现有砌体房屋的高度和层数应符合下列要求:'},目录为['5.2.1 现有砌体房屋的高度和层数应符合下列要求:', '', [['5 多层砌体房屋', 'Chapter 5 Multi-story Masonry Buildings'], ['5.2 A 类砌体房屋抗震鉴定', '5.2 Seismic Appraisal of Category A Buildings'], ['(I) 第一级鉴定', '']]]
+INFO - 目前ftmp为{'type': 'number', 'prefix': '5.2.6', 'dot_count': 2, 'depth': 3, 'head': '5.2.6', 'content': '5.2.6'},目录为['5.2.6', '', [['5 多层砌体房屋', 'Chapter 5 Multi-story Masonry Buildings'], ['5.2 A 类砌体房屋抗震鉴定', '5.2 Seismic Appraisal of Category A Buildings'], ['(I) 第一级鉴定', '']]]
 INFO - 当前处理的行为{'type': 'number', 'prefix': '5.2.7', 'dot_count': 2, 'depth': 3, 'head': '5.2.7', 'content': '5.2.7'}
 INFO - isChild为None
-INFO - 同级标题差距太大，猜测是标题错误或为注释，作为正文加入当前分块
 INFO - 匹配到<re.Match object; span=(0, 6), match='5.2.8 '>
-INFO - 目前ftmp为{'type': 'number', 'prefix': '5.2.1', 'dot_count': 2, 'depth': 3, 'head': '5.2.1', 'content': '5.2.1 现有砌体房屋的高度和层数应符合下列要求:'},目录为['5.2.1 现有砌体房屋的高度和层数应符合下列要求:', '', [['5 多层砌体房屋', 'Chapter 5 Multi-story Masonry Buildings'], ['5.2 A 类砌体房屋抗震鉴定', '5.2 Seismic Appraisal of Category A Buildings'], ['(I) 第一级鉴定', '']]]
+INFO - 目前ftmp为{'type': 'number', 'prefix': '5.2.7', 'dot_count': 2, 'depth': 3, 'head': '5.2.7', 'content': '5.2.7'},目录为['5.2.7', '', [['5 多层砌体房屋', 'Chapter 5 Multi-story Masonry Buildings'], ['5.2 A 类砌体房屋抗震鉴定', '5.2 Seismic Appraisal of Category A Buildings'], ['(I) 第一级鉴定', '']]]
 INFO - 当前处理的行为{'type': 'number', 'prefix': '5.2.8', 'dot_count': 2, 'depth': 3, 'head': '5.2.8', 'content': '5.2.8'}
 INFO - isChild为None
-INFO - 同级标题差距太大，猜测是标题错误或为注释，作为正文加入当前分块
 INFO - 匹配到<re.Match object; span=(0, 2), match='1 '>
-INFO - 目前ftmp为{'type': 'number', 'prefix': '5.2.1', 'dot_count': 2, 'depth': 3, 'head': '5.2.1', 'content': '5.2.1 现有砌体房屋的高度和层数应符合下列要求:'},目录为['5.2.1 现有砌体房屋的高度和层数应符合下列要求:', '', [['5 多层砌体房屋', 'Chapter 5 Multi-story Masonry Buildings'], ['5.2 A 类砌体房屋抗震鉴定', '5.2 Seismic Appraisal of Category A Buildings'], ['(I) 第一级鉴定', '']]]
+INFO - 目前ftmp为{'type': 'number', 'prefix': '5.2.8', 'dot_count': 2, 'depth': 3, 'head': '5.2.8', 'content': '5.2.8'},目录为['5.2.8', '', [['5 多层砌体房屋', 'Chapter 5 Multi-story Masonry Buildings'], ['5.2 A 类砌体房屋抗震鉴定', '5.2 Seismic Appraisal of Category A Buildings'], ['(I) 第一级鉴定', '']]]
 INFO - 当前处理的行为{'type': 'number', 'prefix': '1', 'dot_count': 0, 'depth': 0, 'head': '1', 'content': '1 现有结构构件的局部尺寸、支承长度和连接应符合下列要求:'}
 INFO - isChild为<re.Match object; span=(0, 1), match='1'>
 INFO - 标题层次重复，直接作为正文
@@ -1225,12 +1189,11 @@ INFO - while循环中检查下一个元素: stmp={'type': 'number', 'prefix': '5
 INFO - tmpcode=252, lastcode=50
 INFO - 所有条件都不满足，执行break
 INFO - 匹配到<re.Match object; span=(0, 6), match='5.2.9 '>
-INFO - 目前ftmp为{'type': 'number', 'prefix': '5.2.1', 'dot_count': 2, 'depth': 3, 'head': '5.2.1', 'content': '5.2.1 现有砌体房屋的高度和层数应符合下列要求:'},目录为['5.2.1 现有砌体房屋的高度和层数应符合下列要求:', '', [['5 多层砌体房屋', 'Chapter 5 Multi-story Masonry Buildings'], ['5.2 A 类砌体房屋抗震鉴定', '5.2 Seismic Appraisal of Category A Buildings'], ['(I) 第一级鉴定', '']]]
+INFO - 目前ftmp为{'type': 'number', 'prefix': '5.2.8', 'dot_count': 2, 'depth': 3, 'head': '5.2.8', 'content': '5.2.8'},目录为['5.2.8', '', [['5 多层砌体房屋', 'Chapter 5 Multi-story Masonry Buildings'], ['5.2 A 类砌体房屋抗震鉴定', '5.2 Seismic Appraisal of Category A Buildings'], ['(I) 第一级鉴定', '']]]
 INFO - 当前处理的行为{'type': 'number', 'prefix': '5.2.9', 'dot_count': 2, 'depth': 3, 'head': '5.2.9', 'content': '5.2.9'}
 INFO - isChild为None
-INFO - 同级标题差距太大，猜测是标题错误或为注释，作为正文加入当前分块
 INFO - 匹配到<re.Match object; span=(0, 2), match='1 '>
-INFO - 目前ftmp为{'type': 'number', 'prefix': '5.2.1', 'dot_count': 2, 'depth': 3, 'head': '5.2.1', 'content': '5.2.1 现有砌体房屋的高度和层数应符合下列要求:'},目录为['5.2.1 现有砌体房屋的高度和层数应符合下列要求:', '', [['5 多层砌体房屋', 'Chapter 5 Multi-story Masonry Buildings'], ['5.2 A 类砌体房屋抗震鉴定', '5.2 Seismic Appraisal of Category A Buildings'], ['(I) 第一级鉴定', '']]]
+INFO - 目前ftmp为{'type': 'number', 'prefix': '5.2.9', 'dot_count': 2, 'depth': 3, 'head': '5.2.9', 'content': '5.2.9'},目录为['5.2.9', '', [['5 多层砌体房屋', 'Chapter 5 Multi-story Masonry Buildings'], ['5.2 A 类砌体房屋抗震鉴定', '5.2 Seismic Appraisal of Category A Buildings'], ['(I) 第一级鉴定', '']]]
 INFO - 当前处理的行为{'type': 'number', 'prefix': '1', 'dot_count': 0, 'depth': 0, 'head': '1', 'content': '1'}
 INFO - isChild为<re.Match object; span=(0, 1), match='1'>
 INFO - 标题层次重复，直接作为正文
@@ -1253,12 +1216,12 @@ INFO - while循环中检查下一个元素: stmp={'type': 'number', 'prefix': '5
 INFO - tmpcode=292, lastcode=51
 INFO - 所有条件都不满足，执行break
 INFO - 匹配到<re.Match object; span=(0, 7), match='5.2.10 '>
-INFO - 目前ftmp为{'type': 'number', 'prefix': '5.2.1', 'dot_count': 2, 'depth': 3, 'head': '5.2.1', 'content': '5.2.1 现有砌体房屋的高度和层数应符合下列要求:'},目录为['5.2.1 现有砌体房屋的高度和层数应符合下列要求:', '', [['5 多层砌体房屋', 'Chapter 5 Multi-story Masonry Buildings'], ['5.2 A 类砌体房屋抗震鉴定', '5.2 Seismic Appraisal of Category A Buildings'], ['(I) 第一级鉴定', '']]]
+INFO - 目前ftmp为{'type': 'number', 'prefix': '5.2.9', 'dot_count': 2, 'depth': 3, 'head': '5.2.9', 'content': '5.2.9'},目录为['5.2.9', '', [['5 多层砌体房屋', 'Chapter 5 Multi-story Masonry Buildings'], ['5.2 A 类砌体房屋抗震鉴定', '5.2 Seismic Appraisal of Category A Buildings'], ['(I) 第一级鉴定', '']]]
 INFO - 当前处理的行为{'type': 'number', 'prefix': '5.2.10', 'dot_count': 2, 'depth': 3, 'head': '5.2.10', 'content': '5.2.10'}
 INFO - isChild为None
 INFO - 同级标题差距太大，猜测是标题错误或为注释，作为正文加入当前分块
 INFO - 匹配到<re.Match object; span=(0, 2), match='1 '>
-INFO - 目前ftmp为{'type': 'number', 'prefix': '5.2.1', 'dot_count': 2, 'depth': 3, 'head': '5.2.1', 'content': '5.2.1 现有砌体房屋的高度和层数应符合下列要求:'},目录为['5.2.1 现有砌体房屋的高度和层数应符合下列要求:', '', [['5 多层砌体房屋', 'Chapter 5 Multi-story Masonry Buildings'], ['5.2 A 类砌体房屋抗震鉴定', '5.2 Seismic Appraisal of Category A Buildings'], ['(I) 第一级鉴定', '']]]
+INFO - 目前ftmp为{'type': 'number', 'prefix': '5.2.9', 'dot_count': 2, 'depth': 3, 'head': '5.2.9', 'content': '5.2.9'},目录为['5.2.9', '', [['5 多层砌体房屋', 'Chapter 5 Multi-story Masonry Buildings'], ['5.2 A 类砌体房屋抗震鉴定', '5.2 Seismic Appraisal of Category A Buildings'], ['(I) 第一级鉴定', '']]]
 INFO - 当前处理的行为{'type': 'number', 'prefix': '1', 'dot_count': 0, 'depth': 0, 'head': '1', 'content': '1'}
 INFO - isChild为<re.Match object; span=(0, 1), match='1'>
 INFO - 标题层次重复，直接作为正文
@@ -1285,61 +1248,157 @@ INFO - while循环中检查下一个元素: stmp={'type': 'number', 'prefix': '5
 INFO - tmpcode=293, lastcode=52
 INFO - 所有条件都不满足，执行break
 INFO - 匹配到<re.Match object; span=(0, 7), match='5.2.11 '>
-INFO - 目前ftmp为{'type': 'number', 'prefix': '5.2.1', 'dot_count': 2, 'depth': 3, 'head': '5.2.1', 'content': '5.2.1 现有砌体房屋的高度和层数应符合下列要求:'},目录为['5.2.1 现有砌体房屋的高度和层数应符合下列要求:', '', [['5 多层砌体房屋', 'Chapter 5 Multi-story Masonry Buildings'], ['5.2 A 类砌体房屋抗震鉴定', '5.2 Seismic Appraisal of Category A Buildings'], ['(I) 第一级鉴定', '']]]
+INFO - 目前ftmp为{'type': 'number', 'prefix': '5.2.9', 'dot_count': 2, 'depth': 3, 'head': '5.2.9', 'content': '5.2.9'},目录为['5.2.9', '', [['5 多层砌体房屋', 'Chapter 5 Multi-story Masonry Buildings'], ['5.2 A 类砌体房屋抗震鉴定', '5.2 Seismic Appraisal of Category A Buildings'], ['(I) 第一级鉴定', '']]]
 INFO - 当前处理的行为{'type': 'number', 'prefix': '5.2.11', 'dot_count': 2, 'depth': 3, 'head': '5.2.11', 'content': '5.2.11'}
 INFO - isChild为None
 INFO - 同级标题差距太大，猜测是标题错误或为注释，作为正文加入当前分块
 INFO - 匹配到<re.Match object; span=(0, 7), match='5.2.12 '>
-INFO - 目前ftmp为{'type': 'number', 'prefix': '5.2.1', 'dot_count': 2, 'depth': 3, 'head': '5.2.1', 'content': '5.2.1 现有砌体房屋的高度和层数应符合下列要求:'},目录为['5.2.1 现有砌体房屋的高度和层数应符合下列要求:', '', [['5 多层砌体房屋', 'Chapter 5 Multi-story Masonry Buildings'], ['5.2 A 类砌体房屋抗震鉴定', '5.2 Seismic Appraisal of Category A Buildings'], ['(I) 第一级鉴定', '']]]
+INFO - 目前ftmp为{'type': 'number', 'prefix': '5.2.9', 'dot_count': 2, 'depth': 3, 'head': '5.2.9', 'content': '5.2.9'},目录为['5.2.9', '', [['5 多层砌体房屋', 'Chapter 5 Multi-story Masonry Buildings'], ['5.2 A 类砌体房屋抗震鉴定', '5.2 Seismic Appraisal of Category A Buildings'], ['(I) 第一级鉴定', '']]]
 INFO - 当前处理的行为{'type': 'number', 'prefix': '5.2.12', 'dot_count': 2, 'depth': 3, 'head': '5.2.12', 'content': '5.2.12'}
 INFO - isChild为None
 INFO - 同级标题差距太大，猜测是标题错误或为注释，作为正文加入当前分块
 INFO - 匹配到<re.Match object; span=(0, 7), match='5.2.13 '>
-INFO - 目前ftmp为{'type': 'number', 'prefix': '5.2.1', 'dot_count': 2, 'depth': 3, 'head': '5.2.1', 'content': '5.2.1 现有砌体房屋的高度和层数应符合下列要求:'},目录为['5.2.1 现有砌体房屋的高度和层数应符合下列要求:', '', [['5 多层砌体房屋', 'Chapter 5 Multi-story Masonry Buildings'], ['5.2 A 类砌体房屋抗震鉴定', '5.2 Seismic Appraisal of Category A Buildings'], ['(I) 第一级鉴定', '']]]
+INFO - 目前ftmp为{'type': 'number', 'prefix': '5.2.9', 'dot_count': 2, 'depth': 3, 'head': '5.2.9', 'content': '5.2.9'},目录为['5.2.9', '', [['5 多层砌体房屋', 'Chapter 5 Multi-story Masonry Buildings'], ['5.2 A 类砌体房屋抗震鉴定', '5.2 Seismic Appraisal of Category A Buildings'], ['(I) 第一级鉴定', '']]]
 INFO - 当前处理的行为{'type': 'number', 'prefix': '5.2.13', 'dot_count': 2, 'depth': 3, 'head': '5.2.13', 'content': '5.2.13 现有结构体系、整体性连接和易引起倒塌的部位符合第'}
 INFO - isChild为None
 INFO - 同级标题差距太大，猜测是标题错误或为注释，作为正文加入当前分块
 INFO - 匹配到<re.Match object; span=(0, 80), match='一级鉴定要求，但横墙间距和房屋宽度均超过或其中一项超过第一级鉴定限值的房屋，可采用楼层平均抗震能力>
-INFO - 目前ftmp为{'type': 'number', 'prefix': '5.2.1', 'dot_count': 2, 'depth': 3, 'head': '5.2.1', 'content': '5.2.1 现有砌体房屋的高度和层数应符合下列要求:'},目录为['5.2.1 现有砌体房屋的高度和层数应符合下列要求:', '', [['5 多层砌体房屋', 'Chapter 5 Multi-story Masonry Buildings'], ['5.2 A 类砌体房屋抗震鉴定', '5.2 Seismic Appraisal of Category A Buildings'], ['(I) 第一级鉴定', '']]]
+INFO - 目前ftmp为{'type': 'number', 'prefix': '5.2.9', 'dot_count': 2, 'depth': 3, 'head': '5.2.9', 'content': '5.2.9'},目录为['5.2.9', '', [['5 多层砌体房屋', 'Chapter 5 Multi-story Masonry Buildings'], ['5.2 A 类砌体房屋抗震鉴定', '5.2 Seismic Appraisal of Category A Buildings'], ['(I) 第一级鉴定', '']]]
 INFO - 当前处理的行为{'type': 'cn_number', 'prefix': '一', 'dot_count': 0, 'depth': None, 'head': '一级鉴定要求，但横墙间距和房屋宽度均超过或其中一项超过第一级鉴定限值的房屋，可采用楼层平均抗震能力指数方法进行第二级鉴定。楼层平均抗震能力指数应按下式计算：', 'content': '一级鉴定要求，但横墙间距和房屋宽度均超过或其中一项超过第一级鉴定限值的房屋，可采用楼层平均抗震能力指数方法进行第二级鉴定。楼层平均抗震能力指数应按下式计算：\n\n$$'}
 INFO - 匹配到<re.Match object; span=(0, 7), match='5.2.14 '>
-INFO - 目前ftmp为{'type': 'cn_number', 'prefix': '一', 'dot_count': 0, 'depth': 4, 'head': '一级鉴定要求，但横墙间距和房屋宽度均超过或其中一项超过第一级鉴定限值的房屋，可采用楼层平均抗震能力指数方法进行第二级鉴定。楼层平均抗震能力指数应按下式计算：', 'content': '一级鉴定要求，但横墙间距和房屋宽度均超过或其中一项超过第一级鉴定限值的房屋，可采用楼层平均抗震能力指数方法进行第二级鉴定。楼层平均抗震能力指数应按下式计算：\n\n$$'},目录为['一级鉴定要求，但横墙间距和房屋宽度均超过或其中一项超过第一级鉴定限值的房屋，可采用楼层平均抗震能力指数方法进行第二级鉴定。楼层平均抗震能力指数应按下式计算：\n\n$$', '', [['5 多层砌体房屋', 'Chapter 5 Multi-story Masonry Buildings'], ['5.2 A 类砌体房屋抗震鉴定', '5.2 Seismic Appraisal of Category A Buildings'], ['(I) 第一级鉴定', ''], ['5.2.1 现有砌体房屋的高度和层数应符合下列要求:', '']]]
+INFO - 目前ftmp为{'type': 'cn_number', 'prefix': '一', 'dot_count': 0, 'depth': 4, 'head': '一级鉴定要求，但横墙间距和房屋宽度均超过或其中一项超过第一级鉴定限值的房屋，可采用楼层平均抗震能力指数方法进行第二级鉴定。楼层平均抗震能力指数应按下式计算：', 'content': '一级鉴定要求，但横墙间距和房屋宽度均超过或其中一项超过第一级鉴定限值的房屋，可采用楼层平均抗震能力指数方法进行第二级鉴定。楼层平均抗震能力指数应按下式计算：\n\n$$'},目录为['一级鉴定要求，但横墙间距和房屋宽度均超过或其中一项超过第一级鉴定限值的房屋，可采用楼层平均抗震能力指数方法进行第二级鉴定。楼层平均抗震能力指数应按下式计算：\n\n$$', '', [['5 多层砌体房屋', 'Chapter 5 Multi-story Masonry Buildings'], ['5.2 A 类砌体房屋抗震鉴定', '5.2 Seismic Appraisal of Category A Buildings'], ['(I) 第一级鉴定', ''], ['5.2.9', '']]]
 INFO - 当前处理的行为{'type': 'number', 'prefix': '5.2.14', 'dot_count': 2, 'depth': 3, 'head': '5.2.14', 'content': '5.2.14'}
+WARNING - 可能新加切片5.2.14 现有结构体系、楼（屋）盖整体性连接、圈梁布置和构造及易引起局部倒塌的结构构件不符合第一级鉴定要求的房屋，可采用楼层综合抗震能力指数方法进行第二级鉴定，并应符合下列规定：的序号层级过低或一级鉴定要求，但横墙间距和房屋宽度均超过或其中一项超过第一级鉴定限值的房屋，可采用楼层平均抗震能力指数方法进行第二级鉴定。楼层平均抗震能力指数应按下式计算：
+
+$$
+\beta _ { i } = A _ { i } / ( A _ { \mathrm { b i } } \xi _ { 0 i } \lambda )
+$$
+
+式中 $\beta_{i}$ ——第 $i$ 楼层纵向或横向墙体平均抗震能力指数；
+$A_{i}$——第$i$楼层纵向或横向抗震墙在层高1/2处净截面积的总面积，其中不包括高宽比大于4的墙段截面面积；
+$A_{bi}$——第$i$楼层建筑平面面积；
+$\xi_{0i}$——第$i$楼层纵向或横向抗震墙的基准面积率，按本标准附录B采用；
+$\lambda$——烈度影响系数；6、7、8、9度时，分别按0.7、1.0、1.5和2.5采用，设计基本地震加速度为0.15g和0.30g，分别按1.25和2.0采用。当地处于本标准第4.1.3条规定的不利地段时，尚应乘以增大系数1.1\~1.6。与新加切片同级的父标题没有被识别出来或误在开头字符中加入了空格，请检查正文，暂且将该序号加入正文中
 INFO - 匹配到<re.Match object; span=(0, 2), match='1 '>
-INFO - 目前ftmp为{'type': 'number', 'prefix': '5.2.14', 'dot_count': 2, 'depth': 3, 'head': '5.2.14', 'content': '5.2.14'},目录为['5.2.14', '', [['5 多层砌体房屋', 'Chapter 5 Multi-story Masonry Buildings'], ['5.2 A 类砌体房屋抗震鉴定', '5.2 Seismic Appraisal of Category A Buildings'], ['(I) 第一级鉴定', ''], ['5.2.1 现有砌体房屋的高度和层数应符合下列要求:', '']]]
+INFO - 目前ftmp为{'type': 'cn_number', 'prefix': '一', 'dot_count': 0, 'depth': 4, 'head': '一级鉴定要求，但横墙间距和房屋宽度均超过或其中一项超过第一级鉴定限值的房屋，可采用楼层平均抗震能力指数方法进行第二级鉴定。楼层平均抗震能力指数应按下式计算：', 'content': '一级鉴定要求，但横墙间距和房屋宽度均超过或其中一项超过第一级鉴定限值的房屋，可采用楼层平均抗震能力指数方法进行第二级鉴定。楼层平均抗震能力指数应按下式计算：\n\n$$'},目录为['一级鉴定要求，但横墙间距和房屋宽度均超过或其中一项超过第一级鉴定限值的房屋，可采用楼层平均抗震能力指数方法进行第二级鉴定。楼层平均抗震能力指数应按下式计算：\n\n$$', '', [['5 多层砌体房屋', 'Chapter 5 Multi-story Masonry Buildings'], ['5.2 A 类砌体房屋抗震鉴定', '5.2 Seismic Appraisal of Category A Buildings'], ['(I) 第一级鉴定', ''], ['5.2.9', '']]]
 INFO - 当前处理的行为{'type': 'number', 'prefix': '1', 'dot_count': 0, 'depth': 0, 'head': '1', 'content': '1 楼层综合抗震能力指数应按下式计算:'}
-INFO - isChild为<re.Match object; span=(0, 1), match='1'>
-INFO - 标题层次重复，直接作为正文
+INFO - 可能新加切片1 楼层综合抗震能力指数应按下式计算:
+
+$$
+\beta _ { c i } = \psi _ { 1 } \psi _ { 2 } \beta _ { i }
+$$
+
+式中 $\beta_{c i}$ ——第 $i$ 楼层的纵向或横向墙体综合抗震能力指数；
+$\phi_{1}$ ——体系影响系数，可按本条第 2 款确定；
+$\phi_{2}$ ——局部影响系数，可按本条第 3 款确定。的序号在父标题中出现过或层级太低，作为正文处理。
 INFO - 匹配到<re.Match object; span=(0, 2), match='2 '>
-INFO - while循环中检查下一个元素: stmp={'type': 'number', 'prefix': '2', 'dot_count': 0, 'depth': None, 'head': '2', 'content': '2'}, tmp={'type': 'number', 'prefix': '1', 'dot_count': 0, 'depth': 0, 'head': '1', 'content': '1 楼层综合抗震能力指数应按下式计算:'}
-INFO - tmpcode=50, lastcode=49
-INFO - 类型和dot_count相同，检查tmpcode条件
-INFO - tmpcode == lastcode + 1，继续循环
-INFO - while循环中检查下一个元素: stmp={'type': 'content', 'prefix': '', 'dot_count': 0, 'depth': None, 'content': '系数；乙类设防的房屋，当构造柱或芯柱不符合规定时，尚应乘以 0.8\\~0.95 的系数。'}, tmp={'type': 'number', 'prefix': '1', 'dot_count': 0, 'depth': 0, 'head': '1', 'content': '1 楼层综合抗震能力指数应按下式计算:'}
-INFO - tmpcode=0, lastcode=50
 INFO - 匹配到<re.Match object; span=(0, 2), match='3 '>
-INFO - while循环中检查下一个元素: stmp={'type': 'number', 'prefix': '3', 'dot_count': 0, 'depth': None, 'head': '3', 'content': '3'}, tmp={'type': 'number', 'prefix': '1', 'dot_count': 0, 'depth': 0, 'head': '1', 'content': '1 楼层综合抗震能力指数应按下式计算:'}
-INFO - tmpcode=51, lastcode=50
-INFO - 类型和dot_count相同，检查tmpcode条件
-INFO - tmpcode == lastcode + 1，继续循环
-INFO - while循环中检查下一个元素: stmp={'type': 'content', 'prefix': '', 'dot_count': 0, 'depth': None, 'content': '表 5.2.14-1 体系影响系数值\n\n<table><tr><th>项目</th><th>不符合的程度</th><th>$\\psi_1$</th><th>影响范围</th></tr><tr><td>房屋高宽比 $\\eta$</td><td>2.2<&eta;2.6<br>2.6<&eta;3.0</td><td>0.85<br>0.75</td><td>上部 1/3 楼层<br>上部 1/3 楼层</td></tr><tr><td>横墙间距</td><td>超过表 5.2.2 最大值<br>4m 以内</td><td>0.90<br>1.00</td><td>楼层的 $\\beta_{cij}$<br>墙段的 $\\beta_{cij}$</td></tr><tr><td>错层高度</td><td>&gt;0.5m</td><td>0.90</td><td>错层上下</td></tr><tr><td>立面高度变化</td><td>超过一层</td><td>0.90</td><td>所有变化的楼层</td></tr><tr><td>相邻楼层的墙体<br>刚度比 $\\lambda$</td><td>2<&lambda;3<&lambda;3<&lambda;3</td><td>0.85<br>0.75</td><td>刚度小的楼层<br>刚度小的楼层</td></tr><tr><td>楼盖、屋盖构件的<br>支承长度</td><td>比规定少 15%以内<br>比规定少 15%~25%</td><td>0.90<br>0.80</td><td>不满足的楼层<br>不满足的楼层</td></tr><tr><td>圈梁布置和构造</td><td>屋盖外墙不符合<br>楼盖外墙一道不符合<br>楼盖外墙二道不符合<br>内墙不符合</td><td>0.70<br>0.90<br>0.80</td><td>顶层<br>缺圈梁的上、下楼层<br>所有楼层<br>不满足的上、下楼层</td></tr></table>\n\n注：单项不符合的程度超过表内规定或不符合的项目超过3 项时，应采取加固或 其他相应措施。'}, tmp={'type': 'number', 'prefix': '1', 'dot_count': 0, 'depth': 0, 'head': '1', 'content': '1 楼层综合抗震能力指数应按下式计算:'}
-INFO - tmpcode=0, lastcode=51
-INFO - while循环中检查下一个元素: stmp={'type': 'content', 'prefix': '', 'dot_count': 0, 'depth': None, 'content': '表 5.2.14-2 局部影响系数值\n\n<table><tr><td>项目</td><td>不符合的程度</td><td>φ<sub>2</sub></td><td>影响范围</td></tr><tr><td>墙体局部尺寸</td><td>比规定少10%以内<br>比规定少10%~20%</td><td>0.95<br>0.90</td><td>不满足的楼层<br>不满足的楼层</td></tr><tr><td>楼梯间等大梁<br>的支承长度l</td><td>370mm<1l<490mm</td><td>0.80<br>0.70</td><td>该楼层的β<sub>cij</sub>该墙段的β<sub>cij</sub></td></tr><tr><td colspan="2">出屋面小房间</td><td>0.33</td><td>出屋面小房间</td></tr><tr><td colspan="2">支承悬挑结构构件的承重墙体</td><td>0.80</td><td>该楼层和墙段</td></tr><tr><td colspan="2">房屋尽端设过街楼或楼梯间</td><td>0.80</td><td>该楼层和墙段</td></tr><tr><td rowspan="2">有独立砌体柱承重的房屋</td><td>柱顶有拉结</td><td>0.80</td><td>楼层、柱两侧相邻墙段</td></tr><tr><td>柱顶无拉结</td><td>0.60</td><td>楼层、柱两侧相邻墙段</td></tr></table>\n\n注：不符合的程度超过表内规定时，应采取加固或其他相应措施。'}, tmp={'type': 'number', 'prefix': '1', 'dot_count': 0, 'depth': 0, 'head': '1', 'content': '1 楼层综合抗震能力指数应按下式计算:'}
-INFO - tmpcode=0, lastcode=51
 INFO - 匹配到<re.Match object; span=(0, 7), match='5.2.15 '>
-INFO - while循环中检查下一个元素: stmp={'type': 'number', 'prefix': '5.2.15', 'dot_count': 2, 'depth': None, 'head': '5.2.15', 'content': '5.2.15'}, tmp={'type': 'number', 'prefix': '1', 'dot_count': 0, 'depth': 0, 'head': '1', 'content': '1 楼层综合抗震能力指数应按下式计算:'}
-INFO - tmpcode=297, lastcode=51
-INFO - 所有条件都不满足，执行break
 INFO - 匹配到<re.Match object; span=(0, 7), match='5.2.15 '>
-INFO - 目前ftmp为{'type': 'number', 'prefix': '5.2.14', 'dot_count': 2, 'depth': 3, 'head': '5.2.14', 'content': '5.2.14'},目录为['5.2.14', '', [['5 多层砌体房屋', 'Chapter 5 Multi-story Masonry Buildings'], ['5.2 A 类砌体房屋抗震鉴定', '5.2 Seismic Appraisal of Category A Buildings'], ['(I) 第一级鉴定', ''], ['5.2.1 现有砌体房屋的高度和层数应符合下列要求:', '']]]
+INFO - 目前ftmp为{'type': 'cn_number', 'prefix': '一', 'dot_count': 0, 'depth': 4, 'head': '一级鉴定要求，但横墙间距和房屋宽度均超过或其中一项超过第一级鉴定限值的房屋，可采用楼层平均抗震能力指数方法进行第二级鉴定。楼层平均抗震能力指数应按下式计算：', 'content': '一级鉴定要求，但横墙间距和房屋宽度均超过或其中一项超过第一级鉴定限值的房屋，可采用楼层平均抗震能力指数方法进行第二级鉴定。楼层平均抗震能力指数应按下式计算：\n\n$$'},目录为['一级鉴定要求，但横墙间距和房屋宽度均超过或其中一项超过第一级鉴定限值的房屋，可采用楼层平均抗震能力指数方法进行第二级鉴定。楼层平均抗震能力指数应按下式计算：\n\n$$', '', [['5 多层砌体房屋', 'Chapter 5 Multi-story Masonry Buildings'], ['5.2 A 类砌体房屋抗震鉴定', '5.2 Seismic Appraisal of Category A Buildings'], ['(I) 第一级鉴定', ''], ['5.2.9', '']]]
 INFO - 当前处理的行为{'type': 'number', 'prefix': '5.2.15', 'dot_count': 2, 'depth': 3, 'head': '5.2.15', 'content': '5.2.15'}
-INFO - isChild为None
+WARNING - 可能新加切片5.2.15 实际横墙间距超过刚性体系规定的最大值、有明显扭转效应和易引起局部倒塌的结构构件不符合第一级鉴定要求的房屋, 当最弱的楼层综合抗震能力指数小于 1.0 时, 可采用墙段综合抗震能力指数方法进行第二级鉴定。墙段综合抗震能力指数应按下式计算:
+
+$$
+\beta _ { c i j } = \psi _ { 1 } \psi _ { 2 } \beta _ { i j }
+$$
+
+$$
+\beta _ { i j } = A _ { i j } / ( A _ { b i j } \xi _ { 0 i } \lambda )
+$$
+
+其中 $\beta_{ij}$ ——第 $i$ 层第 $j$ 墙段综合抗震能力指数；
+$\beta_{ij}$ ——第 $i$ 层第 $j$ 墙段抗震能力指数；
+$A_{ij}$ ——第 $i$ 层第 $j$ 墙段在 $1/2$ 层高处的净截面面积；
+$A_{bj}$ ——第 $i$ 层第 $j$ 墙段计及楼盖刚度影响的从属面积。
+注：考虑扭转效应时，式（5.2.15-1）中尚应包括扭转效应系数，其值可按现行国家标准《建筑抗震设计规范》GB 50011 的规定，取该墙段不考虑与考虑扭转时的内力比。的序号层级过低或一级鉴定要求，但横墙间距和房屋宽度均超过或其中一项超过第一级鉴定限值的房屋，可采用楼层平均抗震能力指数方法进行第二级鉴定。楼层平均抗震能力指数应按下式计算：
+
+$$
+\beta _ { i } = A _ { i } / ( A _ { \mathrm { b i } } \xi _ { 0 i } \lambda )
+$$
+
+式中 $\beta_{i}$ ——第 $i$ 楼层纵向或横向墙体平均抗震能力指数；
+$A_{i}$——第$i$楼层纵向或横向抗震墙在层高1/2处净截面积的总面积，其中不包括高宽比大于4的墙段截面面积；
+$A_{bi}$——第$i$楼层建筑平面面积；
+$\xi_{0i}$——第$i$楼层纵向或横向抗震墙的基准面积率，按本标准附录B采用；
+$\lambda$——烈度影响系数；6、7、8、9度时，分别按0.7、1.0、1.5和2.5采用，设计基本地震加速度为0.15g和0.30g，分别按1.25和2.0采用。当地处于本标准第4.1.3条规定的不利地段时，尚应乘以增大系数1.1\~1.6。
+5.2.14 现有结构体系、楼（屋）盖整体性连接、圈梁布置和构造及易引起局部倒塌的结构构件不符合第一级鉴定要求的房屋，可采用楼层综合抗震能力指数方法进行第二级鉴定，并应符合下列规定：
+1 楼层综合抗震能力指数应按下式计算:
+
+$$
+\beta _ { c i } = \psi _ { 1 } \psi _ { 2 } \beta _ { i }
+$$
+
+式中 $\beta_{c i}$ ——第 $i$ 楼层的纵向或横向墙体综合抗震能力指数；
+$\phi_{1}$ ——体系影响系数，可按本条第 2 款确定；
+$\phi_{2}$ ——局部影响系数，可按本条第 3 款确定。
+2 体系影响系数可根据房屋不规则性、非刚性和整体性连接不符合第一级鉴定要求的程度, 经综合分析后确定; 也可由表 5.2.14-1 各项系数的乘积确定。当砖砌体的砂浆强度等级为 M0.4 时, 尚应乘以 0.9; 丙类设防的房屋当有构造柱或芯柱时, 尚可根据满足本标准第 5.3 节相关规定的程度乘以 1.0\~1.2 的
+系数；乙类设防的房屋，当构造柱或芯柱不符合规定时，尚应乘以 0.8\~0.95 的系数。
+3 局部影响系数可根据易引起局部倒塌各部位不符合第一级鉴定要求的程度，经综合分析后确定；也可由表 5.2.14-2 各项系数中的最小值确定。
+表 5.2.14-1 体系影响系数值
+
+<table><tr><th>项目</th><th>不符合的程度</th><th>$\psi_1$</th><th>影响范围</th></tr><tr><td>房屋高宽比 $\eta$</td><td>2.2<&eta;2.6<br>2.6<&eta;3.0</td><td>0.85<br>0.75</td><td>上部 1/3 楼层<br>上部 1/3 楼层</td></tr><tr><td>横墙间距</td><td>超过表 5.2.2 最大值<br>4m 以内</td><td>0.90<br>1.00</td><td>楼层的 $\beta_{cij}$<br>墙段的 $\beta_{cij}$</td></tr><tr><td>错层高度</td><td>&gt;0.5m</td><td>0.90</td><td>错层上下</td></tr><tr><td>立面高度变化</td><td>超过一层</td><td>0.90</td><td>所有变化的楼层</td></tr><tr><td>相邻楼层的墙体<br>刚度比 $\lambda$</td><td>2<&lambda;3<&lambda;3<&lambda;3</td><td>0.85<br>0.75</td><td>刚度小的楼层<br>刚度小的楼层</td></tr><tr><td>楼盖、屋盖构件的<br>支承长度</td><td>比规定少 15%以内<br>比规定少 15%~25%</td><td>0.90<br>0.80</td><td>不满足的楼层<br>不满足的楼层</td></tr><tr><td>圈梁布置和构造</td><td>屋盖外墙不符合<br>楼盖外墙一道不符合<br>楼盖外墙二道不符合<br>内墙不符合</td><td>0.70<br>0.90<br>0.80</td><td>顶层<br>缺圈梁的上、下楼层<br>所有楼层<br>不满足的上、下楼层</td></tr></table>
+
+注：单项不符合的程度超过表内规定或不符合的项目超过3 项时，应采取加固或 其他相应措施。
+表 5.2.14-2 局部影响系数值
+
+<table><tr><td>项目</td><td>不符合的程度</td><td>φ<sub>2</sub></td><td>影响范围</td></tr><tr><td>墙体局部尺寸</td><td>比规定少10%以内<br>比规定少10%~20%</td><td>0.95<br>0.90</td><td>不满足的楼层<br>不满足的楼层</td></tr><tr><td>楼梯间等大梁<br>的支承长度l</td><td>370mm<1l<490mm</td><td>0.80<br>0.70</td><td>该楼层的β<sub>cij</sub>该墙段的β<sub>cij</sub></td></tr><tr><td colspan="2">出屋面小房间</td><td>0.33</td><td>出屋面小房间</td></tr><tr><td colspan="2">支承悬挑结构构件的承重墙体</td><td>0.80</td><td>该楼层和墙段</td></tr><tr><td colspan="2">房屋尽端设过街楼或楼梯间</td><td>0.80</td><td>该楼层和墙段</td></tr><tr><td rowspan="2">有独立砌体柱承重的房屋</td><td>柱顶有拉结</td><td>0.80</td><td>楼层、柱两侧相邻墙段</td></tr><tr><td>柱顶无拉结</td><td>0.60</td><td>楼层、柱两侧相邻墙段</td></tr></table>
+
+注：不符合的程度超过表内规定时，应采取加固或其他相应措施。与新加切片同级的父标题没有被识别出来或误在开头字符中加入了空格，请检查正文，暂且将该序号加入正文中
 INFO - 匹配到<re.Match object; span=(0, 7), match='5.2.16 '>
-INFO - 目前ftmp为{'type': 'number', 'prefix': '5.2.15', 'dot_count': 2, 'depth': 3, 'head': '5.2.15', 'content': '5.2.15'},目录为['5.2.15', '', [['5 多层砌体房屋', 'Chapter 5 Multi-story Masonry Buildings'], ['5.2 A 类砌体房屋抗震鉴定', '5.2 Seismic Appraisal of Category A Buildings'], ['(I) 第一级鉴定', ''], ['5.2.1 现有砌体房屋的高度和层数应符合下列要求:', '']]]
+INFO - 目前ftmp为{'type': 'cn_number', 'prefix': '一', 'dot_count': 0, 'depth': 4, 'head': '一级鉴定要求，但横墙间距和房屋宽度均超过或其中一项超过第一级鉴定限值的房屋，可采用楼层平均抗震能力指数方法进行第二级鉴定。楼层平均抗震能力指数应按下式计算：', 'content': '一级鉴定要求，但横墙间距和房屋宽度均超过或其中一项超过第一级鉴定限值的房屋，可采用楼层平均抗震能力指数方法进行第二级鉴定。楼层平均抗震能力指数应按下式计算：\n\n$$'},目录为['一级鉴定要求，但横墙间距和房屋宽度均超过或其中一项超过第一级鉴定限值的房屋，可采用楼层平均抗震能力指数方法进行第二级鉴定。楼层平均抗震能力指数应按下式计算：\n\n$$', '', [['5 多层砌体房屋', 'Chapter 5 Multi-story Masonry Buildings'], ['5.2 A 类砌体房屋抗震鉴定', '5.2 Seismic Appraisal of Category A Buildings'], ['(I) 第一级鉴定', ''], ['5.2.9', '']]]
 INFO - 当前处理的行为{'type': 'number', 'prefix': '5.2.16', 'dot_count': 2, 'depth': 3, 'head': '5.2.16', 'content': '5.2.16'}
-INFO - isChild为None
+WARNING - 可能新加切片5.2.16 房屋的质量和刚度沿高度分布明显不均匀, 或 7、8、9度时房屋的层数分别超过六、五、三层, 可按本标准第 5.3 节的方法进行抗震承载力验算, 并可按本标准第 5.2.14 条的规定估算构造的影响, 由综合评定进行第二级鉴定。的序号层级过低或一级鉴定要求，但横墙间距和房屋宽度均超过或其中一项超过第一级鉴定限值的房屋，可采用楼层平均抗震能力指数方法进行第二级鉴定。楼层平均抗震能力指数应按下式计算：
+
+$$
+\beta _ { i } = A _ { i } / ( A _ { \mathrm { b i } } \xi _ { 0 i } \lambda )
+$$
+
+式中 $\beta_{i}$ ——第 $i$ 楼层纵向或横向墙体平均抗震能力指数；
+$A_{i}$——第$i$楼层纵向或横向抗震墙在层高1/2处净截面积的总面积，其中不包括高宽比大于4的墙段截面面积；
+$A_{bi}$——第$i$楼层建筑平面面积；
+$\xi_{0i}$——第$i$楼层纵向或横向抗震墙的基准面积率，按本标准附录B采用；
+$\lambda$——烈度影响系数；6、7、8、9度时，分别按0.7、1.0、1.5和2.5采用，设计基本地震加速度为0.15g和0.30g，分别按1.25和2.0采用。当地处于本标准第4.1.3条规定的不利地段时，尚应乘以增大系数1.1\~1.6。
+5.2.14 现有结构体系、楼（屋）盖整体性连接、圈梁布置和构造及易引起局部倒塌的结构构件不符合第一级鉴定要求的房屋，可采用楼层综合抗震能力指数方法进行第二级鉴定，并应符合下列规定：
+1 楼层综合抗震能力指数应按下式计算:
+
+$$
+\beta _ { c i } = \psi _ { 1 } \psi _ { 2 } \beta _ { i }
+$$
+
+式中 $\beta_{c i}$ ——第 $i$ 楼层的纵向或横向墙体综合抗震能力指数；
+$\phi_{1}$ ——体系影响系数，可按本条第 2 款确定；
+$\phi_{2}$ ——局部影响系数，可按本条第 3 款确定。
+2 体系影响系数可根据房屋不规则性、非刚性和整体性连接不符合第一级鉴定要求的程度, 经综合分析后确定; 也可由表 5.2.14-1 各项系数的乘积确定。当砖砌体的砂浆强度等级为 M0.4 时, 尚应乘以 0.9; 丙类设防的房屋当有构造柱或芯柱时, 尚可根据满足本标准第 5.3 节相关规定的程度乘以 1.0\~1.2 的
+系数；乙类设防的房屋，当构造柱或芯柱不符合规定时，尚应乘以 0.8\~0.95 的系数。
+3 局部影响系数可根据易引起局部倒塌各部位不符合第一级鉴定要求的程度，经综合分析后确定；也可由表 5.2.14-2 各项系数中的最小值确定。
+表 5.2.14-1 体系影响系数值
+
+<table><tr><th>项目</th><th>不符合的程度</th><th>$\psi_1$</th><th>影响范围</th></tr><tr><td>房屋高宽比 $\eta$</td><td>2.2<&eta;2.6<br>2.6<&eta;3.0</td><td>0.85<br>0.75</td><td>上部 1/3 楼层<br>上部 1/3 楼层</td></tr><tr><td>横墙间距</td><td>超过表 5.2.2 最大值<br>4m 以内</td><td>0.90<br>1.00</td><td>楼层的 $\beta_{cij}$<br>墙段的 $\beta_{cij}$</td></tr><tr><td>错层高度</td><td>&gt;0.5m</td><td>0.90</td><td>错层上下</td></tr><tr><td>立面高度变化</td><td>超过一层</td><td>0.90</td><td>所有变化的楼层</td></tr><tr><td>相邻楼层的墙体<br>刚度比 $\lambda$</td><td>2<&lambda;3<&lambda;3<&lambda;3</td><td>0.85<br>0.75</td><td>刚度小的楼层<br>刚度小的楼层</td></tr><tr><td>楼盖、屋盖构件的<br>支承长度</td><td>比规定少 15%以内<br>比规定少 15%~25%</td><td>0.90<br>0.80</td><td>不满足的楼层<br>不满足的楼层</td></tr><tr><td>圈梁布置和构造</td><td>屋盖外墙不符合<br>楼盖外墙一道不符合<br>楼盖外墙二道不符合<br>内墙不符合</td><td>0.70<br>0.90<br>0.80</td><td>顶层<br>缺圈梁的上、下楼层<br>所有楼层<br>不满足的上、下楼层</td></tr></table>
+
+注：单项不符合的程度超过表内规定或不符合的项目超过3 项时，应采取加固或 其他相应措施。
+表 5.2.14-2 局部影响系数值
+
+<table><tr><td>项目</td><td>不符合的程度</td><td>φ<sub>2</sub></td><td>影响范围</td></tr><tr><td>墙体局部尺寸</td><td>比规定少10%以内<br>比规定少10%~20%</td><td>0.95<br>0.90</td><td>不满足的楼层<br>不满足的楼层</td></tr><tr><td>楼梯间等大梁<br>的支承长度l</td><td>370mm<1l<490mm</td><td>0.80<br>0.70</td><td>该楼层的β<sub>cij</sub>该墙段的β<sub>cij</sub></td></tr><tr><td colspan="2">出屋面小房间</td><td>0.33</td><td>出屋面小房间</td></tr><tr><td colspan="2">支承悬挑结构构件的承重墙体</td><td>0.80</td><td>该楼层和墙段</td></tr><tr><td colspan="2">房屋尽端设过街楼或楼梯间</td><td>0.80</td><td>该楼层和墙段</td></tr><tr><td rowspan="2">有独立砌体柱承重的房屋</td><td>柱顶有拉结</td><td>0.80</td><td>楼层、柱两侧相邻墙段</td></tr><tr><td>柱顶无拉结</td><td>0.60</td><td>楼层、柱两侧相邻墙段</td></tr></table>
+
+注：不符合的程度超过表内规定时，应采取加固或其他相应措施。
+5.2.15 实际横墙间距超过刚性体系规定的最大值、有明显扭转效应和易引起局部倒塌的结构构件不符合第一级鉴定要求的房屋, 当最弱的楼层综合抗震能力指数小于 1.0 时, 可采用墙段综合抗震能力指数方法进行第二级鉴定。墙段综合抗震能力指数应按下式计算:
+
+$$
+\beta _ { c i j } = \psi _ { 1 } \psi _ { 2 } \beta _ { i j }
+$$
+
+$$
+\beta _ { i j } = A _ { i j } / ( A _ { b i j } \xi _ { 0 i } \lambda )
+$$
+
+其中 $\beta_{ij}$ ——第 $i$ 层第 $j$ 墙段综合抗震能力指数；
+$\beta_{ij}$ ——第 $i$ 层第 $j$ 墙段抗震能力指数；
+$A_{ij}$ ——第 $i$ 层第 $j$ 墙段在 $1/2$ 层高处的净截面面积；
+$A_{bj}$ ——第 $i$ 层第 $j$ 墙段计及楼盖刚度影响的从属面积。
+注：考虑扭转效应时，式（5.2.15-1）中尚应包括扭转效应系数，其值可按现行国家标准《建筑抗震设计规范》GB 50011 的规定，取该墙段不考虑与考虑扭转时的内力比。与新加切片同级的父标题没有被识别出来或误在开头字符中加入了空格，请检查正文，暂且将该序号加入正文中
 INFO - 匹配到<re.Match object; span=(0, 4), match='5.3 '>
-INFO - 目前ftmp为{'type': 'number', 'prefix': '5.2.16', 'dot_count': 2, 'depth': 3, 'head': '5.2.16', 'content': '5.2.16'},目录为['5.2.16', '', [['5 多层砌体房屋', 'Chapter 5 Multi-story Masonry Buildings'], ['5.2 A 类砌体房屋抗震鉴定', '5.2 Seismic Appraisal of Category A Buildings'], ['(I) 第一级鉴定', ''], ['5.2.1 现有砌体房屋的高度和层数应符合下列要求:', '']]]
+INFO - 目前ftmp为{'type': 'cn_number', 'prefix': '一', 'dot_count': 0, 'depth': 4, 'head': '一级鉴定要求，但横墙间距和房屋宽度均超过或其中一项超过第一级鉴定限值的房屋，可采用楼层平均抗震能力指数方法进行第二级鉴定。楼层平均抗震能力指数应按下式计算：', 'content': '一级鉴定要求，但横墙间距和房屋宽度均超过或其中一项超过第一级鉴定限值的房屋，可采用楼层平均抗震能力指数方法进行第二级鉴定。楼层平均抗震能力指数应按下式计算：\n\n$$'},目录为['一级鉴定要求，但横墙间距和房屋宽度均超过或其中一项超过第一级鉴定限值的房屋，可采用楼层平均抗震能力指数方法进行第二级鉴定。楼层平均抗震能力指数应按下式计算：\n\n$$', '', [['5 多层砌体房屋', 'Chapter 5 Multi-story Masonry Buildings'], ['5.2 A 类砌体房屋抗震鉴定', '5.2 Seismic Appraisal of Category A Buildings'], ['(I) 第一级鉴定', ''], ['5.2.9', '']]]
 INFO - 当前处理的行为{'type': 'number', 'prefix': '5.3', 'dot_count': 1, 'depth': 1, 'head': '5.3', 'content': '5.3 B类砌体房屋抗震鉴定'}
 INFO - 开始处理标题5.3 B 类砌体房屋抗震鉴定
 INFO - 匹配到<re.Match object; span=(0, 4), match='(I) '>

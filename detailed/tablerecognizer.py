@@ -901,7 +901,7 @@ def merge_chunk_through_outlines(article:Article,total_splits):
                                         i+=1
                                         continue
                                 else:
-                                    tmp_neighbor = chunks[-1].metadata['outline'][0]
+                                    tmp_neighbor = ftmp['head']
                                 if r'\s' in tmp_neighbor:
                                     neighbor_dir = extract_features(tmp_neighbor)
                                     tmp_neighbor = neighbor_dir['prefix']
