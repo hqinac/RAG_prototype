@@ -54,7 +54,8 @@ def extract_features(dir_str: str, usePlain = False) -> Dict:
                 dot_count = len(matches)-1
             else:
                 dot_count = len(matches)
-        head_match = re.match(r'^(.*\s+)[^\s]*$', dir_str)
+        p = re.compile(f'^({re.escape(prefix)}[^\s]*?\s+)')
+        head_match = p.match(dir_str)
         if head_match:
             head = head_match.group(1)
         else:
@@ -293,11 +294,14 @@ def extract_features(dir_str: str, usePlain = False) -> Dict:
 
 
 def checkcontent(head: str, content: str):
+    #logging.info(f"传入的head为{head}")
     tmphead = content[len(head):]
     tmphead = re.match(r"^(.*?)(?:\n|$)",tmphead)
     if tmphead:
         tmphead = tmphead.group(1)
-    tmp = re.search(r"\s+([,!?;。，！？；])(?=\n|$)",tmphead)
+    #logging.info(f"正则匹配后的tmphead为: '{tmphead}'")
+    tmp = re.search(r"\s*([,!?;。，！？；\s+]).*?(?=\n|$)",tmphead)
+    #logging.info(f"标点符号匹配结果tmp为: {tmp}")
     if tmp :
         return head.strip()
     return content[:len(head)+len(tmphead)+1].strip()
@@ -310,6 +314,7 @@ def infer_hierarchy(directories: List[str], en_outlines=[], useen = True):
     
     # 存储每个目录的层级（0为顶级）和父目录索引
     outlines = []
+    depths = []
     # 用栈记录可能的父目录（按层级从深到浅）
     parent_dic = {}
     pattern_tree = []
@@ -324,8 +329,8 @@ def infer_hierarchy(directories: List[str], en_outlines=[], useen = True):
     for i, features in enumerate(dir_features):
         logging.info(f"处理标题{features['content']}")
         if parent_dic == {}:
-            addoutline(features, i, [])
             features['depth']=0
+            addoutline(features, i, [])
             parent_dic = features
             pattern_tree.append([[features['type'], features['dot_count']]])
             continue
@@ -333,10 +338,11 @@ def infer_hierarchy(directories: List[str], en_outlines=[], useen = True):
         if features['type'] in ['plain','appendix','annex']:
             if [features['type'], features['dot_count']] not in pattern_tree[0]:
                 pattern_tree[0].append([features['type'], features['dot_count']])
-            addoutline(features, i, [])
             features['depth']=0
+            addoutline(features, i, [])
             parent_dic = features
             continue
+        #标题种类相同，点数区分点数层级（1,1.1）
         if features['type'] == parent_dic['type']:
             if features['dot_count'] == parent_dic['dot_count']:
                 features['depth'] = parent_dic['depth']
@@ -398,7 +404,7 @@ def infer_hierarchy(directories: List[str], en_outlines=[], useen = True):
                 if tmppattern in pattern_tree[parent_dic['depth']]:
                     pattern_tree[parent_dic['depth']].remove(tmppattern)
                 if len(pattern_tree) == parent_dic['depth']+1:
-                    pattern_tree.append(tmppattern)
+                    pattern_tree.append([tmppattern])
                     features['depth'] = parent_dic['depth']+1
                 else: 
                     exists = False
@@ -422,8 +428,32 @@ def infer_hierarchy(directories: List[str], en_outlines=[], useen = True):
                         break
             if features['depth'] != None:
                 continue
-            print(f"未识别标题{features['content']},上级标题为{parent_dic}，当前格式树为{pattern_tree}，检查原因")
-    return outlines, pattern_tree
+            logging.warning(f"未识别标题{features['content']},上级标题为{parent_dic}，当前格式树为{pattern_tree}，检查原因")
+
+    for i, outline in enumerate(outlines):
+        j = dir_features[i]['depth']
+        logging.debug(f"处理标题格式{[dir_features[i]['type'], dir_features[i]['dot_count']]}")
+        for patterns in pattern_tree[dir_features[i]['depth']:]:
+            if [dir_features[i]['type'], dir_features[i]['dot_count']] in patterns:
+                break
+            j+=1
+        logging.debug(f"{outline[0]}记录深度为{dir_features[i]['depth']},目前检测深度为{j}")
+        if j>dir_features[i]['depth']:
+            n=0
+            while n<j:
+                if n >= len(outline[2]):
+                    outline[2].append([])
+                    n+=1
+                    continue
+                tmpfeature = extract_features(outline[2][n][0])
+                if [tmpfeature['type'], tmpfeature['dot_count']] in pattern_tree[n]:
+                    n+=1
+                else:
+                    while [tmpfeature['type'], tmpfeature['dot_count']] not in pattern_tree[n]:
+                        outline[2].insert(n, [])
+                        n+=1
+            dir_features[i]['depth'] = j
+    return outlines, pattern_tree,dir_features
 
 def checkFirst(head):
     matches = list(re.finditer(r'\.', head))
@@ -452,7 +482,7 @@ if __name__ == "__main__":
     sample_directories = [
         "1. 第一章", "1.1 引言" , "1.1.1 研究背景",
         "1.2 方法", "a 方法一",
-        "2. 第二章", "2.1 实验设计", "a 设计思路", "2.1.1 简介", 
+        "2. 第二章", "2.1 实验设计", "2.1.1 简介", 
         "2.2 结果分析", "a 统计", "2.2.1 数据统计",
         "3. 第三章", "3.1 讨论", 
         "附录A 补充材料", "附录B 荣誉证书",

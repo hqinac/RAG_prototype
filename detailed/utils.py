@@ -51,7 +51,9 @@ def struct(t):#构建用于chunk的标题格式
     if not t or t == []:
             return res
     for tmp in t:
-        if(tmp[1] == ""):
+        if tmp == []:
+            continue
+        if tmp[1] == "":
             res += tmp[0] + "："
         else:
             res += tmp[0] + "（" + tmp[1] + "）" + "："

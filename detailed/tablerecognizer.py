@@ -47,7 +47,11 @@ OUTLINE_PATTERN = ((r"\d+ [\u4e00-\u9fa5a-zA-Z0-9\s]+",r"(附|付|符)录[A-Za-z
                    (r"^\([IVX\u2160-\u217F]+\) .*?(?=\n|$)",),
                    (r"^(\d+\.\d+\.\d+).+",))
 #PARENT_DEPTH = 2 #目录在OUTLINE_PATTERN中的深度为[:2]
-logging.basicConfig(level=logging.DEBUG)
+logging.basicConfig(level=logging.INFO,
+                    filename='./detailed/recognizer.log',
+                    filemode='w',
+                    format='%(levelname)s - %(message)s',
+                    encoding='utf-8')  
 
 class Article:
     #读取正文前的内容，包括封面、公告、前言、目录、英文目录，识别目录，正文，分割附件。
@@ -71,6 +75,7 @@ class Article:
     base_splits: list[Document]
     lost_header: list[str]
     pattern_tree: list
+    dir_features: list
 
 
     def __init__(self, document,use_en = True):
@@ -136,7 +141,7 @@ class Article:
             self.forehead.page_content = ""
             self.lost_header.append('forehead')
             self.additions = []
-            self.outline, self.pattern_tree = self.default_outline_recognize() # 确保outline被初始化
+            self.outline, self.pattern_tree,self.dir_features = self.default_outline_recognize() # 确保outline被初始化
         else:
             if self.outlines_en.page_content == "":
                 use_en = False
@@ -146,7 +151,7 @@ class Article:
                 self.outlines_en = Document(page_content="",metadata=self.outlines_en.metadata)
             self.content = Document(page_content=document.page_content[Start:],metadata=document.metadata)
             self.additions = []  # 初始化additions属性
-            self.outline, self.pattern_tree = self.outline_recognize(use_en)
+            self.outline, self.pattern_tree,self.dir_features = self.outline_recognize(use_en)
             
     
     def default_outline_recognize(self):
@@ -163,8 +168,8 @@ class Article:
             else:
                 line = re.sub(r"^#+ +","",line)
                 outlineline.append(line)
-        outline, pattern_tree = infer_hierarchy(outlineline, useen=False)
-        return outline
+        outline, pattern_tree,dir_features = infer_hierarchy(outlineline, useen=False)
+        return outline, pattern_tree,dir_features
 
 
 
@@ -229,8 +234,8 @@ class Article:
         #print(f"英文目录条目数量: {len(en)}")
         #print(f"中文目录前5条: {cn[:5]}")
         #print(f"英文目录前5条: {en[:5]}")
-        outline, pattern_tree = infer_hierarchy(cn, en, use_en)
-        return outline
+        outline, pattern_tree,dir_features = infer_hierarchy(cn, en, use_en)
+        return outline, pattern_tree,dir_features
         '''
         if not use_en or len(cn) != len(en):
             outline = [[line,"",[]] for line in cn]
@@ -291,7 +296,7 @@ class Article:
                 self.base_splits.remove(split)
         return self.base_splits
 
-    def addtree(depth, pattern):
+    def addtree(self,depth, pattern):
         if depth >= len(self.pattern_tree):
             self.pattern_tree.extend([[] for _ in range(depth + 1 - len(self.pattern_tree))])
         self.pattern_tree[depth].append(pattern)
@@ -663,23 +668,56 @@ def merge_chunk_through_outlines(article:Article,total_splits):
     for num, outline in enumerate(article.outline[:len(article.outline)-len(article.additions)]):
         #处理有数字编号的标题（子标题可能含有x.x.x)
         logging.info(f"开始处理标题{outline[0]}")
+        '''
         parent_match = re.match(r"^(\d+\.\d+) ", outline[0])
         if not parent_match:
             parent_match = re.match(r"^(\d+) [\u4e00-\u9fa5a-zA-Z0-9]+", outline[0])
         #print(f"标题数字部分为{parent_match.group(1)}")
+        '''
+        #处理可能被修正的标题结构
+        outlinefeature = article.dir_features[num]
+        t = outlinefeature['depth']
+        for patterns in article.pattern_tree[outlinefeature['depth']:]:
+            changed = False
+            if [outlinefeature['type'],outlinefeature['dot_count']] not in patterns:
+                t +=1
+                changed = True
+                continue
+            else:
+                break
+        if changed:
+            logging.info(f"标题{outline[0]}的目录结构与文档结构不一致，进行修正")
+            n=0
+            while n<t:
+                if n >= len(outline[2]):
+                    outline[2].append([])
+                    n+=1
+                    continue
+                tmpfeature = extract_features(outline[2][n][0])
+                if [tmpfeature['type'], tmpfeature['dot_count']] in pattern_tree[n]:
+                    n+=1
+                else:
+                    while [tmpfeature['type'], tmpfeature['dot_count']] not in pattern_tree[n]:
+                        outline[2].insert(n, [])
+                        n+=1
+            
 
         while i < j:
             tmp= extract_features(total_splits[i].page_content)
+            if chunks!=[]:
+                logging.info(f"目前ftmp为{ftmp},目录为{chunks[-1].metadata['outline']}")
             for k, patterns in enumerate(article.pattern_tree):
                 if [tmp['type'],tmp['dot_count']] in patterns:
                     tmp['depth'] = k
                     break
+            logging.info(f"当前处理的行为{tmp}")
             if num < len(article.outline)-1:
                 #print(f"DEBUG fuzzy_match调用: outline[0]={repr(article.outline[num+1][0])}, total_splits[i].page_content前50字符={repr(total_splits[i].page_content[:50])}")
                 isoutline, outlineend = fuzzy_match(article.outline[num+1][0],total_splits[i].page_content,threshold)
                 #print(f"DEBUG fuzzy_match结果: isoutline={isoutline}, outlineend={outlineend}")
                 if isoutline:#切到目录中的下一条
                     #print(f"切到下一条{article.outline[num+1][0]}，当前位置为{total_splits[i].page_content}")
+                    tmp = article.dir_features[num+1]
                     newoutline = struct([article.outline[num+1][:2]])
                     if outline[:2] in article.outline[num+1][2]: #父标题切到子标题的情况
                         if chunks[-1].metadata["start"] == i-1: #处理父标题子标题相邻的情况
@@ -719,6 +757,7 @@ def merge_chunk_through_outlines(article:Article,total_splits):
                 logging.debug(f"识别到可能的文件开头")
                 if chunks!=[]: print("warning: 重复识别到同一标题"+outline[0]+"\n当前位置在："+total_splits[i-1].page_content+"\n\n"+total_splits[i].page_content+"\n\n"+total_splits[i+1].page_content)
                 else:
+                    tmp = article.dir_features[0]
                     chunks.append(copy.deepcopy(total_splits[i]))
                     newoutline = struct([outline[:2]])
                     remaining_content = total_splits[i].page_content[outlineend:].strip()
@@ -743,7 +782,7 @@ def merge_chunk_through_outlines(article:Article,total_splits):
                 numeric_child = rf"^({re.escape(parent_num)}\.(?!0)\d+)\s*"
                 #print(f"parent_numw为{parent_num},尝试匹配: '{numeric_child}' with '{total_splits[i].page_content[:20]}'")
             '''
-            #检测最后一行标题格式（即标题树的末端，切片时在内容中保留这部分标题）
+            #如果分点标题只有序号，没有题目，序号将被保留在outlineend之后，否则完整标题将被保留在outlineend之前
             
             #if not tmp:
                 #tmp = re.match(rf"^({re.escape(parent_num)}\.0\.\d+)\s*", total_splits[i].page_content)
@@ -767,26 +806,25 @@ def merge_chunk_through_outlines(article:Article,total_splits):
                     check_unique(chunks[-1], total_splits[i])
                     if not tmp['depth']:
                         article.pattern_tree[0].append([tmp['type'],tmp['dot_count']])
+                        tmp['depth'] = 0
                     i += 1
                     ftmp = tmp
                     continue
 
-                if tmp['type'] == ftmp['type']:
-                    if tmp['dot_count'] <= ftmp['dot_count']:
 
-                        if not tmp['depth']:
-                            tmp['depth'] = ftmp['depth'] - tmp['dot_count'] + ftmp['dot_count']
-                            article.pattern_tree[tmp['depth']].append([tmp['type'],tmp['dot_count']])
-                        '''
-                        elif tmp['depth'] >= ftmp['depth'] and tmp['dot_count'] < ftmp['dot_count']:
-                            #纠正default_recognizer可能由于跳过目录而造成的错误识别。例如本来是A->A.1->A.1.1, B->B.0.1, C->C.1,但default读取掉了A.1导致A.1.1与A.1在目录树中为同一级别。
-                            #由于识别是从顶层向底层，所以将A.1.1的深度纠正为A.1的深度+1
-                            #格式相同的情况下，由于tree中只会有一个相同格式，无须纠正。
-                            #由于前面判断出A.1.1是A.1的子标题时就会得到纠正，此处必然是对的，无须修改。
-                            article.pattern_tree[ftmp['depth']].remove([ftmp['type'],ftmp['dot_count']])
-                            article.addtree(tmp['depth'] + tmp['dot_count'] - ftmp['dot_count'], [ftmp['type'],ftmp['dot_count']])
-                        '''
-                        new_outline = [tmp['content'],"",chunks[-1].metadata["outline"][2][:tmp['depth']]]
+                def addChildOutline():
+                    #用于处理父标题切到子标题情况的内部函数。如果父子标题完全相邻，将子标题加入父标题的块，如果不完全相邻，创建新块
+                    nonlocal i, ftmp
+                    if chunks[-1].metadata["outlineend"] == len(chunks[-1].page_content):#父标题紧接子标题
+                        chunks[-1].page_content = chunks[-1].page_content + total_splits[i].page_content
+                        chunks[-1].metadata["start"] = i
+                        #print(f"目前outlineend为{chunks[-1].metadata['outlineend']}，切片长度为{len(chunks[-1].page_content)}")
+                        chunks[-1].metadata["outline"] = [tmp["content"],"",chunks[-1].metadata["outline"][2] + [chunks[-1].metadata["outline"][:2]] + [[]]*(tmp['depth']-ftmp['depth']-1)]
+                        check_unique(chunks[-1], total_splits[i])
+                        i += 1
+                        ftmp = tmp
+                    else:
+                        nfather = chunks[-1].metadata["outline"][2]+[chunks[-1].metadata["outline"][:2]]+ [[]]*(tmp['depth']-ftmp['depth']-1)
                         if ftmp["head"] == ftmp["content"]:
                             fatheroutline = struct(chunks[-1].metadata["outline"][2])
                         else:
@@ -795,164 +833,255 @@ def merge_chunk_through_outlines(article:Article,total_splits):
                         chunks[-1].metadata["outlineend"] = len(fatheroutline)
                         chunks.append(copy.deepcopy(total_splits[i]))
                         init_chunk(chunks[-1])
+                        new_outline = [tmp['content'],"",nfather]
                         chunks[-1].metadata["outline"] = new_outline
                         chunks[-1].metadata["start"] = i
                         if tmp['head'] == tmp['content']:
                             chunks[-1].metadata["outlineend"] = 0
+                            if tmp['prefix']!=tmp['head']:
+                                chunks[-1].metadata['outline'][0] = tmp['prefix']
+                            #处理条文说明中1.0.1~1.0.7之类的情况，将目录序号存储为第一个。
                         else:
                             chunks[-1].metadata["outlineend"] = len(tmp['content'])
-                        check_unique(chunks[-1], total_splits[i])
+                            check_unique(chunks[-1], total_splits[i])
                         i += 1
                         ftmp = tmp
+                
+                def addParentOutline():
+                    #用于处理子标题切到父标题情况的内部函数。创建新块
+                    nonlocal i, ftmp
+                    new_outline = [tmp['content'],"",chunks[-1].metadata["outline"][2][:tmp['depth']+1]]
+                    if ftmp["head"] == ftmp["content"]:
+                        fatheroutline = struct(chunks[-1].metadata["outline"][2])
+                    else:
+                        fatheroutline = struct(chunks[-1].metadata["outline"][2]) + struct([chunks[-1].metadata["outline"][:2]])
+                    chunks[-1].page_content = fatheroutline + chunks[-1].page_content[chunks[-1].metadata["outlineend"]:]
+                    chunks[-1].metadata["outlineend"] = len(fatheroutline)
+                    chunks.append(copy.deepcopy(total_splits[i]))
+                    init_chunk(chunks[-1])
+                    chunks[-1].metadata["outline"] = new_outline
+                    chunks[-1].metadata["start"] = i
+                    if tmp['head'] == tmp['content']:
+                        chunks[-1].metadata["outlineend"] = 0
+                        if tmp['prefix']!=tmp['head']:
+                            chunks[-1].metadata['outline'][0] = tmp['prefix']
+                            #处理条文说明中1.0.1~1.0.7之类的情况，将目录序号存储为第一个。
+                    else:
+                        chunks[-1].metadata["outlineend"] = len(tmp['content'])
+                    check_unique(chunks[-1], total_splits[i])
+                    i += 1
+                    ftmp = tmp
+
+
+
+                #处理相邻目录标题类型相同的情况（例如A.1->A.1.1）
+                if tmp['type'] == ftmp['type']:
+                    if tmp['dot_count'] <= ftmp['dot_count']:
+                        if  tmp['depth'] == None:
+                            tmp['depth'] = ftmp['depth'] + tmp['dot_count'] - ftmp['dot_count']
+                            article.pattern_tree[tmp['depth']].append([tmp['type'],tmp['dot_count']])
+                        else:
+                            if "parentthese" in tmp["type"]:
+                                isChild = checkFirst(tmp['inside'])
+                            else:
+                                isChild = checkFirst(tmp['prefix'])
+                            logging.info(f"isChild为{isChild}")
+                            if not isChild and tmp['dot_count'] <= ftmp['dot_count']:
+                                #同级直接合并，暂时不处理1后面仍然接1的情况
+                                lastcode = sum(ord(c) for c in tmp["prefix"])
+                                neighborcode = None
+                                neighbor_dir  ={}
+                                if tmp['dot_count'] < ftmp['dot_count']:
+                                    if chunks[-1].metadata['outline'][2][tmp['depth']] != []:
+                                        tmp_neighbor = chunks[-1].metadata['outline'][2][tmp['depth']][0]
+                                    else:
+                                        logging.warning(f"无法分辨{total_splits[i].page_content}的层级，请检查序号。暂时作为正文加入切片中")
+                                        chunks[-1].page_content = chunks[-1].page_content + "\n" + total_splits[i].page_content
+                                        check_unique(chunks[-1], total_splits[i])
+                                        i+=1
+                                        continue
+                                else:
+                                    tmp_neighbor = chunks[-1].metadata['outline'][0]
+                                if r'\s' in tmp_neighbor:
+                                    neighbor_dir = extract_features(tmp_neighbor)
+                                    tmp_neighbor = neighbor_dir['prefix']
+                                    logging.info(f"neighbor_dir为{neighbor_dir}")
+                                    if len(tmp_neighbor) != len(tmp['prefix']):
+                                        #处理9-10之类转行的情况。
+                                        def extract_prefix(s): #提取数字
+                                            result = 0
+                                            hasDigit = False
+                                            for c in s:
+                                                if c.isdigit():
+                                                    result = result*10 + int(c)
+                                                    hasDigit = True
+                                            if hasDigit:
+                                                return result
+                                            return -1
+                                        lastcode = extract_prefix(tmp['prefix'])
+                                        neighborcode = extract_prefix(tmp_neighbor)
+                                        if lastcode*neighborcode < 0:
+                                            logging.warning(f"相同层级的目录序号结构不同，无法分辨{total_splits[i].page_content}的层级，请检查序号。暂时作为正文加入切片中")
+                                            chunks[-1].page_content = chunks[-1].page_content + "\n" + total_splits[i].page_content
+                                            check_unique(chunks[-1], total_splits[i])
+                                            i+=1
+                                            continue
+                                else:
+                                    neighborcode = sum(ord(c) for c in tmp_neighbor)
+                                    neighbor_dir = {'head': tmp_neighbor}
+                                if lastcode - neighborcode >=3 or lastcode - neighborcode <=0 and '~' not in neighbor_dir['head'] :
+                                    #排除1.0.1~1.0.7， 1.0.8这种情况， 、只包含两个数，差值理论上不会大于等于3
+                                    logging.info("同级标题差距太大，猜测是标题错误或为注释，作为正文加入当前分块")
+                                    chunks[-1].page_content = chunks[-1].page_content + "\n" + total_splits[i].page_content
+                                    check_unique(chunks[-1], total_splits[i])
+                                    i+=1
+                                    continue
+                            if isChild:
+                                logging.info("标题层次重复，直接作为正文")
+                                lastcode = sum(ord(c) for c in tmp["prefix"])
+                                
+                                chunks[-1].page_content = chunks[-1].page_content + "\n" + total_splits[i].page_content
+                                check_unique(chunks[-1], total_splits[i])
+                                while True:
+                                    stmp = extract_features(total_splits[i+1].page_content)
+                                    tmpcode = sum(ord(c) for c in stmp["prefix"])
+                                    logging.info(f"while循环中检查下一个元素: stmp={stmp}, tmp={tmp}")
+                                    logging.info(f"tmpcode={tmpcode}, lastcode={lastcode}")
+                                    if stmp['type'] == tmp['type'] and stmp['dot_count'] == tmp['dot_count']:
+                                        logging.info(f"类型和dot_count相同，检查tmpcode条件")
+                                        if tmpcode == lastcode + 1:
+                                            logging.info(f"tmpcode == lastcode + 1，继续循环")
+                                            chunks[-1].page_content = chunks[-1].page_content + "\n" + total_splits[i+1].page_content
+                                            check_unique(chunks[-1], total_splits[i+1])
+                                            lastcode = tmpcode
+                                            i+=1
+                                            continue
+                                        else:
+                                            logging.info(f"tmpcode != lastcode + 1，准备break")
+                                    pattern_slice = article.pattern_tree[:ftmp['depth']+1]
+                                    patterns_flat = [pattern for sublist in pattern_slice for pattern in sublist]
+                                    logging.debug(f"pattern_tree切片: {pattern_slice}")
+                                    logging.debug(f"检查模式: [stmp['type'],stmp['dot_count']] = {[stmp['type'],stmp['dot_count']]}")
+                                    if stmp['type'] == 'content' or [stmp['type'],stmp["dot_count"]] not in patterns_flat:
+                                        logging.debug(f"下一个元素是content或不在pattern_tree中，继续循环")
+                                        chunks[-1].page_content = chunks[-1].page_content + "\n" + total_splits[i+1].page_content
+                                        check_unique(chunks[-1], total_splits[i+1])
+                                        i+=1
+                                        continue
+                                    logging.info(f"所有条件都不满足，执行break")
+                                    break
+                                i+=1
+                                continue
+                        addParentOutline()
                         continue
+
+
+                        '''
+                        elif tmp['depth'] >= ftmp['depth'] and tmp['dot_count'] < ftmp['dot_count']:
+                            #纠正由于目录层级分布不全而造成的错误识别。例如本来是A->A.0.1, C->C.1,此时default_recognizer会将C.1与A.0.1识别为同一级别，如果此时再有D->D.1->D.0.1的情况，就应当进行纠正。
+                            #由于识别是从顶层向底层，所以将D.0.1的深度纠正为D.1的深度+1
+                            #格式相同的情况下，由于tree中只会有一个相同格式，无须纠正。
+                            article.pattern_tree[ftmp['depth']].remove([ftmp['type'],ftmp['dot_count']])
+                            article.addtree(tmp['depth'] + ftmp['dot_count'] - tmp['dot_count'], [ftmp['type'],ftmp['dot_count']])
+                        '''
+                        #目录结构修正会在从父目录切换到子目录时进行，无需在这里进行
+                        
                     else:
                         addChild = False
                         if not tmp['depth']:
-                            tmpdepth = ftmp['depth'] - tmp['dot_count'] + ftmp['dot_count']
+                            tmpdepth = ftmp['depth'] + tmp['dot_count'] - ftmp['dot_count']
                             if tmpdepth < PARENT_DEPTH + 2: #只将两层以内的子标题记为新的标题
                                 tmp['depth'] = tmpdepth
                                 article.addtree(tmp['depth'], [tmp['type'],tmp['dot_count']])
+                                logging.info(f"添加子标题{[tmp['type'], tmp['depth']]}到深度{tmp['depth']}")
                                 addChild = True
                         else:
+                            if tmp['depth'] <= ftmp['depth'] :
+                            #纠正可能由于识别时跳过目录而造成的错误识别。例如本来是A->A.1->A.1.1, B->B.0.1, C->C.1->C.1.1,但default读取掉了A.1.1与C.1.1导致A.1与B.0.1对应的格式在目录树中为同一级别，此时需要将C.1.1的深度纠正为C.1的深度+1。
+                            #由于识别是从顶层向底层，所以将A.1.1的深度纠正为A.1的深度+1
+                            #格式相同的情况下，由于tree中只会有一个相同格式，无须纠正。
+                            #之后循环到的目录标题受到的影响在循环开头修正，此时的父标题深度与结构不会受到影响，如果有空缺，只需要将空缺部分加在父标题列表末尾即可。
+                                article.pattern_tree[tmp['depth']].remove([tmp['type'],tmp['dot_count']])
+                                article.addtree(ftmp['depth'] + tmp['dot_count'] - ftmp['dot_count'], [tmp['type'],tmp['dot_count']])
+                                tmp['depth'] = ftmp['depth'] + tmp['dot_count'] - ftmp['dot_count']
                             addChild = True
                         if addChild:        
-                            if chunks[-1].metadata["outlineend"] == len(chunks[-1].page_content):#父标题紧接子标题
-                                chunks[-1].page_content = chunks[-1].page_content + total_splits[i].page_content
-                                chunks[-1].metadata["start"] = i
-                                #print(f"目前outlineend为{chunks[-1].metadata['outlineend']}，切片长度为{len(chunks[-1].page_content)}")
-                                chunks[-1].metadata["outline"] = [tmp["content"],"",chunks[-1].metadata["outline"][2] + [chunks[-1].metadata["outline"][:2]] ]
-                                check_unique(chunks[-1], total_splits[i])
-                                i += 1
-                                ftmp = tmp
-                                continue
+                            addChildOutline()
+                            continue
+                            #如果不在目录标题两层子标题以内，直接识别为正文。
+                else:
+                    #处理目录类型不同的情况
+                    if "parentthese" in tmp["type"]:
+                        isChild = checkFirst(tmp['inside'])
+                    else:
+                        isChild = checkFirst(tmp['prefix'])
+                    if tmp['depth'] != None and ftmp['depth'] == tmp['depth']:
+                        #两层标题之间插入新标题的情况
+                        article.pattern_tree[tmp['depth']].remove([tmp['type'],tmp['dot_count']])
+                        tmp["depth"] += 1
+                        article.addtree(tmp['depth'], [tmp['type'],tmp['dot_count']])
+                        isChild = True
+                    if not isChild: #切到上级标题。
+                        if tmp['depth'] != None:
+                            tmpcode = sum(ord(c) for c in tmp["prefix"])
+                            parenthead = chunks[-1].metadata['outline'][2][tmp['depth']][0]
+                            if r'\s' in parenthead:
+                                f = parenthead.split(r'\s')[0]
+                                pcode = sum(ord(c) for c in f)
                             else:
-                                nfather = chunks[-1].metadata["outline"][2]+[chunks[-1].metadata["outline"][:2]]
-                                if ftmp["head"] == ftmp["content"]:
-                                    fatheroutline = struct(chunks[-1].metadata["outline"][2])
-                                else:
-                                    fatheroutline = struct(chunks[-1].metadata["outline"][2]) + struct([chunks[-1].metadata["outline"][:2]])
-                                chunks[-1].page_content = fatheroutline + chunks[-1].page_content[chunks[-1].metadata["outlineend"]:]
-                                chunks[-1].metadata["outlineend"] = len(fatheroutline)
-                                chunks.append(copy.deepcopy(total_splits[i]))
-                                init_chunk(chunks[-1])
-                                new_outline = [tmp['content'],"",nfather]
-                                chunks[-1].metadata["outline"] = new_outline
-                                chunks[-1].metadata["start"] = i
-                                chunks[-1].metadata["outlineend"] = 0
-                                check_unique(chunks[-1], total_splits[i])
-                                i += 1
-                                continue
-                else:
-                    isChild = checkFirst(tmp['prefix'])
+                                pcode = sum(ord(c) for c in parenthead)
+                        if tmp['depth'] == None or tmp["depth"] >= ftmp["depth"] or tmpcode-pcode>=3:
+                            logging.warning(f"可能新加切片{total_splits[i].page_content}的序号层级过低或{chunks[-1].page_content}与新加切片同级的父标题没有被识别出来或误在开头字符中加入了空格，请检查正文，暂且将该序号加入正文中")
+                            chunks[-1].page_content = chunks[-1].page_content + "\n" + total_splits[i].page_content
+                            check_unique(chunks[-1], total_splits[i])
+                            i+=1
+                            continue
+                        else:
+                            addParentOutline()
+                            continue
+                    if isChild:
+                        #如果不在目录标题两层子标题以内，直接识别为正文。
+                        if tmp['depth'] == None:
+                            tmp['depth'] = ftmp['depth'] + 1
+                            #如果不在目录标题两层子标题以内，直接识别为正文。
+                            if tmp['depth'] <= PARENT_DEPTH + 2:
+                                article.addtree(tmp['depth'], [tmp['type'],tmp['dot_count']])
+                        if tmp['depth'] > ftmp['depth'] and tmp['depth'] <= PARENT_DEPTH + 2:
+                            #除去出现1之类同一标题种类在不同标题层级的情况。
+                            #例如1->(1)->1,这种情况将该末端标题作为正文
+                            #由于1->(1)->2的情况一定在处理前文时将1识别为（1）的父标题，不会出现1跟（1）在同一层的情况。
+                            addChildOutline()
+                            continue
+                        else:
+                            logging.info(f"可能新加切片{total_splits[i].page_content}的序号在父标题中出现过或层级太低，作为正文处理。")
+                            lastcode = sum(ord(c) for c in tmp["prefix"])
+                            chunks[-1].page_content = chunks[-1].page_content + "\n" + total_splits[i].page_content
+                            check_unique(chunks[-1], total_splits[i])
+                            while True:
+                                stmp = extract_features(total_splits[i+1].page_content)
+                                if stmp['type'] == tmp['type'] and stmp['dot_count'] == tmp['dot_count']:
+                                    tmpcode = sum(ord(c) for c in stmp["prefix"])
+                                    if tmpcode == lastcode + 1:
+                                        chunks[-1].page_content = chunks[-1].page_content + "\n" + total_splits[i+1].page_content
+                                        check_unique(chunks[-1], total_splits[i+1])
+                                        lastcode = tmpcode
+                                        i+=1
+                                        continue
+                                pattern_slice = article.pattern_tree[:ftmp['depth']+1]
+                                patterns_flat = [pattern for sublist in pattern_slice for pattern in sublist]
+                                if stmp['type'] == 'content' or [stmp['type'],stmp["dot_count"]] not in patterns_flat:
+                                    chunks[-1].page_content = chunks[-1].page_content + "\n" + total_splits[i+1].page_content
+                                    check_unique(chunks[-1], total_splits[i+1])
+                                    i+=1
+                                    continue
+                                break
+                            i+=1
+                            continue
                     
-                '''
-                处理 2.1->(I)->正文->2.1.1的情况。
-                '''
-                '''
-                ftmp = ""
-                for pattern in OUTLINE_PATTERN[PARENT_DEPTH:-1]:
-                    ftmp,_ = extract_matching_parts(chunks[-1].metadata["outline"][0],pattern)
-                    if ftmp != "":
-                        break
-                if (chunks[-1].metadata["outline"][:2] == outline[:2] or ftmp!=""): #父子标题相邻
-                    #print(f"{tmp}父子标题相邻,父标题正文为{chunks[-1].page_content}")
-                    #print(chunks[-1].metadata["outlineend"], chunks[-1].page_content)
-                    if chunks[-1].metadata["outlineend"] == len(chunks[-1].page_content):#父标题紧接子标题\
-                        #print("父标题紧接子标题")
-                        #chunks[-1].metadata["outlineend"] += len(chunks[-1].metadata["outline"][0])
-                        chunks[-1].page_content = chunks[-1].page_content + total_splits[i].page_content
-                        chunks[-1].metadata["start"] = i
-                        #print(f"目前outlineend为{chunks[-1].metadata['outlineend']}，切片长度为{len(chunks[-1].page_content)}")
-                        chunks[-1].metadata["outline"] = [tmp,"",chunks[-1].metadata["outline"][2] + [chunks[-1].metadata["outline"][:2]] ]
-                        check_unique(chunks[-1], total_splits[i])
-                        i += 1
-                        continue
-                    else:
-                        #print(f"父标题不紧接子标题,创建新块{tmp}")
-                        #chunks[-1].page_content = chunks[-1].page_content+ "\n"+ total_splits[i].page_content
-                        #chunks[-1].metadata["outlineend"] += 1
-                        nfather = chunks[-1].metadata["outline"][2]+[chunks[-1].metadata["outline"][:2]]
-                else:
-                    #print("创建新块"+tmp)
-                    #print(chunks[-1].metadata["outline"][2])
-                    #print([chunks[-1].metadata["outline"][:2]])if "hasIVX" in chunks[-2].metadata:
-                    nfather = chunks[-1].metadata["outline"][2]
-                fatheroutline = struct(chunks[-1].metadata["outline"][2])
-                chunks[-1].page_content = fatheroutline + chunks[-1].page_content[chunks[-1].metadata["outlineend"]:]
-                chunks[-1].metadata["outlineend"] = len(fatheroutline)
-                chunks.append(copy.deepcopy(total_splits[i]))
-                init_chunk(chunks[-1])
-                new_outline = [tmp,"",nfather]
-                chunks[-1].metadata["outline"] = new_outline
-                chunks[-1].metadata["start"] = i
-                chunks[-1].metadata["outlineend"] = 0
-                check_unique(chunks[-1], total_splits[i])
-                i += 1
-                continue
-            
-            tmp = ""
-            ftmp = ""
-            tmpdepth = 0
-            pattern_str = ""
-            for depth, pattern in enumerate(OUTLINE_PATTERN[PARENT_DEPTH:-1]):
-                    tmp,pattern_str = extract_matching_parts(total_splits[i].page_content,pattern)
-                    if tmp != "":
-                        tmpdepth = depth
-                        break
-            if tmp != "":
-                #print(f"识别到{tmp},原文为{total_splits[i].page_content}")
-                #tmp = tmp.group()
-                #print(chunks[-1].metadata["outline"])
-                if tmpdepth == PARENT_DEPTH:
-                    check = chunks[-1].metadata["outline"][0] == outline[0]
-                else:
-                    for pattern in OUTLINE_PATTERN[PARENT_DEPTH:tmpdepth]:
-                        ftmp,_ = extract_matching_parts(chunks[-1].metadata["outline"][0],pattern)
-                        if ftmp != "": 
-                            break
-                    check = ftmp != "" or chunks[-1].metadata["outline"][0] == outline[0]
-                if check and chunks[-1].metadata["start"] == i-1: #父子标题相邻
-                    #print(f"父子标题相邻，用于比较的长度分别为{chunks[-1].metadata["outlineend"]}， {len(chunks[-1].page_content)}")
-                    #print(f"DEBUG: page_content repr={repr(chunks[-1].page_content)}")
-                    if chunks[-1].metadata["outlineend"] == len(chunks[-1].page_content):#父标题紧接子标题
-                        #print("父标题紧接子标题")
-                        chunks[-1].page_content = chunks[-1].page_content+ tmp + ":" + total_splits[i].page_content[len(tmp):]
-                        chunks[-1].metadata["outlineend"] += len(tmp)+1
-                        #print(f"存储被两层标题夹住的{tmp}到metadata中")
-                        #chunks[-1].metadata["hasIVX"] = True #处理 x.x:(I):x.x.x... x.x.x的情况。
-                        chunks[-1].metadata["outline"] = [tmp,"",chunks[-1].metadata["outline"][2] + [chunks[-1].metadata["outline"][:2]] ]
-                    #chunks[-1].metadata["outlineend"] += len(tmp)
-                        chunks[-1].metadata["start"] = i
-                        check_unique(chunks[-1], total_splits[i])
-                        i += 1
-                        continue
-                    else:
-                        nfather = chunks[-1].metadata["outline"][2]+[chunks[-1].metadata["outline"][:2]]
-                        #chunks[-1].page_content = chunks[-1].page_content+ "\n"+ tmp + ":" + total_splits[i].page_content[len(tmp):]
-                        #chunks[-1].metadata["outlineend"] += 1
-                    
-                else:
-                    #nfather = chunks[-1].metadata["outline"][2]
-                    if re.match(pattern_str,chunks[-2].metadata["outline"][0]):
-                        nfather = chunks[-1].metadata["outline"][2]
-                    else:
-                        nfather = chunks[-1].metadata["outline"][2][:-1]
-                fatheroutline = struct(chunks[-1].metadata["outline"][2])
-                chunks[-1].page_content = fatheroutline + chunks[-1].page_content[chunks[-1].metadata["outlineend"]:]
-                chunks[-1].metadata["outlineend"] = len(fatheroutline)
-                chunks.append(copy.deepcopy(total_splits[i]))
-                init_chunk(chunks[-1])
-                new_outline = [tmp,"",nfather]
-                chunks[-1].page_content = tmp + ":" + total_splits[i].page_content[len(tmp):]
-                chunks[-1].metadata["outline"] = new_outline
-                chunks[-1].metadata["start"] = i
-                chunks[-1].metadata["outlineend"] = len(tmp)+1
-                check_unique(chunks[-1], total_splits[i])
-                i += 1
-                continue
-            '''
             if chunks==[]: #开头必然是第一个标题，与之强行匹配
                 #print(f"开头必然是第一个标题，与之强行匹配。")
+                logging.warning("目录第一个标题的识别似乎有问题，请检查目录与目录后正文开头，但正文开头大概率是第一条目录，进行强制添加。")
+                tmp = article.dir_features[num+1]
                 chunks.append(copy.deepcopy(total_splits[i]))
                 newoutline = struct([outline[2]])
                 outlineend = 0
@@ -963,6 +1092,7 @@ def merge_chunk_through_outlines(article:Article,total_splits):
                 chunks[-1].metadata["outlineend"] = outlineend
                 check_unique(chunks[-1], total_splits[i])
                 i += 1
+                ftmp = tmp
                 continue
             #不属于任何标题的内容，归入当前chunk
             
@@ -1058,7 +1188,7 @@ def add_description(add_chunks, base_chunks):
                 outline_text = base_chunks[j].metadata["outline"][0]
                 outline_text = outline_text.replace("付录", "附录").replace("符录", "附录")
                 #print(f"outline_text为{base_chunks[j].metadata["outline"]}")
-                if any(fuzzy_match(head, base_chunks[j].metadata["outline"][2][k][0])[0] for k in range(len(base_chunks[j].metadata["outline"][2]))):
+                if any(fuzzy_match(head,head, outline_item[0])[0] for outline_item in base_chunks[j].metadata["outline"][2] if outline_item):
                     if "additionstart" not in base_chunks[j].metadata:
                         base_chunks[j].metadata["additionstart"] = [len(base_chunks[j].page_content)]
                     else:
