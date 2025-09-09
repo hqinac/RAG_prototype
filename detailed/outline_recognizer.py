@@ -8,27 +8,27 @@ HEADER_PATTERN = {
     'number': r'^\d+$',
     'cn_number': r'^[一二三四五六七八九十]+$',
     'upper_cn_number': r'^[壹贰叁肆伍陆柒捌玖拾]+$',
-    'lower_alpha': r'^[a-z]+$',
-    'upper_alpha': r'^[A-Z]+$',
     'upper_roma': r"^[IVX\u2160-\u217F]+$",
-    'lower_roma': r"^[ivxⅰ-ⅿ]+$"
+    'lower_roma': r"^[ivxⅰ-ⅿ]+$",
+    'lower_alpha': r'^[a-z]+$',
+    'upper_alpha': r'^[A-Z]+$'
 }
 
 def extract_features(dir_str: str, usePlain = False) -> Dict:
     """提取目录项的层级特征：前缀类型、点数量、基值等"""
     # 匹配数字前缀（如1.、2.1、3.1.1）
-    num_match = re.match(r'^(\d+(\.\d+)*)(.*?)?\s+', dir_str)
+    num_match = re.match(r'^(\d+(\.\d+)*)([0-9\.\~\\、]*?)?\s+', dir_str)
 
-    cn_num_match = re.match(r'^([一二三四五六七八九十]+)(.*?)?\s+', dir_str)
+    cn_num_match = re.match(r'^([一二三四五六七八九十]+)([、：；.，]?)\s+', dir_str)
 
-    upper_cn_num_match = re.match(r'^([壹贰叁肆伍陆柒捌玖拾]+)(.*?)?\s+', dir_str)
+    upper_cn_num_match = re.match(r'^([壹贰叁肆伍陆柒捌玖拾]+)([、：；.，]?)\s+', dir_str)
 
     circle_match = re.match(r'^([\u2460-\u2473\u3251-\u325F\u32B1-\u32BF]+)(.*?)?\s+', dir_str)
 
     # 匹配字母前缀（如a 、b ）
-    lower_alpha_match = re.match(r'^([a-z]+(?:\.[a-zA-Z0-9]+)*)(.*?)?\s+', dir_str)
+    lower_alpha_match = re.match(r'^([a-z]\.(?:[a-zA-Z0-9]+\.)*)(.*?)?\s+', dir_str)
 
-    upper_alpha_match = re.match(r'^([A-Z]+(?:\.[a-zA-Z0-9]+)*)(.*?)?\s+', dir_str)
+    upper_alpha_match = re.match(r'^([A-Z]\.(?:[a-zA-Z0-9]+\.)*)(.*?)?\s+', dir_str)
 
     upper_roma_match = re.match(r'^([IVX\u2160-\u217F]+)(.*?)?\s+', dir_str)
 
@@ -76,7 +76,7 @@ def extract_features(dir_str: str, usePlain = False) -> Dict:
         if usePlain:
             content = dir_str
         else:
-            content = checkcontent(head, dir_str)
+            content = checkcontent(head, dir_str, dot_count)
         if(len(insider)<=3):
             return {
                 'type': insidetype+"_parentthese",
@@ -101,7 +101,7 @@ def extract_features(dir_str: str, usePlain = False) -> Dict:
         if usePlain:
             content = dir_str
         else:
-            content = checkcontent(head, dir_str)
+            content = checkcontent(head, dir_str, dot_count)
         return {
             'type': insidetype+"_right_parentthese",
             'inside': insider,
@@ -117,7 +117,7 @@ def extract_features(dir_str: str, usePlain = False) -> Dict:
         if usePlain:
             content = dir_str
         else:
-            content = checkcontent(head, dir_str)
+            content = checkcontent(head, dir_str, dot_count)
         return {
             'type': 'appendix',
             'prefix': prefix,
@@ -132,7 +132,7 @@ def extract_features(dir_str: str, usePlain = False) -> Dict:
         if usePlain:
             content = dir_str
         else:
-            content = checkcontent(head, dir_str)
+            content = checkcontent(head, dir_str, dot_count)
         return {
             'type': 'annex',
             'prefix': prefix,
@@ -149,7 +149,7 @@ def extract_features(dir_str: str, usePlain = False) -> Dict:
         if usePlain:
             content = dir_str
         else:
-            content = checkcontent(head, dir_str)
+            content = checkcontent(head, dir_str, dot_count)
         return {
             'type': 'number',
             'prefix': prefix,
@@ -166,7 +166,7 @@ def extract_features(dir_str: str, usePlain = False) -> Dict:
         if usePlain:
             content = dir_str
         else:
-            content = checkcontent(head, dir_str)
+            content = checkcontent(head, dir_str, dot_count)
         return {
             'type': 'cn_number',
             'prefix': prefix,
@@ -183,7 +183,7 @@ def extract_features(dir_str: str, usePlain = False) -> Dict:
         if usePlain:
             content = dir_str
         else:
-            content = checkcontent(head, dir_str)
+            content = checkcontent(head, dir_str, dot_count)
         return {
             'type': 'upper_cn_number',
             'prefix': prefix,
@@ -200,43 +200,9 @@ def extract_features(dir_str: str, usePlain = False) -> Dict:
         if usePlain:
             content = dir_str
         else:
-            content = checkcontent(head, dir_str)
+            content = checkcontent(head, dir_str, dot_count)
         return {
             'type': 'circle',
-            'prefix': prefix,
-            'dot_count': dot_count,  # 字母前缀通常依赖上下文
-            'depth': None,
-            'head': head.strip(),
-            'content': content
-        }
-
-    if lower_alpha_match:
-        prefix, dot_count, head = structmatch(lower_alpha_match)
-        # 基值（最前面的数字，用于匹配父目录）
-        #base_num = int(re.findall(r'\d+', prefix)[0])
-        if usePlain:
-            content = dir_str
-        else:
-            content = checkcontent(head, dir_str)
-        return {
-            'type': 'lower_alpha',
-            'prefix': prefix,
-            'dot_count': dot_count,  # 字母前缀通常依赖上下文
-            'depth': None,
-            'head': head.strip(),
-            'content': content
-        }
-
-    if upper_alpha_match:
-        prefix, dot_count, head = structmatch(upper_alpha_match)
-        # 基值（最前面的数字，用于匹配父目录）
-        #base_num = int(re.findall(r'\d+', prefix)[0])
-        if usePlain:
-            content = dir_str
-        else:
-            content = checkcontent(head, dir_str)
-        return {
-            'type': 'upper_alpha',
             'prefix': prefix,
             'dot_count': dot_count,  # 字母前缀通常依赖上下文
             'depth': None,
@@ -249,7 +215,7 @@ def extract_features(dir_str: str, usePlain = False) -> Dict:
         if usePlain:
             content = dir_str
         else:
-            content = checkcontent(head, dir_str)
+            content = checkcontent(head, dir_str, dot_count)
         return {
             'type': 'upper_roma',
             'prefix': prefix,
@@ -266,9 +232,43 @@ def extract_features(dir_str: str, usePlain = False) -> Dict:
         if usePlain:
             content = dir_str
         else:
-            content = checkcontent(head, dir_str)
+            content = checkcontent(head, dir_str, dot_count)
         return {
             'type': 'lower_roma',
+            'prefix': prefix,
+            'dot_count': dot_count,  # 字母前缀通常依赖上下文
+            'depth': None,
+            'head': head.strip(),
+            'content': content
+        }
+
+    if lower_alpha_match:
+        prefix, dot_count, head = structmatch(lower_alpha_match)
+        # 基值（最前面的数字，用于匹配父目录）
+        #base_num = int(re.findall(r'\d+', prefix)[0])
+        if usePlain:
+            content = dir_str
+        else:
+            content = checkcontent(head, dir_str, dot_count)
+        return {
+            'type': 'lower_alpha',
+            'prefix': prefix,
+            'dot_count': dot_count,  # 字母前缀通常依赖上下文
+            'depth': None,
+            'head': head.strip(),
+            'content': content
+        }
+
+    if upper_alpha_match:
+        prefix, dot_count, head = structmatch(upper_alpha_match)
+        # 基值（最前面的数字，用于匹配父目录）
+        #base_num = int(re.findall(r'\d+', prefix)[0])
+        if usePlain:
+            content = dir_str
+        else:
+            content = checkcontent(head, dir_str, dot_count)
+        return {
+            'type': 'upper_alpha',
             'prefix': prefix,
             'dot_count': dot_count,  # 字母前缀通常依赖上下文
             'depth': None,
@@ -282,6 +282,7 @@ def extract_features(dir_str: str, usePlain = False) -> Dict:
             'prefix': '',
             'dot_count': 0,  # 标记为顶级
             'depth': None,
+            'head': "",
             'content': dir_str
         }
     return {
@@ -289,20 +290,21 @@ def extract_features(dir_str: str, usePlain = False) -> Dict:
         'prefix': '',
         'dot_count': 0,  
         'depth': None,
+        'head': "",
         'content': dir_str
     }
 
 
-def checkcontent(head: str, content: str):
+def checkcontent(head: str, content: str, dot_count: int):
     #logging.info(f"传入的head为{head}")
     tmphead = content[len(head):]
     tmphead = re.match(r"^(.*?)(?:\n|$)",tmphead)
     if tmphead:
         tmphead = tmphead.group(1)
     #logging.info(f"正则匹配后的tmphead为: '{tmphead}'")
-    tmp = re.search(r"\s*([,!?;。，！？；\s+]).*?(?=\n|$)",tmphead)
+    tmp = re.search(r"\s*([,!?;。，！？；:：]).*?(?=\n|$)",tmphead)
     #logging.info(f"标点符号匹配结果tmp为: {tmp}")
-    if tmp :
+    if tmp and dot_count > 0:
         return head.strip()
     return content[:len(head)+len(tmphead)+1].strip()
 
@@ -310,6 +312,10 @@ def checkcontent(head: str, content: str):
 def infer_hierarchy(directories: List[str], en_outlines=[], useen = True):
     """根据特征和顺序推断目录层级，返回带层级信息的列表"""
     # 提取所有目录的特征
+    if useen and len(directories) != len(en_outlines):
+        logging.warning("主副目录数量不一致,请检查目录对齐情况")
+        useen = False
+
     dir_features = [extract_features(dir_str, usePlain = True) for dir_str in directories]
     
     # 存储每个目录的层级（0为顶级）和父目录索引
@@ -453,6 +459,12 @@ def infer_hierarchy(directories: List[str], en_outlines=[], useen = True):
                         outline[2].insert(n, [])
                         n+=1
             dir_features[i]['depth'] = j
+    logging.info("完整目录结构与目录树为：")
+    for item in outlines:
+        logging.info(item)
+        
+    for pattern in pattern_tree:
+        logging.info(pattern)
     return outlines, pattern_tree,dir_features
 
 def checkFirst(head):

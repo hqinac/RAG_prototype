@@ -18,3 +18,6 @@ createfakefile.py
 *.md
 !RAG复盘.md
 !README.md
+
+# 忽略所有.log文件
+*.log

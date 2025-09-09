@@ -53,10 +53,12 @@ def struct(t):#构建用于chunk的标题格式
     for tmp in t:
         if tmp == []:
             continue
+        mtmp = tmp[0][:-1] if tmp[0].endswith(":") or tmp[0].endswith('：') else tmp[0]
+        ntmp = tmp[1][:-1] if tmp[1].endswith(":") or tmp[1].endswith('：') else tmp[1] 
         if tmp[1] == "":
-            res += tmp[0] + "："
+            res += mtmp + "："
         else:
-            res += tmp[0] + "（" + tmp[1] + "）" + "："
+            res += mtmp + "（" + ntmp + "）" + "："
     return res
 
 
