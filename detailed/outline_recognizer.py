@@ -38,9 +38,9 @@ def extract_features(dir_str: str, usePlain = False) -> Dict:
     
     right_parenttheses_match = re.match(r"(^.{1,3}[）\)])(.*?)\s+", dir_str)
 
-    appendix_match = re.match(r"^((附|付|符)\s*录\s*[A-Za-z0-9])\s+", dir_str)
+    appendix_match = re.match(r"^((附|付|符)\s*录\s*[A-Za-z0-9]|Appendix\s*[A-Za-z0-9])\s+", dir_str, re.IGNORECASE)
 
-    annex_match = re.match(r"^((附|付|符)(:|：)\s*(.*?))(?:\s+|\n|$)", dir_str)
+    annex_match = re.match(r"^((附|付|符|Addition|Annex)(:|：)\s*(.*?))(?:\s+|\n|$)", dir_str, re.IGNORECASE)
 
     def structmatch(match):
         logging.info(f"匹配到{match}")

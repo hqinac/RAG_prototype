@@ -1,7 +1,6 @@
 import os
 import asyncio
 from langchain_community.vectorstores import FAISS
-from langchain_community.embeddings import DashScopeEmbeddings
 from langchain_community.retrievers import BM25Retriever
 from langchain_core.documents import Document
 from langchain_text_splitters import CharacterTextSplitter, RecursiveCharacterTextSplitter, MarkdownHeaderTextSplitter

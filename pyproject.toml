@@ -6,10 +6,12 @@ readme = "RAG复盘.md"
 requires-python = ">=3.12"
 dependencies = [
     "bs4>=0.0.2",
+    "chromadb>=1.0.20",
     "dashscope>=1.24.0",
     "faiss-cpu>=1.11.0.post1",
     "fastapi>=0.116.1",
     "gradio==5.23.0",
+    "jieba>=0.42.1",
     "langchain>=0.3.26",
     "langchain-community>=0.3.27",
     "langchain-experimental>=0.3.4",

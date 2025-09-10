@@ -526,7 +526,7 @@ def check_table(base_splits, article=None):
             base_splits[i].metadata["type"] = "table"
             uptitle = min (i-5,-1)
             for j in range(i-1, uptitle, -1):
-                if re.match(r"(?i)^(表|table)\s*[^\s\n\r]*(?:\s+[^\n\r]*)?",base_splits[j].page_content):
+                if re.match(r"(?i)^(表|table\s+)\s*[^\s\n\r]*(?:\s+[^\n\r]*)?",base_splits[j].page_content):
                     uptitle = j
                     hasheader = True    
                     break
@@ -1417,7 +1417,7 @@ def merge_chunk(article:Article,total_splits):
         chunk.metadata["chunk_id"] = i
     for addition in article.additions:
         add_chunks = merge_chunk_through_outlines(addition, addition.base_splits)
-        outputtest_file(add_chunks,"addition.md")
+        #outputtest_file(add_chunks,"addition.md")
         if fuzzy_match("附：条文说明",addition.content.metadata["header"][0],0.8):
             add_description(add_chunks, base_chunks)
         else:
@@ -1512,17 +1512,11 @@ def simple_size_chunk(base_splits, chunk_size):
             i += 1
             continue
         else:
-            if base_splits[i].metadata["type"] not in ["table", "equation", "figure"]\
-                and base_splits[i+1].metadata["type"] not in ["table", "equation", "figure"]\
-                and base_splits[i].metadata["type"] !=  base_splits[i+1].metadata["type"]:
-                i += 1
-                continue
-            else:
-                while(len(base_splits[i].page_content)<chunk_size and i<len(base_splits)-1 and len(base_splits[i+1].page_content)<chunk_size*0.8) :
-                    base_splits[i].page_content = base_splits[i].page_content + "\n\n" + base_splits[i+1].page_content
-                    check_unique(base_splits[i], base_splits[i+1])
-                    base_splits.pop(i+1)
-                i += 1
+            while(len(base_splits[i].page_content)<chunk_size and i<len(base_splits)-1 and len(base_splits[i+1].page_content)<chunk_size*0.8) :
+                base_splits[i].page_content = base_splits[i].page_content + "\n\n" + base_splits[i+1].page_content
+                check_unique(base_splits[i], base_splits[i+1])
+                base_splits.pop(i+1)
+            i += 1
     return base_splits  
 
 
